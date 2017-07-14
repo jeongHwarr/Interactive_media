@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="main.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -41,6 +41,13 @@
       videoElement = document.getElementById("myvideo");
       videoElement.addEventListener("mousedown", mouseHandler, false);
 
+      function getElementCSSSize(el) {
+        var cs = getComputedStyle(el);
+        var w = parseInt(cs.getPropertyValue("width"), 10);
+        var h = parseInt(cs.getPropertyValue("height"), 10);
+        return {width: w, height: h}
+      }
+
       function mouseHandler(event) {
         var size = getElementCSSSize(this);
         var scaleX = this.videoWidth / size.width;
@@ -52,15 +59,9 @@
 
         console.log("x : " + x);
         console.log("y : " + y);
-
+        console.log("Video Current Time " : videoElement.currentTime);
       }
 
-      function getElementCSSSize(el) {
-        var cs = getComputedStyle(el);
-        var w = parseInt(cs.getPropertyValue("width"), 10);
-        var h = parseInt(cs.getPropertyValue("height"), 10);
-        return {width: w, height: h}
-      }
 
     </script>
   </body>
