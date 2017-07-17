@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Waves example</title>
+  <link rel="stylesheet" type="text/css" href="waves.css" />
+  <style>
+    body {}
+
+    #containment-wrapper {
+      position: relative;
+      width: 700px;
+      height: 500px;
+    }
+
+    .overlapedVedio {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .waves-box {
+      z-index: 2147483647;
+      position: absolute;
+      width: 100%;
+      height: 93%;
+    }
+
+  </style>
+  <!-- <script src="https://codqae.jquery.com/jquery-1.12.4.js"></script> -->
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+</head>
+
+<body>
+  <div id="containment-wrapper" class="waves-effect">
+      <video id="video" class="overlapedVedio" controls>
+          <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      </video>
+    <div class="waves-box">
+    </div>
+  </div>
+
+  <script src="waves.js"></script>
+
+  <script type="text/javascript">
+
+    var video = document.getElementById("video");
+    var waves = document.getElementsByClassName("waves-box");
+
+    video.addEventListener('timeupdate', function() {
+
+        if(video.currentTime>=5 && video.currentTime<10){
+          showEffect(waves[0]);
+        }
+        else{
+        }
+      }, false);
+  </script>
+
+</body>
+
+</html>
