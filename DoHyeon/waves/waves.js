@@ -1,12 +1,18 @@
+/*!
+ * Waves v0.7.5
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014-2016 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
 function convertStyle(styleObj) {
     var style = '';
-
     for (var prop in styleObj) {
         if (styleObj.hasOwnProperty(prop)) {
             style += (prop + ':' + styleObj[prop] + ';');
         }
     }
-
     return style;
 }
 
@@ -18,11 +24,11 @@ var Effect = {
     // Effect delay (check for scroll before showing effect)
     delay: 50,
 
-    show: function(element, x, y, velocity) {
+    show: function(element, x, y) {
 
         element = element || this;
-        var x = typeof x !== 'undefined' ?  x : 0;
-        var y = typeof y !== 'undefined' ?  y : 0;
+        x = x || 0;
+        y = y || 0;
 
         // Create ripple
         var ripple = document.createElement('div');
@@ -30,15 +36,12 @@ var Effect = {
         element.appendChild(ripple);
 
         // Get click coordinate and element width
-        var relativeY = x;
-        var relativeX = y;
+        var relativeX = x;
+        var relativeY = y;
 
         var scale     = 'scale(' + ((element.clientWidth / 100) * 3) + ')';
-        var translate = 'translate(0,0)';
+        var translate = 'translate(' + 0 + 'px, ' + 0 + 'px)';
 
-        if (velocity) {
-            translate = 'translate(' + (velocity.x) + 'px, ' + (velocity.y) + 'px)';
-        }
 
         // Attach data to element
         ripple.setAttribute('data-hold', Date.now());
@@ -46,12 +49,12 @@ var Effect = {
         ripple.setAttribute('data-y', relativeY);
         ripple.setAttribute('data-scale', scale);
         ripple.setAttribute('data-translate', translate);
+
         // Set ripple position
         var rippleStyle = {
             top: relativeY + 'px',
-            left: relativeX + 'px'
+            left: relativeX + 'px',
         };
-
         ripple.classList.add('waves-notransition');
         ripple.setAttribute('style', convertStyle(rippleStyle));
         ripple.classList.remove('waves-notransition');
@@ -70,6 +73,7 @@ var Effect = {
         rippleStyle['transition-duration']         = duration + 'ms';
 
         ripple.setAttribute('style', convertStyle(rippleStyle));
+        ripple.style.zIndex = 2147483647;
     },
 
     hide: function(element) {
@@ -159,12 +163,12 @@ function getWavesEffectElement(e) {
     return element;
 }
 
-function showEffect(e) {
+function showEffect(e,x,y) {
 
     var element = getWavesEffectElement(e);
 
     if (element !== null) {
-      Effect.show(element);
+      Effect.show(element,x,y);
       Effect.hide(element);
     }
 }

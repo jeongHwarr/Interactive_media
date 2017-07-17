@@ -27,9 +27,6 @@
     }
 
   </style>
-  <!-- <script src="https://codqae.jquery.com/jquery-1.12.4.js"></script> -->
-  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-
 </head>
 
 <body>
@@ -41,19 +38,23 @@
     </div>
   </div>
 
-  <script src="waves.js"></script>
-  <script type="text/javascript">
+  <script>
     var startTime = 5;
     var endTime = 10;
-    var x = 250;
-    var y = 110;
+    var tempTime = 20;
 
+    var x = 100; var y = 400;
     var waves = document.getElementsByClassName("waves-box");
+  </script>
+  <script src="waves.js"></script>
+  <script type="text/javascript">
     video.addEventListener('timeupdate', function() {
-
         if(video.currentTime>=startTime && video.currentTime<endTime){
           showEffect(waves[0],x,y);
+        }else if(video.currentTime>=tempTime){
+          showEffect(waves[0],x,y);
         }
+
       }, false);
   </script>
 
