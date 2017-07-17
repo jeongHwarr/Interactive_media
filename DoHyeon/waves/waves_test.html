@@ -42,18 +42,17 @@
   </div>
 
   <script src="waves.js"></script>
-
   <script type="text/javascript">
+    var startTime = 5;
+    var endTime = 10;
+    var x = 250;
+    var y = 110;
 
-    var video = document.getElementById("video");
     var waves = document.getElementsByClassName("waves-box");
-
     video.addEventListener('timeupdate', function() {
 
-        if(video.currentTime>=5 && video.currentTime<10){
-          showEffect(waves[0]);
-        }
-        else{
+        if(video.currentTime>=startTime && video.currentTime<endTime){
+          showEffect(waves[0],x,y);
         }
       }, false);
   </script>

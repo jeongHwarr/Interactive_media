@@ -18,9 +18,11 @@ var Effect = {
     // Effect delay (check for scroll before showing effect)
     delay: 50,
 
-    show: function(element, velocity) {
+    show: function(element, x, y, velocity) {
 
         element = element || this;
+        var x = typeof x !== 'undefined' ?  x : 0;
+        var y = typeof y !== 'undefined' ?  y : 0;
 
         // Create ripple
         var ripple = document.createElement('div');
@@ -28,8 +30,8 @@ var Effect = {
         element.appendChild(ripple);
 
         // Get click coordinate and element width
-        var relativeY = 300;
-        var relativeX = 100;
+        var relativeY = x;
+        var relativeX = y;
 
         var scale     = 'scale(' + ((element.clientWidth / 100) * 3) + ')';
         var translate = 'translate(0,0)';
