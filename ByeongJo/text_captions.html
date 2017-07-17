@@ -70,6 +70,8 @@
     return {width: w, height: h}
   }
 
+  var left_pos=0;
+  var top_pos=0;
 
   function mouseHandler(event) {
     var size = getElementCSSSize(this);
@@ -79,23 +81,25 @@
     var rect = this.getBoundingClientRect();  // absolute position of element
     var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
     var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-
+    left_pos=x;
+    top_pos=y;
    document.getElementById("x_point").innerHTML = x;
    document.getElementById("y_point").innerHTML = y;
 
    return [x,y];
 
-}
+  }
 
 var a = document.getElementById('time1').value;
 var b = document.getElementById('time2').value;
 var video = document.getElementById('myvideo');
 
+
 function myfunction(a,b){
 
   video.addEventListener('timeupdate', function() {
     if (video.currentTime >= parseInt(a) && video.currentTime < parseInt(b)) {
-        $('#overlay').css('display', 'block').css('left', '200px').css('top','200px' ); // left와 top에 좌표값이 들어가야한다. 어떻게 받아와야하지?
+        $('#overlay').css('display', 'block').css('left', left_pos+'px').css('top', top_pos+'px');
        } else {
          $('#overlay').css('display', 'none');
 }
