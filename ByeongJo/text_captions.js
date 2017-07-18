@@ -16,8 +16,8 @@ videoElement.addEventListener("mousedown", mouseHandler, false);
     var scaleX = this.videoWidth / size.width;
     var scaleY = this.videoHeight / size.height;
 
-    var rect = this.getBoundingClientRect();  // absolute position of element
-    var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
+    var rect = this.getBoundingClientRect();  
+    var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
     var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
 
     left_pos = x;
@@ -36,7 +36,7 @@ videoElement.addEventListener("mousedown", mouseHandler, false);
 
   video.addEventListener('timeupdate', function() {
     if (video.currentTime >= parseInt(a) && video.currentTime < parseInt(b)) {
-        $('#overlay').css('display', 'block').css('left', left_pos +'px').css('top',top_pos +'px' ); // left와 top에 좌표값이 들어가야한다. 어떻게 받아와야하지?
+        $('#overlay').css('display', 'block').css('left', left_pos +'px').css('top',top_pos +'px' );
        } else {
          $('#overlay').css('display', 'none');
               }
