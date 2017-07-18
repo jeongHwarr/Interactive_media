@@ -6,16 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>text_captions</title>
-  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
   <link rel="stylesheet" href="text_captions.css">
-
-  <!-- <link rel="stylesheet" href="animate.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
-
   <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -41,100 +35,27 @@
 
   </div>
 
+  <div>
+    X좌표 : <p id="x_point"></p>
+    Y좌표 : <p id="y_point"></p>
+    <input type="text" id ="time1" placeholder="효과1_시작" ></input>
+    <input type="text" id ="time2"  placeholder="효과1_끝"></input>
+    <button onclick="myfunction(document.getElementById('time1').value,document.getElementById('time2').value)">Add</button>
+    <br>
+    <input type="text" id ="time3"  placeholder="효과2_시작"></input>
+    <input type="text" id ="time4"  placeholder="효과2_끝"></input>
+    <button onclick="myfunction2(document.getElementById('time3').value,document.getElementById('time4').value)">Add</button>
+    <br>
+    <div class="animated infinite zoomInLeft" id="overlay" style="display:none">꽝</div>
+    <div class="animated infinite hinge" id="overlay2" style="display:none"><img src="god.PNG"></div>
+  </div>
 
-  X좌표 : <p id="x_point"></p>
-  Y좌표 : <p id="y_point"></p>
-
-  <input type="text" id ="time1" placeholder="효과1_시작" ></input>
-  <input type="text" id ="time2"  placeholder="효과1_끝"></input>
-  <button onclick="myfunction(document.getElementById('time1').value,document.getElementById('time2').value)">Add</button>
-  <br>
-  <input type="text" id ="time3"  placeholder="효과2_시작"></input>
-  <input type="text" id ="time4"  placeholder="효과2_끝"></input>
-  <button onclick="myfunction2(document.getElementById('time3').value,document.getElementById('time4').value)">Add</button>
-  <br>
-
-<div class="animated infinite zoomInLeft" id="overlay" style="display:none">꽝</div>
-<div class="animated infinite hinge" id="overlay2" style="display:none"><img src="god.PNG"></div>
-<!--  -->
-
-
-  <script type="text/javascript">
-  videoElement = document.getElementById("myvideo");
-  videoElement.addEventListener("mousedown", mouseHandler, false);
-
-  function getElementCSSSize(el) {
-    var cs = getComputedStyle(el);
-    var w = parseInt(cs.getPropertyValue("width"), 10);
-    var h = parseInt(cs.getPropertyValue("height"), 10);
-    return {width: w, height: h}
-  }
-
-  var left_pos=0;
-  var top_pos=0;
-
-  function mouseHandler(event) {
-    var size = getElementCSSSize(this);
-    var scaleX = this.videoWidth / size.width;
-    var scaleY = this.videoHeight / size.height;
-
-    var rect = this.getBoundingClientRect();  // absolute position of element
-    var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
-    var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-    left_pos=x;
-    top_pos=y;
-   document.getElementById("x_point").innerHTML = x;
-   document.getElementById("y_point").innerHTML = y;
-
-   return [x,y];
-
-  }
-
-var a = document.getElementById('time1').value;
-var b = document.getElementById('time2').value;
-var video = document.getElementById('myvideo');
-
-
-function myfunction(a,b){
-
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(a) && video.currentTime < parseInt(b)) {
-        $('#overlay').css('display', 'block').css('left', left_pos+'px').css('top', top_pos+'px');
-       } else {
-         $('#overlay').css('display', 'none');
-}
-     }, false);
-   }
-
-function myfunction2(a,b){
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(a) && video.currentTime < parseInt(b)) {
-         $('#overlay2').css('display', 'block');
-       } else {
-         $('#overlay2').css('display', 'none');
-}
-     }, false);
-   }
-
-
-  // console.log("a : " + a);
-  // console.log("b : " + b);
-  // console.log("c : " + c);
-  // console.log("d : " + d);
-
-      </script>
-<!--  -->
 
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
 <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
-
-<!--5< <10초  -->
-<!--15< <20초  -->
-
-<!-- <script src="text_captions.js"></script> -->
+<script src="text_captions.js"></script>
 
 </body>
 
