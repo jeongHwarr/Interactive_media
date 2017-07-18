@@ -1,7 +1,7 @@
 <?php
 include 'constants.php';
-include '/config/dbconn.php';
-include '/util/queryUtil.php';
+include './config/dbconn.php';
+include './util/queryUtil.php';
  ?>
 
 <!DOCTYPE html>
@@ -19,17 +19,14 @@ include '/util/queryUtil.php';
     <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
+
+
     <!-------------->
     <title> Test </title>
   </head>
 
   <body>
-    <?php
-    $querystr = 'SELECT * FROM medias';
-    $result = queryForSelect($db, $querystr);
-    ?>
 
-<div id="video_div">
   <video
       id="myvideo"
       class="video-js"
@@ -46,11 +43,41 @@ include '/util/queryUtil.php';
         supports HTML5 video
       </a>
     </p>
-  </video>
-</div>
+  </video> </br>
 
+  <button type="button" name="button" onclick="getMediaList();" >영상목록조회</button>
+
+  <table id="test_table" style="display:none" >
+    <thead>
+    <tr>
+      <th style="width: 10%;">영상번호</td>
+      <th style="width: 40%;">영상이름</td>
+      <th style="width: 20%x;">재생시간</td>
+      <th style="width: 30%">경로</td>
+    </tr>
+    </thead>
+    <tbody id="test_table_body">
+    <tr>
+      <td colspan="4" style="text-align: center;">조회 내용이 없습니다.</td>
+    </tr>
+    </tbody>
+  </table>
 
     <script type="text/javascript">
+
+      //Trigger Ajax call back function
+      $(document).ready(function(){
+        $( document ).ajaxSend(function() {
+        }).ajaxError(function(){
+          console.log("Ajax Request Error!");
+        }).ajaxSuccess(function(e,xhr,options,data){
+          console.log(data);
+          var methodName = data.cmd + 'Success';
+          if (self[methodName]){
+            self[methodName](data.data);
+          }
+        });
+      });
 
       videoElement = document.getElementById("myvideo");
       videoElement.addEventListener("mousedown", mouseHandler, false);
@@ -69,12 +96,9 @@ include '/util/queryUtil.php';
         //원래 VideoJS 화면 클릭시 playtoggle를 막기 위해 한번 더 토글
         if(video.paused()){
           video.play();
-        }
-        else{
+        }else{
           video.pause();
         }
-
-        $('#myvideo').removeClass( 'controls-enabled' );
 
         var size = getElementCSSSize(this);
         var scaleX = this.videoWidth / size.width;
@@ -87,6 +111,28 @@ include '/util/queryUtil.php';
         console.log("x : " + x);
         console.log("y : " + y);
         console.log("Video Current Time :" + videoElement.currentTime);
+      }
+
+      //*************영상 목록 받아오기**************//
+      function getMediaList(){
+        $.get('ajax/media.php', {cmd: 'getMediaList'});
+      }
+
+      function getMediaListSuccess(data){
+        var test_table = $('#test_table');
+        test_table.attr('style','visibility:show');
+
+        var tbody = $("#test_table_body");
+        tbody.empty();
+        for (var i = 0; i < data.length; i++) {
+          var row = data[i];
+          var tr = $('<tr>');
+          tr.append($('<td style="text-align: center;">').text(row['id']));
+          tr.append($('<td style="text-align: center;">').text(row['name']));
+          tr.append($('<td style="text-align: center;">').text(row['runningTime']));
+          tr.append($('<td style="text-align: center;">').text(row['path']));
+          tbody.append(tr);
+        }
       }
     </script>
 
