@@ -50,8 +50,8 @@ var Effect = {
         var relativeX = Effect.x;
         var relativeY = Effect.y;
 
-        var scale     = 'scale(' + ((element.clientWidth / 1000) * 3) + ')';
-        var translate = 'translate(' + 100 + 'px, ' + (-100) + 'px)';
+        var scale     = 'scale(' + ((element.clientWidth / 300) * 3) + ')';
+        var translate = 'translate(' + 0 + 'px, ' + 0 + 'px)';
 
 
         // Attach data to element
@@ -85,7 +85,7 @@ var Effect = {
 
         ripple.setAttribute('style', convertStyle(rippleStyle));
         ripple.style.zIndex = 2147483647;
-        //ripple.style.background= "#ffffff";
+        ripple.style.background= "#299999";
     },
 
     hide: function(element) {
@@ -182,7 +182,7 @@ function setEffect(x,y,duration,delay){
 function addWavesEffect(target_video, startTime, endTime, waves_div, x, y ,duration ,delay){
   var video = document.getElementById(target_video);
   var div = document.getElementsByClassName(waves_div);
-  
+
   video.addEventListener('timeupdate', function() {
       if(video.currentTime>=startTime && video.currentTime<endTime){
         setEffect(x,y,duration,delay);
