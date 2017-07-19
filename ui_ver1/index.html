@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
+    <link rel="stylesheet" href="assets/css/progress-bars1.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- video JS -->
+    <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Brand </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-2"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="nav navbar-nav hidden-xs hidden-sm navbar-right" id="desktop-toolbar">
+                    <li role="presentation"><button class="btn btn-default" id="btn_project_save" type="button">SAVE</button></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="contents_wrapper" class="main div"> <!--전체를 감싸는 div-->
+        <div id="div_first" class="section_media"><!--영상 섹션 div-->
+            <div class="col-lg-6 col-lg-offset-0 col-md-12" >
+              <video
+                  id="media1"
+                  class="video-js"
+                  controls
+                  preload="auto"
+                  data-setup='{}'>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                <p class="vjs-no-js">
+                  To view this video please enable JavaScript, and consider upgrading to a
+                  web browser that
+                  <a href="http://videojs.com/html5-video-support/" target="_blank">
+                    supports HTML5 video
+                  </a>
+                </p>
+              </video>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <video
+                id="media2"
+                class="video-js"
+                controls
+                preload="auto"
+                data-setup='{}'>
+              <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
+              <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+              <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+              <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="http://videojs.com/html5-video-support/" target="_blank">
+                  supports HTML5 video
+                </a>
+              </p>
+            </video></div>
+
+            <div class="col-md-12" id="separate">
+              <hr>
+            </div>
+
+            <div class="col-md-12" id="progress"><!--프로그레스바 영역-->
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>progress </h5>
+                        <div class="progress beautiful">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"><span class="sr-only">70%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div_second" class="section_tab"><!--우측 탭 영역-->
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">waves</a></li>
+                    <li><a href="#tab-2" role="tab" data-toggle="tab">Second Tab</a></li>
+                    <li><a href="#tab-3" role="tab" data-toggle="tab">Third Tab</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="tab-1"> <!--첫번째 탭-->
+                        <div class="row">
+                            <div class="col-md-12" id="section_waves_input">
+                                <form id = "waves_set"> <!--입력 폼-->
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-12">
+                                            <p class="tab_title">Title </p>
+                                        </div>
+                                        <div class="col-lg-8 col-md-12">
+                                            <input class="form-control" type="text" id="title_effects">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="tab_title">Time </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-1 col-lg-offset-1 col-md-12">
+                                            <p class="tab_cont">Start </p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-12">
+                                            <input class="form-control" type="text" id="time_start">
+                                        </div>
+                                        <div class="col-lg-1 col-md-12">
+                                            <p class="tab_cont">End </p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-12">
+                                            <input class="form-control" type="text" id="time_end">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="tab_title">Position </p>
+                                            <div class="row">
+                                                <div class="col-lg-2 col-lg-offset-2 col-md-12">
+                                                    <p class="tab_cont">X</p>
+                                                </div>
+                                                <div class="col-lg-3 col-md-12">
+                                                    <input class="form-control" type="text" id="time_start">
+                                                </div>
+                                                <div class="col-lg-2 col-md-12">
+                                                    <p class="tab_cont">Y</p>
+                                                </div>
+                                                <div class="col-lg-3 col-md-12">
+                                                    <input class="form-control" type="text" id="time_end">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-default" type="submit" id="effects_save">saves </button> <!--효과저장 버튼-->
+                                </form>
+                            </div>
+                            <div class="col-md-12">
+                              <hr>
+                            </div>
+                            <div class="col-md-12" id="section_waves_view" style="margin-top:0.2em;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="tab_title">effects view</p>
+                                    </div>
+                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-2"> <!--두번째 탭-->
+                        <p>Second tab content.</p>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-3"> <!--세번째 탭-->
+                        <p>Third tab content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div_third" class="section_lists"> <!--효과 리스트-->
+            <p class="tab_title">Effects List</p>
+            <ul class="list-group" id="list_effects">
+                <li class="list-group-item"><span>List Group Item 1</span></li>
+                <li class="list-group-item"><span>List Group Item 2</span></li>
+                <li class="list-group-item"><span>List Group Item 3</span></li>
+            </ul>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
