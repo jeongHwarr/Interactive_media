@@ -178,15 +178,3 @@ function setEffect(x,y,duration,delay){
   Effect.setDuration(duration);
   Effect.setDelay(delay);
 }
-
-function addWavesEffect(target_video, startTime, endTime, waves_div, x, y ,duration ,delay){
-  var video = document.getElementById(target_video);
-  var div = document.getElementsByClassName(waves_div);
-
-  video.addEventListener('timeupdate', function() {
-      if(video.currentTime>=startTime && video.currentTime<endTime){
-        setEffect(x,y,duration,delay);
-        makeEffect(div[0]);
-      }
-    }, false);
-}

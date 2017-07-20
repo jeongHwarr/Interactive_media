@@ -402,20 +402,45 @@
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/text_captions.js"></script>
 
-
     <script type="text/javascript">
       myfunction();
       myfunction2();
     </script>
 
     <script type="text/javascript">
-      var startTime = 5; var endTime = 20;
-      var x = 100; var y = 350;
+      var effects;
+
+      $(document).ready(function(){
+        $.get('assets/ajax/effects.php', {cmd: 'getEffectList'});
+        $( document ).ajaxSend(function() {
+        }).ajaxError(function(){
+          console.log("Ajax Request Error!");
+        }).ajaxSuccess(function(e,xhr,options,data){
+          console.log("Ajax Request Success");
+          effects = data;
+        });
+      });
+    </script>
+    <script type="text/javascript">
+
       var duration = 1000; var delay = 100;
 
-      addWavesEffect("media2", startTime, endTime, "waves-box", x, y, duration, delay);
-    </script>
+      var video = document.getElementById("media2");
+      var div = document.getElementsByClassName("waves-box");
 
+      video.addEventListener('timeupdate', function() {
+        for (var i = 0; i<effects.data.length; i++){
+            if(video.currentTime>=effects.data[i]['start_time'] && video.currentTime<effects.data[i]['end_time']){
+              if(effects.data[i]['effects']==2){
+              setEffect(effects.data[i]['pos_x'],effects.data[i]['pos_y'],duration, delay);
+              makeEffect(div[0]);
+            } else{
+              //병조자리
+            }
+          }
+        }
+       }, false);
+    </script>
 
 </body>
 
