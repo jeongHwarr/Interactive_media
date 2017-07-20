@@ -1,3 +1,9 @@
+<?php
+include 'constants.php';
+include './config/dbconn.php';
+include './util/queryUtil.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
