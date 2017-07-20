@@ -20,9 +20,9 @@ var Effect = {
     //Effect location
     x:0, y:0,
     // Effect duration
-    duration: 1000,
+    duration: 0,
     // Effect delay
-    delay: 100,
+    delay: 0,
 
     setLocation: function(x, y){
       Effect.x=x;
@@ -85,7 +85,7 @@ var Effect = {
 
         ripple.setAttribute('style', convertStyle(rippleStyle));
         ripple.style.zIndex = 2147483647;
-        ripple.style.background= "#299999";
+        //ripple.style.background= "#299999";
     },
 
     hide: function(element) {
