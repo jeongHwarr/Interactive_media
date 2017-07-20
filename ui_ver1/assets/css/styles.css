@@ -49,13 +49,13 @@
   }
 }
 
-#time_start {
+.time_start {
   width:100%;
   padding: 0.5em;
   margin-left: 0.1em;
 }
 
-#time_end {
+.time_end {
   width:100%;
   padding: 0.5em;
   margin-left: 0.1em;
@@ -63,7 +63,7 @@
 #progress{
   padding: 2em;
 }
-#tab-1 {
+#tab-1, #tab-2, #tab-3 {
   padding:0.5em;
 }
 .tab_title{
@@ -81,7 +81,7 @@
   padding-right:0;
 }
 
-#title_effects {
+#title_waves, #title_captions, #title_captions {
   width:100%;
 }
 
