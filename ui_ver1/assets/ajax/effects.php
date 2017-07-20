@@ -1,5 +1,4 @@
 <?php
-include_once '../constants.php';
 include '../config/dbconn.php';
 include '../util/queryUtil.php';
 include '../util/ajaxUtil.php';

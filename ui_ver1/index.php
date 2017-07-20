@@ -1,7 +1,7 @@
 <?php
 include 'constants.php';
-include './config/dbconn.php';
-include './util/queryUtil.php';
+include './assets/config/dbconn.php';
+include './assets/util/queryUtil.php';
 ?>
 
 <!DOCTYPE html>
@@ -417,7 +417,7 @@ include './util/queryUtil.php';
       var effects;
 
       $(document).ready(function(){
-        $.get('assets/ajax/effects.php', {cmd: 'getEffectList'});
+        $.get('./assets/ajax/effects.php', {cmd: 'getEffectList'});
         $( document ).ajaxSend(function() {
         }).ajaxError(function(){
           console.log("Ajax Request Error!");
