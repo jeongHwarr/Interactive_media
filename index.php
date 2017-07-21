@@ -192,13 +192,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_x" type="text">
+                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_y" type="text">
+                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -271,13 +271,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_x" type="text">
+                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_y" type="text">
+                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -360,13 +360,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_x" type="text">
+                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input class="form-control pos_y" type="text">
+                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -429,9 +429,10 @@ include './assets/util/queryUtil.php';
     <script type="text/javascript">
 
       var duration = 1000; var delay = 100;
-
       var video = document.getElementById("media2");
+      video_js = videojs('media2');
       var div = document.getElementsByClassName("waves-box");
+      video.addEventListener("mousedown", mouseHandler, false);
 
       video.addEventListener('timeupdate', function() {
         for (var i = 0; i<effects.data.length; i++){
@@ -452,6 +453,42 @@ include './assets/util/queryUtil.php';
           }
         }
        }, false);
+
+       //*************CSS 사이즈 받아오는 함수**************//
+       function getElementCSSSize(el) {
+         var cs = getComputedStyle(el);
+         var w = parseInt(cs.getPropertyValue("width"), 10);
+         var h = parseInt(cs.getPropertyValue("height"), 10);
+         return {width: w, height: h}
+       }
+
+       //*************마우스 포인터 받아오는 함수**************//
+       function mouseHandler(event) {
+         //원래 VideoJS 화면 클릭시 playtoggle를 막기 위해 한번 더 토글
+         if(video_js.paused()){
+           video_js.play();
+         }else{
+           video_js.pause();
+         }
+
+         var size = getElementCSSSize(this);
+         var scaleX = this.videoWidth / size.width;
+         var scaleY = this.videoHeight / size.height;
+
+         var rect = this.getBoundingClientRect();  // absolute position of element
+         var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
+         var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
+
+         console.log("x : " + x);
+         console.log("y : " + y);
+         $('#input_waves_pos_x').val(x);
+         $('#input_waves_pos_y').val(y);
+         $('#input_caption_pos_x').val(x);
+         $('#input_caption_pos_y').val(y);
+         $('#input_sticker_pos_x').val(x);
+         $('#input_sticker_pos_y').val(y);
+
+       }
     </script>
 
 </body>
