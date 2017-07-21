@@ -206,6 +206,13 @@ include './assets/util/queryUtil.php';
                                     <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
                                     <button class="btn btn-primary" type="button" id="waves_save">saves </button> <!--효과저장 버튼-->
                                 </form>
+                                <button class="btn btn-default" type="button">more options</button>
+                                <div id="extra_waves">
+                                    <div>
+
+                                    </div>
+
+                                </div>
                             </div>
                             <div class="col-md-12">
                               <hr>
