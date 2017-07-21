@@ -93,8 +93,10 @@ include './assets/util/queryUtil.php';
               </video>
               </div>
                 <!--스티커 / 그림 인젝션 위치-->
-              <div class="animated infinite zoomInLeft" id="overlay">꽝</div>
-              <div class="animated infinite hinge" id="overlay2"><img id="mudo" src="assets/img/god.PNG"></div>
+                <div class="animated infinite zoomOutUp" id="overlay1">꽝</div>
+                <div class="animated infinite bounceIn" id="overlay2">안녕</div>
+                <div class="animated infinite zoomInDown" id="overlay3"><img id="img1" src="assets/img/god.PNG"></div>
+                <div class="animated infinite zoomInDown" id="overlay4"><img id="img1" src="assets/img/god.PNG"></div>
             </div>
 
 
@@ -409,8 +411,22 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/text_captions.js"></script>
 
     <script type="text/javascript">
-      myfunction();
-      myfunction2();
+    var startTime_1 = 1; var endTime_1 = 5;
+    var x_1 = 100; var y_1 = 100;
+
+    var startTime_2 = 10; var endTime_2 = 15;
+    var x_2 = 100; var y_2 = 200;
+
+    var startTime_3 = 15; var endTime_3 = 20;
+    var x_3 = 100; var y_3 = 100;
+
+    var startTime_4 = 23; var endTime_4 = 29;
+    var x_4 = 100; var y_4 = 200;
+
+    myfunction1(startTime_1, endTime_1, x_1, y_1);
+    myfunction2(startTime_2, endTime_2, x_2, y_2);
+    myfunction3(startTime_3, endTime_3, x_3, y_3);
+    myfunction4(startTime_4, endTime_4, x_4, y_4);
     </script>
 
     <script type="text/javascript">
