@@ -20,7 +20,7 @@ var WaveEffect = {
     x:0, y:0,
     // duration : remove ripple after this time(ms)
     // delay : fadeout ripple after this time(ms)
-    duration: 3000, delay: 500,
+    duration: 1000, delay: 100,
     scale: 0.01,
     // move to ripple location when it is created
     transition_x:0, transition_y:0,
@@ -46,20 +46,16 @@ var WaveEffect = {
     setColor:function(color){
       this.color=color;
     },
-
     show: function(element) {
 
         element = element || this;
-
         // Create ripple
         var ripple = document.createElement('div');
         ripple.className = 'waves-ripple waves-rippling';
         element.appendChild(ripple);
-
         var relativeX = this.x; var relativeY = this.y;
         var scale     = 'scale(' + element.clientWidth * this.scale + ')';
         var translate = 'translate(' + this.transition_x + 'px, ' + this.transition_y + 'px)';
-
         // Attach data to element
         ripple.setAttribute('data-hold', Date.now());
         ripple.setAttribute('data-x', relativeX);
@@ -67,7 +63,6 @@ var WaveEffect = {
         ripple.setAttribute('data-scale', scale);
         ripple.setAttribute('data-translate', translate);
         var color = this.color;
-
         // Set ripple position
         var rippleStyle = {
             top: relativeY + 'px',
@@ -84,46 +79,37 @@ var WaveEffect = {
         rippleStyle['-o-transform'] = scale + ' ' + translate;
         rippleStyle.transform = scale + ' ' + translate;
         rippleStyle.opacity = '1';
-
         var duration = this.duration;
         rippleStyle['-webkit-transition-duration'] = duration + 'ms';
         rippleStyle['-moz-transition-duration']    = duration + 'ms';
         rippleStyle['-o-transition-duration']      = duration + 'ms';
         rippleStyle['transition-duration']         = duration + 'ms';
-
         ripple.setAttribute('style', convertStyle(rippleStyle));
         ripple.style.zIndex = 2147483647;
-        //ripple.style.background = color;
     },
-
     hide: function(element) {
         element = element || this;
         var ripples = element.getElementsByClassName('waves-rippling');
-
         for (var i = 0, len = ripples.length; i < len; i++) {
             removeRipple(element, ripples[i]);
         }
     }
 };
-
 /**
  * Hide the WaveEffect and remove the ripple. Must be
  * a separate function to pass the JSLint...
  */
 function removeRipple(el, ripple) {
-
     // Check if the ripple still exist
     if (!ripple) {
         return;
     }
     ripple.classList.remove('waves-rippling');
-
     var relativeX = ripple.getAttribute('data-x');
     var relativeY = ripple.getAttribute('data-y');
     var scale     = ripple.getAttribute('data-scale');
     var translate = ripple.getAttribute('data-translate');
     var duration = WaveEffect.duration;
-
     // Get diff beetween time to write ripple and now
     var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
     var delay = WaveEffect.delay - diff;
@@ -148,7 +134,6 @@ function removeRipple(el, ripple) {
             'transform': scale + ' ' + translate
         };
         ripple.setAttribute('style', convertStyle(style));
-
         //Remove Ripple After Duration
         setTimeout(function() {
             try {
@@ -158,11 +143,6 @@ function removeRipple(el, ripple) {
             }
         }, duration);
     }, delay);
-}
-function setWaveEffect(x,y,duration,delay){
-  WaveEffect.setLocation(x,y);
-  WaveEffect.setDuration(duration);
-  WaveEffect.setDelay(delay);
 }
 function makeWaveEffect(e) {
     var element = getWavesWaveEffectElement(e);
