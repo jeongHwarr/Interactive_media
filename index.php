@@ -23,7 +23,6 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
     <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="main.css"> -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- video JS -->
@@ -141,7 +140,7 @@ include './assets/util/queryUtil.php';
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!--프로그레스바 종료-->
         </div>
 
         <div id="div_second" class="section_tab"><!--우측 탭 영역-->
@@ -478,28 +477,13 @@ include './assets/util/queryUtil.php';
         });
       });
     </script>
-    <script>
-//        $(document).on('click','#more_op_waves', function () {
-//            if($("extra_waves").style.display=="block"){
-//                $("#extra_waves").slideDown();
-//                $("#extra_waves").style.display="none";
-//            }else{
-//            $("#extra_waves").slideDown();
-//            $("#extra_waves").style.display="block";
-//            }
-//        })
 
+    <script>
+        //more options 토글 스크립트
         $(document).ready(function(){
             $("#more_op_waves").click(function(){
                     $("#extra_waves").slideToggle();
             });
-//            $("#more_op_waves_u").click(function(){
-//                $("#extra_waves").slideUp();
-//                $("#extra_waves").style.display="none";
-//                $("#more_op_waves_u").style.display="none";
-//                $("#more_op_waves_d").style.display="block";
-//            });
-//
         });
     </script>
 
