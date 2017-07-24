@@ -15,26 +15,36 @@ function convertStyle(styleObj) {
     }
     return style;
 }
-var Effect = {
-
-    //Effect location
+var WaveEffect = {
+    // default ripple location
     x:0, y:0,
-    // Effect duration
-    duration: 0,
-    // Effect delay
-    delay: 0,
+    // duration : remove ripple after this time(ms)
+    // delay : fadeout ripple after this time(ms)
+    duration: 3000, delay: 500,
+    scale: 0.01,
+    // move to ripple location when it is created
+    transition_x:0, transition_y:0,
+    color:"rgba(#ffffff, 0)",
 
     setLocation: function(x, y){
-      Effect.x=x;
-      Effect.y=y;
+      this.x=x;
+      this.y=y;
     },
-
     setDuration: function(time){
-      Effect.duration = time;
+      this.duration = time;
     },
-
     setDelay:function(time){
-      Effect.delay = time;
+      this.delay = time;
+    },
+    setScale:function(scale){
+      this.scale = scale;
+    },
+    setTransition:function(x,y){
+      transition_x=x;
+      transition_y=y;
+    },
+    setColor:function(color){
+      this.color=color;
     },
 
     show: function(element) {
@@ -46,13 +56,9 @@ var Effect = {
         ripple.className = 'waves-ripple waves-rippling';
         element.appendChild(ripple);
 
-        // Get click coordinate and element width
-        var relativeX = Effect.x;
-        var relativeY = Effect.y;
-
-        var scale     = 'scale(' + ((element.clientWidth / 300) * 3) + ')';
-        var translate = 'translate(' + 0 + 'px, ' + 0 + 'px)';
-
+        var relativeX = this.x; var relativeY = this.y;
+        var scale     = 'scale(' + element.clientWidth * this.scale + ')';
+        var translate = 'translate(' + this.transition_x + 'px, ' + this.transition_y + 'px)';
 
         // Attach data to element
         ripple.setAttribute('data-hold', Date.now());
@@ -60,11 +66,13 @@ var Effect = {
         ripple.setAttribute('data-y', relativeY);
         ripple.setAttribute('data-scale', scale);
         ripple.setAttribute('data-translate', translate);
+        var color = this.color;
 
         // Set ripple position
         var rippleStyle = {
             top: relativeY + 'px',
             left: relativeX + 'px',
+            background: color,
         };
         ripple.classList.add('waves-notransition');
         ripple.setAttribute('style', convertStyle(rippleStyle));
@@ -77,7 +85,7 @@ var Effect = {
         rippleStyle.transform = scale + ' ' + translate;
         rippleStyle.opacity = '1';
 
-        var duration = Effect.duration;
+        var duration = this.duration;
         rippleStyle['-webkit-transition-duration'] = duration + 'ms';
         rippleStyle['-moz-transition-duration']    = duration + 'ms';
         rippleStyle['-o-transition-duration']      = duration + 'ms';
@@ -85,7 +93,7 @@ var Effect = {
 
         ripple.setAttribute('style', convertStyle(rippleStyle));
         ripple.style.zIndex = 2147483647;
-        //ripple.style.background= "#299999";
+        //ripple.style.background = color;
     },
 
     hide: function(element) {
@@ -99,7 +107,7 @@ var Effect = {
 };
 
 /**
- * Hide the effect and remove the ripple. Must be
+ * Hide the WaveEffect and remove the ripple. Must be
  * a separate function to pass the JSLint...
  */
 function removeRipple(el, ripple) {
@@ -108,29 +116,27 @@ function removeRipple(el, ripple) {
     if (!ripple) {
         return;
     }
-
     ripple.classList.remove('waves-rippling');
 
     var relativeX = ripple.getAttribute('data-x');
     var relativeY = ripple.getAttribute('data-y');
     var scale     = ripple.getAttribute('data-scale');
     var translate = ripple.getAttribute('data-translate');
+    var duration = WaveEffect.duration;
 
-    // Get delay beetween mousedown and mouse leave
+    // Get diff beetween time to write ripple and now
     var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
-    var delay = 350 - diff;
+    var delay = WaveEffect.delay - diff;
     if (delay < 0) {
         delay = 0;
     }
     // Fade out ripple after delay
-    var duration = Effect.duration;
     setTimeout(function() {
         var style = {
             top: relativeY + 'px',
             left: relativeX + 'px',
             opacity: '0',
 
-            // Duration
             '-webkit-transition-duration': duration + 'ms',
             '-moz-transition-duration': duration + 'ms',
             '-o-transition-duration': duration + 'ms',
@@ -142,6 +148,8 @@ function removeRipple(el, ripple) {
             'transform': scale + ' ' + translate
         };
         ripple.setAttribute('style', convertStyle(style));
+
+        //Remove Ripple After Duration
         setTimeout(function() {
             try {
                 el.removeChild(ripple);
@@ -151,8 +159,19 @@ function removeRipple(el, ripple) {
         }, duration);
     }, delay);
 }
-
-function getWavesEffectElement(e) {
+function setWaveEffect(x,y,duration,delay){
+  WaveEffect.setLocation(x,y);
+  WaveEffect.setDuration(duration);
+  WaveEffect.setDelay(delay);
+}
+function makeWaveEffect(e) {
+    var element = getWavesWaveEffectElement(e);
+    if (element !== null) {
+      WaveEffect.show(element);
+      WaveEffect.hide(element);
+    }
+}
+function getWavesWaveEffectElement(e) {
     var element = null;
     var target = e;
     while (target.parentElement) {
@@ -163,18 +182,4 @@ function getWavesEffectElement(e) {
         target = target.parentElement;
     }
     return element;
-}
-
-function makeEffect(e) {
-    var element = getWavesEffectElement(e);
-    if (element !== null) {
-      Effect.show(element);
-      Effect.hide(element);
-    }
-}
-
-function setEffect(x,y,duration,delay){
-  Effect.setLocation(x,y);
-  Effect.setDuration(duration);
-  Effect.setDelay(delay);
 }
