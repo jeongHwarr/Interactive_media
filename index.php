@@ -438,8 +438,8 @@ include './assets/util/queryUtil.php';
         for (var i = 0; i<effects.data.length; i++){
             if(video.currentTime>=effects.data[i]['start_time'] && video.currentTime<effects.data[i]['end_time']){
               if(effects.data[i]['effects']==2){
-              setEffect(effects.data[i]['pos_x'],effects.data[i]['pos_y'],duration, delay);
-              makeEffect(div[0]);
+              setWaveEffect(effects.data[i]['pos_x'],effects.data[i]['pos_y'],duration, delay);
+              makeWaveEffect(div[0]);
             } else if(effects.data[i]['effects']==1){
               myfunction1(effects.data[i]['start_time'], effects.data[i]['end_time'], effects.data[i]['pos_x'], effects.data[i]['pos_y']);
             } else if(effects.data[i]['effects']==3){
