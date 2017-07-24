@@ -30,6 +30,7 @@ include './assets/util/queryUtil.php';
     <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -203,16 +204,60 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="button" id="waves_save">saves </button> <!--효과저장 버튼-->
-                                </form>
-                                <button class="btn btn-default" type="button">more options</button>
-                                <div id="extra_waves">
-                                    <div>
 
+                                </form>
+                                <!--waves추가옵션-->
+                                <div id="extra_waves" style="display: none">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Duration</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Delay</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Scale</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="tab_title">Translate</p>
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-lg-offset-2 col-md-12">
+                                                        <p class="tab_cont">X</p>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-12">
+                                                        <input class="form-control pos_x" type="text">
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-12">
+                                                        <p class="tab_cont">Y</p>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-12">
+                                                        <input class="form-control pos_y" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
+                                <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
+                                <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                <button class="btn btn-primary" type="button" id="waves_save">saves </button> <!--효과저장 버튼-->
                             </div>
                             <div class="col-md-12">
                               <hr>
@@ -433,6 +478,31 @@ include './assets/util/queryUtil.php';
         });
       });
     </script>
+    <script>
+//        $(document).on('click','#more_op_waves', function () {
+//            if($("extra_waves").style.display=="block"){
+//                $("#extra_waves").slideDown();
+//                $("#extra_waves").style.display="none";
+//            }else{
+//            $("#extra_waves").slideDown();
+//            $("#extra_waves").style.display="block";
+//            }
+//        })
+
+        $(document).ready(function(){
+            $("#more_op_waves").click(function(){
+                    $("#extra_waves").slideToggle();
+            });
+//            $("#more_op_waves_u").click(function(){
+//                $("#extra_waves").slideUp();
+//                $("#extra_waves").style.display="none";
+//                $("#more_op_waves_u").style.display="none";
+//                $("#more_op_waves_d").style.display="block";
+//            });
+//
+        });
+    </script>
+
     <script type="text/javascript">
 
       var duration = 1000; var delay = 100;
