@@ -579,32 +579,39 @@ include './assets/util/queryUtil.php';
     </script>
 
     <script type="text/javascript">
-
-      var duration = 1000; var delay = 100;
+      //make an effect
       var video = document.getElementById("media2");
-      video_js = videojs('media2');
-      var div = document.getElementsByClassName("waves-box");
-      video.addEventListener("mousedown", mouseHandler, false);
-
-      video.addEventListener('timeupdate', function() {
+      video.addEventListener('timeupdate', function(){
         for (var i = 0; i<effects.data.length; i++){
-            if(video.currentTime>=effects.data[i]['start_time'] && video.currentTime<effects.data[i]['end_time']){
-              if(effects.data[i]['effects']==2){
-              setWaveEffect(effects.data[i]['pos_x'],effects.data[i]['pos_y'],duration, delay);
-              makeWaveEffect(div[0]);
-            } else if(effects.data[i]['effects']==1){
-              myfunction1(effects.data[i]['start_time'], effects.data[i]['end_time'], effects.data[i]['pos_x'], effects.data[i]['pos_y']);
-            } else if(effects.data[i]['effects']==3){
-              myfunction2(effects.data[i]['start_time'], effects.data[i]['end_time'], effects.data[i]['pos_x'], effects.data[i]['pos_y']);
-            } else if(effects.data[i]['effects']==4){
-              myfunction3(effects.data[i]['start_time'], effects.data[i]['end_time'], effects.data[i]['pos_x'], effects.data[i]['pos_y']);
-            }
-              else{
-              myfunction4(effects.data[i]['start_time'], effects.data[i]['end_time'], effects.data[i]['pos_x'], effects.data[i]['pos_y']);
+           //data associated with effect db
+           var start_t = effects.data[i]['start_time'];
+           var end_t = effects.data[i]['end_time'];
+           var x = effects.data[i]['pos_x'];
+           var y = effects.data[i]['pos_y'];
+           var type = effects.data[i]['effects'];
+
+            if(video.currentTime >= start_t && video.currentTime<end_t){
+              if(type==2){
+                WaveEffect.setLocation(x,y);
+                makeWaveEffect($(".waves-box")[0]);
+            } else if (type==1) {
+              myfunction1(start_t, end_t, x, y);
+
+            } else if (type==3) {
+              myfunction2(start_t, end_t, x, y);
+
+            } else if (type==4) {
+              myfunction3(start_t, end_t, x, y);
+
+            } else {
+              myfunction4(start_t, end_t, x, y);
             }
           }
         }
        }, false);
+
+       video_js = videojs('media2');
+       video.addEventListener("mousedown", mouseHandler, false);
 
        //*************CSS 사이즈 받아오는 함수**************//
        function getElementCSSSize(el) {
@@ -644,7 +651,5 @@ include './assets/util/queryUtil.php';
 
        }
     </script>
-
 </body>
-
 </html>
