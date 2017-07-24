@@ -175,7 +175,7 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text">
+                                            <input class="form-control time_start" id="input_start_time" type="text">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
@@ -487,6 +487,8 @@ include './assets/util/queryUtil.php';
          $('#input_caption_pos_y').val(y);
          $('#input_sticker_pos_x').val(x);
          $('#input_sticker_pos_y').val(y);
+
+         $('#input_start_time').val(video.currentTime.toFixed(3));
 
        }
     </script>
