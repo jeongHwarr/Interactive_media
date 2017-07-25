@@ -3,16 +3,18 @@ include '../config/dbconn.php';
 include '../util/queryUtil.php';
 include '../util/ajaxUtil.php';
 
-function getEffectList($req, $db) {
-  $querystr = 'SELECT * FROM context_pj';
-  $result = queryForSelect($db, $querystr);
+function getDataList($req, $db) {
+  $wave_query = 'SELECT * FROM waves';
+  $caption_query = 'SELECT * FROM captions';
+  $waves_result = queryForSelect($db, $wave_query);
+  $caption_result = queryForSelect($db, $caption_query);
 
   $data = array();
-  $data['data']=$result;
+  $data['waves']=$waves_result;
+  $data['captions']=$caption_result;
 
 	writeAjaxRes($data);
 }
-
 $cmd = $_REQUEST['cmd'];
 if (empty($cmd)) {
 	writeAjaxErrorRes(null, 'cmd is null!');

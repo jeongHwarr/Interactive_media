@@ -461,16 +461,16 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/text_captions.js"></script>
     <script type="text/javascript">
-      var waves;
+      var result;
 
       $(document).ready(function(){
-        $.get('./assets/ajax/waves.php', {cmd: 'getWavesList'});
+        $.get('./assets/ajax/data.php', {cmd: 'getDataList'});
         $( document ).ajaxSend(function() {
         }).ajaxError(function(){
           console.log("Ajax Request Error!");
         }).ajaxSuccess(function(e,xhr,options,data){
           console.log("Ajax Request Success");
-          waves = data;
+          result = data;
         });
       });
     </script>
@@ -483,37 +483,51 @@ include './assets/util/queryUtil.php';
         });
     </script>
     <script type="text/javascript">
-      //wave effectl 적용
-      var video = document.getElementById("media2");
-      video.addEventListener('timeupdate', function(){
-        for (var i = 0; i<waves.data.length; i++){
 
-           //************* DB정보 저장하는 변수 **************//
-           getWavesData(waves);
-           var start_t = waves.data[i]['startTime']/1000;
-           var end_t = waves.data[i]['endTime']/1000;
-           var x = waves.data[i]['pos_x'];
-           var y = waves.data[i]['pos_y'];
-           var duration = waves.data[i]['duration'];
-           var delay = waves.data[i]['delay'];
-           var scale = waves.data[i]['scale']/1000;
-           var trans_x = waves.data[i]['trans_x'];
-           var trans_y = waves.data[i]['trans_y'];
-           var color = waves.data[i]['color'];
 
-           if(video.currentTime >= start_t && video.currentTime<end_t){
-              WaveEffect.setLocation(x,y);
-              WaveEffect.setColor(color);
-              WaveEffect.setScale(scale);
-              WaveEffect.setTransition(trans_x,trans_y);
-              makeWaveEffect($(".waves-box")[0]);
+       var video = document.getElementById("media2");
+       video.addEventListener('timeupdate', function(){
+         for (var i = 0; i<result.captions.length; i++){
+
+            //************* DB정보 저장하는 변수 **************//
+            var c_start_t = result.captions[i]['startTime']/1000;
+            var c_end_t = result.captions[i]['endTime']/1000;
+            var c_x = result.captions[i]['pos_x'];
+            var c_y = result.captions[i]['pos_y'];
+
+            if(video.currentTime >= c_start_t && video.currentTime < c_end_t){
+                myfunction1(c_start_t,c_end_t,c_x,c_y);
+              }
+           }
+        }, false);
+
+        //wave effectl 적용
+        var video = document.getElementById("media2");
+        video.addEventListener('timeupdate', function(){
+          for (var i = 0; i<result.waves.length; i++){
+
+             //************* DB정보 저장하는 변수 **************//
+             var start_t = result.waves[i]['startTime']/1000;
+             var end_t = result.waves[i]['endTime']/1000;
+             var x = result.waves[i]['pos_x'];
+             var y = result.waves[i]['pos_y'];
+             var duration = result.waves[i]['duration'];
+             var delay = result.waves[i]['delay'];
+             var scale = result.waves[i]['scale']/1000;
+             var trans_x = result.waves[i]['trans_x'];
+             var trans_y = result.waves[i]['trans_y'];
+             var color = result.waves[i]['color'];
+
+             if(video.currentTime >= start_t && video.currentTime<end_t){
+                WaveEffect.setLocation(x,y);
+                WaveEffect.setColor(color);
+                WaveEffect.setScale(scale);
+                WaveEffect.setTransition(trans_x,trans_y);
+                makeWaveEffect($(".waves-box")[0]);
+              }
             }
-          }
-       }, false);
+         }, false);
 
-       function getWavesData(waves){
-
-       }
        </script>
 
        <script>
