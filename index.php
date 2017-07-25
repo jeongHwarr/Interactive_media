@@ -538,6 +538,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
+    <script src="assets/js/saves.js"></script>
     <script src="assets/js/text_captions.js"></script>
     <script type="text/javascript">
       var result;
