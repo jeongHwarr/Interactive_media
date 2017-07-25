@@ -1,11 +1,10 @@
 <?php
-include_once '../constants.php';
 include '../config/dbconn.php';
 include '../util/queryUtil.php';
 include '../util/ajaxUtil.php';
 
-function getMediaList($req, $db) {
-  $querystr = 'SELECT * FROM medias';
+function getWavesList($req, $db) {
+  $querystr = 'SELECT * FROM waves';
   $result = queryForSelect($db, $querystr);
 
   $data = array();
@@ -13,7 +12,6 @@ function getMediaList($req, $db) {
 
 	writeAjaxRes($data);
 }
-
 $cmd = $_REQUEST['cmd'];
 if (empty($cmd)) {
 	writeAjaxErrorRes(null, 'cmd is null!');

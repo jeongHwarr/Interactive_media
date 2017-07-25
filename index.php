@@ -333,47 +333,9 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
+                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-primary" type="button" id="captions_save">saves </button> <!--효과저장 버튼-->
                                 </form>
-                                <div id="extra_captions" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Font Size</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Delay</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Color</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">FontFamily</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
-                                <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                <button class="btn btn-primary" type="button" id="captions_save">saves </button> <!--효과저장 버튼-->
                             </div>
                             <div class="col-md-12">
                                 <hr>
@@ -460,50 +422,9 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
+                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-primary" type="button" id="stickers_save">saves </button> <!--효과저장 버튼-->
                                 </form>
-                                <div id="extra_stickers" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <p class="tab_title">Size</p>
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-lg-offset-2 col-md-12">
-                                                        <p class="tab_cont">width</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_x" type="text">
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-12">
-                                                        <p class="tab_cont">height</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_y" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Delay</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Url</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
-                                <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
-                                <button class="btn btn-primary" type="button" id="stickers_save">saves</button> <!--효과저장 버튼-->
                             </div>
                             <div class="col-md-12">
                                 <hr>
@@ -540,19 +461,17 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/text_captions.js"></script>
 
-
-
     <script type="text/javascript">
-      var effects;
+      var waves;
 
       $(document).ready(function(){
-        $.get('./assets/ajax/effects.php', {cmd: 'getEffectList'});
+        $.get('./assets/ajax/waves.php', {cmd: 'getWavesList'});
         $( document ).ajaxSend(function() {
         }).ajaxError(function(){
           console.log("Ajax Request Error!");
         }).ajaxSuccess(function(e,xhr,options,data){
           console.log("Ajax Request Success");
-          effects = data;
+          waves = data;
         });
       });
     </script>
@@ -561,19 +480,7 @@ include './assets/util/queryUtil.php';
         //more options 토글 스크립트
         $(document).ready(function(){
             $("#more_op_waves").click(function(){
-                $("#extra_waves").slideToggle();
-            });
-        });
-
-        $(document).ready(function(){
-            $("#more_op_captions").click(function(){
-                $("#extra_captions").slideToggle();
-            });
-        });
-
-        $(document).ready(function(){
-            $("#more_op_stickers").click(function(){
-                $("#extra_stickers").slideToggle();
+                    $("#extra_waves").slideToggle();
             });
         });
     </script>
@@ -581,33 +488,37 @@ include './assets/util/queryUtil.php';
     <script type="text/javascript">
       //make an effect
       var video = document.getElementById("media2");
+
+      //apply wave effect
       video.addEventListener('timeupdate', function(){
-        for (var i = 0; i<effects.data.length; i++){
+        for (var i = 0; i<waves.data.length; i++){
+
            //data associated with effect db
-           var start_t = effects.data[i]['start_time'];
-           var end_t = effects.data[i]['end_time'];
-           var x = effects.data[i]['pos_x'];
-           var y = effects.data[i]['pos_y'];
-           var type = effects.data[i]['effects'];
-
+           var start_t = waves.data[i]['startTime']/1000;
+           var end_t = waves.data[i]['endTime']/1000;
+           var x = waves.data[i]['pos_x'];
+           var y = waves.data[i]['pos_y'];
+           var duration = waves.data[i]['duration'];
+           var delay = waves.data[i]['delay'];
+           var scale = waves.data[i]['scale']/1000;
+           var trans_x = waves.data[i]['trans_x'];
+           var trans_y = waves.data[i]['trans_y'];
+           var color = waves.data[i]['color'];
+           if(color==0){
+             color="#00ffff";
+           } else if(color==1){
+             color="#0000ff";
+           } else {
+             color="#000000";
+           }
             if(video.currentTime >= start_t && video.currentTime<end_t){
-              if(type==2){
                 WaveEffect.setLocation(x,y);
+                WaveEffect.setColor(color);
+                WaveEffect.setScale(scale);
+                WaveEffect.setTransition(trans_x,trans_y);
                 makeWaveEffect($(".waves-box")[0]);
-            } else if (type==1) {
-              myfunction1(start_t, end_t, x, y);
-
-            } else if (type==3) {
-              myfunction2(start_t, end_t, x, y);
-
-            } else if (type==4) {
-              myfunction3(start_t, end_t, x, y);
-
-            } else {
-              myfunction4(start_t, end_t, x, y);
             }
           }
-        }
        }, false);
 
        video_js = videojs('media2');

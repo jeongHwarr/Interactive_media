@@ -20,8 +20,8 @@ var WaveEffect = {
     x:0, y:0,
     // duration : remove ripple after this time(ms)
     // delay : fadeout ripple after this time(ms)
-    duration: 1000, delay: 100,
-    scale: 0.01,
+    duration: 1000, delay: 300,
+    scale: 0.05,
     // move to ripple location when it is created
     transition_x:0, transition_y:0,
     color:"rgba(#ffffff, 0)",
@@ -40,12 +40,13 @@ var WaveEffect = {
       this.scale = scale;
     },
     setTransition:function(x,y){
-      transition_x=x;
-      transition_y=y;
+      this.transition_x=x;
+      this.transition_y=y;
     },
     setColor:function(color){
       this.color=color;
     },
+
     show: function(element) {
 
         element = element || this;
@@ -110,12 +111,8 @@ function removeRipple(el, ripple) {
     var scale     = ripple.getAttribute('data-scale');
     var translate = ripple.getAttribute('data-translate');
     var duration = WaveEffect.duration;
-    // Get diff beetween time to write ripple and now
-    var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
-    var delay = WaveEffect.delay - diff;
-    if (delay < 0) {
-        delay = 0;
-    }
+    var delay = WaveEffect.delay;
+
     // Fade out ripple after delay
     setTimeout(function() {
         var style = {
