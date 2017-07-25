@@ -460,7 +460,6 @@ include './assets/util/queryUtil.php';
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/text_captions.js"></script>
-
     <script type="text/javascript">
       var waves;
 
@@ -475,7 +474,6 @@ include './assets/util/queryUtil.php';
         });
       });
     </script>
-
     <script>
         //more options 토글 스크립트
         $(document).ready(function(){
@@ -484,16 +482,13 @@ include './assets/util/queryUtil.php';
             });
         });
     </script>
-
     <script type="text/javascript">
-      //make an effect
-      var video = document.getElementById("media2");
-
-      //apply wave effect
-      video.addEventListener('timeupdate', function(){
+      //wave effectl 적용
+      $("#media2").addEventListener('timeupdate', function(){
         for (var i = 0; i<waves.data.length; i++){
 
-           //data associated with effect db
+           //************* DB정보 저장하는 변수 **************//
+           getWavesData(waves);
            var start_t = waves.data[i]['startTime']/1000;
            var end_t = waves.data[i]['endTime']/1000;
            var x = waves.data[i]['pos_x'];
@@ -504,23 +499,24 @@ include './assets/util/queryUtil.php';
            var trans_x = waves.data[i]['trans_x'];
            var trans_y = waves.data[i]['trans_y'];
            var color = waves.data[i]['color'];
-           if(color==0){
-             color="#00ffff";
-           } else if(color==1){
-             color="#0000ff";
-           } else {
-             color="#000000";
-           }
-            if(video.currentTime >= start_t && video.currentTime<end_t){
-                WaveEffect.setLocation(x,y);
-                WaveEffect.setColor(color);
-                WaveEffect.setScale(scale);
-                WaveEffect.setTransition(trans_x,trans_y);
-                makeWaveEffect($(".waves-box")[0]);
+
+           if(video.currentTime >= start_t && video.currentTime<end_t){
+              WaveEffect.setLocation(x,y);
+              WaveEffect.setColor(color);
+              WaveEffect.setScale(scale);
+              WaveEffect.setTransition(trans_x,trans_y);
+              makeWaveEffect($(".waves-box")[0]);
             }
           }
        }, false);
 
+       function getWavesData(waves){
+
+       }
+       </script>
+
+       <script>
+       var video = document.getElementById("media2");
        video_js = videojs('media2');
        video.addEventListener("mousedown", mouseHandler, false);
 

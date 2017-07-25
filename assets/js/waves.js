@@ -44,7 +44,13 @@ var WaveEffect = {
       this.transition_y=y;
     },
     setColor:function(color){
-      this.color=color;
+      if(color==0){
+        this.color="#00ffff";
+      } else if(color==1){
+        this.color="#0000ff";
+      } else {
+        this.color="#000000";
+      }
     },
 
     show: function(element) {
