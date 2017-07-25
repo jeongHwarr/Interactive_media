@@ -575,15 +575,13 @@ include './assets/util/queryUtil.php';
         });
 
         $(document).ready(function(){
-            $("#btn_project_save").click(function(){
+            $("#waves_save").click(function(){
               save();
             });
         });
 
     </script>
     <script type="text/javascript">
-
-
        var video = document.getElementById("media2");
        video.addEventListener('timeupdate', function(){
          for (var i = 0; i<result.captions.length; i++){
@@ -626,7 +624,6 @@ include './assets/util/queryUtil.php';
               }
             }
          }, false);
-
        </script>
 
        <script>
