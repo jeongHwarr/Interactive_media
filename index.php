@@ -484,7 +484,8 @@ include './assets/util/queryUtil.php';
     </script>
     <script type="text/javascript">
       //wave effectl 적용
-      $("#media2").addEventListener('timeupdate', function(){
+      var video = document.getElementById("media2");
+      video.addEventListener('timeupdate', function(){
         for (var i = 0; i<waves.data.length; i++){
 
            //************* DB정보 저장하는 변수 **************//
