@@ -573,6 +573,12 @@ include './assets/util/queryUtil.php';
             });
         });
 
+        $(document).ready(function(){
+            $("#btn_project_save").click(function(){
+              save();
+            });
+        });
+
     </script>
     <script type="text/javascript">
 
