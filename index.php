@@ -333,8 +333,6 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="button" id="captions_save">saves </button> <!--효과저장 버튼-->
                                 </form>
                                 <div id="extra_captions" style="display: none">
                                     <div class="col-md-12">
@@ -462,8 +460,6 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="button" id="stickers_save">saves </button> <!--효과저장 버튼-->
                                 </form>
                                 <div id="extra_stickers" style="display: none">
                                     <div class="col-md-12">
