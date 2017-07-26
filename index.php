@@ -305,13 +305,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text">
+                                            <input class="form-control time_start" type="text" id="startTime_captions">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" >
+                                            <input class="form-control time_end" type="text" id="endTime_captions">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -341,7 +341,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Font Size</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="font_size_captions">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -349,7 +349,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Delay</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="delay_captions">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -357,7 +357,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Color</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="color_captions">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -365,7 +365,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">FontFamily</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="font_name_captions">
                                             </div>
                                         </div>
                                     </div>
@@ -432,13 +432,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text">
+                                            <input class="form-control time_start" type="text" id="startTime_stickers">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" >
+                                            <input class="form-control time_end" type="text" id="endTime_stickers" >
                                         </div>
                                     </div>
                                     <div class="row">
@@ -471,13 +471,13 @@ include './assets/util/queryUtil.php';
                                                         <p class="tab_cont">width</p>
                                                     </div>
                                                     <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_x" type="text">
+                                                        <input class="form-control pos_x" type="text" id="width_stickers">
                                                     </div>
                                                     <div class="col-lg-2 col-md-12">
                                                         <p class="tab_cont">height</p>
                                                     </div>
                                                     <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_y" type="text">
+                                                        <input class="form-control pos_y" type="text" id="height_stickers">
                                                     </div>
                                                 </div>
                                             </div>
@@ -487,7 +487,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Delay</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="delay_stickers">
                                             </div>
                                         </div>
                                         <div class="row">
