@@ -414,7 +414,7 @@ include './assets/util/queryUtil.php';
                                                     스티커 고르기
                                                     <span class="caret"></span>
                                                 </button>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="option_stickers">
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
                                                     <li>해골</li>
                                                     <li>B</li>
                                                     <li>C</li>
@@ -496,7 +496,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Url</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="option_stickers">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -504,7 +504,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Animation</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="animation_stickers">
                                             </div>
                                         </div>
                                         <!--테스트용 인풋-->
