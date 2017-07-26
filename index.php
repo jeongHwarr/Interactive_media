@@ -368,6 +368,16 @@ include './assets/util/queryUtil.php';
                                                 <input class="form-control" type="text" id="font_name_captions">
                                             </div>
                                         </div>
+                                        <!--테스트용 인풋-->
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Animation</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <!--테스트용 인풋-->
                                     </div>
 
                                 </div>
