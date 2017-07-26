@@ -1,7 +1,7 @@
 <?php
 include './assets/config/dbconn.php';
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -16,8 +16,7 @@ include './assets/config/dbconn.php';
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    </script>
+    
     <title>Project Start</title>
 </head>
 <body>
