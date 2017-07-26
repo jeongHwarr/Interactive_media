@@ -490,6 +490,7 @@ include './assets/util/queryUtil.php';
                                                 <input class="form-control" type="text" id="delay_stickers">
                                             </div>
                                         </div>
+                                        <!--테스트 용 인풋 나중에 드랍다운으로 바꾸기-->
                                         <div class="row">
                                             <div class="col-lg-4 col-md-12">
                                                 <p class="tab_title">Url</p>
@@ -498,6 +499,15 @@ include './assets/util/queryUtil.php';
                                                 <input class="form-control" type="text">
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Animation</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <input class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <!--테스트용 인풋-->
                                     </div>
 
                                 </div>
