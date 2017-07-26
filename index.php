@@ -374,7 +374,7 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Animation</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text">
+                                                <input class="form-control" type="text" id="animation_captions">
                                             </div>
                                         </div>
                                         <!--테스트용 인풋-->
