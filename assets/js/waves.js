@@ -45,11 +45,13 @@ var WaveEffect = {
     },
     setColor:function(color){
       if(color==0){
-        this.color="#00ffff";
+        this.color="#676c6c";
       } else if(color==1){
         this.color="#0000ff";
-      } else {
-        this.color="#000000";
+      } else if(color==2){
+        this.color="#de2323";
+      } else{
+        this.color="#65f46f";
       }
     },
 

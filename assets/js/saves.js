@@ -15,7 +15,7 @@ $.ajax
               "scale":$("#input_waves_scale").val(),
               "trans_x":$("#input_waves_translate_x").val(),
               "trans_y":$("#input_waves_translate_y").val(),
-              "color":"1",
+              "color":$("#color_waves").val(),
               "project_no":"1"
   },
   success: function(response)

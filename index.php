@@ -258,10 +258,10 @@ include './assets/util/queryUtil.php';
                                             <div class="col-lg-8 col-md-12">
                                                 <div class="form-group">
                                                     <select class="form-control" id="color_waves">
-                                                        <option value="">select please</option>
-                                                        <option value="head_bone">blue</option>
-                                                        <option value="B">red</option>
-                                                        <option value="C">green</option>
+                                                        <option value="0">black</option>
+                                                        <option value="1">blue</option>
+                                                        <option value="2">red</option>
+                                                        <option value="3">green</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -690,7 +690,7 @@ include './assets/util/queryUtil.php';
              var scaleY = video.videoHeight / size.height;
              var rect = video.getBoundingClientRect();  // absolute position of element
              x = (x - 0.5)/scaleX;
-             y = (y - 0.5)/scaleY;  
+             y = (y - 0.5)/scaleY;
 
              if(video.currentTime >= start_t && video.currentTime<end_t){
                 WaveEffect.setLocation(x,y);
