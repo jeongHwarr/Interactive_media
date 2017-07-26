@@ -540,10 +540,18 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/saves.js"></script>
     <script src="assets/js/text_captions.js"></script>
+    <script src="assets/js/session.js"></script>
     <script type="text/javascript">
+
       var result;
 
       $(document).ready(function(){
+        //for session test
+        console.log(session.get('project_info_session'));
+        console.log(session.get('waves_session'));
+        console.log(session.get('captions_session'));
+        console.log(session.get('stickers_session'));
+
         $.get('./assets/ajax/data.php', {cmd: 'getDataList'});
         $( document ).ajaxSend(function() {
         }).ajaxError(function(){
