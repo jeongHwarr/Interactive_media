@@ -10,7 +10,7 @@ include './assets/util/queryUtil.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Web Editor ver0.1</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
@@ -267,12 +267,11 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                </div> <!--extra_waves end-->
                                 <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
                                 <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
                                 <button class="btn btn-primary" type="button" id="waves_save">saves </button> <!--효과저장 버튼-->
-                            </div>
+                            </div><!--section waves_input end-->
                             <div class="col-md-12">
                               <hr>
                             </div>
@@ -349,6 +348,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                     </div>
                                 </form>
+
                                 <div id="extra_captions" style="display: none">
                                     <div class="col-md-12">
                                         <div class="row">
@@ -413,12 +413,11 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                </div><!--extra_captions end-->
                                 <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
                                 <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
                                 <button class="btn btn-primary" type="button" id="captions_save">saves </button> <!--효과저장 버튼-->
-                            </div>
+                            </div><!--section captions end-->
                             <div class="col-md-12">
                                 <hr>
                             </div>
@@ -562,15 +561,16 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                </div><!--div extra_stikers end-->
                                 <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
                                 <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
                                 <button class="btn btn-primary" type="button" id="stickers_save">saves</button> <!--효과저장 버튼-->
-                            </div>
+                            </div><!--section stickers input end-->
+
                             <div class="col-md-12">
                                 <hr>
                             </div>
+
                             <div class="col-md-12" id="section_stcikers_view" style="margin-top:0.2em;">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -583,7 +583,6 @@ include './assets/util/queryUtil.php';
                         </div>
                     </div>
                     <!--스티커 효과탭 종료-->
-
                 </div> <!--tab_content 종료-->
             </div>
         </div> <!--우측 탭 영역 종료-->
@@ -650,7 +649,6 @@ include './assets/util/queryUtil.php';
               save();
             });
         });
-
     </script>
     <script type="text/javascript">
        var video = document.getElementById("media2");
