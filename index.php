@@ -251,6 +251,21 @@ include './assets/util/queryUtil.php';
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-12">
+                                                <p class="tab_title">Color</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="color_waves">
+                                                        <option value="">select please</option>
+                                                        <option value="head_bone">blue</option>
+                                                        <option value="B">red</option>
+                                                        <option value="C">green</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -357,7 +372,14 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Color</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="color_captions">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="color_captions">
+                                                        <option value="">select please</option>
+                                                        <option value="head_bone">해골</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -365,19 +387,31 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">FontFamily</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="font_name_captions">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="font_name_captions">
+                                                        <option value="">select please</option>
+                                                        <option value="head_bone">해골</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!--테스트용 인풋-->
                                         <div class="row">
                                             <div class="col-lg-4 col-md-12">
                                                 <p class="tab_title">Animation</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="animation_captions">
+                                            <div class="form-group">
+                                                <select class="form-control" id="animation_captions">
+                                                    <option value="">select please</option>
+                                                    <option value="head_bone">해골</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                </select>
+                                            </div>
                                             </div>
                                         </div>
-                                        <!--테스트용 인풋-->
                                     </div>
 
                                 </div>
@@ -419,16 +453,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Stickers </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <div class="dropdown"> <!--스티커 드롭다운-->
-                                                <button class="btn btn-default" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    스티커 고르기
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" >
-                                                    <li>해골</li>
-                                                    <li>B</li>
-                                                    <li>C</li>
-                                                </ul>
+                                            <div class="form-group"> <!--스티커 드롭다운-->
+                                                <select class="form-control" id="">
+                                                    <option value="">select please</option>
+                                                    <option value="head_bone">해골</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -500,13 +531,19 @@ include './assets/util/queryUtil.php';
                                                 <input class="form-control" type="text" id="delay_stickers">
                                             </div>
                                         </div>
-                                        <!--테스트 용 인풋 나중에 드랍다운으로 바꾸기-->
                                         <div class="row">
                                             <div class="col-lg-4 col-md-12">
                                                 <p class="tab_title">Url</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="option_stickers">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="option_stickers">
+                                                        <option value="">select please</option>
+                                                        <option value="head_bone">해골</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -514,10 +551,16 @@ include './assets/util/queryUtil.php';
                                                 <p class="tab_title">Animation</p>
                                             </div>
                                             <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="animation_stickers">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="animation_stickes">
+                                                        <option value="">select please</option>
+                                                        <option value="head_bone">해골</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!--테스트용 인풋-->
                                     </div>
 
                                 </div>
