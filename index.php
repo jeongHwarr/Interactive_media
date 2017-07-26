@@ -635,6 +635,14 @@ include './assets/util/queryUtil.php';
              var trans_y = result.waves[i]['trans_y'];
              var color = result.waves[i]['color'];
 
+             //좌표변환
+             var size = getElementCSSSize(video);
+             var scaleX = video.videoWidth / size.width;
+             var scaleY = video.videoHeight / size.height;
+             var rect = video.getBoundingClientRect();  // absolute position of element
+             x = (x - 0.5)/scaleX;
+             y = (y - 0.5)/scaleY;  
+
              if(video.currentTime >= start_t && video.currentTime<end_t){
                 WaveEffect.setLocation(x,y);
                 WaveEffect.setColor(color);

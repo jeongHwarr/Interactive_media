@@ -168,8 +168,8 @@ html, body {
   margin: 0 auto;
   align-items: center;
   padding: 1em;
-  max-width: 450px;
-  max-height: 400px;
+  width: 450px;
+  height: 400px;
   width:45em　!important;
   height:50%　!important;
 }
