@@ -1,92 +1,99 @@
-// videoElement = document.getElementById("media2");
-// videoElement.addEventListener("mousedown", mouseHandler, false);
-//
-//   function getElementCSSSize(el) {
-//     var cs = getComputedStyle(el);
-//     var w = parseInt(cs.getPropertyValue("width"), 10);
-//     var h = parseInt(cs.getPropertyValue("height"), 10);
-//     return {width: w, height: h}
-//   }
-//
-//     var left = 0;
-//     var top = 0;
-//
-//   function mouseHandler(event) {
-//     var size = getElementCSSSize(this);
-//     var scaleX = this.videoWidth / size.width;
-//     var scaleY = this.videoHeight / size.height;
-//
-//     var rect = this.getBoundingClientRect();
-//     var x = ((event.clientX - rect.left) * scaleX + 0.5)|0;
-//     var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-//
-//     left_pos = x;
-//     top_pos = y;
-//
-//    document.getElementById("x_point").innerHTML = x;
-//    document.getElementById("y_point").innerHTML = y;
-//
-//    }
-
-function set1_xy(x,y){
-  $('#overlay1').css('display', 'block');
-  $('#overlay1').css('top', x + 'px').css('left', y+ 'px');
-  return;
-}
-function set2_xy(x,y){
-  $('#overlay2').css('display', 'block');
-  $('#overlay2').css('top', x + 'px').css('left', y+ 'px');
-  return;
-}
-function set3_xy(x,y){
-  $('#overlay3').css('display', 'block');
-  $('#overlay3').css('top', x + 'px').css('left', y+ 'px');
-  return;
-}
-function set4_xy(x,y){
-  $('#overlay4').css('display', 'block');
-  $('#overlay4').css('top', x + 'px').css('left', y+ 'px');
-  return;
-}
-
 var video = document.getElementById('media2');
-function myfunction1(s,t,x,y){
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(s) && video.currentTime < parseInt(t) && !video.paused) {
-      set1_xy(x,y);
-         }else {
-         $('#overlay1').css('display', 'none');
-         }
-    }, false);
-}
+var captionEffect = {
 
+    startTime:0, //s
+    endTime:0,   //e
+    x:0, //x
+    y:0, //y
+    animation:"", //a
+    size:0,
+    delay:0,
+    color:"",
+    font:"",
+    contents:"",
 
-function myfunction2(s,t,x,y){
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(s) && video.currentTime < parseInt(t) && !video.paused) {
-         set2_xy(x,y);
-         }else {
-         $('#overlay2').css('display', 'none');
-         }
-    }, false);
-}
+    myfunction_c_basic: function(s,e,x,y,a){
+      this.startTime = s;
+      this.endTime = e;
+      this.x = x;
+      this.y = y;
+      this.animation = a;
+    },
 
-function myfunction3(s,t,x,y){
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(s) && video.currentTime < parseInt(t) && !video.paused) {
-        set3_xy(x,y);
-         }else {
-         $('#overlay3').css('display', 'none');
-         }
-    }, false);
-}
+    myfunction_c_size: function(x){
+      this.size = x;
+    },
+    myfunction_c_delay: function(x){
+      this.delay = x;
+    },
+    myfunction_c_color: function(x){
+      this.color = x;
+    },
+    myfunction_c_font: function(x){
+      this.font = x;
+    },
+    myfunction_c_contents: function(x){
+      this.contents = x;
+    },
+    caption_show: function(){
+        if (video.currentTime >= this.startTime && video.currentTime < this.endTime)
+          $('#effect_1').css('display','block');
+          $('#effect_1').attr('class', this.animation);
+          $('#effect_1').css('top', this.x + 'px').css('left', this.y + 'px');
+          $('#effect_1').css('font-size', this.size + 'px');
+          $('#effect_1').css('webkit-animation-delay', this.delay + 's');
+          $('#effect_1').css('color', this.color);
+          $('#effect_1').css('font-style', this.font);
+          document.getElementById("effect_1").innerHTML = this.contents;
+      },
+      caption_hide: function(){
+        $('#effect_1').css('display', 'none');
+      }
+    };
 
-function myfunction4(s,t,x,y){
-  video.addEventListener('timeupdate', function() {
-    if (video.currentTime >= parseInt(s) && video.currentTime < parseInt(t) && !video.paused) {
-         set4_xy(x,y);
-         }else {
-         $('#overlay4').css('display', 'none');
-         }
-    }, false);
-}
+var stickerEffect ={
+
+  startTime:0, //s
+  endTime:0,   //e
+  x:0, //x
+  y:0, //y
+  animation:"", //a
+  width:0,
+  height:0,
+  delay:0,
+  url:"",
+
+  myfunction_s_basic: function(s,e,x,y,a){
+    this.startTime = s;
+    this.endTime = e;
+    this.x = x;
+    this.y = y;
+    this.animation = a;
+  },
+  myfunction_s_width: function(x){
+    this.width =x ;
+  },
+  myfunction_s_height: function(x){
+    this.height = x;
+  },
+  myfunction_s_delay: function(x){
+    this.delay = x;
+  },
+  myfunction_s_url: function(x){
+    this.url = x;
+    // console.log(this.url);
+  },
+  sticker_show: function(){
+      if (video.currentTime >= this.startTime && video.currentTime < this.endTime)
+        $('#effect_3').css('display','block');
+        $('#effect_3').attr('class', this.animation);
+        $('#effect_3').css('top', this.x + 'px').css('left', this.y + 'px');
+        $('#effect_3').css('width',this.width).css('height',this.height);
+        $('#effect_3').css('webkit-animation-delay', this.delay + 's');
+        document.getElementById("effect_3").src = this.url;
+    },
+    sticker_hide: function(){
+      $('#effect_3').css('display', 'none');
+    }
+
+};
