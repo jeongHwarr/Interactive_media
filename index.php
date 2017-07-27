@@ -93,10 +93,10 @@ include './assets/util/queryUtil.php';
               </video>
               </div>
                 <!--스티커 / 그림 인젝션 위치-->
-                <div class="animated infinite zoomOutUp" id="overlay1">꽝</div>
-                <div class="animated infinite bounceIn" id="overlay2">안녕</div>
-                <div class="animated infinite zoomInDown" id="overlay3"><img id="img1" src="assets/img/god.PNG"></div>
-                <div class="animated infinite zoomInDown" id="overlay4"><img id="img1" src="assets/img/god.PNG"></div>
+                <div class="animation_1"><p id ="effect_1">으헤헤헤</p></div>
+                <div class="animation_2" id ="effect_2"></div>
+                <div class="animation_3"><img id="effect_3" alt="img3" src=""></img></div>
+                <div class="animation_4" id ="effect_4"></div>
             </div>
 
 
@@ -602,6 +602,8 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/saves.js"></script>
     <script src="assets/js/text_captions.js"></script>
+    <script src="assets/js/captions_save.js"></script>
+    <script src="assets/js/sticker_save.js"></script>
     <script src="assets/js/session.js"></script>
     <script type="text/javascript">
 
@@ -649,23 +651,81 @@ include './assets/util/queryUtil.php';
               save();
             });
         });
+
+        $(document).ready(function(){
+          $("#captions_save").click(function(){
+            captions_save();
+          })
+        });
+
+        $(document).ready(function(){
+          $("#stickers_save").click(function(){
+            stickers_save();
+          })
+        });
+
     </script>
     <script type="text/javascript">
-       var video = document.getElementById("media2");
-       video.addEventListener('timeupdate', function(){
-         for (var i = 0; i<result.captions.length; i++){
 
-            //************* DB정보 저장하는 변수 **************//
-            var c_start_t = result.captions[i]['startTime']/1000;
-            var c_end_t = result.captions[i]['endTime']/1000;
-            var c_x = result.captions[i]['pos_x'];
-            var c_y = result.captions[i]['pos_y'];
+    //caption effect 적용
+    var video = document.getElementById("media2");
+    video.addEventListener('timeupdate', function(){
+      for (var i = 0; i<result.captions.length; i++){
 
-            if(video.currentTime >= c_start_t && video.currentTime < c_end_t){
-                myfunction1(c_start_t,c_end_t,c_x,c_y);
-              }
-           }
-        }, false);
+         //************* DB로부터 가져온 데이터 저장하는 변수 **************//
+         var c_start_t = result.captions[i]['startTime']/1000;
+         var c_end_t = result.captions[i]['endTime']/1000;
+         var c_x = result.captions[i]['pos_x'];
+         var c_y = result.captions[i]['pos_y'];
+         var c_animation = result.captions[i]['animation'];
+         var c_size = result.captions[i]['size'];
+         var c_delay = result.captions[i]['delay'];
+         var c_color = result.captions[i]['color'];
+         var c_font = result.captions[i]['font'];
+         var c_contents = result.captions[i]['contents'];
+
+         if(video.currentTime >= c_start_t && video.currentTime < c_end_t && !video.paused){
+           captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
+           captionEffect.myfunction_c_size(c_size);
+           captionEffect.myfunction_c_delay(c_delay);
+           captionEffect.myfunction_c_color(c_color);
+           captionEffect.myfunction_c_font(c_font);
+           captionEffect.myfunction_c_contents(c_contents);
+           captionEffect.caption_show();
+         }else {
+           captionEffect.caption_hide();
+         }
+        }
+     }, false);
+
+     //sticker effect 적용
+     var video = document.getElementById("media2");
+     video.addEventListener('timeupdate', function(){
+       for (var i = 0; i<result.stickers.length; i++){
+
+          //************* DB로부터 가져온 데이터 저장하는 변수 **************//
+          var s_start_t = result.stickers[i]['startTime']/1000;
+          var s_end_t = result.stickers[i]['endTime']/1000;
+          var s_x = result.stickers[i]['pos_x'];
+          var s_y = result.stickers[i]['pos_y'];
+          var s_animation = result.stickers[i]['animation'];
+          var s_width = result.stickers[i]['width'];
+          var s_height = result.stickers[i]['height'];
+          var s_delay = result.stickers[i]['delay'];
+          var s_url = result.stickers[i]['url'];
+
+          if(video.currentTime >= s_start_t && video.currentTime < s_end_t && !video.paused){
+              stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
+              stickerEffect.myfunction_s_width(s_width);
+              stickerEffect.myfunction_s_height(s_height);
+              stickerEffect.myfunction_s_delay(s_delay);
+              stickerEffect.myfunction_s_url(s_url);
+              stickerEffect.sticker_show();
+            }else {
+              stickerEffect.sticker_hide();
+            }
+         }
+      }, false);
 
         //wave effectl 적용
         var video = document.getElementById("media2");
