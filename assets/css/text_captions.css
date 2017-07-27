@@ -1,57 +1,31 @@
 
-#overlay1
-{
+#effect_1{
   position: absolute;
-  top: 30px;
-  left: 50px;
-  text-align: center;
-  font-size: 20px;
-  width: 100px;
   display: none;
-  background: #ef8913;
-  border-radius: 600%;
   z-index:  200000000;
+  /*background: #ef8913;
+  border-radius: 600%;*/
+  /*text-align: center;
+  font-size: 20px;*/
   /*-webkit-animation-delay: 1s;*/
   /*-webkit-animation-iteration-count: 3; /*효과 카운트수 */
 }
-#overlay2
-{
+#effect_2{
   position: absolute;
-  top: 30px;
-  left: 50px;
-  text-align: center;
-  font-size: 20px;
-  width: 100px;
-  display:none;
-  background: #F08080;
-  border-radius: 10%;
+  display: none;
   z-index:  200000000;
-  /*-webkit-animation-delay: 1s;*/
-  /*-webkit-animation-iteration-count: 3; /*효과 카운트수 */
 }
-
-
-#overlay3
-{
-   position: absolute;
-   /*top : 30px;
-   left : 30px;*/
-   display:none;
-  height:30px;
-  width:20px;
-  padding: 10px 0;
-  z-index: 20000000000;
-}
-#overlay4
-{
+#effect_3{
   position: absolute;
-  /*top : 30px;
-  left : 30px;*/
-  display:none;
-  height:50px;
-  width:50px;
-  padding: 10px 0;
-  z-index: 20000000000;
+  display: none;
+  z-index:  200000000;
+  /*background: #ef8913;
+  border-radius: 600%;*/
+}
+#effect_4{
+  position: absolute;
+  display: none;
+  z-index:  200000000;
 }
 
 #img1
