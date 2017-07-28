@@ -458,8 +458,8 @@ include './assets/util/queryUtil.php';
                                                 <select class="form-control" id="">
                                                     <option value="">select please</option>
                                                     <option value="head_bone">해골</option>
-                                                    <option value="B">B</option>
-                                                    <option value="C">C</option>
+                                                    <option value="baby">아기</option>
+                                                    <option value="lion">사자</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -672,6 +672,7 @@ include './assets/util/queryUtil.php';
 
     //caption effect 적용
     var video = document.getElementById("media2");
+    var temp_id = 99999;
     video.addEventListener('timeupdate', function(){
       for (var i = 0; i<result.captions.length; i++){
 
