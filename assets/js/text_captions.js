@@ -1,4 +1,5 @@
 var video = document.getElementById('media2');
+var b;
 var captionEffect = {
 
     startTime:0, //s
@@ -35,21 +36,39 @@ var captionEffect = {
     myfunction_c_contents: function(x){
       this.contents = x;
     },
+
+    caption_make: function(){
+      a = Math.random();
+      var make_p = document.createElement('p');
+      document.getElementById("captions_p").appendChild(make_p);
+      b = a + "make_p";
+      make_p.setAttribute('id',b);
+      console.log(b);
+    },
+
     caption_show: function(){
-        if (video.currentTime >= this.startTime && video.currentTime < this.endTime)
-          $('#effect_1').css('display','block');
-          $('#effect_1').attr('class', this.animation);
-          $('#effect_1').css('top', this.x + 'px').css('left', this.y + 'px');
-          $('#effect_1').css('font-size', this.size + 'px');
-          $('#effect_1').css('webkit-animation-delay', this.delay + 's');
-          $('#effect_1').css('color', this.color);
-          $('#effect_1').css('font-style', this.font);
-          document.getElementById("effect_1").innerHTML = this.contents;
-      },
-      caption_hide: function(){
-        $('#effect_1').css('display', 'none');
-      }
-    };
+            console.log(this.color);
+            document.getElementById(b).style.display="block";
+            document.getElementById(b).style.position="relative";
+            document.getElementById(b).setAttribute('class',this.animation);
+            document.getElementById(b).style.top= this.x + 'px';
+            document.getElementById(b).style.left=this.y + 'px';
+            document.getElementById(b).style.fontSize=this.size + 'px';
+            document.getElementById(b).style.color=this.color;
+            document.getElementById(b).style.animationDelay=this.delay;
+            document.getElementById(b).innerHTML = this.contents;
+            document.getElementById(b).style.fontStyle=this.font;
+          },
+        caption_hide: function(){
+            if(b){
+                document.getElementById(b).style.display="none";
+            }else{
+              return;
+            }
+          }
+        };
+
+
 
 var stickerEffect ={
 
