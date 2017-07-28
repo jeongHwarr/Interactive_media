@@ -74,6 +74,7 @@ include './assets/util/queryUtil.php';
             <!--media2 박스 시작-->
             <div class="col-lg-6 col-md-12">
               <div class="waves-effect">
+                <div id="captions_p"></div>
               <video
                 id="media2"
                 class="video-js waves-box"
@@ -97,6 +98,7 @@ include './assets/util/queryUtil.php';
                 <div class="animation_2" id ="effect_2"></div>
                 <div class="animation_3"><img id="effect_3" alt="img3" src=""></img></div>
                 <div class="animation_4" id ="effect_4"></div>
+                <div class="sticker" id="stickers_div"></div>
             </div>
 
 
@@ -317,9 +319,9 @@ include './assets/util/queryUtil.php';
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_captions">
                                                     <option value="">select please</option>
-                                                    <option value="head_bone">해골</option>
-                                                    <option value="B">B</option>
-                                                    <option value="C">C</option>
+                                                    <option value="bounceOut">bounceOut</option>
+                                                    <option value="fadeIn">fadeIn</option>
+                                                    <option value="bounceIn">bounceIn</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -390,9 +392,9 @@ include './assets/util/queryUtil.php';
                                                 <div class="form-group">
                                                     <select class="form-control" id="color_captions">
                                                         <option value="">select please</option>
-                                                        <option value="head_bone">해골</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
+                                                        <option value="red">빨강</option>
+                                                        <option value="blue">파랑</option>
+                                                        <option value="yellow">노랑</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -405,9 +407,9 @@ include './assets/util/queryUtil.php';
                                                 <div class="form-group">
                                                     <select class="form-control" id="font_name_captions">
                                                         <option value="">select please</option>
-                                                        <option value="head_bone">해골</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
+                                                        <option value="normal">normal</option>
+                                                        <option value="italic">italic</option>
+                                                        <option value="oblique">oblique</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -471,9 +473,9 @@ include './assets/util/queryUtil.php';
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_stickes">
                                                     <option value="">select please</option>
-                                                    <option value="head_bone">해골</option>
-                                                    <option value="B">B</option>
-                                                    <option value="C">C</option>
+                                                    <option value="bounceOut">bounceOut</option>
+                                                    <option value="fadeIn">fadeIn</option>
+                                                    <option value="bounceIn">bounceIn</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -692,11 +694,17 @@ include './assets/util/queryUtil.php';
            captionEffect.myfunction_c_color(c_color);
            captionEffect.myfunction_c_font(c_font);
            captionEffect.myfunction_c_contents(c_contents);
-           captionEffect.caption_show();
-         }else {
-           captionEffect.caption_hide();
-         }
+
+           if(temp_id!=c_id){
+             temp_id=c_id;
+             captionEffect.caption_make();
+           }
+          captionEffect.caption_show();
+          }else{
+          captionEffect.caption_hide();
+          }
         }
+
      }, false);
 
      //sticker effect 적용
