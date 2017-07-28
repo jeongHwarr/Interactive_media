@@ -687,6 +687,7 @@ include './assets/util/queryUtil.php';
          var c_color = result.captions[i]['color'];
          var c_font = result.captions[i]['font'];
          var c_contents = result.captions[i]['contents'];
+         var c_id = result.captions[i]['id'];
 
          if(video.currentTime >= c_start_t && video.currentTime < c_end_t && !video.paused){
            captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
