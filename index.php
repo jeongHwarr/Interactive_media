@@ -824,7 +824,7 @@ include './assets/util/queryUtil.php';
          $('#input_sticker_pos_x').val(x);
          $('#input_sticker_pos_y').val(y);
 
-         $('#input_waves_start_time').val(video.currentTime.toFixed(3));
+         $('#input_waves_start_time').val(video.currentTime);
          $('#startTime_captions').val(video.currentTime);
          $('#startTime_stickers').val(video.currentTime);
 
