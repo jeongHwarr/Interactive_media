@@ -34,3 +34,15 @@
   height:50px;
   width:50px;
 }
+#captions_p{
+  position: absolute;
+  display: block;
+  z-index:  200000000;
+  /*top:0px;
+  left:0px;*/
+}
+#sticker_d{
+  position: absolute;
+  display: block;
+  z-index:  200000000;
+}

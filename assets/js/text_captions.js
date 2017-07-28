@@ -1,4 +1,8 @@
 var video = document.getElementById('media2');
+var b;
+var c;
+var h;
+
 var captionEffect = {
 
     startTime:0, //s
@@ -35,21 +39,39 @@ var captionEffect = {
     myfunction_c_contents: function(x){
       this.contents = x;
     },
+
+    caption_make: function(){
+      a = Math.random();
+      var make_p = document.createElement('p');
+      document.getElementById("captions_p").appendChild(make_p);
+      b = a + "make_p";
+      make_p.setAttribute('id',b);
+      console.log(b);
+    },
+
     caption_show: function(){
-        if (video.currentTime >= this.startTime && video.currentTime < this.endTime)
-          $('#effect_1').css('display','block');
-          $('#effect_1').attr('class', this.animation);
-          $('#effect_1').css('top', this.x + 'px').css('left', this.y + 'px');
-          $('#effect_1').css('font-size', this.size + 'px');
-          $('#effect_1').css('webkit-animation-delay', this.delay + 's');
-          $('#effect_1').css('color', this.color);
-          $('#effect_1').css('font-style', this.font);
-          document.getElementById("effect_1").innerHTML = this.contents;
-      },
-      caption_hide: function(){
-        $('#effect_1').css('display', 'none');
-      }
-    };
+            console.log(this.color);
+            document.getElementById(b).style.display="block";
+            document.getElementById(b).style.position="relative";
+            document.getElementById(b).setAttribute('class',this.animation);
+            document.getElementById(b).style.top= this.x + 'px';
+            document.getElementById(b).style.left=this.y + 'px';
+            document.getElementById(b).style.fontSize=this.size + 'px';
+            document.getElementById(b).style.color=this.color;
+            document.getElementById(b).style.animationDelay=this.delay;
+            document.getElementById(b).innerHTML = this.contents;
+            document.getElementById(b).style.fontStyle=this.font;
+          },
+        caption_hide: function(){
+            if(b){
+                document.getElementById(b).style.display="none";
+            }else{
+              return;
+            }
+          }
+        };
+
+
 
 var stickerEffect ={
 
@@ -83,17 +105,45 @@ var stickerEffect ={
     this.url = x;
     // console.log(this.url);
   },
-  sticker_show: function(){
-      if (video.currentTime >= this.startTime && video.currentTime < this.endTime)
-        $('#effect_3').css('display','block');
-        $('#effect_3').attr('class', this.animation);
-        $('#effect_3').css('top', this.x + 'px').css('left', this.y + 'px');
-        $('#effect_3').css('width',this.width).css('height',this.height);
-        $('#effect_3').css('webkit-animation-delay', this.delay + 's');
-        document.getElementById("effect_3").src = this.url;
-    },
-    sticker_hide: function(){
-      $('#effect_3').css('display', 'none');
-    }
 
-};
+  sticker_make: function(){
+    a = Math.random();
+    var make_d = document.createElement('div');
+    document.getElementById("sticker_d").appendChild(make_d);
+    c = a + "make_d";
+    make_d.setAttribute('id',c);
+
+    var make_i = document.createElement("img");
+    document.getElementById(c).appendChild(make_i);
+    h = a + "make_i";
+    make_i.setAttribute('id',h);
+
+  },
+
+
+  sticker_show: function(){
+
+      console.log(this.x);
+      console.log(this.y);
+      console.log(this.width);
+      console.log(this.url);
+        document.getElementById(c).style.display="block";
+        document.getElementById(c).style.position="relative";
+        document.getElementById(c).setAttribute('class',this.animation);
+        document.getElementById(c).style.top= this.x + 'px';
+        document.getElementById(c).style.left=this.y + 'px';
+        document.getElementById(c).style.width = this.width + 'px';
+        document.getElementById(c).style.height = this.height + 'px';
+        document.getElementById(c).style.animationDelay=this.delay;
+        document.getElementById(h).src = this.url;
+  
+      },
+
+      sticker_hide: function(){
+            if(c){
+                document.getElementById(c).style.display="none";
+            }else{
+              return;
+            }
+          }
+      };
