@@ -814,6 +814,8 @@ include './assets/util/queryUtil.php';
          $('#input_sticker_pos_y').val(y);
 
          $('#input_waves_start_time').val(video.currentTime.toFixed(3));
+         $('#startTime_captions').val(video.currentTime.toFixed(3));
+         $('#startTime_stickers').val(video.currentTime.toFixed(3));
 
        }
     </script>
