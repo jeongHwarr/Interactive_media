@@ -41,3 +41,8 @@
   /*top:0px;
   left:0px;*/
 }
+#sticker_d{
+  position: absolute;
+  display: block;
+  z-index:  200000000;
+}

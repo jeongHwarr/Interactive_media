@@ -75,6 +75,7 @@ include './assets/util/queryUtil.php';
             <div class="col-lg-6 col-md-12">
               <div class="waves-effect">
                 <div id="captions_p"></div>
+                  <div id="sticker_d"></div>
               <video
                 id="media2"
                 class="video-js waves-box"
@@ -94,11 +95,11 @@ include './assets/util/queryUtil.php';
               </video>
               </div>
                 <!--스티커 / 그림 인젝션 위치-->
-                <div class="animation_1"><p id ="effect_1">으헤헤헤</p></div>
+                <!-- <div class="animation_1"><p id ="effect_1">으헤헤헤</p></div>
                 <div class="animation_2" id ="effect_2"></div>
                 <div class="animation_3"><img id="effect_3" alt="img3" src=""></img></div>
                 <div class="animation_4" id ="effect_4"></div>
-                <div class="sticker" id="stickers_div"></div>
+                <div class="sticker" id="stickers_div"></div> -->
             </div>
 
 
@@ -455,11 +456,11 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
-                                                <select class="form-control" id="">
+                                                <select class="form-control" id="option_stickers">
                                                     <option value="">select please</option>
-                                                    <option value="head_bone">해골</option>
-                                                    <option value="baby">아기</option>
-                                                    <option value="lion">사자</option>
+                                                    <option value="http://cfile23.uf.tistory.com/image/1864EE3F50E62EA616460A">해골</option>
+                                                    <option value="http://bizdesign.net/data/cheditor4/1304/7a7f255e9283673e933658413636862a_fSDT1uJnhvXaBalZODxtBFaM.jpg">아기</option>
+                                                    <option value="https://s-media-cache-ak0.pinimg.com/originals/b2/56/15/b2561559644dc937bcca91b746cd9abe.png">사자</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -471,7 +472,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                                <select class="form-control" id="animation_stickes">
+                                                <select class="form-control" id="animation_stickers">
                                                     <option value="">select please</option>
                                                     <option value="animated infinite bounceOut">bounceOut</option>
                                                     <option value="animated infinite fadeIn">fadeIn</option>
@@ -724,6 +725,7 @@ include './assets/util/queryUtil.php';
           var s_height = result.stickers[i]['height'];
           var s_delay = result.stickers[i]['delay'];
           var s_url = result.stickers[i]['url'];
+          var s_id = result.stickers[i]['id'];
 
           if(video.currentTime >= s_start_t && video.currentTime < s_end_t && !video.paused){
               stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
@@ -731,8 +733,16 @@ include './assets/util/queryUtil.php';
               stickerEffect.myfunction_s_height(s_height);
               stickerEffect.myfunction_s_delay(s_delay);
               stickerEffect.myfunction_s_url(s_url);
+
+              if(temp_id!=s_id){
+                temp_id=s_id;
+                stickerEffect.sticker_make();
+              }
+
+
               stickerEffect.sticker_show();
             }else {
+              console.log("hide");
               stickerEffect.sticker_hide();
             }
          }
