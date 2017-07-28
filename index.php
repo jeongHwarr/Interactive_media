@@ -616,6 +616,7 @@ include './assets/util/queryUtil.php';
         console.log(session.get('captions_session'));
         console.log(session.get('stickers_session'));
 
+
         $.get('./assets/ajax/data.php', {cmd: 'getDataList'});
         $( document ).ajaxSend(function() {
         }).ajaxError(function(){
