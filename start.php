@@ -1,12 +1,6 @@
-<?php
-include './assets/config/dbconn.php';
-?>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -21,18 +15,18 @@ include './assets/config/dbconn.php';
 <!--
 프로젝트 선택과 새로만드는 페이지
 -->
-    <div id= "contents_wrapper">
+    <div id="contents_wrapper">
 
         <button class="btn btn-default" id="new_project">new Project</button>
-        <div id ="project_list">
+        <div id="project_list">
             <ul>
                 <!--프로젝트 목록 추가-->
                 <li><a onclick="loadProject(1)">프로젝트 1</a></li>
-                <li><a href=""target="_self">프로젝트 2</li>
-                <li><a href=""target="_self">프로젝트 3</li>
-            </ul>
+                <li><a href="" target="_self">프로젝트 2</a></li><a href="" target="_self">
+                </a><li><a href="" target="_self"></a><a href="" target="_self">프로젝트 3</a></li><a href="" target="_self">
+            </a></ul><a href="" target="_self">
 
-        </div>
+        </a></div><a href="" target="_self">
         <div class="panel panel-default" id="video_select" style="display: none">
             <div class="panel-heading">
                 <h3 class="panel-title">영상을 고르세요</h3>
@@ -64,7 +58,7 @@ include './assets/config/dbconn.php';
             </div>
     </div>
 
-</body>
+
 <script src="assets/js/session.js"></script>
 <script>
     $(document).ready(function(){
@@ -91,7 +85,7 @@ include './assets/config/dbconn.php';
 
     //프로젝트 로드가 끝난 후 실행 되는 함수
     function loadProjectSuccess(project_info,waves,captions,stickers) {
-
+      console.log("test");
       //session 정보 저장
       session.set('project_info_session', {project_info : project_info});
       session.set('waves_session', {waves_data : waves});
@@ -103,4 +97,5 @@ include './assets/config/dbconn.php';
     }
 
 </script>
-</html>
+
+</a></div></body></html>
