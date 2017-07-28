@@ -750,21 +750,22 @@ include './assets/util/queryUtil.php';
 
         //wave effectl 적용
         var video = document.getElementById("media2");
+        var temp_waves = session.get('waves_session');
+        console.log(temp_waves.waves_data[0]);
         video.addEventListener('timeupdate', function(){
-          for (var i = 0; i<result.waves.length; i++){
+          for (var i = 0; i<temp_waves.waves_data.length; i++){
 
              //************* DB정보 저장하는 변수 **************//
-             var start_t = result.waves[i]['startTime']/1000;
-             var end_t = result.waves[i]['endTime']/1000;
-             var x = result.waves[i]['pos_x'];
-             var y = result.waves[i]['pos_y'];
-             var duration = result.waves[i]['duration'];
-             var delay = result.waves[i]['delay'];
-             var scale = result.waves[i]['scale']/1000;
-             var trans_x = result.waves[i]['trans_x'];
-             var trans_y = result.waves[i]['trans_y'];
-             var color = result.waves[i]['color'];
-
+             var start_t = temp_waves.waves_data[i]['startTime']/1000;
+             var end_t = temp_waves.waves_data[i]['endTime']/1000;
+             var x = temp_waves.waves_data[i]['pos_x'];
+             var y = temp_waves.waves_data[i]['pos_y'];
+             var duration = temp_waves.waves_data[i]['duration'];
+             var delay = temp_waves.waves_data[i]['delay'];
+             var scale = temp_waves.waves_data[i]['scale']/1000;
+             var trans_x = temp_waves.waves_data[i]['trans_x'];
+             var trans_y = temp_waves.waves_data[i]['trans_y'];
+             var color = temp_waves.waves_data[i]['color'];
              //좌표변환
              var size = getElementCSSSize(video);
              var scaleX = video.videoWidth / size.width;
