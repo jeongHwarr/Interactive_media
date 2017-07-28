@@ -319,9 +319,9 @@ include './assets/util/queryUtil.php';
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_captions">
                                                     <option value="">select please</option>
-                                                    <option value="bounceOut">bounceOut</option>
-                                                    <option value="fadeIn">fadeIn</option>
-                                                    <option value="bounceIn">bounceIn</option>
+                                                    <option value="animated infinite bounceOut">bounceOut</option>
+                                                    <option value="animated infinite fadeIn">fadeIn</option>
+                                                    <option value="animated infinite bounceIn">bounceIn</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -473,9 +473,9 @@ include './assets/util/queryUtil.php';
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_stickes">
                                                     <option value="">select please</option>
-                                                    <option value="bounceOut">bounceOut</option>
-                                                    <option value="fadeIn">fadeIn</option>
-                                                    <option value="bounceIn">bounceIn</option>
+                                                    <option value="animated infinite bounceOut">bounceOut</option>
+                                                    <option value="animated infinite fadeIn">fadeIn</option>
+                                                    <option value="animated infinite bounceIn">bounceIn</option>
                                                 </select>
                                             </div>
                                         </div>
