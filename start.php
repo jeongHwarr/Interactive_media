@@ -93,12 +93,10 @@ include './assets/config/dbconn.php';
 
     //프로젝트 로드가 끝난 후 실행 되는 함수
     function loadProjectSuccess(project_info,waves,captions,stickers) {
-      console.log("test");
-      //session 정보 저장
-      session.set('project_info_session', {project_info : project_info});
-      session.set('waves_session', {waves_data : waves});
-      session.set('captions_session', {captions_data : captions});
-      session.set('stickers_session', {stickers_data : stickers});
+      session.set('project_info_session', {['project_info_session'] : waves});
+      session.set('waves_session', {['waves_session'] : waves});
+      session.set('captions_session', {['captions_session'] : waves});
+      session.set('stickers_session', {['stickers_session'] : waves});
 
       //index.php로 이동
       location.href = 'index.php';
