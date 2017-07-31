@@ -24,6 +24,7 @@ function waves_save(){
 
   session.add("waves_session",push_value);
   console.log(session.get("waves_session"));
+  return waves_session_data = session.get('waves_session')['waves_session'];
 }
 
 
@@ -47,6 +48,7 @@ function captions_save(){
 
   session.add("captions_session",push_value);
   console.log(session.get("captions_session"));
+  return captions_session_data = session.get('captions_session')['captions_session'];
 }
 
 //stickers 효과 저장하여 세선에 추가하는 함수
@@ -67,4 +69,5 @@ function stickers_save(){
                     width:width, height:height, delay:delay, url:url, animation:animation, p_id:p_id};
   session.add("stickers_session",push_value);
   console.log(session.get("stickers_session"));
+  return stickers_session_data = session.get('stickers_session')['stickers_session'];
 }

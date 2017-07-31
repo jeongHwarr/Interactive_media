@@ -220,7 +220,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Duration</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_duration" class="form-control" type="text">
+                                                    <input id="input_waves_duration" class="form-control" type="text" value="1">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -228,7 +228,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_delay" class="form-control" type="text">
+                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.3">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -236,7 +236,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Scale</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_scale" class="form-control" type="text">
+                                                    <input id="input_waves_scale" class="form-control" type="text" value="1">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -247,13 +247,13 @@ include './assets/util/queryUtil.php';
                                                             <p class="tab_cont">X</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input id="input_waves_translate_x" class="form-control pos_x" type="text">
+                                                            <input id="input_waves_translate_x" class="form-control pos_x" type="text" value="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-12">
                                                             <p class="tab_cont">Y</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input id="input_waves_translate_y" class="form-control pos_y" type="text">
+                                                            <input id="input_waves_translate_y" class="form-control pos_y" type="text" value="0">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -608,7 +608,7 @@ include './assets/util/queryUtil.php';
 
     <script type="text/javascript">
       $(document).ready(function(){
-        //for session test
+        //test for session
         console.log(session.get('project_info_session'));
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
@@ -642,29 +642,31 @@ include './assets/util/queryUtil.php';
 
         $(document).ready(function(){
             $("#waves_save").click(function(){
-              waves_save();
+              waves_session_data = waves_save();
             });
         });
 
         $(document).ready(function(){
           $("#captions_save").click(function(){
-            captions_save();
+            captions_session_data = captions_save();
           })
         });
 
         $(document).ready(function(){
           $("#stickers_save").click(function(){
-            stickers_save();
+            stickers_session_data = stickers_save();
           })
         });
 
     </script>
     <script type="text/javascript">
+    var project_info_session_data = session.get('project_info_session')['project_info_session'];
+
     //caption effect 적용
     var video = document.getElementById("media2");
+    var temp_id = 99999;
     var captions_session_data = session.get('captions_session')['captions_session'];
 
-    var temp_id = 99999;
     video.addEventListener('timeupdate', function(){
       for (var i = 0; i<captions_session_data.length; i++){
 
