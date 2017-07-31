@@ -31,6 +31,8 @@ include './assets/util/queryUtil.php';
     <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+
 </head>
 
 <body>
@@ -159,13 +161,14 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane active" role="tabpanel" id="tab-1"> <!--첫번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_waves_input">
-                                <form id = "waves_set"> <!--입력 폼-->
-                                    <div class="row">
+                                <form id = "waves_set" role="form" data-toggle="validator"> <!--입력 폼-->
+                                    <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_waves">
+                                            <input class="form-control" type="text" id="title_waves" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -173,107 +176,110 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Time </p>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row form-group">
                                         <div class="col-lg-1 col-lg-offset-1 col-md-12">
                                             <p class="tab_cont">Start </p>
                                         </div>
+
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_start_time" class="form-control time_start" type="text">
+                                            <input id="input_waves_start_time" class="form-control time_start" type="text" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_end_time" class="form-control time_end" type="text" >
+                                            <input id="input_waves_end_time" class="form-control time_end" type="text" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
+                                        <div class="col-md-12 help-block with-errors"></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p class="tab_title">Position </p>
-                                            <div class="row">
+                                            <div class="row  form-group">
                                                 <div class="col-lg-2 col-lg-offset-2 col-md-12">
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text">
+                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text">
+                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
+                                                <div class="col-md-12 help-block with-errors"></div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div id="extra_waves" style="display: none">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Duration</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input id="input_waves_duration" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Delay</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input id="input_waves_delay" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Scale</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input id="input_waves_scale" class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="tab_title">Translate</p>
+                                                    <div class="row">
+                                                        <div class="col-lg-2 col-lg-offset-2 col-md-12">
+                                                            <p class="tab_cont">X</p>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-12">
+                                                            <input id="input_waves_translate_x" class="form-control pos_x" type="text">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-12">
+                                                            <p class="tab_cont">Y</p>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-12">
+                                                            <input id="input_waves_translate_y" class="form-control pos_y" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Color</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="color_waves">
+                                                            <option value="0">black</option>
+                                                            <option value="1">blue</option>
+                                                            <option value="2">red</option>
+                                                            <option value="3">green</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!--extra_waves end-->
+                                    <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
+                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-primary" type="submit" id="waves_save">saves </button> <!--효과저장 버튼-->
                                 </form>
                                 <!--waves추가옵션-->
-                                <div id="extra_waves" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Duration</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input id="input_waves_duration" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Delay</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input id="input_waves_delay" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Scale</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input id="input_waves_scale" class="form-control" type="text">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <p class="tab_title">Translate</p>
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-lg-offset-2 col-md-12">
-                                                        <p class="tab_cont">X</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input id="input_waves_translate_x" class="form-control pos_x" type="text">
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-12">
-                                                        <p class="tab_cont">Y</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input id="input_waves_translate_y" class="form-control pos_y" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Color</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <div class="form-group">
-                                                    <select class="form-control" id="color_waves">
-                                                        <option value="0">black</option>
-                                                        <option value="1">blue</option>
-                                                        <option value="2">red</option>
-                                                        <option value="3">green</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!--extra_waves end-->
-                                <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
-                                <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                <button class="btn btn-primary" type="button" id="waves_save">saves </button> <!--효과저장 버튼-->
                             </div><!--section waves_input end-->
                             <div class="col-md-12">
                               <hr>
@@ -295,13 +301,14 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane" role="tabpanel" id="tab-2"> <!--두번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_captions_input">
-                                <form id = "captions_set"> <!--입력 폼-->
-                                    <div class="row">
+                                <form id = "captions_set" role="form" data-toggle="validator"> <!--입력 폼-->
+                                    <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_captions">
+                                            <input class="form-control" type="text" id="title_captions" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -332,94 +339,97 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Time </p>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row form-group">
                                         <div class="col-lg-1 col-lg-offset-1 col-md-12">
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_captions">
+                                            <input class="form-control time_start" type="text" id="startTime_captions" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_captions">
+                                            <input class="form-control time_end" type="text" id="endTime_captions" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
+                                        <div class="col-md-12 help-block with-errors"></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p class="tab_title">Position </p>
-                                            <div class="row">
+                                            <div class="row form-group">
                                                 <div class="col-lg-2 col-lg-offset-2 col-md-12">
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text">
+                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text">
+                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
+                                                <div class="col-md-12 help-block with-errors"></div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="extra_captions" style="display: none">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Font Size</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input class="form-control" type="text" id="font_size_captions">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Delay</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input class="form-control" type="text" id="delay_captions">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Color</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="color_captions">
+                                                            <option value="">select please</option>
+                                                            <option value="red">빨강</option>
+                                                            <option value="blue">파랑</option>
+                                                            <option value="yellow">노랑</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">FontFamily</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="font_name_captions">
+                                                            <option value="">select please</option>
+                                                            <option value="normal">normal</option>
+                                                            <option value="italic">italic</option>
+                                                            <option value="oblique">oblique</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--extra_captions end-->
+                                    <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
+                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-primary" type="submit" id="captions_save">saves </button> <!--효과저장 버튼-->
                                 </form>
 
-                                <div id="extra_captions" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Font Size</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="font_size_captions">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Delay</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="delay_captions">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Color</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <div class="form-group">
-                                                    <select class="form-control" id="color_captions">
-                                                        <option value="">select please</option>
-                                                        <option value="red">빨강</option>
-                                                        <option value="blue">파랑</option>
-                                                        <option value="yellow">노랑</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">FontFamily</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <div class="form-group">
-                                                    <select class="form-control" id="font_name_captions">
-                                                        <option value="">select please</option>
-                                                        <option value="normal">normal</option>
-                                                        <option value="italic">italic</option>
-                                                        <option value="oblique">oblique</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!--extra_captions end-->
-                                <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
-                                <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                <button class="btn btn-primary" type="button" id="captions_save">saves </button> <!--효과저장 버튼-->
+
                             </div><!--section captions end-->
                             <div class="col-md-12">
                                 <hr>
@@ -441,13 +451,14 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane" role="tabpanel" id="tab-3"> <!--세번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_stickers_input">
-                                <form id = "stickers_set"> <!--입력 폼-->
-                                    <div class="row">
+                                <form id = "stickers_set" role="form" data-toggle="validator"> <!--입력 폼-->
+                                    <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_stickers">
+                                            <input class="form-control" type="text" id="title_stickers" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -486,21 +497,22 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Time </p>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row form-group">
                                         <div class="col-lg-1 col-lg-offset-1 col-md-12">
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_stickers">
+                                            <input class="form-control time_start" type="text" id="startTime_stickers" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_stickers" >
+                                            <input class="form-control time_end" type="text" id="endTime_stickers" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
+                                        <div class="col-md-12 help-block with-errors"></div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row form-group">
                                         <div class="col-md-12">
                                             <p class="tab_title">Position </p>
                                             <div class="row">
@@ -508,67 +520,53 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text">
+                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text">
+                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="extra_stickers" style="display: none">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="tab_title">Size</p>
+                                                    <div class="row">
+                                                        <div class="col-lg-2 col-lg-offset-2 col-md-12">
+                                                            <p class="tab_cont">width</p>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-12">
+                                                            <input class="form-control pos_x" type="text" id="width_stickers">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-12">
+                                                            <p class="tab_cont">height</p>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-12">
+                                                            <input class="form-control pos_y" type="text" id="height_stickers">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Delay</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input class="form-control" type="text" id="delay_stickers">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--div extra_stikers end-->
+                                    <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
+                                    <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-primary" type="submit" id="stickers_save">saves</button> <!--효과저장 버튼-->
                                 </form>
-                                <div id="extra_stickers" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <p class="tab_title">Size</p>
-                                                <div class="row">
-                                                    <div class="col-lg-2 col-lg-offset-2 col-md-12">
-                                                        <p class="tab_cont">width</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_x" type="text" id="width_stickers">
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-12">
-                                                        <p class="tab_cont">height</p>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-12">
-                                                        <input class="form-control pos_y" type="text" id="height_stickers">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-12">
-                                                <p class="tab_title">Delay</p>
-                                            </div>
-                                            <div class="col-lg-8 col-md-12">
-                                                <input class="form-control" type="text" id="delay_stickers">
-                                            </div>
-                                        </div>
-<!--                                        <div class="row">-->
-<!--                                            <div class="col-lg-4 col-md-12">-->
-<!--                                                <p class="tab_title">Url</p>-->
-<!--                                            </div>-->
-<!--                                            <div class="col-lg-8 col-md-12">-->
-<!--                                                <div class="form-group">-->
-<!--                                                    <select class="form-control" id="option_stickers">-->
-<!--                                                        <option value="">select please</option>-->
-<!--                                                        <option value="head_bone">해골</option>-->
-<!--                                                        <option value="B">B</option>-->
-<!--                                                        <option value="C">C</option>-->
-<!--                                                    </select>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-                                    </div>
-                                </div><!--div extra_stikers end-->
-                                <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
-                                <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
-                                <button class="btn btn-primary" type="button" id="stickers_save">saves</button> <!--효과저장 버튼-->
+
                             </div><!--section stickers input end-->
 
                             <div class="col-md-12">
@@ -631,7 +629,12 @@ include './assets/util/queryUtil.php';
         });
       });
     </script>
+
     <script>
+        $('form').submit(function (evt) {
+            evt.preventDefault(); //prevents the default action
+
+        });
         //more options 토글 스크립트
         $(document).ready(function(){
             $("#more_op_waves").click(function(){
