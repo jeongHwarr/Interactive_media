@@ -612,6 +612,7 @@ include './assets/util/queryUtil.php';
     <script type="text/javascript">
       $(document).ready(function(){
         //test for session
+        // setting_black();
         console.log(session.get('project_info_session'));
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
@@ -624,6 +625,7 @@ include './assets/util/queryUtil.php';
             evt.preventDefault(); //prevents the default action
 
         });
+
         //more options 토글 스크립트
         $(document).ready(function(){
             $("#more_op_waves").click(function(){
@@ -820,9 +822,16 @@ include './assets/util/queryUtil.php';
          var scaleX = this.videoWidth / size.width;
          var scaleY = this.videoHeight / size.height;
 
+
+
          var rect = this.getBoundingClientRect();  // absolute position of element
          var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
          var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
+
+         black_top.style.width = size.width+"px";
+         black_top.style.height = 30+(size.height-(video.videoHeight/video.videoWidth*size.width))/2+"px";
+         black_bottom.style.width = size.width+"px";
+         black_bottom.style.height = 30+(size.height-(video.videoHeight/video.videoWidth*size.width))/2+"px";
 
          console.log("x : " + x);
          console.log("y : " + y);
@@ -838,6 +847,9 @@ include './assets/util/queryUtil.php';
          $('#startTime_stickers').val(video.currentTime);
 
        }
+
+
     </script>
+
 </body>
 </html>

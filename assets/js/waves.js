@@ -88,7 +88,7 @@ var WaveEffect = {
         rippleStyle['-o-transform'] = scale + ' ' + translate;
         rippleStyle.transform = scale + ' ' + translate;
         rippleStyle.opacity = '1';
-        
+
         var duration = this.duration;
         rippleStyle['-webkit-transition-duration'] = duration + 'ms';
         rippleStyle['-moz-transition-duration']    = duration + 'ms';

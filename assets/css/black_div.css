@@ -1,6 +1,6 @@
 #black_top{
   position: absolute;
-  height:100px;
+  height:0px;
   width:100%;
   background:#000000;
   z-index:9999999999;
@@ -9,7 +9,7 @@
 #black_bottom{
   position: absolute;
   bottom:0px;
-  height:100px;
+  height:0px;
   width:100%;
   background:#000000;
   z-index:9999999999;
