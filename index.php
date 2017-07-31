@@ -602,9 +602,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
-    <!-- <script src="assets/js/text_captions.js"></script>
-    <script src="assets/js/captions_save.js"></script> -->
-    <script src="assets/js/sticker_save.js"></script>
+    <script src="assets/js/text_captions.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
 
@@ -618,15 +616,6 @@ include './assets/util/queryUtil.php';
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
         console.log(session.get('stickers_session'));
-
-        $.get('./assets/ajax/data.php', {cmd: 'getDataList'});
-        $( document ).ajaxSend(function() {
-        }).ajaxError(function(){
-          console.log("Ajax Request Error!");
-        }).ajaxSuccess(function(e,xhr,options,data){
-          console.log("Ajax Request Success");
-          result = data;
-        });
       });
     </script>
 
