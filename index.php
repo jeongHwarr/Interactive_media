@@ -663,7 +663,6 @@ include './assets/util/queryUtil.php';
 
     </script>
     <script type="text/javascript">
-
     //caption effect 적용
     var video = document.getElementById("media2");
     var captions_session_data = session.get('captions_session')['captions_session'];
