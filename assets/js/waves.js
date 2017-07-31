@@ -88,13 +88,14 @@ var WaveEffect = {
         rippleStyle['-o-transform'] = scale + ' ' + translate;
         rippleStyle.transform = scale + ' ' + translate;
         rippleStyle.opacity = '1';
+        
         var duration = this.duration;
         rippleStyle['-webkit-transition-duration'] = duration + 'ms';
         rippleStyle['-moz-transition-duration']    = duration + 'ms';
         rippleStyle['-o-transition-duration']      = duration + 'ms';
         rippleStyle['transition-duration']         = duration + 'ms';
         ripple.setAttribute('style', convertStyle(rippleStyle));
-        ripple.style.zIndex = 2147483647;
+        // ripple.style.zIndex = 2147483647;
     },
     hide: function(element) {
         element = element || this;

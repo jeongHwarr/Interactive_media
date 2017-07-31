@@ -18,6 +18,7 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
+    <link rel="stylesheet" href="assets/css/black_div.css" />
 
     <link rel="stylesheet" href="assets/css/text_captions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -76,8 +77,10 @@ include './assets/util/queryUtil.php';
             <!--media2 박스 시작-->
             <div class="col-lg-6 col-md-12">
               <div class="waves-effect">
+                <div id="black_top"></div>
+                <div id="black_bottom"></div>
                 <div id="captions_p"></div>
-                  <div id="sticker_d"></div>
+                <div id="sticker_d"></div>
               <video
                 id="media2"
                 class="video-js waves-box"
