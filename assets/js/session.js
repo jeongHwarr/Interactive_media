@@ -25,6 +25,14 @@ class Session extends Map {
      object_value.push(value); //array push
      session.set(id, {[key] : object_value});
    }
+
+   remove(id, index){
+     const object = session.get(id);
+     const key = Object.keys(object);// find key value;
+     var object_value = object[key];//get object_value (array)
+     object_value.splice(index,1);//array remove using index
+     session.set(id, {[key] : object_value});
+   }
  }
 
 //Session 클래스를 이용하기 위한 변수 session

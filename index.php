@@ -607,9 +607,6 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/effect_save.js"></script>
 
     <script type="text/javascript">
-
-      var result;
-
       $(document).ready(function(){
         //for session test
         console.log(session.get('project_info_session'));
@@ -663,7 +660,6 @@ include './assets/util/queryUtil.php';
 
     </script>
     <script type="text/javascript">
-
     //caption effect 적용
     var video = document.getElementById("media2");
     var captions_session_data = session.get('captions_session')['captions_session'];
