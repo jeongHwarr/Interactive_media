@@ -301,7 +301,7 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane" role="tabpanel" id="tab-2"> <!--두번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_captions_input">
-                                <form id = "captions_set"> <!--입력 폼-->
+                                <form id = "captions_set" role="form" data-toggle="validator"> <!--입력 폼-->
                                     <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
@@ -451,7 +451,7 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane" role="tabpanel" id="tab-3"> <!--세번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_stickers_input">
-                                <form id = "stickers_set"> <!--입력 폼-->
+                                <form id = "stickers_set" role="form" data-toggle="validator"> <!--입력 폼-->
                                     <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
