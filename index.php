@@ -604,11 +604,12 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
-    <script src="assets/js/saves.js"></script>
-    <script src="assets/js/text_captions.js"></script>
-    <script src="assets/js/captions_save.js"></script>
+    <!-- <script src="assets/js/text_captions.js"></script>
+    <script src="assets/js/captions_save.js"></script> -->
     <script src="assets/js/sticker_save.js"></script>
     <script src="assets/js/session.js"></script>
+    <script src="assets/js/effect_save.js"></script>
+
     <script type="text/javascript">
 
       var result;
@@ -619,7 +620,6 @@ include './assets/util/queryUtil.php';
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
         console.log(session.get('stickers_session'));
-
 
         $.get('./assets/ajax/data.php', {cmd: 'getDataList'});
         $( document ).ajaxSend(function() {
@@ -653,7 +653,7 @@ include './assets/util/queryUtil.php';
 
         $(document).ready(function(){
             $("#waves_save").click(function(){
-              save();
+              waves_save();
             });
         });
 
@@ -674,22 +674,23 @@ include './assets/util/queryUtil.php';
 
     //caption effect 적용
     var video = document.getElementById("media2");
+    var captions_session_data = session.get('captions_session')['captions_session'];
+
     var temp_id = 99999;
     video.addEventListener('timeupdate', function(){
-      for (var i = 0; i<result.captions.length; i++){
+      for (var i = 0; i<captions_session_data.length; i++){
 
-         //************* DB로부터 가져온 데이터 저장하는 변수 **************//
-         var c_start_t = result.captions[i]['startTime']/1000;
-         var c_end_t = result.captions[i]['endTime']/1000;
-         var c_x = result.captions[i]['pos_x'];
-         var c_y = result.captions[i]['pos_y'];
-         var c_animation = result.captions[i]['animation'];
-         var c_size = result.captions[i]['size'];
-         var c_delay = result.captions[i]['delay'];
-         var c_color = result.captions[i]['color'];
-         var c_font = result.captions[i]['font'];
-         var c_contents = result.captions[i]['contents'];
-         var c_id = result.captions[i]['id'];
+         var c_start_t = captions_session_data[i]['startTime']/1000;
+         var c_end_t = captions_session_data[i]['endTime']/1000;
+         var c_x = captions_session_data[i]['pos_x'];
+         var c_y = captions_session_data[i]['pos_y'];
+         var c_animation = captions_session_data[i]['animation'];
+         var c_size = captions_session_data[i]['size'];
+         var c_delay = captions_session_data[i]['delay'];
+         var c_color = captions_session_data[i]['color'];
+         var c_font = captions_session_data[i]['font'];
+         var c_contents = captions_session_data[i]['contents'];
+         var c_id = captions_session_data[i]['id'];
 
          if(video.currentTime >= c_start_t && video.currentTime < c_end_t && !video.paused){
            captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
@@ -713,20 +714,21 @@ include './assets/util/queryUtil.php';
 
      //sticker effect 적용
      var video = document.getElementById("media2");
-     video.addEventListener('timeupdate', function(){
-       for (var i = 0; i<result.stickers.length; i++){
+     var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
-          //************* DB로부터 가져온 데이터 저장하는 변수 **************//
-          var s_start_t = result.stickers[i]['startTime']/1000;
-          var s_end_t = result.stickers[i]['endTime']/1000;
-          var s_x = result.stickers[i]['pos_x'];
-          var s_y = result.stickers[i]['pos_y'];
-          var s_animation = result.stickers[i]['animation'];
-          var s_width = result.stickers[i]['width'];
-          var s_height = result.stickers[i]['height'];
-          var s_delay = result.stickers[i]['delay'];
-          var s_url = result.stickers[i]['url'];
-          var s_id = result.stickers[i]['id'];
+     video.addEventListener('timeupdate', function(){
+       for (var i = 0; i < stickers_session_data.length; i++){
+
+         var s_start_t = stickers_session_data[i]['startTime']/1000;
+         var s_end_t = stickers_session_data[i]['endTime']/1000;
+         var s_x = stickers_session_data[i]['pos_x'];
+         var s_y = stickers_session_data[i]['pos_y'];
+         var s_animation = stickers_session_data[i]['animation'];
+         var s_width = stickers_session_data[i]['width'];
+         var s_height = stickers_session_data[i]['height'];
+         var s_delay = stickers_session_data[i]['delay'];
+         var s_url = stickers_session_data[i]['url'];
+         var s_id = stickers_session_data[i]['id'];
 
           if(video.currentTime >= s_start_t && video.currentTime < s_end_t && !video.paused){
               stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
@@ -751,21 +753,35 @@ include './assets/util/queryUtil.php';
 
         //wave effectl 적용
         var video = document.getElementById("media2");
+        var waves_session_data = session.get('waves_session')['waves_session'];
 
         video.addEventListener('timeupdate', function(){
-          for (var i = 0; i<result.waves.length; i++){
+          // console.log("length : " + waves_session.length);
+          for (var i = 0; i < waves_session_data.length; i++){
+             var start_t = waves_session_data[i]['startTime']/1000;
+             var end_t = waves_session_data[i]['endTime']/1000;
+             var x = waves_session_data[i]['pos_x'];
+             var y = waves_session_data[i]['pos_y'];
+             var duration = waves_session_data[i]['duration'];
+             var delay = waves_session_data[i]['delay'];
+             var scale = waves_session_data[i]['scale']/1000;
+             var trans_x = waves_session_data[i]['trans_x'];
+             var trans_y = waves_session_data[i]['trans_y'];
+             var color = waves_session_data[i]['color'];
+
 
              //************* DB정보 저장하는 변수 **************//
-             var start_t = result.waves[i]['startTime']/1000;
-             var end_t = result.waves[i]['endTime']/1000;
-             var x = result.waves[i]['pos_x'];
-             var y = result.waves[i]['pos_y'];
-             var duration = result.waves[i]['duration'];
-             var delay = result.waves[i]['delay'];
-             var scale = result.waves[i]['scale']/1000;
-             var trans_x = result.waves[i]['trans_x'];
-             var trans_y = result.waves[i]['trans_y'];
-             var color = result.waves[i]['color'];
+            //  var start_t = result.waves[i]['startTime']/1000;
+            //  var end_t = result.waves[i]['endTime']/1000;
+            //  var x = result.waves[i]['pos_x'];
+            //  var y = result.waves[i]['pos_y'];
+            //  var duration = result.waves[i]['duration'];
+            //  var delay = result.waves[i]['delay'];
+            //  var scale = result.waves[i]['scale']/1000;
+            //  var trans_x = result.waves[i]['trans_x'];
+            //  var trans_y = result.waves[i]['trans_y'];
+            //  var color = result.waves[i]['color'];
+
              //좌표변환
              var size = getElementCSSSize(video);
              var scaleX = video.videoWidth / size.width;

@@ -17,12 +17,13 @@ class Session extends Map {
        return value;
      }
    }
-   
+
    add(id, value){
      const object = session.get(id);
-     var object_value = object[id]; //get object_value (array)
+     const key = Object.keys(object);// find key value;
+     var object_value = object[key]; //get object_value (array)
      object_value.push(value); //array push
-     session.set(id, {[id] : object_value});
+     session.set(id, {[key] : object_value});
    }
  }
 
