@@ -828,6 +828,7 @@ include './assets/util/queryUtil.php';
          var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
          var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
 
+         //클릭했을때 검은색 영역 지정
          black_top.style.width = size.width+"px";
          black_top.style.height = 30+(size.height-(video.videoHeight/video.videoWidth*size.width))/2+"px";
          black_bottom.style.width = size.width+"px";
