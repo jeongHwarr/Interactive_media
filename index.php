@@ -747,5 +747,24 @@ include './assets/util/queryUtil.php';
        //in assets/js/mouse_pointer.js
        addClickEvent(video,video_js);
     </script>
+
+<script>//syncro current time
+    var video1 = document.getElementById("media1");
+    $(document).ready(
+        video1.addEventListener('timeupdate', function () {
+            var c_time1 = video1.currentTime;
+            var c_time2 = video.currentTime;
+            console.log("1번 : "+c_time1);
+            console.log("2번 : "+c_time2);
+            var time_diff = Math.abs(c_time1 - c_time2);
+            if(time_diff>0.05){
+                video.currentTime=c_time1+0.02;
+            }else{
+                console.log("nothing");
+            }
+        })
+    );
+
+</script>
 </body>
 </html>
