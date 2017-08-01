@@ -2,6 +2,7 @@
 include 'constants.php';
 include './assets/config/dbconn.php';
 include './assets/util/queryUtil.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -163,7 +164,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <input class="form-control" type="text" id="title_waves"
-                                                    data-minlength="4" data-error="제목이 너무 짧습니다." placeholder="title" value="제목없음">
+                                                    data-minlength="4" data-error="제목이 너무 짧습니다." placeholder="제목없음">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>

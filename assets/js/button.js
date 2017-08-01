@@ -12,13 +12,25 @@ function setButtonOnClick(){
 
     //세션 저장(파란색 saves버튼)
     $("#waves_save").click(function(){
+        if($("#title_waves")===""){
+            $("#title_waves").val("제목없음")
+        }else{
       waves_session_data = waves_save();
+        }
     });
     $("#captions_save").click(function(){
-      captions_session_data = captions_save();
+        if($("#title_captions")===""){
+            $("#title_captions").val("제목없음")
+        }else {
+            captions_session_data = captions_save();
+        }
     });
     $("#stickers_save").click(function(){
-      stickers_session_data = stickers_save();
+        if($("#title_stickers")===""){
+            $("#title_stickers").val("제목없음")
+        }else {
+            stickers_session_data = stickers_save();
+        }
     });
 
     //전체 프로젝트 db저장(초록색 save 버튼)
