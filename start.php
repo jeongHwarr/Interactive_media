@@ -12,9 +12,8 @@ include './assets/config/dbconn.php';
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     </script>
     <title>Project Start</title>
@@ -29,7 +28,7 @@ include './assets/config/dbconn.php';
         <div id="project_list">
             <ul>
                 <!--프로젝트 목록 추가-->
-                <li><a onclick="loadProject(1)">프로젝트 1</a></li>
+                <li><a id="li_project_1">프로젝트 1</a></li>
                 <li><a href="" target="_self">프로젝트 2</a></li><a href="" target="_self">
                 </a><li><a href="" target="_self"></a><a href="" target="_self">프로젝트 3</a></li><a href="" target="_self">
             </a></ul><a href="" target="_self">
@@ -68,39 +67,20 @@ include './assets/config/dbconn.php';
 
 
 <script src="assets/js/session.js"></script>
+<script src="assets/js/project_load.js"></script>
 <script>
     $(document).ready(function(){
         $("#new_project").click(function(){
             $("#video_select").slideDown();
         });
+    });
 
-        $( document ).ajaxSend(function() {
-        }).ajaxError(function(){
-          console.log("Ajax Request Error!");
-        }).ajaxSuccess(function(e,xhr,options,data){
-          console.log(data);
-          var methodName = data.cmd + 'Success';
-          if (self[methodName]){
-            self[methodName](data.project_info, data.waves, data.captions, data.stickers);
-          }
+    $(document).ready(function(){
+        $("#li_project_1").click(function(){
+            loadProject(1); // in assets/js/project_load.js
         });
     });
 
-    //프로젝트를 로드하는 함수
-    function loadProject(project_id){
-      $.get('./assets/ajax/common.php', {cmd: 'loadProject', project_id : project_id});
-    }
-
-    //프로젝트 로드가 끝난 후 실행 되는 함수
-    function loadProjectSuccess(project_info,waves,captions,stickers) {
-      session.set('project_info_session', {['project_info_session'] :project_info});
-      session.set('waves_session', {['waves_session'] : waves});
-      session.set('captions_session', {['captions_session'] : captions});
-      session.set('stickers_session', {['stickers_session'] : stickers});
-
-      //index.php로 이동
-      location.href = 'index.php';
-    }
 
 </script>
 

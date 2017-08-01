@@ -71,7 +71,24 @@ var captionEffect = {
               }else{
                     $("#captions_p").empty();
                    }
-                          }
+                 },
+    make_hide: function(){
+          var check = document.getElementById(new_id_c);
+                if (check=== null){
+                       return;
+                  }else{
+                      document.getElementById(new_id_c).style.display="none";
+                        }
+    },
+
+    show_hide: function(){
+              var check = document.getElementById(new_id_c);
+                  if (check=== null){
+                     return;
+                   }else{
+                    document.getElementById(new_id_c).style.display="block";
+                        }
+                      }
     };
 
 var stickerEffect ={
@@ -132,7 +149,8 @@ var stickerEffect ={
         document.getElementById(new_id_s).style.animationDelay=this.delay;
         document.getElementById(new_id_image).src = this.url;
       },
-      sticker_hide: function(){
+
+  sticker_hide: function(){
         var check = document.getElementById(new_id_s);
         if (check=== null){
           return;
@@ -142,5 +160,23 @@ var stickerEffect ={
         else{
           $("#sticker_d").empty();
             }
+        },
+
+  make_hide: function(){
+            var check = document.getElementById(new_id_s);
+            if (check=== null){
+              return;
+            }else{
+          document.getElementById(new_id_s).style.display="none";
+          }
+        },
+
+  show_hide: function(){
+          var check = document.getElementById(new_id_s);
+          if (check=== null){
+            return;
+          }else{
+           document.getElementById(new_id_s).style.display="block";
+         }
         }
       };
