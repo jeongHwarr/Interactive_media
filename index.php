@@ -681,7 +681,6 @@ include './assets/util/queryUtil.php';
            }
       }, false);
 
-
      //sticker effect 적용
      var video = document.getElementById("media2");
      var temp = 99999;
@@ -727,8 +726,10 @@ include './assets/util/queryUtil.php';
       </script>
 
      <script>
+     //waves session 정보
       var waves_session_data = session.get('waves_session')['waves_session'];
-      setWaveEffect(waves_session_data);
+      //waves정보, 적용 video, wave가 만들어질 장소
+      setWaveEffect(waves_session_data, "#media2", ".waves-box");
      </script>
 
      <script>

@@ -205,8 +205,8 @@ function getWavesWaveEffectElement(e) {
     return element;
 }
 
-function setWaveEffect(data) {
-  $("#media2").bind("timeupdate", function(){
+function setWaveEffect(data, v, box) {
+  $(v).bind("timeupdate", function(){
     for (var i = 0; i < data.length; i++){
        //session 데이터 변환
        var start_t = data[i]['startTime']/1000;
@@ -221,19 +221,19 @@ function setWaveEffect(data) {
        var color = data[i]['color'];
 
        //css크기와 video크기 비교
-       var scaleX = this.videoWidth / $("#media2").outerWidth();
-       var scaleY = this.videoHeight / $("#media2").outerHeight();
+       var scaleX = this.videoWidth / $(v).outerWidth();
+       var scaleY = this.videoHeight / $(v).outerHeight();
 
        //x, y 변환
        x = (x - 0.5)/scaleX;
        y = (y - 0.5)/scaleY;
-       
+
        if(this.currentTime >= start_t && this.currentTime<end_t){
           WaveEffect.setLocation(x,y);
           WaveEffect.setColor(color);
           WaveEffect.setScale(scale);
           WaveEffect.setTransition(trans_x, trans_y);
-          makeWaveEffect($(".waves-box")[0]);
+          makeWaveEffect($(box)[0]);
         }
       }
    });
