@@ -727,7 +727,6 @@ include './assets/util/queryUtil.php';
                 //스티커나왔을때 정지상태이면 스티커를 없애기
                 stickerEffect.make_hide();
               }
-
             }
             }
       }, false);
