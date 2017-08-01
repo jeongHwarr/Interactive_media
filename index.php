@@ -742,12 +742,10 @@ include './assets/util/queryUtil.php';
             }
       }, false);
 
-      //wave effectl 적용
       var waves_session_data = session.get('waves_session')['waves_session'];
-
       $("#media2").bind("timeupdate", function(){
-
         for (var i = 0; i < waves_session_data.length; i++){
+           //session 데이터 변환
            var start_t = waves_session_data[i]['startTime']/1000;
            var end_t = waves_session_data[i]['endTime']/1000;
            var x = waves_session_data[i]['pos_x'];
@@ -759,9 +757,11 @@ include './assets/util/queryUtil.php';
            var trans_y = waves_session_data[i]['trans_y'];
            var color = waves_session_data[i]['color'];
 
+           //css크기와 video크기 비교
            var scaleX = this.videoWidth / $("#media2").css('width');
            var scaleY = this.videoHeight / $("#media2").css('height');
-           var rect = this.getBoundingClientRect();  // absolute position of element
+
+           //x, y 변환
            x = (x - 0.5)/scaleX;
            y = (y - 0.5)/scaleY;
 
@@ -769,7 +769,7 @@ include './assets/util/queryUtil.php';
               WaveEffect.setLocation(x,y);
               WaveEffect.setColor(color);
               WaveEffect.setScale(scale);
-              WaveEffect.setTransition(trans_x,trans_y);
+              WaveEffect.setTransition(trans_x, trans_y);
               makeWaveEffect($(".waves-box")[0]);
             }
           }
