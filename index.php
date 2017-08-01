@@ -18,6 +18,7 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
+    <link rel="stylesheet" href="assets/css/black_div.css" />
 
     <link rel="stylesheet" href="assets/css/text_captions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -76,8 +77,10 @@ include './assets/util/queryUtil.php';
             <!--media2 박스 시작-->
             <div class="col-lg-6 col-md-12">
               <div class="waves-effect">
+                <div id="black_top"></div>
+                <div id="black_bottom"></div>
                 <div id="captions_p"></div>
-                  <div id="sticker_d"></div>
+                <div id="sticker_d"></div>
               <video
                 id="media2"
                 class="video-js waves-box"
@@ -96,12 +99,6 @@ include './assets/util/queryUtil.php';
               </p>
               </video>
               </div>
-                <!--스티커 / 그림 인젝션 위치-->
-                <!-- <div class="animation_1"><p id ="effect_1">으헤헤헤</p></div>
-                <div class="animation_2" id ="effect_2"></div>
-                <div class="animation_3"><img id="effect_3" alt="img3" src=""></img></div>
-                <div class="animation_4" id ="effect_4"></div>
-                <div class="sticker" id="stickers_div"></div> -->
             </div>
 
 
@@ -400,9 +397,9 @@ include './assets/util/queryUtil.php';
                                                     <div class="form-group">
                                                         <select class="form-control" id="color_captions">
                                                             <option value="">select please</option>
-                                                            <option value="red">빨강</option>
-                                                            <option value="blue">파랑</option>
-                                                            <option value="yellow">노랑</option>
+                                                            <option value="red">Red</option>
+                                                            <option value="blue">Blue</option>
+                                                            <option value="yellow">Yellow</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -606,10 +603,12 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
     <script src="assets/js/project_load.js"></script>
+    <script src="assets/js/black_block.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
         //test for session
+        // setting_black();
         console.log(session.get('project_info_session'));
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
@@ -620,8 +619,8 @@ include './assets/util/queryUtil.php';
     <script>
         $('form').submit(function (evt) {
             evt.preventDefault(); //prevents the default action
-
         });
+
         //more options 토글 스크립트
         $(document).ready(function(){
             $("#more_op_waves").click(function(){
@@ -674,6 +673,10 @@ include './assets/util/queryUtil.php';
           })
         });
 
+        $(document).ready(
+          setBlackBox()
+        );
+
     </script>
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
@@ -698,33 +701,33 @@ include './assets/util/queryUtil.php';
          var c_contents = captions_session_data[i]['contents'];
          var c_id = captions_session_data[i]['id'];
 
-         if(video.currentTime >= c_start_t && video.currentTime < c_end_t && !video.paused){
-           captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
-           captionEffect.myfunction_c_size(c_size);
-           captionEffect.myfunction_c_delay(c_delay);
-           captionEffect.myfunction_c_color(c_color);
-           captionEffect.myfunction_c_font(c_font);
-           captionEffect.myfunction_c_contents(c_contents);
-
-           if(temp_id!=c_id){
-             temp_id=c_id;
-             captionEffect.caption_make();
+         if(video.currentTime < c_start_t || video.currentTime > c_end_t){
+             captionEffect.caption_hide();
+             }
+         else if(video.currentTime >= c_start_t && video.currentTime < c_end_t){
+            captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
+            captionEffect.myfunction_c_size(c_size);
+            captionEffect.myfunction_c_delay(c_delay);
+            captionEffect.myfunction_c_color(c_color);
+            captionEffect.myfunction_c_font(c_font);
+            captionEffect.myfunction_c_contents(c_contents);
+                  if(temp_id!=c_id){
+                    temp_id=c_id;
+                    captionEffect.caption_make();
+                  }
+                  captionEffect.caption_show();
+             }
            }
-          captionEffect.caption_show();
-          }else{
-          captionEffect.caption_hide();
-          }
-        }
+      }, false);
 
-     }, false);
 
      //sticker effect 적용
      var video = document.getElementById("media2");
+     var temp = 99999;
      var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
      video.addEventListener('timeupdate', function(){
        for (var i = 0; i < stickers_session_data.length; i++){
-
          var s_start_t = stickers_session_data[i]['startTime']/1000;
          var s_end_t = stickers_session_data[i]['endTime']/1000;
          var s_x = stickers_session_data[i]['pos_x'];
@@ -736,76 +739,57 @@ include './assets/util/queryUtil.php';
          var s_url = stickers_session_data[i]['url'];
          var s_id = stickers_session_data[i]['id'];
 
-          if(video.currentTime >= s_start_t && video.currentTime < s_end_t && !video.paused){
+          if(video.currentTime < s_start_t || video.currentTime > s_end_t){
+            stickerEffect.sticker_hide();
+          }
+          else if(video.currentTime >= s_start_t && video.currentTime < s_end_t){
               stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
               stickerEffect.myfunction_s_width(s_width);
               stickerEffect.myfunction_s_height(s_height);
               stickerEffect.myfunction_s_delay(s_delay);
               stickerEffect.myfunction_s_url(s_url);
-
-              if(temp_id!=s_id){
-                temp_id=s_id;
-                stickerEffect.sticker_make();
+              if(temp!=s_id){
+                temp=s_id;
+              stickerEffect.sticker_make();
               }
-
-
               stickerEffect.sticker_show();
-            }else {
-              console.log("hide");
-              stickerEffect.sticker_hide();
             }
-         }
+            }
       }, false);
 
-        //wave effectl 적용
-        var video = document.getElementById("media2");
-        var waves_session_data = session.get('waves_session')['waves_session'];
+      var waves_session_data = session.get('waves_session')['waves_session'];
+      $("#media2").bind("timeupdate", function(){
+        for (var i = 0; i < waves_session_data.length; i++){
+           //session 데이터 변환
+           var start_t = waves_session_data[i]['startTime']/1000;
+           var end_t = waves_session_data[i]['endTime']/1000;
+           var x = waves_session_data[i]['pos_x'];
+           var y = waves_session_data[i]['pos_y'];
+           var duration = waves_session_data[i]['duration'];
+           var delay = waves_session_data[i]['delay'];
+           var scale = waves_session_data[i]['scale']/1000;
+           var trans_x = waves_session_data[i]['trans_x'];
+           var trans_y = waves_session_data[i]['trans_y'];
+           var color = waves_session_data[i]['color'];
 
-        video.addEventListener('timeupdate', function(){
-          // console.log("length : " + waves_session.length);
-          for (var i = 0; i < waves_session_data.length; i++){
-             var start_t = waves_session_data[i]['startTime']/1000;
-             var end_t = waves_session_data[i]['endTime']/1000;
-             var x = waves_session_data[i]['pos_x'];
-             var y = waves_session_data[i]['pos_y'];
-             var duration = waves_session_data[i]['duration'];
-             var delay = waves_session_data[i]['delay'];
-             var scale = waves_session_data[i]['scale']/1000;
-             var trans_x = waves_session_data[i]['trans_x'];
-             var trans_y = waves_session_data[i]['trans_y'];
-             var color = waves_session_data[i]['color'];
+           //css크기와 video크기 비교
+           var scaleX = this.videoWidth / $("#media2").css('width');
+           var scaleY = this.videoHeight / $("#media2").css('height');
 
+           //x, y 변환
+           x = (x - 0.5)/scaleX;
+           y = (y - 0.5)/scaleY;
 
-             //************* DB정보 저장하는 변수 **************//
-            //  var start_t = result.waves[i]['startTime']/1000;
-            //  var end_t = result.waves[i]['endTime']/1000;
-            //  var x = result.waves[i]['pos_x'];
-            //  var y = result.waves[i]['pos_y'];
-            //  var duration = result.waves[i]['duration'];
-            //  var delay = result.waves[i]['delay'];
-            //  var scale = result.waves[i]['scale']/1000;
-            //  var trans_x = result.waves[i]['trans_x'];
-            //  var trans_y = result.waves[i]['trans_y'];
-            //  var color = result.waves[i]['color'];
-
-             //좌표변환
-             var size = getElementCSSSize(video);
-             var scaleX = video.videoWidth / size.width;
-             var scaleY = video.videoHeight / size.height;
-             var rect = video.getBoundingClientRect();  // absolute position of element
-             x = (x - 0.5)/scaleX;
-             y = (y - 0.5)/scaleY;
-
-             if(video.currentTime >= start_t && video.currentTime<end_t){
-                WaveEffect.setLocation(x,y);
-                WaveEffect.setColor(color);
-                WaveEffect.setScale(scale);
-                WaveEffect.setTransition(trans_x,trans_y);
-                makeWaveEffect($(".waves-box")[0]);
-              }
+           if(this.currentTime >= start_t && this.currentTime<end_t){
+              WaveEffect.setLocation(x,y);
+              WaveEffect.setColor(color);
+              WaveEffect.setScale(scale);
+              WaveEffect.setTransition(trans_x, trans_y);
+              makeWaveEffect($(".waves-box")[0]);
             }
-         }, false);
-       </script>
+          }
+       });
+     </script>
 
        <script>
        var video = document.getElementById("media2");
@@ -847,6 +831,7 @@ include './assets/util/queryUtil.php';
          $('#input_caption_pos_y').val(y);
          $('#input_sticker_pos_x').val(x);
          $('#input_sticker_pos_y').val(y);
+
 
          $('#input_waves_start_time').val(video.currentTime.toFixed(3));
          $('#startTime_captions').val(video.currentTime.toFixed(3));

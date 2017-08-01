@@ -1,0 +1,20 @@
+#black_top{
+  position: absolute;
+  height:0px;
+  width:100%;
+  background:#000000;
+  z-index:9999999999;
+}
+
+#black_bottom{
+  position: absolute;
+  bottom:0px;
+  height:0px;
+  width:100%;
+  background:#000000;
+  z-index:9999999999;
+}
+
+.vjs-control-bar{
+  z-index:9999999991;
+}
