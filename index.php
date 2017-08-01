@@ -603,6 +603,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/effect_save.js"></script>
     <script src="assets/js/project_load.js"></script>
     <script src="assets/js/black_div.js"></script>
+    <script src="assets/js/mouse_pointer.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -803,52 +804,12 @@ include './assets/util/queryUtil.php';
        });
      </script>
 
-       <script>
+     <script>
        var video = document.getElementById("media2");
        var video_src = document.getElementById('video_src');
-
        video_js = videojs('media2');
-       video.addEventListener("mousedown", mouseHandler, false);
 
-       //*************CSS 사이즈 받아오는 함수**************//
-       function getElementCSSSize(el) {
-         var cs = getComputedStyle(el);
-         var w = parseInt(cs.getPropertyValue("width"), 10);
-         var h = parseInt(cs.getPropertyValue("height"), 10);
-         return {width: w, height: h}
-       }
-
-       //*************마우스 포인터 받아오는 함수**************//
-       function mouseHandler(event) {
-         //원래 VideoJS 화면 클릭시 playtoggle를 막기 위해 한번 더 토글
-         if(video_js.paused()){
-           video_js.play();
-         }else{
-           video_js.pause();
-         }
-
-         var size = getElementCSSSize(this);
-         var scaleX = this.videoWidth / size.width;
-         var scaleY = this.videoHeight / size.height;
-
-         var rect = this.getBoundingClientRect();  // absolute position of element
-         var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
-         var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-
-         console.log("x : " + x);
-         console.log("y : " + y);
-         $('#input_waves_pos_x').val(x);
-         $('#input_waves_pos_y').val(y);
-         $('#input_caption_pos_x').val(x);
-         $('#input_caption_pos_y').val(y);
-         $('#input_sticker_pos_x').val(x);
-         $('#input_sticker_pos_y').val(y);
-
-
-         $('#input_waves_start_time').val(video.currentTime.toFixed(3));
-         $('#startTime_captions').val(video.currentTime.toFixed(3));
-         $('#startTime_stickers').val(video.currentTime.toFixed(3));
-       }
+       addClickEvent(video,video_js); //in assets/js/mouse_pointer.js
 
     </script>
 </body>
