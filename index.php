@@ -701,6 +701,13 @@ include './assets/util/queryUtil.php';
                     captionEffect.caption_make();
                   }
                   captionEffect.caption_show();
+
+                  if(!video.paused){
+                    captionEffect.show_hide();//
+                  }else{
+                    captionEffect.make_hide(); //캡션나왔을때 정지상태이면 캡션을 없애기
+                  }
+
              }
            }
       }, false);
@@ -738,6 +745,13 @@ include './assets/util/queryUtil.php';
               stickerEffect.sticker_make();
               }
               stickerEffect.sticker_show();
+
+              if(!video.paused){
+                stickerEffect.show_hide();//
+              }else{
+                stickerEffect.make_hide(); //스티커나왔을때 정지상태이면 스티커를 없애기
+              }
+
             }
             }
       }, false);
