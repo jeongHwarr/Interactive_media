@@ -1,6 +1,5 @@
-function setBlackBox(){
+function setBlackDiv(){
   $("#media2").bind("timeupdate", function(){
-
     //마진을 포함한 높이와 넓이 구하기(css 영역)
     var css_height = $("#media2").outerHeight();
     var css_width = $("#media2").outerWidth();
@@ -15,5 +14,5 @@ function setBlackBox(){
     black_top.style.height = (30+(css_height-(v_height/v_width*css_width))/2)+"px";
     black_bottom.style.width = css_width+"px";
     black_bottom.style.height = (30+(css_height-(v_height/v_width*css_width))/2)+"px";
-  })
+  });
 }

@@ -604,6 +604,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/effect_save.js"></script>
     <script src="assets/js/project_load.js"></script>
     <script src="assets/js/black_div.js"></script>
+    <script src="assets/js/button.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -616,53 +617,19 @@ include './assets/util/queryUtil.php';
     </script>
 
     <script>
-        $('form').submit(function (evt) {
-            evt.preventDefault(); //prevents the default action
-        });
-
-        //more options 토글 스크립트
-        $(document).ready(function(){
-            //UI more options
-            $("#more_op_waves").click(function(){
-                $("#extra_waves").slideToggle();
-            });
-            $("#more_op_captions").click(function(){
-                $("#extra_captions").slideToggle();
-            });
-            $("#more_op_stickers").click(function(){
-                $("#extra_stickers").slideToggle();
-            });
-            //세션 저장
-            $("#waves_save").click(function(){
-              waves_session_data = waves_save();
-            });
-            $("#captions_save").click(function(){
-              captions_session_data = captions_save();
-            });
-            $("#stickers_save").click(function(){
-              stickers_session_data = stickers_save();
-            })
-
-        });
-
-        $(document).ready(function(){
-          $("#btn_project_save").click(function(){
-            $.ajax({
-              url:'./assets/ajax/common.php',
-              type:'get',
-              dataType: 'json',
-              data: {cmd:'saveProject',waves_session_data:waves_session_data, captions_session_data:captions_session_data, stickers_session_data:stickers_session_data},
-              success:function(data){
-                alert("프로젝트가 성공적으로 저장되었습니다.");
-                loadProject(1); // in assets/js/project_load.js
-              }
-            })
-          })
-        });
-
-        $(document).ready(
-          setBlackBox()
-        );
+    $('form').submit(function (evt) {
+        evt.preventDefault(); //prevents the default action
+    });
+    //버튼 onclick 구현
+    $(document).ready(function(){
+        setButtonOnClick();
+      }
+    );
+    //검은화면 영상의 timeupdate와 bind
+    $(document).ready(
+      //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
+      setBlackDiv()
+    );
 
     </script>
     <script type="text/javascript">
