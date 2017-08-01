@@ -3,12 +3,6 @@ include 'constants.php';
 include './assets/config/dbconn.php';
 include './assets/util/queryUtil.php';
 
-if(session.get('connect_proper')['connect_proper']==null){
-    console.log("잘못된 접근입니다");
-    location.href('start.php');
-}else{
-    console.log("정상접근");
-}
 ?>
 
 <!DOCTYPE html>
