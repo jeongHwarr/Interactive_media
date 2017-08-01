@@ -40,37 +40,84 @@ var captionEffect = {
       this.contents = x;
     },
 
+    // caption_make: function(){
+    //   a = Math.random();
+    //   var make_p = document.createElement('p');
+    //   document.getElementById("captions_p").appendChild(make_p);
+    //   b = a + "make_p";
+    //   make_p.setAttribute('id',b);
+    //   console.log(b);
+    // },
+
     caption_make: function(){
       a = Math.random();
       var make_p = document.createElement('p');
-      document.getElementById("captions_p").appendChild(make_p);
+      $("#captions_p").append(make_p);
+      // document.getElementById("captions_p").appendChild(make_p);
       b = a + "make_p";
+      // this.b =b;
       make_p.setAttribute('id',b);
-      console.log(b);
+      console.log("make");
     },
 
+    // caption_show: function(){
+    //         console.log(this.color);
+    //         document.getElementById(b).style.display="block";
+    //         document.getElementById(b).style.position="relative";
+    //         document.getElementById(b).setAttribute('class',this.animation);
+    //         document.getElementById(b).style.top= this.x + 'px';
+    //         document.getElementById(b).style.left=this.y + 'px';
+    //         document.getElementById(b).style.fontSize=this.size + 'px';
+    //         document.getElementById(b).style.color=this.color;
+    //         document.getElementById(b).style.animationDelay=this.delay;
+    //         document.getElementById(b).innerHTML = this.contents;
+    //         document.getElementById(b).style.fontStyle=this.font;
+    //       },
+    //     caption_hide: function(){
+    //         if(b){
+    //             document.getElementById(b).style.display="none";
+    //         }else{
+    //           return;
+    //         }
+    //       }
+    //     };
     caption_show: function(){
-            console.log(this.color);
-            document.getElementById(b).style.display="block";
-            document.getElementById(b).style.position="relative";
-            document.getElementById(b).setAttribute('class',this.animation);
-            document.getElementById(b).style.top= this.x + 'px';
-            document.getElementById(b).style.left=this.y + 'px';
-            document.getElementById(b).style.fontSize=this.size + 'px';
-            document.getElementById(b).style.color=this.color;
-            document.getElementById(b).style.animationDelay=this.delay;
-            document.getElementById(b).innerHTML = this.contents;
-            document.getElementById(b).style.fontStyle=this.font;
-          },
-        caption_hide: function(){
-            if(b){
-                document.getElementById(b).style.display="none";
-            }else{
-              return;
-            }
-          }
-        };
+                console.log("show");
+                console.log(b);
 
+                document.getElementById(b).style.display="block";
+                document.getElementById(b).style.position="relative";
+                document.getElementById(b).setAttribute('class',this.animation);
+                document.getElementById(b).style.top= this.x + 'px';
+                document.getElementById(b).style.left=this.y + 'px';
+                document.getElementById(b).style.fontSize=this.size + 'px';
+                document.getElementById(b).style.color=this.color;
+                document.getElementById(b).style.animationDelay=this.delay;
+                document.getElementById(b).innerHTML = this.contents;
+                document.getElementById(b).style.fontStyle=this.font;
+              },
+
+          caption_hide: function(){
+                var check = document.getElementById(b);
+                if (check=== null){
+                  console.log("nullllllllllllllllllllll");
+                  console.log(this.startTime);
+                  return;
+                }else if(video.currentTime < this.endTime){ //비디오 현재시간이랑 DB엔드타임이랑 비교했을때 endTime이 크면 hide하면 안됨!
+                  return;
+                }
+                else{
+                  $("#captions_p").empty();
+                  console.log("delete");
+                }
+                // if(document.getElementById(b)){
+                //       $("#captions_p").empty();
+                //
+                // }else{
+                //   return;
+                // }
+    }
+            };
 
 
 var stickerEffect ={
@@ -136,7 +183,7 @@ var stickerEffect ={
         document.getElementById(c).style.height = this.height + 'px';
         document.getElementById(c).style.animationDelay=this.delay;
         document.getElementById(h).src = this.url;
-  
+
       },
 
       sticker_hide: function(){
