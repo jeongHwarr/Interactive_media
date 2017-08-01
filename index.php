@@ -178,14 +178,14 @@ include './assets/util/queryUtil.php';
                                         </div>
 
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_start_time" class="form-control time_start" type="text" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input id="input_waves_start_time" class="form-control time_start" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
 
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_end_time" class="form-control time_end" type="text" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input id="input_waves_end_time" class="form-control time_end" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -197,13 +197,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text" pattern="[[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-md-12 help-block with-errors"></div>
                                             </div>
@@ -340,13 +340,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_captions" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_start" type="text" id="startTime_captions" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_captions" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_end" type="text" id="endTime_captions" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -358,13 +358,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-md-12 help-block with-errors"></div>
                                             </div>
@@ -498,13 +498,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_stickers" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_start" type="text" id="startTime_stickers" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_stickers" pattern="[0-9]{1,10}?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_end" type="text" id="endTime_stickers" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -516,13 +516,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text" pattern="[0-9]{1,10}?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                             </div>
                                         </div>
