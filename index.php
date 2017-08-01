@@ -615,6 +615,13 @@ include './assets/util/queryUtil.php';
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
         console.log(session.get('stickers_session'));
+        console.log(session.get('connect_proper'));
+
+        if(session.get('connect_proper')==null){
+            console.log("wrong connect");
+            alert("잘못된 접근입니다.");
+            location.href="start.php";
+        }
       });
     </script>
 
