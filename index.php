@@ -724,7 +724,9 @@ include './assets/util/queryUtil.php';
             }
             }
       }, false);
+      </script>
 
+      <script>
       var waves_session_data = session.get('waves_session')['waves_session'];
       $("#media2").bind("timeupdate", function(){
         for (var i = 0; i < waves_session_data.length; i++){
@@ -741,13 +743,14 @@ include './assets/util/queryUtil.php';
            var color = waves_session_data[i]['color'];
 
            //css크기와 video크기 비교
-           var scaleX = this.videoWidth / $("#media2").css('width');
-           var scaleY = this.videoHeight / $("#media2").css('height');
+           var scaleX = this.videoWidth / $("#media2").width();
+           var scaleY = this.videoHeight / $("#media2").height();
 
            //x, y 변환
            x = (x - 0.5)/scaleX;
            y = (y - 0.5)/scaleY;
-
+           console.log(x);
+           console.log(y);
            if(this.currentTime >= start_t && this.currentTime<end_t){
               WaveEffect.setLocation(x,y);
               WaveEffect.setColor(color);
