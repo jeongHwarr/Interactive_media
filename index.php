@@ -705,43 +705,40 @@ include './assets/util/queryUtil.php';
 
 
      //sticker effect 적용
-    //  var video = document.getElementById("media2");
-    //  var stickers_session_data = session.get('stickers_session')['stickers_session'];
-     //
-    //  video.addEventListener('timeupdate', function(){
-    //    for (var i = 0; i < stickers_session_data.length; i++){
-     //
-    //      var s_start_t = stickers_session_data[i]['startTime']/1000;
-    //      var s_end_t = stickers_session_data[i]['endTime']/1000;
-    //      var s_x = stickers_session_data[i]['pos_x'];
-    //      var s_y = stickers_session_data[i]['pos_y'];
-    //      var s_animation = stickers_session_data[i]['animation'];
-    //      var s_width = stickers_session_data[i]['width'];
-    //      var s_height = stickers_session_data[i]['height'];
-    //      var s_delay = stickers_session_data[i]['delay'];
-    //      var s_url = stickers_session_data[i]['url'];
-    //      var s_id = stickers_session_data[i]['id'];
-     //
-    //       if(video.currentTime >= s_start_t && video.currentTime < s_end_t && !video.paused){
-    //           stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
-    //           stickerEffect.myfunction_s_width(s_width);
-    //           stickerEffect.myfunction_s_height(s_height);
-    //           stickerEffect.myfunction_s_delay(s_delay);
-    //           stickerEffect.myfunction_s_url(s_url);
-     //
-    //           if(temp_id!=s_id){
-    //             temp_id=s_id;
-    //             stickerEffect.sticker_make();
-    //           }
-     //
-     //
-    //           stickerEffect.sticker_show();
-    //         }else {
-    //           console.log("hide");
-    //           stickerEffect.sticker_hide();
-    //         }
-    //      }
-    //   }, false);
+     var video = document.getElementById("media2");
+     var temp = 99999;
+     var stickers_session_data = session.get('stickers_session')['stickers_session'];
+
+     video.addEventListener('timeupdate', function(){
+       for (var i = 0; i < stickers_session_data.length; i++){
+         var s_start_t = stickers_session_data[i]['startTime']/1000;
+         var s_end_t = stickers_session_data[i]['endTime']/1000;
+         var s_x = stickers_session_data[i]['pos_x'];
+         var s_y = stickers_session_data[i]['pos_y'];
+         var s_animation = stickers_session_data[i]['animation'];
+         var s_width = stickers_session_data[i]['width'];
+         var s_height = stickers_session_data[i]['height'];
+         var s_delay = stickers_session_data[i]['delay'];
+         var s_url = stickers_session_data[i]['url'];
+         var s_id = stickers_session_data[i]['id'];
+
+          if(video.currentTime < s_start_t || video.currentTime > s_end_t){
+            stickerEffect.sticker_hide();
+          }
+          else if(video.currentTime >= s_start_t && video.currentTime < s_end_t){
+              stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
+              stickerEffect.myfunction_s_width(s_width);
+              stickerEffect.myfunction_s_height(s_height);
+              stickerEffect.myfunction_s_delay(s_delay);
+              stickerEffect.myfunction_s_url(s_url);
+              if(temp!=s_id){
+                temp=s_id;
+              stickerEffect.sticker_make();
+              }
+              stickerEffect.sticker_show();
+            }
+            }
+      }, false);
 
         //wave effectl 적용
         var video = document.getElementById("media2");
