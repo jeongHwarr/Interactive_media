@@ -608,6 +608,10 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/mouse_pointer.js"></script>
 
     <script type="text/javascript">
+      $('form').submit(function (evt) {
+          //prevents the default action
+          evt.preventDefault();
+      });
       $(document).ready(function(){
         //test for session
         console.log(session.get('project_info_session'));
@@ -615,22 +619,16 @@ include './assets/util/queryUtil.php';
         console.log(session.get('captions_session'));
         console.log(session.get('stickers_session'));
       });
-    </script>
-
-    <script>
-    $('form').submit(function (evt) {
-        evt.preventDefault(); //prevents the default action
-    });
-    //버튼 onclick 구현
-    $(document).ready(function(){
-        setButtonOnClick();
-      }
-    );
-    //검은화면 영상의 timeupdate와 bind
-    $(document).ready(
-      //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
-      setBlackDiv()
-    );
+      //버튼 onclick 구현
+      $(document).ready(function(){
+          setButtonOnClick();
+        }
+      );
+      //검은화면 영상의 timeupdate와 bind
+      $(document).ready(
+        //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
+        setBlackDiv()
+      );
     </script>
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
@@ -672,9 +670,10 @@ include './assets/util/queryUtil.php';
                   captionEffect.caption_show();
 
                   if(!video.paused){
-                    captionEffect.show_hide();//
+                    captionEffect.show_hide();
                   }else{
-                    captionEffect.make_hide(); //캡션나왔을때 정지상태이면 캡션을 없애기
+                    //캡션나왔을때 정지상태이면 캡션을 없애기
+                    captionEffect.make_hide();
                   }
 
              }
@@ -715,9 +714,10 @@ include './assets/util/queryUtil.php';
               stickerEffect.sticker_show();
 
               if(!video.paused){
-                stickerEffect.show_hide();//
+                stickerEffect.show_hide();
               }else{
-                stickerEffect.make_hide(); //스티커나왔을때 정지상태이면 스티커를 없애기
+                //스티커나왔을때 정지상태이면 스티커를 없애기
+                stickerEffect.make_hide();
               }
 
             }
@@ -725,8 +725,8 @@ include './assets/util/queryUtil.php';
       }, false);
       </script>
 
+      <!-- waves session 정보 -->
      <script>
-     //waves session 정보
       var waves_session_data = session.get('waves_session')['waves_session'];
       //waves정보, 적용 video, wave가 만들어질 장소
       setWaveEffect(waves_session_data, "#media2", ".waves-box");
@@ -736,9 +736,8 @@ include './assets/util/queryUtil.php';
        var video = document.getElementById("media2");
        var video_src = document.getElementById('video_src');
        video_js = videojs('media2');
-
-       addClickEvent(video,video_js); //in assets/js/mouse_pointer.js
-
+       //in assets/js/mouse_pointer.js
+       addClickEvent(video,video_js);
     </script>
 </body>
 </html>
