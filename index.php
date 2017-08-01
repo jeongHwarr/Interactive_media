@@ -682,8 +682,6 @@ include './assets/util/queryUtil.php';
          var c_id = captions_session_data[i]['id'];
 
          if(video.currentTime < c_start_t || video.currentTime > c_end_t){
-             console.log(c_start_t);
-             console.log(c_end_t);
              captionEffect.caption_hide();
              }
          else if(video.currentTime >= c_start_t && video.currentTime < c_end_t){
@@ -693,7 +691,6 @@ include './assets/util/queryUtil.php';
             captionEffect.myfunction_c_color(c_color);
             captionEffect.myfunction_c_font(c_font);
             captionEffect.myfunction_c_contents(c_contents);
-            console.log("elseif")
                   if(temp_id!=c_id){
                     temp_id=c_id;
                     captionEffect.caption_make();
