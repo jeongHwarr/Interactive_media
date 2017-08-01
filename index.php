@@ -602,6 +602,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/text_captions.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
+    <script src="assets/js/black_block.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -617,7 +618,6 @@ include './assets/util/queryUtil.php';
     <script>
         $('form').submit(function (evt) {
             evt.preventDefault(); //prevents the default action
-
         });
 
         //more options 토글 스크립트
@@ -656,6 +656,11 @@ include './assets/util/queryUtil.php';
             stickers_session_data = stickers_save();
           })
         });
+
+        $(document).ready(
+          setBlackBox()
+        );
+
 
     </script>
     <script type="text/javascript">
@@ -755,19 +760,6 @@ include './assets/util/queryUtil.php';
              var trans_y = waves_session_data[i]['trans_y'];
              var color = waves_session_data[i]['color'];
 
-
-             //************* DB정보 저장하는 변수 **************//
-            //  var start_t = result.waves[i]['startTime']/1000;
-            //  var end_t = result.waves[i]['endTime']/1000;
-            //  var x = result.waves[i]['pos_x'];
-            //  var y = result.waves[i]['pos_y'];
-            //  var duration = result.waves[i]['duration'];
-            //  var delay = result.waves[i]['delay'];
-            //  var scale = result.waves[i]['scale']/1000;
-            //  var trans_x = result.waves[i]['trans_x'];
-            //  var trans_y = result.waves[i]['trans_y'];
-            //  var color = result.waves[i]['color'];
-
              //좌표변환
              var size = getElementCSSSize(video);
              var scaleX = video.videoWidth / size.width;
@@ -813,17 +805,9 @@ include './assets/util/queryUtil.php';
          var scaleX = this.videoWidth / size.width;
          var scaleY = this.videoHeight / size.height;
 
-
-
          var rect = this.getBoundingClientRect();  // absolute position of element
          var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
          var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
-
-         //클릭했을때 검은색 영역 지정
-         black_top.style.width = size.width+"px";
-         black_top.style.height = 30+(size.height-(video.videoHeight/video.videoWidth*size.width))/2+"px";
-         black_bottom.style.width = size.width+"px";
-         black_bottom.style.height = 30+(size.height-(video.videoHeight/video.videoWidth*size.width))/2+"px";
 
          console.log("x : " + x);
          console.log("y : " + y);
@@ -833,15 +817,11 @@ include './assets/util/queryUtil.php';
          $('#input_caption_pos_y').val(y);
          $('#input_sticker_pos_x').val(x);
          $('#input_sticker_pos_y').val(y);
-
          $('#input_waves_start_time').val(video.currentTime);
          $('#startTime_captions').val(video.currentTime);
          $('#startTime_stickers').val(video.currentTime);
-
        }
 
-
     </script>
-
 </body>
 </html>
