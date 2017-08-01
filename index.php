@@ -742,42 +742,39 @@ include './assets/util/queryUtil.php';
             }
       }, false);
 
-        //wave effectl 적용
-        var video = document.getElementById("media2");
-        var waves_session_data = session.get('waves_session')['waves_session'];
+      //wave effectl 적용
+      var waves_session_data = session.get('waves_session')['waves_session'];
 
-        video.addEventListener('timeupdate', function(){
-          // console.log("length : " + waves_session.length);
-          for (var i = 0; i < waves_session_data.length; i++){
-             var start_t = waves_session_data[i]['startTime']/1000;
-             var end_t = waves_session_data[i]['endTime']/1000;
-             var x = waves_session_data[i]['pos_x'];
-             var y = waves_session_data[i]['pos_y'];
-             var duration = waves_session_data[i]['duration'];
-             var delay = waves_session_data[i]['delay'];
-             var scale = waves_session_data[i]['scale']/1000;
-             var trans_x = waves_session_data[i]['trans_x'];
-             var trans_y = waves_session_data[i]['trans_y'];
-             var color = waves_session_data[i]['color'];
+      $("#media2").bind("timeupdate", function(){
 
-             //좌표변환
-             var size = getElementCSSSize(video);
-             var scaleX = video.videoWidth / size.width;
-             var scaleY = video.videoHeight / size.height;
-             var rect = video.getBoundingClientRect();  // absolute position of element
-             x = (x - 0.5)/scaleX;
-             y = (y - 0.5)/scaleY;
+        for (var i = 0; i < waves_session_data.length; i++){
+           var start_t = waves_session_data[i]['startTime']/1000;
+           var end_t = waves_session_data[i]['endTime']/1000;
+           var x = waves_session_data[i]['pos_x'];
+           var y = waves_session_data[i]['pos_y'];
+           var duration = waves_session_data[i]['duration'];
+           var delay = waves_session_data[i]['delay'];
+           var scale = waves_session_data[i]['scale']/1000;
+           var trans_x = waves_session_data[i]['trans_x'];
+           var trans_y = waves_session_data[i]['trans_y'];
+           var color = waves_session_data[i]['color'];
 
-             if(video.currentTime >= start_t && video.currentTime<end_t){
-                WaveEffect.setLocation(x,y);
-                WaveEffect.setColor(color);
-                WaveEffect.setScale(scale);
-                WaveEffect.setTransition(trans_x,trans_y);
-                makeWaveEffect($(".waves-box")[0]);
-              }
+           var scaleX = this.videoWidth / $("#media2").css('width');
+           var scaleY = this.videoHeight / $("#media2").css('height');
+           var rect = this.getBoundingClientRect();  // absolute position of element
+           x = (x - 0.5)/scaleX;
+           y = (y - 0.5)/scaleY;
+
+           if(this.currentTime >= start_t && this.currentTime<end_t){
+              WaveEffect.setLocation(x,y);
+              WaveEffect.setColor(color);
+              WaveEffect.setScale(scale);
+              WaveEffect.setTransition(trans_x,trans_y);
+              makeWaveEffect($(".waves-box")[0]);
             }
-         }, false);
-       </script>
+          }
+       });
+     </script>
 
        <script>
        var video = document.getElementById("media2");
