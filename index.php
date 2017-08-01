@@ -162,7 +162,8 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_waves" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <input class="form-control" type="text" id="title_waves"
+                                                    data-minlength="4" data-error="제목이 너무 짧습니다." placeholder="title" value="제목없음">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -215,7 +216,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Duration</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_duration" class="form-control" type="text" value="1">
+                                                    <input id="input_waves_duration" class="form-control" type="text" value="3">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -223,7 +224,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.3">
+                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.03">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -231,7 +232,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Scale</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_scale" class="form-control" type="text" value="1">
+                                                    <input id="input_waves_scale" class="form-control" type="text" value="0.05">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -621,39 +622,27 @@ include './assets/util/queryUtil.php';
 
         //more options 토글 스크립트
         $(document).ready(function(){
+            //UI more options
             $("#more_op_waves").click(function(){
                 $("#extra_waves").slideToggle();
             });
-        });
-
-        $(document).ready(function(){
             $("#more_op_captions").click(function(){
                 $("#extra_captions").slideToggle();
             });
-        });
-
-        $(document).ready(function(){
             $("#more_op_stickers").click(function(){
                 $("#extra_stickers").slideToggle();
             });
-        });
-
-        $(document).ready(function(){
+            //세션 저장
             $("#waves_save").click(function(){
               waves_session_data = waves_save();
             });
-        });
+            $("#captions_save").click(function(){
+              captions_session_data = captions_save();
+            });
+            $("#stickers_save").click(function(){
+              stickers_session_data = stickers_save();
+            })
 
-        $(document).ready(function(){
-          $("#captions_save").click(function(){
-            captions_session_data = captions_save();
-          })
-        });
-
-        $(document).ready(function(){
-          $("#stickers_save").click(function(){
-            stickers_session_data = stickers_save();
-          })
         });
 
         $(document).ready(function(){
