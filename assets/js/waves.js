@@ -232,6 +232,8 @@ function setWaveEffect(data, v, box) {
           WaveEffect.setLocation(x,y);
           WaveEffect.setColor(color);
           WaveEffect.setScale(scale);
+          WaveEffect.setDuration(duration);
+          WaveEffect.setDelay(delay);
           WaveEffect.setTransition(trans_x, trans_y);
           makeWaveEffect($(box)[0]);
         }
