@@ -21,17 +21,15 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/css/black_div.css" />
 
     <link rel="stylesheet" href="assets/css/text_captions.css">
+    <!-- 병조 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
-    <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- video JS -->
+    <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
     <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
 </head>
@@ -596,6 +594,7 @@ include './assets/util/queryUtil.php';
         </div>
       </div>
     </div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
@@ -603,12 +602,11 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
     <script src="assets/js/project_load.js"></script>
-    <script src="assets/js/black_block.js"></script>
+    <script src="assets/js/black_div.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
         //test for session
-        // setting_black();
         console.log(session.get('project_info_session'));
         console.log(session.get('waves_session'));
         console.log(session.get('captions_session'));
