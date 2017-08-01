@@ -726,40 +726,9 @@ include './assets/util/queryUtil.php';
       }, false);
       </script>
 
-      <script>
+     <script>
       var waves_session_data = session.get('waves_session')['waves_session'];
-      $("#media2").bind("timeupdate", function(){
-        for (var i = 0; i < waves_session_data.length; i++){
-           //session 데이터 변환
-           var start_t = waves_session_data[i]['startTime']/1000;
-           var end_t = waves_session_data[i]['endTime']/1000;
-           var x = waves_session_data[i]['pos_x'];
-           var y = waves_session_data[i]['pos_y'];
-           var duration = waves_session_data[i]['duration'];
-           var delay = waves_session_data[i]['delay'];
-           var scale = waves_session_data[i]['scale']/1000;
-           var trans_x = waves_session_data[i]['trans_x'];
-           var trans_y = waves_session_data[i]['trans_y'];
-           var color = waves_session_data[i]['color'];
-
-           //css크기와 video크기 비교
-           var scaleX = this.videoWidth / $("#media2").width();
-           var scaleY = this.videoHeight / $("#media2").height();
-
-           //x, y 변환
-           x = (x - 0.5)/scaleX;
-           y = (y - 0.5)/scaleY;
-           console.log(x);
-           console.log(y);
-           if(this.currentTime >= start_t && this.currentTime<end_t){
-              WaveEffect.setLocation(x,y);
-              WaveEffect.setColor(color);
-              WaveEffect.setScale(scale);
-              WaveEffect.setTransition(trans_x, trans_y);
-              makeWaveEffect($(".waves-box")[0]);
-            }
-          }
-       });
+      setWaveEffect(waves_session_data);
      </script>
 
      <script>
