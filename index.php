@@ -84,7 +84,7 @@ include './assets/util/queryUtil.php';
                 controls
                 preload="auto"
                 data-setup='{}'>
-              <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
+              <source id="video_src" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
               <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
               <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
               <p class="vjs-no-js">
@@ -605,6 +605,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/text_captions.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
+    <script src="assets/js/project_load.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){
@@ -655,6 +656,21 @@ include './assets/util/queryUtil.php';
         $(document).ready(function(){
           $("#stickers_save").click(function(){
             stickers_session_data = stickers_save();
+          })
+        });
+
+        $(document).ready(function(){
+          $("#btn_project_save").click(function(){
+            $.ajax({
+              url:'./assets/ajax/common.php',
+              type:'get',
+              dataType: 'json',
+              data: {cmd:'saveProject',waves_session_data:waves_session_data, captions_session_data:captions_session_data, stickers_session_data:stickers_session_data},
+              success:function(data){
+                alert("프로젝트가 성공적으로 저장되었습니다.");
+                loadProject(1); // in assets/js/project_load.js
+              }
+            })
           })
         });
 
@@ -793,6 +809,8 @@ include './assets/util/queryUtil.php';
 
        <script>
        var video = document.getElementById("media2");
+       var video_src = document.getElementById('video_src');
+
        video_js = videojs('media2');
        video.addEventListener("mousedown", mouseHandler, false);
 
@@ -830,11 +848,11 @@ include './assets/util/queryUtil.php';
          $('#input_sticker_pos_x').val(x);
          $('#input_sticker_pos_y').val(y);
 
-         $('#input_waves_start_time').val(video.currentTime);
-         $('#startTime_captions').val(video.currentTime);
-         $('#startTime_stickers').val(video.currentTime);
-
+         $('#input_waves_start_time').val(video.currentTime.toFixed(3));
+         $('#startTime_captions').val(video.currentTime.toFixed(3));
+         $('#startTime_stickers').val(video.currentTime.toFixed(3));
        }
+
     </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+function loadProject(project_id){
+  $.ajax({
+    url:'./assets/ajax/common.php',
+    type:'get',
+    dataType: 'json',
+    data: {cmd:'loadProject',project_id : project_id},
+    success:function(data){
+      session.set('project_info_session', {['project_info_session'] :data.project_info});
+      session.set('waves_session', {['waves_session'] : data.waves});
+      session.set('captions_session', {['captions_session'] : data.captions});
+      session.set('stickers_session', {['stickers_session'] : data.stickers});
+      location.href = 'index.php';
+    }
+  })
+};
