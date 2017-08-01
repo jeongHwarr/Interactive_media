@@ -204,3 +204,35 @@ function getWavesWaveEffectElement(e) {
     }
     return element;
 }
+
+function setWaveEffect(data) {
+    for (var i = 0; i < data.length; i++){
+       //session 데이터 변환
+       var start_t = data[i]['startTime']/1000;
+       var end_t = data[i]['endTime']/1000;
+       var x = data[i]['pos_x'];
+       var y = data[i]['pos_y'];
+       var duration = data[i]['duration'];
+       var delay = data[i]['delay'];
+       var scale = data[i]['scale']/1000;
+       var trans_x = data[i]['trans_x'];
+       var trans_y = data[i]['trans_y'];
+       var color = data[i]['color'];
+
+       //css크기와 video크기 비교
+       var scaleX = this.videoWidth / $("#media2").css('width');
+       var scaleY = this.videoHeight / $("#media2").css('height');
+
+       //x, y 변환
+       x = (x - 0.5)/scaleX;
+       y = (y - 0.5)/scaleY;
+
+       if(this.currentTime >= start_t && this.currentTime<end_t){
+          WaveEffect.setLocation(x,y);
+          WaveEffect.setColor(color);
+          WaveEffect.setScale(scale);
+          WaveEffect.setTransition(trans_x, trans_y);
+          makeWaveEffect($(".waves-box")[0]);
+        }
+    }
+}
