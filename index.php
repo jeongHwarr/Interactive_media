@@ -596,7 +596,7 @@ include './assets/util/queryUtil.php';
         </div>
       </div>
     </div>
-
+</body>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
@@ -765,5 +765,5 @@ include './assets/util/queryUtil.php';
     );
 
 </script>
-</body>
+
 </html>

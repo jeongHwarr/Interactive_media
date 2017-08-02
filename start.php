@@ -12,10 +12,7 @@ include './assets/config/dbconn.php';
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
-
-    </script>
     <title>Project Start</title>
 </head>
 <body>
@@ -29,11 +26,10 @@ include './assets/config/dbconn.php';
             <ul>
                 <!--프로젝트 목록 추가-->
                 <li><a id="li_project_1">프로젝트 1</a></li>
-                <li><a href="" target="_self">프로젝트 2</a></li><a href="" target="_self">
-                </a><li><a href="" target="_self"></a><a href="" target="_self">프로젝트 3</a></li><a href="" target="_self">
-            </a></ul><a href="" target="_self">
-
-        </a></div><a href="" target="_self">
+                <li><a href="" target="_self">프로젝트 2</a></li>
+                <li><a href="" target="_self">프로젝트 3</a></li>
+            </ul>
+        </div>
         <div class="panel panel-default" id="video_select" style="display: none">
             <div class="panel-heading">
                 <h3 class="panel-title">영상을 고르세요</h3>
@@ -64,8 +60,8 @@ include './assets/config/dbconn.php';
 
             </div>
     </div>
-
-
+    </div>
+</body>
 <script src="assets/js/session.js"></script>
 <script src="assets/js/project_load.js"></script>
 <script>
@@ -83,5 +79,4 @@ include './assets/config/dbconn.php';
 
 
 </script>
-
-</a></div></body></html>
+</html>
