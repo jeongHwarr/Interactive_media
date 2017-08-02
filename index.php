@@ -304,7 +304,7 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_captions" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <input class="form-control" type="text" id="title_captions" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="제목없음">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
