@@ -659,6 +659,12 @@ include './assets/util/queryUtil.php';
          var c_contents = captions_session_data[i]['contents'];
          var c_id = captions_session_data[i]['id'];
 
+         var scaleX = video.videoWidth / $("#media2").outerWidth();
+         var scaleY = video.videoHeight / $("#media2").outerHeight();
+
+         caption_x = (c_x - 0.5)/scaleX;
+         caption_y = (c_y - 0.5)/scaleY;
+
          if(video.currentTime < c_start_t || video.currentTime > c_end_t){
              captionEffect.myfunction_c_id(c_id);
              captionEffect.caption_hide();
@@ -687,7 +693,6 @@ include './assets/util/queryUtil.php';
 
      //sticker effect 적용
      var video = document.getElementById("media2");
-     var temp = 99999;
      var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
      video.addEventListener('timeupdate', function(){
@@ -703,12 +708,18 @@ include './assets/util/queryUtil.php';
          var s_url = stickers_session_data[i]['url'];
          var s_id = stickers_session_data[i]['id'];
 
+         var scaleX = video.videoWidth / $("#media2").outerWidth();
+         var scaleY = video.videoHeight / $("#media2").outerHeight();
+
+         sticker_x = (s_x - 0.5)/scaleX;
+         sticker_y = (s_y - 0.5)/scaleY;
+
           if(video.currentTime < s_start_t || video.currentTime > s_end_t){
             stickerEffect.myfunction_s_id(s_id);
             stickerEffect.sticker_hide();
           }
           else if(video.currentTime >= s_start_t && video.currentTime <= s_end_t){
-              stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
+              stickerEffect.myfunction_s_basic(s_start_t, s_end_t, sticker_x, sticker_y , s_animation);
               stickerEffect.myfunction_s_width(s_width);
               stickerEffect.myfunction_s_height(s_height);
               stickerEffect.myfunction_s_delay(s_delay);

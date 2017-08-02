@@ -70,8 +70,8 @@ var captionEffect = {
           document.getElementById(this.id).style.display= "block";
           document.getElementById(this.id).style.position="absolute";
           document.getElementById(this.id).setAttribute('class',this.animation);
-          document.getElementById(this.id).style.top= this.x + 'px';
-          document.getElementById(this.id).style.left=this.y + 'px';
+          document.getElementById(this.id).style.top= this.y + 'px';
+          document.getElementById(this.id).style.left=this.x + 'px';
           document.getElementById(this.id).style.fontSize=this.size + 'px';
           document.getElementById(this.id).style.color=this.color;
           document.getElementById(this.id).style.animationDelay=this.delay;
@@ -164,8 +164,8 @@ var stickerEffect ={
         document.getElementById(this.id).style.display="block";
         document.getElementById(this.id).style.position="absolute";
         document.getElementById(this.id).setAttribute('class',this.animation);
-        document.getElementById(this.id).style.top= this.x + 'px';
-        document.getElementById(this.id).style.left=this.y + 'px';
+        document.getElementById(this.id).style.top= this.y + 'px';
+        document.getElementById(this.id).style.left=this.x + 'px';
         document.getElementById(this.id).style.width = this.width + 'px';
         document.getElementById(this.id).style.height = this.height + 'px';
         document.getElementById(this.id).style.animationDelay=this.delay;
