@@ -670,7 +670,7 @@ include './assets/util/queryUtil.php';
              captionEffect.caption_hide();
              }
          else if(video.currentTime >= c_start_t && video.currentTime <= c_end_t){
-            captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
+            captionEffect.myfunction_c_basic(c_start_t, c_end_t, caption_x, caption_y, c_animation);
             captionEffect.myfunction_c_size(c_size);
             captionEffect.myfunction_c_delay(c_delay);
             captionEffect.myfunction_c_color(c_color);
