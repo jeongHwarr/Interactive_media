@@ -217,7 +217,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Duration</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_duration" class="form-control" type="text" value="3">
+                                                    <input id="input_waves_duration" class="form-control" type="text" value="1">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -225,7 +225,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.03">
+                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.3">
                                                 </div>
                                             </div>
                                             <div class="row">
