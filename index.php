@@ -643,9 +643,7 @@ include './assets/util/queryUtil.php';
 
     //caption effect 적용
     var video = document.getElementById("media2");
-    var temp_id = 99999;
     var captions_session_data = session.get('captions_session')['captions_session'];
-
     video.addEventListener('timeupdate', function(){
       for (var i = 0; i<captions_session_data.length; i++){
 
@@ -662,30 +660,29 @@ include './assets/util/queryUtil.php';
          var c_id = captions_session_data[i]['id'];
 
          if(video.currentTime < c_start_t || video.currentTime > c_end_t){
+             captionEffect.myfunction_c_id(c_id);
              captionEffect.caption_hide();
              }
-         else if(video.currentTime >= c_start_t && video.currentTime < c_end_t){
+         else if(video.currentTime >= c_start_t && video.currentTime <= c_end_t){
             captionEffect.myfunction_c_basic(c_start_t, c_end_t, c_x, c_y, c_animation);
             captionEffect.myfunction_c_size(c_size);
             captionEffect.myfunction_c_delay(c_delay);
             captionEffect.myfunction_c_color(c_color);
             captionEffect.myfunction_c_font(c_font);
             captionEffect.myfunction_c_contents(c_contents);
-                  if(temp_id!=c_id){
-                    temp_id=c_id;
-                    captionEffect.caption_make();
-                  }
-                  captionEffect.caption_show();
+            captionEffect.myfunction_c_id(c_id);
 
-                  if(!video.paused){
-                    captionEffect.show_hide();
-                  }else{
-                    //캡션나왔을때 정지상태이면 캡션을 없애기
-                    captionEffect.make_hide();
-                  }
+            captionEffect.caption_id_check();
+            captionEffect.caption_show();
 
-             }
-           }
+            if(!video.paused){
+              captionEffect.caption_reveal();
+            }else{
+              captionEffect.caption_borrow();
+            }
+       }
+     }
+
       }, false);
 
      //sticker effect 적용
@@ -707,28 +704,28 @@ include './assets/util/queryUtil.php';
          var s_id = stickers_session_data[i]['id'];
 
           if(video.currentTime < s_start_t || video.currentTime > s_end_t){
+            stickerEffect.myfunction_s_id(s_id);
             stickerEffect.sticker_hide();
           }
-          else if(video.currentTime >= s_start_t && video.currentTime < s_end_t){
+          else if(video.currentTime >= s_start_t && video.currentTime <= s_end_t){
               stickerEffect.myfunction_s_basic(s_start_t, s_end_t, s_x, s_y, s_animation);
               stickerEffect.myfunction_s_width(s_width);
               stickerEffect.myfunction_s_height(s_height);
               stickerEffect.myfunction_s_delay(s_delay);
               stickerEffect.myfunction_s_url(s_url);
-              if(temp!=s_id){
-                temp=s_id;
-              stickerEffect.sticker_make();
-              }
+              stickerEffect.myfunction_s_id(s_id);
+
+              stickerEffect.sticker_id_check();
               stickerEffect.sticker_show();
 
               if(!video.paused){
-                stickerEffect.show_hide();
+                stickerEffect.sticker_reveal();
               }else{
-                //스티커나왔을때 정지상태이면 스티커를 없애기
-                stickerEffect.make_hide();
+                stickerEffect.sticker_borrow();
               }
-            }
-            }
+              }
+              }
+
       }, false);
       </script>
 

@@ -1,8 +1,4 @@
 var video = document.getElementById('media2');
-var new_id_c;
-var new_id_s;
-var c;
-var new_id_image;
 
 var captionEffect = {
 
@@ -16,6 +12,7 @@ var captionEffect = {
     color:"",
     font:"",
     contents:"",
+    id:0,
 
     myfunction_c_basic: function(s,e,x,y,a){
       this.startTime = s;
@@ -40,56 +37,73 @@ var captionEffect = {
     myfunction_c_contents: function(x){
       this.contents = x;
     },
-
-    caption_make: function(){
-      rand_a = Math.random();
-      var make_p = document.createElement('p');
-      $("#captions_p").append(make_p);
-      new_id_c = rand_a + "make_p";
-      make_p.setAttribute('id',new_id_c);
-    },
-
-    caption_show: function(){
-          document.getElementById(new_id_c).style.display="block";
-          document.getElementById(new_id_c).style.position="relative";
-          document.getElementById(new_id_c).setAttribute('class',this.animation);
-          document.getElementById(new_id_c).style.top= this.x + 'px';
-          document.getElementById(new_id_c).style.left=this.y + 'px';
-          document.getElementById(new_id_c).style.fontSize=this.size + 'px';
-          document.getElementById(new_id_c).style.color=this.color;
-          document.getElementById(new_id_c).style.animationDelay=this.delay;
-          document.getElementById(new_id_c).innerHTML = this.contents;
-          document.getElementById(new_id_c).style.fontStyle=this.font;
+    myfunction_c_id: function(x){
+      this.id = x;
     },
 
     caption_hide: function(){
-          var check = document.getElementById(new_id_c);
+          var check = document.getElementById(this.id);
               if (check=== null){
-                      return;
-              }else if(video.currentTime < this.endTime){ //비디오 현재시간이랑 DB엔드타임이랑 비교했을때 endTime이 크면 hide하면 안됨!
-                      return;
+                console.log("null");
+                return;
               }else{
-                    $("#captions_p").empty();
+                console.log("hide"+this.id);
+                document.getElementById(this.id).style.display="none";
                    }
-                 },
-    make_hide: function(){
-          var check = document.getElementById(new_id_c);
-                if (check=== null){
-                       return;
-                  }else{
-                      document.getElementById(new_id_c).style.display="none";
-                        }
     },
 
-    show_hide: function(){
-              var check = document.getElementById(new_id_c);
-                  if (check=== null){
-                     return;
+    caption_id_check: function(){
+        var check = document.getElementById(this.id);
+      if(check=== null){
+          this.caption_make();
+      }else{
+        return;
+      }
+    },
+
+    caption_make: function(){
+      var make_p = document.createElement('div');
+      $("#captions_p").append(make_p);
+      make_p.setAttribute('id',this.id);
+
+    },
+
+
+    caption_show: function(){
+          document.getElementById(this.id).style.display= "block";
+          document.getElementById(this.id).style.position="absolute";
+          document.getElementById(this.id).setAttribute('class',this.animation);
+          document.getElementById(this.id).style.top= this.x + 'px';
+          document.getElementById(this.id).style.left=this.y + 'px';
+          document.getElementById(this.id).style.fontSize=this.size + 'px';
+          document.getElementById(this.id).style.color=this.color;
+          document.getElementById(this.id).style.animationDelay=this.delay;
+          document.getElementById(this.id).innerHTML = this.contents;
+          document.getElementById(this.id).style.fontStyle=this.font;
+
+    },
+
+    caption_reveal: function(){
+            var check = document.getElementById(this.id);
+                   if (check=== null){
+                           return;
+                     }else{
+                      document.getElementById(this.id).style.display="block";
+                              }
+                           },
+
+     caption_borrow: function(){
+           var check = document.getElementById(this.id);
+                 if (check=== null){
+                        return;
                    }else{
-                    document.getElementById(new_id_c).style.display="block";
-                        }
-                      }
-    };
+                       document.getElementById(this.id).style.display="none";
+                       }
+     }
+
+
+     };
+
 
 var stickerEffect ={
 
@@ -102,6 +116,7 @@ var stickerEffect ={
   height:0,
   delay:0,
   url:"",
+  id:0,
 
   myfunction_s_basic: function(s,e,x,y,a){
     this.startTime = s;
@@ -121,62 +136,62 @@ var stickerEffect ={
   },
   myfunction_s_url: function(x){
     this.url = x;
-    // console.log(this.url);
   },
-
-  sticker_make: function(){
-    rand_a = Math.random();
-    var make_d = document.createElement('div');
-    $("#sticker_d").append(make_d);
-    new_id_s = rand_a + "make_d";
-    make_d.setAttribute('id',new_id_s);
-
-    var make_i = document.createElement("img");
-    document.getElementById(new_id_s).appendChild(make_i);
-    new_id_image = rand_a + "make_i";
-    make_i.setAttribute('id',new_id_image);
+  myfunction_s_id: function(x){
+    this.id = x;
   },
-
-
-  sticker_show: function(){
-        document.getElementById(new_id_s).style.display="block";
-        document.getElementById(new_id_s).style.position="relative";
-        document.getElementById(new_id_s).setAttribute('class',this.animation);
-        document.getElementById(new_id_s).style.top= this.x + 'px';
-        document.getElementById(new_id_s).style.left=this.y + 'px';
-        document.getElementById(new_id_s).style.width = this.width + 'px';
-        document.getElementById(new_id_s).style.height = this.height + 'px';
-        document.getElementById(new_id_s).style.animationDelay=this.delay;
-        document.getElementById(new_id_image).src = this.url;
-      },
 
   sticker_hide: function(){
-        var check = document.getElementById(new_id_s);
-        if (check=== null){
-          return;
-        }else if(video.currentTime < this.endTime){ //비디오 현재시간이랑 DB엔드타임이랑 비교했을때 endTime이 크면 hide하면 안됨!
-          return;
-        }
-        else{
-          $("#sticker_d").empty();
-            }
-        },
-
-  make_hide: function(){
-            var check = document.getElementById(new_id_s);
+        var check = document.getElementById(this.id);
             if (check=== null){
               return;
             }else{
-          document.getElementById(new_id_s).style.display="none";
-          }
-        },
+              document.getElementById(this.id).style.display="none";
+                 }
+  },
 
-  show_hide: function(){
-          var check = document.getElementById(new_id_s);
-          if (check=== null){
-            return;
-          }else{
-           document.getElementById(new_id_s).style.display="block";
-         }
-        }
+  sticker_id_check: function(){
+      var check = document.getElementById(this.id);
+    if(check=== null){
+        this.sticker_make();
+    }else{
+      return;
+    }
+  },
+
+  sticker_make: function(){
+    var make_p = document.createElement('img');
+    $("#sticker_d").append(make_p);
+    make_p.setAttribute('id',this.id);
+  },
+
+  sticker_show: function(){
+        document.getElementById(this.id).style.display="block";
+        document.getElementById(this.id).style.position="absolute";
+        document.getElementById(this.id).setAttribute('class',this.animation);
+        document.getElementById(this.id).style.top= this.x + 'px';
+        document.getElementById(this.id).style.left=this.y + 'px';
+        document.getElementById(this.id).style.width = this.width + 'px';
+        document.getElementById(this.id).style.height = this.height + 'px';
+        document.getElementById(this.id).style.animationDelay=this.delay;
+        document.getElementById(this.id).src = this.url;
+      },
+
+  sticker_reveal: function(){
+          var check = document.getElementById(this.id);
+                 if (check=== null){
+                         return;
+                   }else{
+                    document.getElementById(this.id).style.display="block";
+                            }
+                         },
+
+  sticker_borrow: function(){
+         var check = document.getElementById(this.id);
+               if (check=== null){
+                      return;
+                 }else{
+                     document.getElementById(this.id).style.display="none";
+                     }
+   }
       };
