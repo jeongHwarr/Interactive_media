@@ -12,23 +12,39 @@ function setButtonOnClick(){
 
     //세션 저장(파란색 saves버튼)
     $("#waves_save").click(function(){
-        if($("#title_waves").val()==""){
-            $("#title_waves").val("제목없음");
-            console.log("wave 제목없음");
+        if($("#waves_save").hasClass("disabled")) {
+            console.log("button disabled")
+        }else{
+            if ($("#title_waves").val() == "") {
+                $("#title_waves").val("제목없음");
+                console.log("wave 제목없음");
+            }
+            console.log("save");
+            waves_session_data = waves_save();
         }
-        waves_session_data = waves_save();
     });
     $("#captions_save").click(function(){
+        if($("#captions_save").hasClass("disabled")){
+            console.log("button disabled")
+        }else{
+
         if($("#title_captions").val()==""){
             $("#title_captions").val("제목없음");
         }
+        console.log("save");
         captions_session_data = captions_save();
+        }
     });
     $("#stickers_save").click(function(){
-        if($("#title_stickers").val()==""){
-            $("#title_stickers").val("제목없음");
+        if($("#stickers_save").hasClass("disabled")){
+            console.log("button disabled")
+        }else {
+            if ($("#title_stickers").val() == "") {
+                $("#title_stickers").val("제목없음");
+            }
+            console.log("save");
+            stickers_session_data = stickers_save();
         }
-        stickers_session_data = stickers_save();
     });
 
     //전체 프로젝트 db저장(초록색 save 버튼)
