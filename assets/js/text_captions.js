@@ -44,10 +44,8 @@ var captionEffect = {
     caption_hide: function(){
           var check = document.getElementById(this.id);
               if (check=== null){
-                console.log("null");
                 return;
               }else{
-                console.log("hide"+this.id);
                 document.getElementById(this.id).style.display="none";
                    }
     },
@@ -67,7 +65,6 @@ var captionEffect = {
       make_p.setAttribute('id',this.id);
 
     },
-
 
     caption_show: function(){
           document.getElementById(this.id).style.display= "block";
@@ -100,8 +97,6 @@ var captionEffect = {
                        document.getElementById(this.id).style.display="none";
                        }
      }
-
-
      };
 
 
