@@ -217,7 +217,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Duration</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_duration" class="form-control" type="text" value="3">
+                                                    <input id="input_waves_duration" class="form-control" type="text" value="1000">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -225,7 +225,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.03">
+                                                    <input id="input_waves_delay" class="form-control" type="text" value="300">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -233,7 +233,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Scale</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_scale" class="form-control" type="text" value="0.05">
+                                                    <input id="input_waves_scale" class="form-control" type="text" value="50">
                                                 </div>
                                             </div>
                                             <div class="row">
