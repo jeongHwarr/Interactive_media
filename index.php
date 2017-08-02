@@ -313,7 +313,7 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Caption </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="context_captions">
+                                            <input class="form-control" type="text" id="context_captions" placeholder="화면 입력 내용">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -323,7 +323,6 @@ include './assets/util/queryUtil.php';
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_captions">
-                                                    <option value="">select please</option>
                                                     <option value="animated infinite bounceOut">bounceOut</option>
                                                     <option value="animated infinite fadeIn">fadeIn</option>
                                                     <option value="animated infinite bounceIn">bounceIn</option>
@@ -378,7 +377,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Font Size</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" type="text" id="font_size_captions">
+                                                    <input class="form-control" type="text" id="font_size_captions" value="20">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -386,7 +385,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" type="text" id="delay_captions">
+                                                    <input class="form-control" type="text" id="delay_captions" value="0">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -396,7 +395,6 @@ include './assets/util/queryUtil.php';
                                                 <div class="col-lg-8 col-md-12">
                                                     <div class="form-group">
                                                         <select class="form-control" id="color_captions">
-                                                            <option value="">select please</option>
                                                             <option value="red">Red</option>
                                                             <option value="blue">Blue</option>
                                                             <option value="yellow">Yellow</option>
@@ -411,7 +409,6 @@ include './assets/util/queryUtil.php';
                                                 <div class="col-lg-8 col-md-12">
                                                     <div class="form-group">
                                                         <select class="form-control" id="font_name_captions">
-                                                            <option value="">select please</option>
                                                             <option value="normal">normal</option>
                                                             <option value="italic">italic</option>
                                                             <option value="oblique">oblique</option>
@@ -454,7 +451,7 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_title">Title </p>
                                         </div>
                                         <div class="col-lg-8 col-md-12">
-                                            <input class="form-control" type="text" id="title_stickers" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="title">
+                                            <input class="form-control" type="text" id="title_stickers" data-minlength="4" data-error="제목을 두글자 이상 입력하세요" placeholder="제목없음">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -465,7 +462,6 @@ include './assets/util/queryUtil.php';
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
                                                 <select class="form-control" id="option_stickers">
-                                                    <option value="">select please</option>
                                                     <option value="http://cfile23.uf.tistory.com/image/1864EE3F50E62EA616460A">해골</option>
                                                     <option value="http://bizdesign.net/data/cheditor4/1304/7a7f255e9283673e933658413636862a_fSDT1uJnhvXaBalZODxtBFaM.jpg">아기</option>
                                                     <option value="https://s-media-cache-ak0.pinimg.com/originals/b2/56/15/b2561559644dc937bcca91b746cd9abe.png">사자</option>
@@ -481,7 +477,6 @@ include './assets/util/queryUtil.php';
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
                                                 <select class="form-control" id="animation_stickers">
-                                                    <option value="">select please</option>
                                                     <option value="animated infinite bounceOut">bounceOut</option>
                                                     <option value="animated infinite fadeIn">fadeIn</option>
                                                     <option value="animated infinite bounceIn">bounceIn</option>
@@ -538,13 +533,13 @@ include './assets/util/queryUtil.php';
                                                             <p class="tab_cont">width</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input class="form-control pos_x" type="text" id="width_stickers">
+                                                            <input class="form-control pos_x" type="text" id="width_stickers" value="20">
                                                         </div>
                                                         <div class="col-lg-2 col-md-12">
                                                             <p class="tab_cont">height</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input class="form-control pos_y" type="text" id="height_stickers">
+                                                            <input class="form-control pos_y" type="text" id="height_stickers" value="20">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -554,7 +549,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" type="text" id="delay_stickers">
+                                                    <input class="form-control" type="text" id="delay_stickers" value="0">
                                                 </div>
                                             </div>
                                         </div>
