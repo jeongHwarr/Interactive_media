@@ -3,7 +3,7 @@
   height:0px;
   width:100%;
   background:#000000;
-  z-index:9999999999;
+  z-index:100;
 }
 
 #black_bottom{
@@ -12,9 +12,9 @@
   height:0px;
   width:100%;
   background:#000000;
-  z-index:9999999999;
+  z-index:100;
 }
 
 .vjs-control-bar{
-  z-index:9999999991;
+  z-index:1000;
 }
