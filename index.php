@@ -322,11 +322,12 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                                <select class="form-control" id="animation_captions">
-                                                    <option value="animated infinite bounceOut">bounceOut</option>
-                                                    <option value="animated infinite fadeIn">fadeIn</option>
-                                                    <option value="animated infinite bounceIn">bounceIn</option>
-                                                </select>
+                                              <select class="form-control animation_effect" id="animation_effect">
+                                                  <option value="none">Choose Animation!</option>
+                                                  <option value="animated infinite bounceOut">bounceOut</option>
+                                                  <option value="animated infinite fadeIn">fadeIn</option>
+                                                  <option value="animated infinite bounceIn">bounceIn</option>
+                                              </select>
                                             </div>
                                         </div>
                                     </div>
@@ -433,7 +434,9 @@ include './assets/util/queryUtil.php';
                                     <div class="col-md-12">
                                         <p class="tab_title">effects view</p>
                                     </div>
-                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                    <div class="col-md-12">
+                                      <div class="example_class" id="caption_example_id">example</div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -476,11 +479,12 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                                <select class="form-control" id="animation_stickers">
-                                                    <option value="animated infinite bounceOut">bounceOut</option>
-                                                    <option value="animated infinite fadeIn">fadeIn</option>
-                                                    <option value="animated infinite bounceIn">bounceIn</option>
-                                                </select>
+                                              <select class="form-control animation_effect" id="animation_effect">
+                                                <option value="none">Choose Animation!</option>
+                                                <option value="animated infinite bounceOut">bounceOut</option>
+                                                <option value="animated infinite fadeIn">fadeIn</option>
+                                                <option value="animated infinite bounceIn">bounceIn</option>
+                                              </select>
                                             </div>
                                         </div>
                                     </div>
@@ -570,7 +574,9 @@ include './assets/util/queryUtil.php';
                                     <div class="col-md-12">
                                         <p class="tab_title">effects view</p>
                                     </div>
-                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                    <div class="col-md-12">
+                                      <div class="example_class" id="sticker_example_id">example</div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -652,7 +658,7 @@ include './assets/util/queryUtil.php';
          var c_color = captions_session_data[i]['color'];
          var c_font = captions_session_data[i]['font'];
          var c_contents = captions_session_data[i]['contents'];
-         var c_id = captions_session_data[i]['id'];
+         var c_id = i + "caption";
 
          var scaleX = video.videoWidth / $("#media2").outerWidth();
          var scaleY = video.videoHeight / $("#media2").outerHeight();
@@ -701,7 +707,7 @@ include './assets/util/queryUtil.php';
          var s_height = stickers_session_data[i]['height'];
          var s_delay = stickers_session_data[i]['delay'];
          var s_url = stickers_session_data[i]['url'];
-         var s_id = stickers_session_data[i]['id'];
+         var s_id = i + "sticker";
 
          var scaleX = video.videoWidth / $("#media2").outerWidth();
          var scaleY = video.videoHeight / $("#media2").outerHeight();
@@ -768,5 +774,35 @@ include './assets/util/queryUtil.php';
     );
 
 </script>
+
+<script>
+$(".animation_effect").change(function(){
+  var choice = this.value;
+  console.log(choice);
+    switch(choice){
+    case "none":
+        $("#caption_example_id, #sticker_example_id").attr('class', 'example_class');
+    break;
+
+    case "animated infinite bounceOut":
+        $("#caption_example_id, #sticker_example_id").attr('class', 'animated bounceOut');
+        $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+    break;
+
+    case "animated infinite fadeIn":
+        $("#caption_example_id, #sticker_example_id").attr('class', 'animated fadeIn');
+        $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+    break;
+
+    case "animated infinite bounceIn":
+      $("#caption_example_id, #sticker_example_id").attr('class','animated bounceIn');
+      $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
+      $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+    break;
+  }})
+</script>
+
 
 </html>
