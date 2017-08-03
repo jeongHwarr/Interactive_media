@@ -74,7 +74,7 @@ var captionEffect = {
           document.getElementById(this.id).style.left=this.x + 'px';
           document.getElementById(this.id).style.fontSize=this.size + 'px';
           document.getElementById(this.id).style.color=this.color;
-          document.getElementById(this.id).style.animationDelay=this.delay;
+          document.getElementById(this.id).style.animationDuration=this.delay+'s';
           document.getElementById(this.id).innerHTML = this.contents;
           document.getElementById(this.id).style.fontStyle=this.font;
 
@@ -168,7 +168,7 @@ var stickerEffect ={
         document.getElementById(this.id).style.left=this.x + 'px';
         document.getElementById(this.id).style.width = this.width + 'px';
         document.getElementById(this.id).style.height = this.height + 'px';
-        document.getElementById(this.id).style.animationDelay=this.delay;
+        document.getElementById(this.id).style.animationDuration=this.delay +'s';
         document.getElementById(this.id).src = this.url;
       },
 
