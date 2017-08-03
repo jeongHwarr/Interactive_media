@@ -205,20 +205,20 @@ function getWavesWaveEffectElement(e) {
     return element;
 }
 
-function setWaveEffect(data, v, box) {
+function setWaveEffect(v, box) {
   $(v).bind("timeupdate", function(){
-    for (var i = 0; i < data.length; i++){
+    for (var i = 0; i < waves_session_data.length; i++){
        //session 데이터 변환
-       var start_t = data[i]['startTime']/1000;
-       var end_t = data[i]['endTime']/1000;
-       var x = data[i]['pos_x'];
-       var y = data[i]['pos_y'];
-       var duration = data[i]['duration'];
-       var delay = data[i]['delay'];
-       var scale = data[i]['scale']/1000;
-       var trans_x = data[i]['trans_x'];
-       var trans_y = data[i]['trans_y'];
-       var color = data[i]['color'];
+       var start_t = waves_session_data[i]['startTime']/1000;
+       var end_t = waves_session_data[i]['endTime']/1000;
+       var x = waves_session_data[i]['pos_x'];
+       var y = waves_session_data[i]['pos_y'];
+       var duration = waves_session_data[i]['duration'];
+       var delay = waves_session_data[i]['delay'];
+       var scale = waves_session_data[i]['scale']/1000;
+       var trans_x = waves_session_data[i]['trans_x'];
+       var trans_y = waves_session_data[i]['trans_y'];
+       var color = waves_session_data[i]['color'];
 
        //css크기와 video크기 비교
        var scaleX = this.videoWidth / $(v).outerWidth();

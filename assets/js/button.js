@@ -12,40 +12,50 @@ function setButtonOnClick(){
 
     //세션 저장(파란색 saves버튼)
     $("#waves_save").click(function(){
-        if($("#waves_save").hasClass("disabled")) {
-            console.log("button disabled")
-        }else{
-            if ($("#title_waves").val() == "") {
-                $("#title_waves").val("제목없음");
-                console.log("wave 제목없음");
-            }
-            console.log("save");
-            waves_session_data = waves_save();
-        }
+      var button_value=$("#waves_save").val();
+      if(button_value=="saves"){
+        waves_session_data = waves_save();
+      }else if(button_value=="modify"){
+        waves_session_data = waves_modify();
+      }
+      initEffectTabValue();
+      showEffectList();
     });
-    $("#captions_save").click(function(){
-        if($("#captions_save").hasClass("disabled")){
-            console.log("button disabled")
-        }else{
 
-        if($("#title_captions").val()==""){
-            $("#title_captions").val("제목없음");
+    $("#captions_save").click(function(){
+        var button_value=$("#captions_save").val();
+        if(button_value=="saves"){
+          captions_session_data = captions_save();
+        }else if(button_value=="modify"){
+          captions_session_data = captions_modify();
         }
-        console.log("save");
-        captions_session_data = captions_save();
-        }
+        initEffectTabValue();
+        showEffectList();
     });
+
     $("#stickers_save").click(function(){
-        if($("#stickers_save").hasClass("disabled")){
-            console.log("button disabled")
-        }else {
-            if ($("#title_stickers").val() == "") {
-                $("#title_stickers").val("제목없음");
-            }
-            console.log("save");
-            stickers_session_data = stickers_save();
+        var button_value=$("#stickers_save").val();
+        if(button_value=="saves"){
+          stickers_session_data = stickers_save();
+        }else if(button_value=="modify"){
+          stickers_session_data = stickers_modify();
         }
+        initEffectTabValue();
+        showEffectList();
     });
+    
+    $("#waves_modify_cancel").click(function(){
+        initEffectTabValue();
+    });
+
+    $("#captions_modify_cancel").click(function(){
+        initEffectTabValue();
+    });
+
+    $("#stickers_modify_cancel").click(function(){
+        initEffectTabValue();
+    });
+
 
     //전체 프로젝트 db저장(초록색 save 버튼)
     $("#btn_project_save").click(function(){

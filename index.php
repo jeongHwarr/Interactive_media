@@ -274,7 +274,10 @@ include './assets/util/queryUtil.php';
                                     </div> <!--extra_waves end-->
                                     <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
                                     <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="submit" id="waves_save">saves </button> <!--효과저장 버튼-->
+                                    <input button class="btn btn-primary" type="submit" id="waves_save" value="saves"></input> <!--효과저장/수정 버튼-->
+                                    <input button class="btn btn-danger" type="hidden" id="waves_delete" value="delete"> </input> <!--효과삭제버튼-->
+                                    <input button class="btn btn-info" type="hidden" id="waves_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
+                                    <input type="hidden" id="waves_index" value="">
                                 </form>
                                 <!--waves추가옵션-->
                             </div><!--section waves_input end-->
@@ -420,7 +423,10 @@ include './assets/util/queryUtil.php';
                                     </div><!--extra_captions end-->
                                     <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
                                     <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="submit" id="captions_save">saves </button> <!--효과저장 버튼-->
+                                    <input button class="btn btn-primary" type="submit" id="captions_save" value="saves"> </input> <!--효과저장/수정 버튼-->
+                                    <input button class="btn btn-danger" type="hidden" id="captions_delete" value="delete"> </input> <!--효과삭제버튼-->
+                                    <input button class="btn btn-info" type="hidden" id="captions_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
+                                    <input type="hidden" id="captions_index" value="">
                                 </form>
 
 
@@ -556,7 +562,10 @@ include './assets/util/queryUtil.php';
                                     </div><!--div extra_stikers end-->
                                     <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
                                     <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
-                                    <button class="btn btn-primary" type="submit" id="stickers_save">saves</button> <!--효과저장 버튼-->
+                                    <input button class="btn btn-primary" type="submit" id="stickers_save" value="saves"></input> <!--효과저장 버튼-->
+                                    <input button class="btn btn-danger" type="hidden" id="stickers_delete" value="delete"> </input> <!--효과삭제버튼-->
+                                    <input button class="btn btn-warning" type="hidden" id="stickers_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
+                                    <input type="hidden" id="stickers_index" value="">
                                 </form>
 
                             </div><!--section stickers input end-->
@@ -583,11 +592,8 @@ include './assets/util/queryUtil.php';
 
         <div id="div_third" class="section_lists"> <!--효과 리스트-->
             <p class="tab_title">Effects List</p>
-            <ul class="list-group" id="list_effects">
-                <li class="list-group-item"><span>List Group Item 1</span></li>
-                <li class="list-group-item"><span>List Group Item 2</span></li>
-                <li class="list-group-item"><span>List Group Item 3</span></li>
-            </ul>
+            <div class="list-group" id="list_effects">
+            </div>
         </div>
       </div>
     </div>
@@ -598,10 +604,13 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/text_captions.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_save.js"></script>
+    <script src="assets/js/effect_modify.js"></script>
     <script src="assets/js/project_load.js"></script>
     <script src="assets/js/black_div.js"></script>
     <script src="assets/js/button.js"></script>
     <script src="assets/js/mouse_pointer.js"></script>
+    <script src="assets/js/effect_default_value.js"></script>
+    <script src="assets/js/effect_list.js"></script>
 
     <script type="text/javascript">
       $('form').submit(function (evt) {
@@ -621,6 +630,8 @@ include './assets/util/queryUtil.php';
             alert("잘못된 접근입니다.");
             location.href="start.php";
         }
+        initEffectTabValue();
+        showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
       });
       //버튼 onclick 구현
       $(document).ready(function(){
@@ -739,7 +750,7 @@ include './assets/util/queryUtil.php';
      <script>
       var waves_session_data = session.get('waves_session')['waves_session'];
       //waves정보, 적용 video, wave가 만들어질 장소
-      setWaveEffect(waves_session_data, "#media2", ".waves-box");
+      setWaveEffect("#media2", ".waves-box");
      </script>
 
      <script>

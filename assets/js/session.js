@@ -26,6 +26,17 @@ class Session extends Map {
      session.set(id, {[key] : object_value});
    }
 
+   modify(id, index, value){
+     const object = session.get(id);
+     const key = Object.keys(object);// find key value;
+     var object_value = object[key]; //get object_value (array)
+     if(index in object_value){ //checking index exisist in array
+       object_value[index]=value; //change array value using index
+       session.set(id, {[key] : object_value});
+     }
+     else{console.log("session.modify Error! : Invalid index");}
+   }
+
    remove(id, index){
      const object = session.get(id);
      const key = Object.keys(object);// find key value;
