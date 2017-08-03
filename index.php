@@ -386,7 +386,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="1" value="1">
+                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="0" value="0">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -553,7 +553,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_stickers" type="number" step="0.0001" min="1" value="1">
+                                                    <input class="form-control" id="delay_stickers" type="number" step="0.0001" min="0" value="0">
                                                 </div>
                                             </div>
                                         </div>
