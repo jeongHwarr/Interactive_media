@@ -322,7 +322,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                              <select class="form-control animation_effect" id="animation_effect">
+                                              <select class="form-control" id="animation_captions">
                                                   <option value="none">Choose Animation!</option>
                                                   <option value="animated infinite bounceOut">bounceOut</option>
                                                   <option value="animated infinite fadeIn">fadeIn</option>
@@ -479,7 +479,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                              <select class="form-control animation_effect" id="animation_effect">
+                                              <select class="form-control" id="animation_stickers">
                                                 <option value="none">Choose Animation!</option>
                                                 <option value="animated infinite bounceOut">bounceOut</option>
                                                 <option value="animated infinite fadeIn">fadeIn</option>
@@ -776,33 +776,62 @@ include './assets/util/queryUtil.php';
 </script>
 
 <script>
-$(".animation_effect").change(function(){
+$("#animation_captions").change(function(){
   var choice = this.value;
-  console.log(choice);
     switch(choice){
     case "none":
-        $("#caption_example_id, #sticker_example_id").attr('class', 'example_class');
+        $("#caption_example_id").attr('class', 'example_class');
     break;
 
     case "animated infinite bounceOut":
-        $("#caption_example_id, #sticker_example_id").attr('class', 'animated bounceOut');
-        $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
-        $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+        $("#caption_example_id").attr('class', 'animated bounceOut');
+        $("#caption_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id").css('animationDuration','1s');
     break;
 
     case "animated infinite fadeIn":
-        $("#caption_example_id, #sticker_example_id").attr('class', 'animated fadeIn');
-        $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
-        $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+        $("#caption_example_id").attr('class', 'animated fadeIn');
+        $("#caption_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id").css('animationDuration','1s');
     break;
 
     case "animated infinite bounceIn":
-      $("#caption_example_id, #sticker_example_id").attr('class','animated bounceIn');
-      $("#caption_example_id, #sticker_example_id").css('animation-iteration-count','10');
-      $("#caption_example_id, #sticker_example_id").css('animationDuration','1s');
+      $("#caption_example_id").attr('class','animated bounceIn');
+      $("#caption_example_id").css('animation-iteration-count','10');
+      $("#caption_example_id").css('animationDuration','1s');
     break;
   }})
+
+
+  $("#animation_stickers").change(function(){
+    var choice = this.value;
+      switch(choice){
+      case "none":
+          $("#sticker_example_id").attr('class', 'example_class');
+      break;
+
+      case "animated infinite bounceOut":
+          $("#sticker_example_id").attr('class', 'animated bounceOut');
+          $("#sticker_example_id").css('animation-iteration-count','10');
+          $("#sticker_example_id").css('animationDuration','1s');
+      break;
+
+      case "animated infinite fadeIn":
+          $("#sticker_example_id").attr('class', 'animated fadeIn');
+          $("#sticker_example_id").css('animation-iteration-count','10');
+          $("#sticker_example_id").css('animationDuration','1s');
+      break;
+
+      case "animated infinite bounceIn":
+        $("#sticker_example_id").attr('class','animated bounceIn');
+        $("#sticker_example_id").css('animation-iteration-count','10');
+        $("#sticker_example_id").css('animationDuration','1s');
+      break;
+    }})
+
+
 </script>
+
 
 
 </html>
