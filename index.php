@@ -179,14 +179,14 @@ include './assets/util/queryUtil.php';
                                         </div>
 
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_start_time" class="form-control time_start" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input id="input_waves_start_time" class="form-control time_start" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
 
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input id="input_waves_end_time" class="form-control time_end" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input id="input_waves_end_time" class="form-control time_end" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -198,13 +198,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_waves_pos_x" class="form-control pos_x" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="text" pattern="[[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_waves_pos_y" class="form-control pos_y" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-md-12 help-block with-errors"></div>
                                             </div>
@@ -325,11 +325,12 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                                <select class="form-control" id="animation_captions">
-                                                    <option value="animated infinite bounceOut">bounceOut</option>
-                                                    <option value="animated infinite fadeIn">fadeIn</option>
-                                                    <option value="animated infinite bounceIn">bounceIn</option>
-                                                </select>
+                                              <select class="form-control" id="animation_captions">
+                                                  <option value="none">Choose Animation!</option>
+                                                  <option value="animated infinite bounceOut">bounceOut</option>
+                                                  <option value="animated infinite fadeIn">fadeIn</option>
+                                                  <option value="animated infinite bounceIn">bounceIn</option>
+                                              </select>
                                             </div>
                                         </div>
                                     </div>
@@ -343,13 +344,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_captions" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_start" id="startTime_captions" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_captions" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_end" id="endTime_captions" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -361,13 +362,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_caption_pos_x" class="form-control pos_x" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_caption_pos_y" class="form-control pos_y" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-md-12 help-block with-errors"></div>
                                             </div>
@@ -388,7 +389,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" type="text" id="delay_captions" value="0">
+                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="0" value="0">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -439,7 +440,9 @@ include './assets/util/queryUtil.php';
                                     <div class="col-md-12">
                                         <p class="tab_title">effects view</p>
                                     </div>
-                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                    <div class="col-md-12">
+                                      <div class="example_class" id="caption_example_id">example</div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -482,11 +485,12 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group">
-                                                <select class="form-control" id="animation_stickers">
-                                                    <option value="animated infinite bounceOut">bounceOut</option>
-                                                    <option value="animated infinite fadeIn">fadeIn</option>
-                                                    <option value="animated infinite bounceIn">bounceIn</option>
-                                                </select>
+                                              <select class="form-control" id="animation_stickers">
+                                                <option value="none">Choose Animation!</option>
+                                                <option value="animated infinite bounceOut">bounceOut</option>
+                                                <option value="animated infinite fadeIn">fadeIn</option>
+                                                <option value="animated infinite bounceIn">bounceIn</option>
+                                              </select>
                                             </div>
                                         </div>
                                     </div>
@@ -500,13 +504,13 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_start" type="text" id="startTime_stickers" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_start" id="startTime_stickers" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
-                                            <input class="form-control time_end" type="text" id="endTime_stickers" pattern="[+]?\d*(\.?\d*)?" data-error="시간을 입력하세요" placeholder="number">
+                                            <input class="form-control time_end" id="endTime_stickers" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
@@ -518,13 +522,13 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_cont">X</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_sticker_pos_x" class="form-control pos_x" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
                                                     <p class="tab_cont">Y</p>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12">
-                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="text" pattern="[+]?\d*(\.?\d*)?" data-error="위치를 입력하세요" placeholder="number">
+                                                    <input id="input_sticker_pos_y" class="form-control pos_y" type="number" step="0.0001" min="0" data-error="위치를 입력하세요" placeholder="number">
                                                 </div>
                                             </div>
                                         </div>
@@ -555,7 +559,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" type="text" id="delay_stickers" value="0">
+                                                    <input class="form-control" id="delay_stickers" type="number" step="0.0001" min="0" value="0">
                                                 </div>
                                             </div>
                                         </div>
@@ -579,7 +583,9 @@ include './assets/util/queryUtil.php';
                                     <div class="col-md-12">
                                         <p class="tab_title">effects view</p>
                                     </div>
-                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                    <div class="col-md-12">
+                                      <div class="example_class" id="sticker_example_id">example</div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -663,7 +669,7 @@ include './assets/util/queryUtil.php';
          var c_color = captions_session_data[i]['color'];
          var c_font = captions_session_data[i]['font'];
          var c_contents = captions_session_data[i]['contents'];
-         var c_id = captions_session_data[i]['id'];
+         var c_id = i + "caption";
 
          var scaleX = video.videoWidth / $("#media2").outerWidth();
          var scaleY = video.videoHeight / $("#media2").outerHeight();
@@ -712,7 +718,7 @@ include './assets/util/queryUtil.php';
          var s_height = stickers_session_data[i]['height'];
          var s_delay = stickers_session_data[i]['delay'];
          var s_url = stickers_session_data[i]['url'];
-         var s_id = stickers_session_data[i]['id'];
+         var s_id = i + "sticker";
 
          var scaleX = video.videoWidth / $("#media2").outerWidth();
          var scaleY = video.videoHeight / $("#media2").outerHeight();
@@ -779,5 +785,64 @@ include './assets/util/queryUtil.php';
     );
 
 </script>
+
+<script>
+$("#animation_captions").change(function(){
+  var choice = this.value;
+    switch(choice){
+    case "none":
+        $("#caption_example_id").attr('class', 'example_class');
+    break;
+
+    case "animated infinite bounceOut":
+        $("#caption_example_id").attr('class', 'animated bounceOut');
+        $("#caption_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id").css('animationDuration','1s');
+    break;
+
+    case "animated infinite fadeIn":
+        $("#caption_example_id").attr('class', 'animated fadeIn');
+        $("#caption_example_id").css('animation-iteration-count','10');
+        $("#caption_example_id").css('animationDuration','1s');
+    break;
+
+    case "animated infinite bounceIn":
+      $("#caption_example_id").attr('class','animated bounceIn');
+      $("#caption_example_id").css('animation-iteration-count','10');
+      $("#caption_example_id").css('animationDuration','1s');
+    break;
+  }})
+
+
+  $("#animation_stickers").change(function(){
+    var choice = this.value;
+      switch(choice){
+      case "none":
+          $("#sticker_example_id").attr('class', 'example_class');
+      break;
+
+      case "animated infinite bounceOut":
+          $("#sticker_example_id").attr('class', 'animated bounceOut');
+          $("#sticker_example_id").css('animation-iteration-count','10');
+          $("#sticker_example_id").css('animationDuration','1s');
+      break;
+
+      case "animated infinite fadeIn":
+          $("#sticker_example_id").attr('class', 'animated fadeIn');
+          $("#sticker_example_id").css('animation-iteration-count','10');
+          $("#sticker_example_id").css('animationDuration','1s');
+      break;
+
+      case "animated infinite bounceIn":
+        $("#sticker_example_id").attr('class','animated bounceIn');
+        $("#sticker_example_id").css('animation-iteration-count','10');
+        $("#sticker_example_id").css('animationDuration','1s');
+      break;
+    }})
+
+
+</script>
+
+
 
 </html>
