@@ -273,7 +273,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                     </div> <!--extra_waves end-->
                                     <button class="btn btn-default" type="button" id="more_op_waves">more options</button>
-                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button id="btn-make-effect" class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="waves_save" value="saves"></input> <!--효과저장/수정 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="waves_delete" value="delete"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="waves_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
@@ -289,7 +289,12 @@ include './assets/util/queryUtil.php';
                                     <div class="col-md-12">
                                         <p class="tab_title">effects view</p>
                                     </div>
-                                    <div class="col-md-12"><img src="assets/img/user-photo.jpg"></div>
+                                    <div class="col-md-12 ">
+                                      <div class="waves-effect preview" style="margin:0px 40px; width:180px; height:160px;">
+                                      <div class="test-box">
+                                      </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
@@ -757,6 +762,9 @@ include './assets/util/queryUtil.php';
       var waves_session_data = session.get('waves_session')['waves_session'];
       //waves정보, 적용 video, wave가 만들어질 장소
       setWaveEffect("#media2", ".waves-box");
+      $("#btn-make-effect").bind("click",function(){
+        makeWaveEffect($(".test-box")[0]);
+      })
      </script>
 
      <script>
