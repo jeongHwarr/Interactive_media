@@ -764,6 +764,12 @@ include './assets/util/queryUtil.php';
       //waves정보, 적용 video, wave가 만들어질 장소
       setWaveEffect("#media2", ".waves-box");
       $("#btn-make-effect").bind("click",function(){
+        WaveEffect.setLocation(90,80);
+        WaveEffect.setColor($("#color_waves").val());
+        WaveEffect.setScale($("#input_waves_scale").val());
+        WaveEffect.setDuration($("#input_waves_duration").val()*1000);
+        WaveEffect.setDelay($("#input_waves_delay").val()*1000);
+        WaveEffect.setTransition($("#input_waves_translate_x").val(), $("#input_waves_translate_y").val());
         makeWaveEffect($(".test-box")[0]);
       })
      </script>
