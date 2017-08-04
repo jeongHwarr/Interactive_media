@@ -11,7 +11,7 @@ include './assets/util/queryUtil.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Editor ver0.1</title>
+    <title>Web Editor ver0.2</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
