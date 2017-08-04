@@ -44,7 +44,7 @@ function initEffectTabValue(){
   $('#delay_stickers').prop('value', '0');
   $('#stickers_index').prop('value', '');
   $('#stickers_save').prop('value', 'saves');
-  $('#stickers_cancel').prop('type', 'hidden');
+  $('#stickers_modify_cancel').prop('type', 'hidden');
   $('#stickers_delete').prop('type', 'hidden');
 
 }
