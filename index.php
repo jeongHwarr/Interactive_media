@@ -217,7 +217,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Duration</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_duration" class="form-control" type="text" value="1">
+                                                    <input id="input_waves_duration" class="form-control" type="text">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -225,7 +225,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_delay" class="form-control" type="text" value="0.3">
+                                                    <input id="input_waves_delay" class="form-control" type="text">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -233,7 +233,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Scale</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input id="input_waves_scale" class="form-control" type="text" value="0.05">
+                                                    <input id="input_waves_scale" class="form-control" type="text">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -244,13 +244,13 @@ include './assets/util/queryUtil.php';
                                                             <p class="tab_cont">X</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input id="input_waves_translate_x" class="form-control pos_x" type="text" value="0">
+                                                            <input id="input_waves_translate_x" class="form-control pos_x" type="text">
                                                         </div>
                                                         <div class="col-lg-2 col-md-12">
                                                             <p class="tab_cont">Y</p>
                                                         </div>
                                                         <div class="col-lg-3 col-md-12">
-                                                            <input id="input_waves_translate_y" class="form-control pos_y" type="text" value="0">
+                                                            <input id="input_waves_translate_y" class="form-control pos_y" type="text">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -5,8 +5,8 @@ function initEffectTabValue(){
   $('#input_waves_end_time').prop('value', '');
   $('#input_waves_pos_x').prop('value', '');
   $('#input_waves_pos_y').prop('value', '');
-  $('#input_waves_duration').prop('value', '3');
-  $('#input_waves_delay').prop('value', '0.03');
+  $('#input_waves_duration').prop('value', '1');
+  $('#input_waves_delay').prop('value', '0.3');
   $('#input_waves_scale').prop('value', '0.05');
   $('#input_waves_translate_x').prop('value', '0');
   $('#input_waves_translate_y').prop('value', '0');
