@@ -441,7 +441,7 @@ include './assets/util/queryUtil.php';
                                         <p class="tab_title">effects view</p>
                                     </div>
                                     <div class="col-md-12">
-                                      <div class="example_class" id="caption_example_id">example</div>
+                                        <div class="example_class" id="caption_example_id" style="color:red; text-align:center; font-size: 50px">example</div>
                                     </div>
                                 </div>
                             </div>
@@ -584,7 +584,7 @@ include './assets/util/queryUtil.php';
                                         <p class="tab_title">effects view</p>
                                     </div>
                                     <div class="col-md-12">
-                                      <div class="example_class" id="sticker_example_id">example</div>
+                                      <div class="example_class" id="sticker_example_id" style="color:red; text-align:center; font-size: 50px">example</div>
                                     </div>
                                 </div>
                             </div>
