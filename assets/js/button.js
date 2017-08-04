@@ -12,36 +12,66 @@ function setButtonOnClick(){
 
     //세션 저장(파란색 saves버튼)
     $("#waves_save").click(function(){
-      var button_value=$("#waves_save").val();
-      if(button_value=="saves"){
-        waves_session_data = waves_save();
-      }else if(button_value=="modify"){
-        waves_session_data = waves_modify();
-      }
-      initEffectTabValue();
-      showEffectList();
+        if($("#waves_save").hasClass("disabled")) {
+            console.log("button disabled");
+        }else{
+            if ($("#title_waves").val() == "") {
+                $("#title_waves").val("제목없음");
+                console.log("wave 제목없음");
+            }
+            var button_value=$("#waves_save").val();
+            if(button_value=="saves"){
+                waves_session_data = waves_save();
+            }else if(button_value=="modify"){
+                waves_session_data = waves_modify();
+            }
+            initEffectTabValue();
+            showEffectList();
+        }
+
+
     });
 
     $("#captions_save").click(function(){
-        var button_value=$("#captions_save").val();
-        if(button_value=="saves"){
-          captions_session_data = captions_save();
-        }else if(button_value=="modify"){
-          captions_session_data = captions_modify();
+        if($("#captions_save").hasClass("disabled")) {
+            console.log("button disabled");
+        }else{
+            if ($("#title_captions").val() == "") {
+                $("#title_captions").val("제목없음");
+                console.log("captions 제목없음");
+            }
+            var button_value=$("#captions_save").val();
+            if(button_value=="saves"){
+                captions_session_data = captions_save();
+            }else if(button_value=="modify"){
+                captions_session_data = captions_modify();
+            }
+            initEffectTabValue();
+            showEffectList();
         }
-        initEffectTabValue();
-        showEffectList();
+
+
     });
 
     $("#stickers_save").click(function(){
-        var button_value=$("#stickers_save").val();
-        if(button_value=="saves"){
-          stickers_session_data = stickers_save();
-        }else if(button_value=="modify"){
-          stickers_session_data = stickers_modify();
+        if($("#stickers_save").hasClass("disabled")) {
+            console.log("button disabled");
+        }else{
+            if ($("#title_stickers").val() == "") {
+                $("#title_stickers").val("제목없음");
+                console.log("stickers 제목없음");
+            }
+            var button_value=$("#stickers_save").val();
+            if(button_value=="saves"){
+                stickers_session_data = stickers_save();
+            }else if(button_value=="modify"){
+                stickers_session_data = stickers_modify();
+            }
+            initEffectTabValue();
+            showEffectList();
         }
-        initEffectTabValue();
-        showEffectList();
+
+
     });
     
     $("#waves_modify_cancel").click(function(){

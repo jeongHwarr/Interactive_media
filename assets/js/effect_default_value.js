@@ -1,7 +1,6 @@
 function initEffectTabValue(){
 
   //Waves 탭 기본값 설정
-  $('#title_waves').prop('value', '제목없음');
   $('#input_waves_start_time').prop('value', '');
   $('#input_waves_end_time').prop('value', '');
   $('#input_waves_pos_x').prop('value', '');
@@ -17,7 +16,6 @@ function initEffectTabValue(){
   $('#waves_delete').prop('type', 'hidden');
 
   //Captions 탭 기본값 설정
-  $('#title_captions').prop('value', '제목없음');
   $('#context_captions').prop('value', '');
   $('#animation_captions').prop('value', '');
   $('#startTime_captions').prop('value', '');
@@ -32,7 +30,6 @@ function initEffectTabValue(){
   $('#captions_delete').prop('type', 'hidden');
 
   //Stickers 탭 기본값 설정
-  $('#title_stickers').prop('value', '제목없음');
   $('option_stickers').prop('value', '');
   $('animation_stickers').prop('value', '');
   $('#startTime_stickers').prop('value', '');
