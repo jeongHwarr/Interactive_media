@@ -38,7 +38,7 @@ include './assets/util/queryUtil.php';
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.1</a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.2</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-2"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
