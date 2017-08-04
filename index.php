@@ -614,8 +614,9 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/waves.js"></script>
     <script src="assets/js/text_captions.js"></script>
     <script src="assets/js/session.js"></script>
-    <script src="assets/js/effect_save.js"></script>
-    <script src="assets/js/effect_modify.js"></script>
+    <script src="assets/js/effect_session_save.js"></script>
+    <script src="assets/js/effect_session_modify.js"></script>
+    <script src="assets/js/effect_session_delete.js"></script>
     <script src="assets/js/project_load.js"></script>
     <script src="assets/js/black_div.js"></script>
     <script src="assets/js/button.js"></script>

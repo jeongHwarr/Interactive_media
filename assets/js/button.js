@@ -73,7 +73,34 @@ function setButtonOnClick(){
 
 
     });
-    
+
+    $("#waves_delete").click(function(){
+        if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
+          var index = $("#waves_index").val();
+          waves_session_data = waves_delete(index);
+          initEffectTabValue();
+          showEffectList();
+        }
+    });
+
+    $("#captions_delete").click(function(){
+        if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
+          var index = $("#captions_index").val();
+          captions_session_data = captions_delete(index);
+          initEffectTabValue();
+          showEffectList();
+        }
+    });
+
+    $("#stickers_delete").click(function(){
+        if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
+          var index = $("#stickers_index").val();
+          stickers_session_data = stickers_delete(index);
+          initEffectTabValue();
+          showEffectList();
+        }
+    });
+
     $("#waves_modify_cancel").click(function(){
         initEffectTabValue();
     });
