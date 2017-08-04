@@ -59,6 +59,11 @@ function clickEffectList(list,index){
 
     $(".section_tab a[href='#tab-1']").tab("show"); //waves tab으로 이동
 
+    //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
+    video_js.currentTime(data['startTime']/1000);
+    video_js.pause();
+    video_js.addClass('vjs-has-started'); //control bar 활성화 시키기 위해
+
   }else if(list=="captions"){
     var data = captions_session_data[index];
     //탭 input 출력
@@ -82,6 +87,11 @@ function clickEffectList(list,index){
 
     $(".section_tab a[href='#tab-2']").tab("show"); //captions tab으로 이동
 
+    //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
+    video_js.currentTime(data['startTime']/1000);
+    video_js.pause();
+    video_js.addClass('vjs-has-started'); //control bar 활성화 시키기 위해
+
   }else if(list=="stickers"){
     var data = stickers_session_data[index];
     //탭 input 출력
@@ -99,10 +109,14 @@ function clickEffectList(list,index){
 
     //버튼값 수정
     $('#stickers_save').prop('value', 'modify');
-    $('#stickers_cancel').prop('type', 'submit');
+    $('#stickers_modify_cancel').prop('type', 'submit');
     $('#stickers_delete').prop('type', 'submit');
 
+    //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
     $(".section_tab a[href='#tab-3']").tab("show"); //stickers tab으로 이동
+    video_js.currentTime(data['startTime']/1000);
+    video_js.pause();
+    video_js.addClass('vjs-has-started'); //control bar 활성화 시키기 위해
   }
 
 }
