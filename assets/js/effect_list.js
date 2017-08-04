@@ -78,6 +78,7 @@ function clickEffectList(list,index){
     $("#font_name_captions").val(data['font']);
     $("#animation_captions").val(data['animation']);
     $("#captions_index").val(index);
+    $("#caption_example_id").attr('class',data['animation']);
 
     //버튼값 수정
     $('#captions_save').prop('value', 'modify');
@@ -104,6 +105,7 @@ function clickEffectList(list,index){
     $("#option_stickers").val(data['url']);
     $("#animation_stickers").val(data['animation']);
     $("#stickers_index").val(index);
+    $("#sticker_example_id").attr('class',data['animation']);
 
     //버튼값 수정
     $('#stickers_save').prop('value', 'modify');
