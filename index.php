@@ -53,7 +53,7 @@ include './assets/util/queryUtil.php';
 
         <div id="div_first" class="section_media"><!--영상 섹션 div-->
             <!--media1 박스 시작-->
-            <div class="col-lg-6 col-lg-offset-0 col-md-12" >
+            <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
               <video
                   id="media1"
                   class="video-js"
@@ -73,75 +73,77 @@ include './assets/util/queryUtil.php';
               </video>
             </div>
             <!--media1 박스 종료-->
+            <div class="col-md-12" id="separate">
+                <hr>
+            </div>
             <!--media2 박스 시작-->
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
+                <video
+                        id="media2"
+                        class="video-js waves-box"
+                        controls
+                        preload="auto"
+                        data-setup='{}'>
+                    <source id="video_src" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
+                    <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                    <p class="vjs-no-js">
+                        To view this video please enable JavaScript, and consider upgrading to a
+                        web browser that
+                        <a href="http://videojs.com/html5-video-support/" target="_blank">
+                            supports HTML5 video
+                        </a>
+                    </p>
+                </video>
               <div class="waves-effect">
                 <div id="black_top"></div>
-                <div id="black_bottom"></div>
+               <div id="black_bottom"></div>
                 <div id="captions_p"></div>
                 <div id="sticker_d"></div>
-              <video
-                id="media2"
-                class="video-js waves-box"
-                controls
-                preload="auto"
-                data-setup='{}'>
-              <source id="video_src" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-              <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-              <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
-              <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a
-                web browser that
-                <a href="http://videojs.com/html5-video-support/" target="_blank">
-                  supports HTML5 video
-                </a>
-              </p>
-              </video>
+
               </div>
             </div>
 
 
-            <div class="col-md-12" id="separate">
-              <hr>
-            </div>
 
-            <div class="col-md-12" id="progress"><!--프로그레스바 영역-->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="container">
-                            <h2>Progress Bar<small>  context progress</small></h2>
 
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="range range-primary">
-                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangePrimary.value=value">
-                                        <output id="rangePrimary">50</output>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="range range-info">
-                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangeInfo.value=value">
-                                        <output id="rangeInfo">50</output>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="range range-danger">
-                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangeDanger.value=value">
-                                        <output id="rangeDanger">50</output>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div> <!--프로그레스바 종료-->
+<!--            <div class="col-md-12" id="progress"><!--프로그레스바 영역-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="container">-->
+<!--                            <h2>Progress Bar<small>  context progress</small></h2>-->
+<!---->
+<!--                            <div class="row">-->
+<!--                                <div class="col-xs-12">-->
+<!--                                    <div class="range range-primary">-->
+<!--                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangePrimary.value=value">-->
+<!--                                        <output id="rangePrimary">50</output>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="row">-->
+<!--                                <div class="col-xs-12">-->
+<!--                                    <div class="range range-info">-->
+<!--                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangeInfo.value=value">-->
+<!--                                        <output id="rangeInfo">50</output>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="row">-->
+<!--                                <div class="col-xs-12">-->
+<!--                                    <div class="range range-danger">-->
+<!--                                        <input type="range" name="range" min="1" max="100" value="50" onchange="rangeDanger.value=value">-->
+<!--                                        <output id="rangeDanger">50</output>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div> <!--프로그레스바 종료-->
         </div>
 
         <div id="div_second" class="section_tab"><!--우측 탭 영역-->
