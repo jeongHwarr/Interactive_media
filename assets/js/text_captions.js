@@ -100,6 +100,38 @@ var captionEffect = {
      }
      };
 
+     $("#caption_make_effects").click(function(){
+
+      var caption_context = $("#context_captions").val();
+      var caption_animation = $("#animation_captions").val();
+      var caption_font_size = $("#font_size_captions").val();
+      var caption_delay = $("#delay_captions").val();
+      var caption_color = $("#color_captions").val();
+      var caption_font_family = $("#font_name_captions").val();
+
+      $("#caption_example_id").html(caption_context);
+      $("#caption_example_id").attr('class',caption_animation);
+      $("#caption_example_id").css('fontSize',caption_font_size);
+      $("#caption_example_id").css('animationDuration',caption_delay+'s');
+      $("#caption_example_id").css('color',caption_color);
+      $("#caption_example_id").css('font-family',caption_font_family);
+     });
+
+     $("#sticker_make_effects").click(function(){
+
+      var sticker_img = $("#option_stickers").val();
+      var sticker_animation = $("#animation_stickers").val();
+      var sticker_width = $("#width_stickers").val();
+      var sticker_height = $("#height_stickers").val();
+      var sticker_delay = $("#delay_stickers").val();
+
+        $("#sticker_example_id").attr('src',sticker_img);
+        $("#sticker_example_id").attr('class',sticker_animation);
+        $("#sticker_example_id").css('width',sticker_width +'px');
+        $("#sticker_example_id").css('height',sticker_height + 'px');
+        $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
+
+     });
 
 var stickerEffect ={
 
