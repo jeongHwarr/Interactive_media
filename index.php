@@ -10,7 +10,7 @@ include './assets/util/queryUtil.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Editor ver0.2</title>
+    <title>Web Editor ver0.5</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
@@ -36,7 +36,7 @@ include './assets/util/queryUtil.php';
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.2</a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.5</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-2"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
@@ -51,8 +51,9 @@ include './assets/util/queryUtil.php';
 
         <div id="div_first" class="section_media"><!--영상 섹션 div-->
             <!--media1 박스 시작-->
-            <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
-              <video
+            <div class="col-lg-12 col-lg-offset-0 m_grid">
+              <div id="m1_wrapper">
+                <video
                   id="media1"
                   class="video-js"
                   controls
@@ -69,13 +70,14 @@ include './assets/util/queryUtil.php';
                   </a>
                 </p>
               </video>
+              </div>
             </div>
             <!--media1 박스 종료-->
             <div class="col-md-12" id="separate">
                 <hr>
             </div>
             <!--media2 박스 시작-->
-            <div class="col-lg-12 col-lg-offset-0" style="height: 45%; padding-left:15%;">
+            <div class="col-lg-12 col-lg-offset-0 m_grid">
                 <div class="waves-effect">
                   <div id="captions_p"></div>
                   <div id="sticker_d"></div>
