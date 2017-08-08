@@ -103,7 +103,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #btn_project_save{
-  color:@gray-light;
+  color: @gray-light;
   margin-top:0.5em;
 }
 
@@ -161,8 +161,7 @@ html, body {
 #media1 {
   margin: 0 auto;
   align-items: center;
-　padding: 1em;
-  width:80%;
+  width:100%;
   height: 100%;
 }
 
@@ -171,6 +170,16 @@ html, body {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+#m1_wrapper{
+  width : 80%;
+  height:100%;
+}
+
+.m_grid {
+  height: 45%;
+  padding-left:15%;
 }
 
 .nav.nav-tabs {
