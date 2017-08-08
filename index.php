@@ -623,9 +623,11 @@ include './assets/util/queryUtil.php';
       );
 
     </script>
+    <!-- Caption & Sticker 정보 -->
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
-    //caption effect 적용 , sticker effect 적용
+
+    //Caption & Sticker정보, 적용 video
     var captions_session_data = session.get('captions_session')['captions_session'];
     var stickers_session_data = session.get('stickers_session')['stickers_session'];
     var video = document.getElementById("media2");
