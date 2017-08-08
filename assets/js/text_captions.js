@@ -1,5 +1,3 @@
-var video = document.getElementById('media2');
-
 var captionEffect = {
 
     startTime:0, //s
@@ -100,39 +98,6 @@ var captionEffect = {
      }
      };
 
-     $("#caption_make_effects").click(function(){
-
-      var caption_context = $("#context_captions").val();
-      var caption_animation = $("#animation_captions").val();
-      var caption_font_size = $("#font_size_captions").val();
-      var caption_delay = $("#delay_captions").val();
-      var caption_color = $("#color_captions").val();
-      var caption_font_family = $("#font_name_captions").val();
-
-      $("#caption_example_id").html(caption_context);
-      $("#caption_example_id").attr('class',caption_animation);
-      $("#caption_example_id").css('fontSize',caption_font_size);
-      $("#caption_example_id").css('animationDuration',caption_delay+'s');
-      $("#caption_example_id").css('color',caption_color);
-      $("#caption_example_id").css('font-family',caption_font_family);
-     });
-
-     $("#sticker_make_effects").click(function(){
-
-      var sticker_img = $("#option_stickers").val();
-      var sticker_animation = $("#animation_stickers").val();
-      var sticker_width = $("#width_stickers").val();
-      var sticker_height = $("#height_stickers").val();
-      var sticker_delay = $("#delay_stickers").val();
-
-        $("#sticker_example_id").attr('src',sticker_img);
-        $("#sticker_example_id").attr('class',sticker_animation);
-        $("#sticker_example_id").css('width',sticker_width +'px');
-        $("#sticker_example_id").css('height',sticker_height + 'px');
-        $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
-
-     });
-
 var stickerEffect ={
 
   startTime:0, //s
@@ -223,3 +188,126 @@ var stickerEffect ={
                      }
    }
       };
+
+
+      function Make_caption_effect(){
+            for (var i = 0; i<captions_session_data.length; i++){
+
+               var c_start_t = captions_session_data[i]['startTime']/1000;
+               var c_end_t = captions_session_data[i]['endTime']/1000;
+               var c_x = captions_session_data[i]['pos_x'];
+               var c_y = captions_session_data[i]['pos_y'];
+               var c_animation = captions_session_data[i]['animation'];
+               var c_size = captions_session_data[i]['size'];
+               var c_delay = captions_session_data[i]['delay'];
+               var c_color = captions_session_data[i]['color'];
+               var c_font = captions_session_data[i]['font'];
+               var c_contents = captions_session_data[i]['contents'];
+               var c_id = i + "caption";
+
+               var scaleX = video.videoWidth / $("#media2").outerWidth();
+               var scaleY = video.videoHeight / $("#media2").outerHeight();
+
+               caption_x = (c_x - 0.5)/scaleX;
+               caption_y = (c_y - 0.5)/scaleY;
+
+               if(video.currentTime < c_start_t || video.currentTime > c_end_t){
+                   captionEffect.myfunction_c_id(c_id);
+                   captionEffect.caption_hide();
+                   }
+               else if(video.currentTime >= c_start_t && video.currentTime <= c_end_t){
+                  captionEffect.myfunction_c_basic(c_start_t, c_end_t, caption_x, caption_y, c_animation);
+                  captionEffect.myfunction_c_size(c_size);
+                  captionEffect.myfunction_c_delay(c_delay);
+                  captionEffect.myfunction_c_color(c_color);
+                  captionEffect.myfunction_c_font(c_font);
+                  captionEffect.myfunction_c_contents(c_contents);
+                  captionEffect.myfunction_c_id(c_id);
+
+                  captionEffect.caption_id_check();
+                  captionEffect.caption_show();
+
+                  if(!video.paused){
+                    captionEffect.caption_reveal();
+                  }else{
+                    captionEffect.caption_borrow();
+                  }
+             }
+           }
+        }
+
+        function Make_sticker_effect(){
+            for (var i = 0; i < stickers_session_data.length; i++){
+              var s_start_t = stickers_session_data[i]['startTime']/1000;
+              var s_end_t = stickers_session_data[i]['endTime']/1000;
+              var s_x = stickers_session_data[i]['pos_x'];
+              var s_y = stickers_session_data[i]['pos_y'];
+              var s_animation = stickers_session_data[i]['animation'];
+              var s_width = stickers_session_data[i]['width'];
+              var s_height = stickers_session_data[i]['height'];
+              var s_delay = stickers_session_data[i]['delay'];
+              var s_url = stickers_session_data[i]['url'];
+              var s_id = i + "sticker";
+
+              var scaleX = video.videoWidth / $("#media2").outerWidth();
+              var scaleY = video.videoHeight / $("#media2").outerHeight();
+
+              sticker_x = (s_x - 0.5)/scaleX;
+              sticker_y = (s_y - 0.5)/scaleY;
+
+               if(video.currentTime < s_start_t || video.currentTime > s_end_t){
+                 stickerEffect.myfunction_s_id(s_id);
+                 stickerEffect.sticker_hide();
+               }
+               else if(video.currentTime >= s_start_t && video.currentTime <= s_end_t){
+                   stickerEffect.myfunction_s_basic(s_start_t, s_end_t, sticker_x, sticker_y , s_animation);
+                   stickerEffect.myfunction_s_width(s_width);
+                   stickerEffect.myfunction_s_height(s_height);
+                   stickerEffect.myfunction_s_delay(s_delay);
+                   stickerEffect.myfunction_s_url(s_url);
+                   stickerEffect.myfunction_s_id(s_id);
+
+                   stickerEffect.sticker_id_check();
+                   stickerEffect.sticker_show();
+
+                   if(!video.paused){
+                     stickerEffect.sticker_reveal();
+                   }else{
+                     stickerEffect.sticker_borrow();
+                   }
+                   }
+                   }
+      }
+
+      $("#caption_make_effects").click(function(){
+
+       var caption_context = $("#context_captions").val();
+       var caption_animation = $("#animation_captions").val();
+       var caption_font_size = $("#font_size_captions").val();
+       var caption_delay = $("#delay_captions").val();
+       var caption_color = $("#color_captions").val();
+       var caption_font_family = $("#font_name_captions").val();
+
+       $("#caption_example_id").html(caption_context);
+       $("#caption_example_id").attr('class',caption_animation);
+       $("#caption_example_id").css('fontSize',caption_font_size);
+       $("#caption_example_id").css('animationDuration',caption_delay+'s');
+       $("#caption_example_id").css('color',caption_color);
+       $("#caption_example_id").css('font-family',caption_font_family);
+      });
+
+      $("#sticker_make_effects").click(function(){
+
+       var sticker_img = $("#option_stickers").val();
+       var sticker_animation = $("#animation_stickers").val();
+       var sticker_width = $("#width_stickers").val();
+       var sticker_height = $("#height_stickers").val();
+       var sticker_delay = $("#delay_stickers").val();
+
+         $("#sticker_example_id").attr('src',sticker_img);
+         $("#sticker_example_id").attr('class',sticker_animation);
+         $("#sticker_example_id").css('width',sticker_width +'px');
+         $("#sticker_example_id").css('height',sticker_height + 'px');
+         $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
+
+      });

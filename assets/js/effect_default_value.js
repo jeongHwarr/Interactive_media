@@ -25,7 +25,7 @@ function initEffectTabValue(){
   $('#input_caption_pos_x').prop('value', '');
   $('#input_caption_pos_y').prop('value', '');
   $('#font_size_captions').prop('value', '15');
-  $('#delay_captions').prop('value', '0');
+  $('#delay_captions').prop('value', '1');
   $('#captions_index').prop('value', '');
   $('#captions_save').prop('value', 'saves');
   $('#captions_modify_cancel').prop('type', 'hidden');
@@ -41,7 +41,7 @@ function initEffectTabValue(){
   $('#input_sticker_pos_y').prop('value', '');
   $('#width_stickers').prop('value', '20');
   $('#height_stickers').prop('value', '20');
-  $('#delay_stickers').prop('value', '0');
+  $('#delay_stickers').prop('value', '1');
   $('#stickers_index').prop('value', '');
   $('#stickers_save').prop('value', 'saves');
   $('#stickers_modify_cancel').prop('type', 'hidden');
