@@ -80,7 +80,7 @@ include './assets/util/queryUtil.php';
             <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
                 <video
                         id="media2"
-                        class="video-js waves-box"
+                        class="video-js"
                         controls
                         preload="auto"
                         data-setup='{}'>
@@ -96,6 +96,7 @@ include './assets/util/queryUtil.php';
                     </p>
                 </video>
               <div class="waves-effect">
+                  <div class="waves-box"></div>
                 <div id="black_top"></div>
                <div id="black_bottom"></div>
                 <div id="captions_p"></div>
