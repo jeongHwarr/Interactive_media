@@ -2,7 +2,6 @@
 include 'constants.php';
 include './assets/config/dbconn.php';
 include './assets/util/queryUtil.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -294,6 +293,13 @@ include './assets/util/queryUtil.php';
                                                   <option value="animated infinite bounceOut">bounceOut</option>
                                                   <option value="animated infinite fadeIn">fadeIn</option>
                                                   <option value="animated infinite bounceIn">bounceIn</option>
+                                                  <option value="animated infinite rotateIn">rotateIn</option>
+                                                  <option value="animated infinite rotateOut">rotateOut</option>
+                                                  <option value="animated infinite shake">shake</option>
+                                                  <option value="animated infinite swing">swing</option>
+                                                  <option value="animated infinite rubberBand">rubberBand</option>
+                                                  <option value="animated infinite flash">flash</option>
+                                                  <option value="animated infinite bounce">bounce</option>
                                               </select>
                                             </div>
                                         </div>
@@ -348,12 +354,13 @@ include './assets/util/queryUtil.php';
                                                     <input class="form-control" type="text" id="font_size_captions" value="20">
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row form-group">
                                                 <div class="col-lg-4 col-md-12">
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="0" value="0">
+                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="1" data-error="0은 입력할수 없습니다." value="1">
+                                                    <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -454,6 +461,13 @@ include './assets/util/queryUtil.php';
                                                 <option value="animated infinite bounceOut">bounceOut</option>
                                                 <option value="animated infinite fadeIn">fadeIn</option>
                                                 <option value="animated infinite bounceIn">bounceIn</option>
+                                                <option value="animated infinite rotateIn">rotateIn</option>
+                                                <option value="animated infinite rotateOut">rotateOut</option>
+                                                <option value="animated infinite shake">shake</option>
+                                                <option value="animated infinite swing">swing</option>
+                                                <option value="animated infinite rubberBand">rubberBand</option>
+                                                <option value="animated infinite flash">flash</option>
+                                                <option value="animated infinite bounce">bounce</option>
                                               </select>
                                             </div>
                                         </div>
@@ -518,12 +532,13 @@ include './assets/util/queryUtil.php';
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row form-group">
                                                 <div class="col-lg-4 col-md-12">
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_stickers" type="number" step="0.0001" min="0" value="0">
+                                                    <input class="form-control" id="delay_stickers" type="number" data-error="0은 입력할수 없습니다." step="0.0001" min="1" value="1">
+                                                    <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -612,104 +627,15 @@ include './assets/util/queryUtil.php';
     </script>
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
-
-    //caption effect 적용
-    var video = document.getElementById("media2");
+    //caption effect 적용 , sticker effect 적용
     var captions_session_data = session.get('captions_session')['captions_session'];
+    var stickers_session_data = session.get('stickers_session')['stickers_session'];
+    var video = document.getElementById("media2");
     video.addEventListener('timeupdate', function(){
-      for (var i = 0; i<captions_session_data.length; i++){
-
-         var c_start_t = captions_session_data[i]['startTime']/1000;
-         var c_end_t = captions_session_data[i]['endTime']/1000;
-         var c_x = captions_session_data[i]['pos_x'];
-         var c_y = captions_session_data[i]['pos_y'];
-         var c_animation = captions_session_data[i]['animation'];
-         var c_size = captions_session_data[i]['size'];
-         var c_delay = captions_session_data[i]['delay'];
-         var c_color = captions_session_data[i]['color'];
-         var c_font = captions_session_data[i]['font'];
-         var c_contents = captions_session_data[i]['contents'];
-         var c_id = i + "caption";
-
-         var scaleX = video.videoWidth / $("#media2").outerWidth();
-         var scaleY = video.videoHeight / $("#media2").outerHeight();
-
-         caption_x = (c_x - 0.5)/scaleX;
-         caption_y = (c_y - 0.5)/scaleY;
-
-         if(video.currentTime < c_start_t || video.currentTime > c_end_t){
-             captionEffect.myfunction_c_id(c_id);
-             captionEffect.caption_hide();
-             }
-         else if(video.currentTime >= c_start_t && video.currentTime <= c_end_t){
-            captionEffect.myfunction_c_basic(c_start_t, c_end_t, caption_x, caption_y, c_animation);
-            captionEffect.myfunction_c_size(c_size);
-            captionEffect.myfunction_c_delay(c_delay);
-            captionEffect.myfunction_c_color(c_color);
-            captionEffect.myfunction_c_font(c_font);
-            captionEffect.myfunction_c_contents(c_contents);
-            captionEffect.myfunction_c_id(c_id);
-            captionEffect.caption_id_check();
-            captionEffect.caption_show();
-
-            if(!video.paused){
-              captionEffect.caption_reveal();
-            }else{
-              captionEffect.caption_borrow();
-            }
-       }
-     }
-
-      }, false);
-
-     //sticker effect 적용
-     var video = document.getElementById("media2");
-     var stickers_session_data = session.get('stickers_session')['stickers_session'];
-
-     video.addEventListener('timeupdate', function(){
-       for (var i = 0; i < stickers_session_data.length; i++){
-         var s_start_t = stickers_session_data[i]['startTime']/1000;
-         var s_end_t = stickers_session_data[i]['endTime']/1000;
-         var s_x = stickers_session_data[i]['pos_x'];
-         var s_y = stickers_session_data[i]['pos_y'];
-         var s_animation = stickers_session_data[i]['animation'];
-         var s_width = stickers_session_data[i]['width'];
-         var s_height = stickers_session_data[i]['height'];
-         var s_delay = stickers_session_data[i]['delay'];
-         var s_url = stickers_session_data[i]['url'];
-         var s_id = i + "sticker";
-
-         var scaleX = video.videoWidth / $("#media2").outerWidth();
-         var scaleY = video.videoHeight / $("#media2").outerHeight();
-
-         sticker_x = (s_x - 0.5)/scaleX;
-         sticker_y = (s_y - 0.5)/scaleY;
-
-          if(video.currentTime < s_start_t || video.currentTime > s_end_t){
-            stickerEffect.myfunction_s_id(s_id);
-            stickerEffect.sticker_hide();
-          }
-          else if(video.currentTime >= s_start_t && video.currentTime <= s_end_t){
-              stickerEffect.myfunction_s_basic(s_start_t, s_end_t, sticker_x, sticker_y , s_animation);
-              stickerEffect.myfunction_s_width(s_width);
-              stickerEffect.myfunction_s_height(s_height);
-              stickerEffect.myfunction_s_delay(s_delay);
-              stickerEffect.myfunction_s_url(s_url);
-              stickerEffect.myfunction_s_id(s_id);
-
-              stickerEffect.sticker_id_check();
-              stickerEffect.sticker_show();
-
-              if(!video.paused){
-                stickerEffect.sticker_reveal();
-              }else{
-                stickerEffect.sticker_borrow();
-              }
-              }
-              }
-
-      }, false);
-      </script>
+        Make_caption_effect(); //caption 만드는 함수
+        Make_sticker_effect(); //sticker 만드는 함수
+    }, false);
+    </script>
 
       <!-- waves session 정보 -->
      <script>

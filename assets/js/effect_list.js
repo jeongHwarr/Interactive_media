@@ -74,7 +74,7 @@ function clickEffectList(list,index){
     $("#startTime_captions").val(data['startTime']/1000);
     $("#endTime_captions").val(data['endTime']/1000);
     $("#font_size_captions").val(data['size']);
-    $("#delay_captions").val(data['delay']/1000);
+    $("#delay_captions").val(data['delay']);
     $("#color_captions").val(data['color']);
     $("#font_name_captions").val(data['font']);
     $("#animation_captions").val(data['animation']);
@@ -103,7 +103,7 @@ function clickEffectList(list,index){
     $("#endTime_stickers").val(data['endTime']/1000);
     $("#width_stickers").val(data['width']);
     $("#height_stickers").val(data['height']);
-    $("#delay_stickers").val(data['delay']/1000);
+    $("#delay_stickers").val(data['delay']);
     $("#option_stickers").val(data['url']);
     $("#animation_stickers").val(data['animation']);
     $("#stickers_index").val(index);
