@@ -19,7 +19,6 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
-    <link rel="stylesheet" href="assets/css/black_div.css" />
 
     <link rel="stylesheet" href="assets/css/text_captions.css">
     <!-- 병조 -->
@@ -97,8 +96,7 @@ include './assets/util/queryUtil.php';
                         </a>
                     </p>
                         <div class="waves-effect">
-                            <!--                    <div id="black_top"></div>-->
-                            <!--                    <div id="black_bottom"></div>-->
+
                             <div id="captions_p"></div>
                             <div id="sticker_d"></div>
                         </div>
@@ -624,7 +622,6 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/effect_session_modify.js"></script>
     <script src="assets/js/effect_session_delete.js"></script>
     <script src="assets/js/project_load.js"></script>
-    <script src="assets/js/black_div.js"></script>
     <script src="assets/js/button.js"></script>
     <script src="assets/js/mouse_pointer.js"></script>
     <script src="assets/js/effect_default_value.js"></script>
@@ -656,11 +653,7 @@ include './assets/util/queryUtil.php';
           setButtonOnClick();
         }
       );
-      //검은화면 영상의 timeupdate와 bind
-//      $(document).ready(
-//        //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
-//        setBlackDiv()
-//      );
+
     </script>
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
@@ -794,16 +787,15 @@ include './assets/util/queryUtil.php';
         video1.addEventListener('timeupdate', function () {
             var c_time1 = video1.currentTime;
             var c_time2 = video.currentTime;
-            console.log("1번 : "+c_time1);
-            console.log("2번 : "+c_time2);
+            console.log("1번 : " + c_time1);
+            console.log("2번 : " + c_time2);
             var time_diff = Math.abs(c_time1 - c_time2);
-            if(time_diff>0.05){
-                video.currentTime=c_time1+0.02;
-            }else{
+            if(time_diff > 0.05){
+                video.currentTime = c_time1 + 0.02;
+            } else {
                 console.log("nothing");
             }
         })
     );
-
 </script>
 </html>
