@@ -78,9 +78,15 @@ include './assets/util/queryUtil.php';
             </div>
             <!--media2 박스 시작-->
             <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
-                <video
+                <div class="waves-effect">
+<!--                    <div id="black_top"></div>-->
+<!--                    <div id="black_bottom"></div>-->
+                    <div id="captions_p"></div>
+                    <div id="sticker_d"></div>
+
+                    <video
                         id="media2"
-                        class="video-js"
+                        class="video-js waves-box"
                         controls
                         preload="auto"
                         data-setup='{}'>
@@ -95,12 +101,7 @@ include './assets/util/queryUtil.php';
                         </a>
                     </p>
                 </video>
-              <div class="waves-effect">
-                  <div class="waves-box"></div>
-                <div id="black_top"></div>
-               <div id="black_bottom"></div>
-                <div id="captions_p"></div>
-                <div id="sticker_d"></div>
+
 
               </div>
             </div>
@@ -654,10 +655,10 @@ include './assets/util/queryUtil.php';
         }
       );
       //검은화면 영상의 timeupdate와 bind
-      $(document).ready(
-        //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
-        setBlackDiv()
-      );
+//      $(document).ready(
+//        //동영상에서 검은색화면에는 효과가 보이지 않도록 div를 만들고 그 크기를 영상의 시간에 대해서 동적 크기 제어
+//        setBlackDiv()
+//      );
     </script>
     <script type="text/javascript">
     var project_info_session_data = session.get('project_info_session')['project_info_session'];
