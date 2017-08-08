@@ -24,9 +24,9 @@ include './assets/util/queryUtil.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- video JS -->
-    <script src="http://vjs.zencdn.net/6.2.0/video.js"></script>
-    <link href="http://vjs.zencdn.net/6.2.0/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="./assets/video_js/video_js.js"></script>
+    <link href="./assets/video_js/video_js.css" rel="stylesheet">
+    <script src="./assets/video_js/videojs_ie8.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
 </head>
@@ -594,6 +594,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/mouse_pointer.js"></script>
     <script src="assets/js/effect_default_value.js"></script>
     <script src="assets/js/effect_list.js"></script>
+    <script src="assets/js/synchronize.js"></script>
 
     <script type="text/javascript">
       $('form').submit(function (evt) {
@@ -654,28 +655,54 @@ include './assets/util/queryUtil.php';
      </script>
 
      <script>
-       var video = document.getElementById("media2");
-       var video_src = document.getElementById('video_src');
-       video_js = videojs('media2');
-       //in assets/js/mouse_pointer.js
-       addClickEvent(video,video_js);
+     var video = document.getElementById("media2");
+    //  var video_src = document.getElementById('video_src');
+     var video_js1 = videojs('media1');
+     var video_js2 = videojs('media2');
+
+     addClickEvent(video); //in assets/js/mouse_pointer.js
+
     </script>
 
-<script>//syncro current time
-    var video1 = document.getElementById("media1");
-    $(document).ready(
-        video1.addEventListener('timeupdate', function () {
-            var c_time1 = video1.currentTime;
-            var c_time2 = video.currentTime;
-            console.log("1번 : " + c_time1);
-            console.log("2번 : " + c_time2);
-            var time_diff = Math.abs(c_time1 - c_time2);
-            if(time_diff > 0.05){
-                video.currentTime = c_time1 + 0.02;
-            } else {
-                console.log("nothing");
-            }
-        })
-    );
-</script>
+    <script>
+    //<----------------영상 synchronize--------------->>
+    $.synchronizeVideos(0, "media1","media2"); //in synchronize.js
+
+    video_js1.volume(0);
+
+    video_js1.on('pause', function(){
+      video_js2.pause();
+      $(document).trigger('sjs:setNewMaster', "media1");
+    });
+
+    video_js2.on('pause', function(){
+      video_js1.pause();
+      $(document).trigger('sjs:setNewMaster', "media2");
+    });
+
+    video_js1.on('playing', function() {
+      video_js2.play();
+      $(document).trigger('sjs:setNewMaster', "media1");
+    });
+
+    video_js2.on('playing', function() {
+      video_js1.play();
+      $(document).trigger('sjs:setNewMaster', "media2");
+    });
+
+    video_js1.on('seeking', function() {
+      if(video_js1.scrubbing()==true)
+      {
+        $(document).trigger('sjs:setNewMaster', "media1");
+      }
+    });
+
+     video_js2.on('seeking', function() {
+       if (video_js2.scrubbing()==true)
+       {
+         $(document).trigger('sjs:setNewMaster', "media2");
+       }
+     });
+    </script>
+
 </html>

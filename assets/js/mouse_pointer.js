@@ -1,6 +1,5 @@
-function addClickEvent(videoElement,target_video){
+function addClickEvent(videoElement){
   videoElement.addEventListener("mousedown", mouseHandler, false);
-  videoElement.param = target_video;
 }
 
 
@@ -14,14 +13,7 @@ function getElementCSSSize(el) {
 
 //*************마우스 포인터 받아오는 함수**************//
 function mouseHandler(event) {
-  //원래 VideoJS 화면 클릭시 playtoggle를 막기 위해 한번 더 토글
-  target_video = event.target.param;
-  if(target_video.paused()){
-    target_video.play();
-  }else{
-    target_video.pause();
-  }
-  //
+
   var size = getElementCSSSize(this);
   var scaleX = this.videoWidth / size.width;
   var scaleY = this.videoHeight / size.height;
