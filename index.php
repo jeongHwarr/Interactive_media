@@ -430,7 +430,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                     </div><!--extra_captions end-->
                                     <button class="btn btn-default" type="button" id="more_op_captions">more options</button>
-                                    <button class="btn btn-default input_effects" type="button">make effects </button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-default input_effects" type="button" id="caption_make_effects">make effects </button> <!--효과넣기 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="captions_save" value="saves"> </input> <!--효과저장/수정 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="captions_delete" value="delete"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="captions_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
@@ -572,7 +572,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                     </div><!--div extra_stikers end-->
                                     <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
-                                    <button class="btn btn-default input_effects" type="button">make effects</button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-default input_effects" type="button" id="sticker_make_effects">make effects</button> <!--효과넣기 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="stickers_save" value="saves"></input> <!--효과저장 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="stickers_delete" value="delete"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="stickers_modify_cancel" value="cancel"> </input> <!--효과수정 취소 버튼-->
@@ -591,7 +591,7 @@ include './assets/util/queryUtil.php';
                                         <p class="tab_title">effects view</p>
                                     </div>
                                     <div class="col-md-12">
-                                      <div class="example_class" id="sticker_example_id" style="color:red; text-align:center; font-size: 50px">example</div>
+                                    <div class="example_class"><img id="sticker_example_id" src="assets/img/user-photo.jpg"/></div>
                                     </div>
                                 </div>
                             </div>
@@ -802,64 +802,4 @@ include './assets/util/queryUtil.php';
     );
 
 </script>
-
-<script>
-$("#animation_captions").change(function(){
-  var choice = this.value;
-    switch(choice){
-    case "none":
-        $("#caption_example_id").attr('class', 'example_class');
-    break;
-
-    case "animated infinite bounceOut":
-        $("#caption_example_id").attr('class', 'animated bounceOut');
-        $("#caption_example_id").css('animation-iteration-count','10');
-        $("#caption_example_id").css('animationDuration','1s');
-    break;
-
-    case "animated infinite fadeIn":
-        $("#caption_example_id").attr('class', 'animated fadeIn');
-        $("#caption_example_id").css('animation-iteration-count','10');
-        $("#caption_example_id").css('animationDuration','1s');
-    break;
-
-    case "animated infinite bounceIn":
-      $("#caption_example_id").attr('class','animated bounceIn');
-      $("#caption_example_id").css('animation-iteration-count','10');
-      $("#caption_example_id").css('animationDuration','1s');
-    break;
-  }})
-
-
-  $("#animation_stickers").change(function(){
-    var choice = this.value;
-      switch(choice){
-      case "none":
-          $("#sticker_example_id").attr('class', 'example_class');
-      break;
-
-      case "animated infinite bounceOut":
-          $("#sticker_example_id").attr('class', 'animated bounceOut');
-          $("#sticker_example_id").css('animation-iteration-count','10');
-          $("#sticker_example_id").css('animationDuration','1s');
-      break;
-
-      case "animated infinite fadeIn":
-          $("#sticker_example_id").attr('class', 'animated fadeIn');
-          $("#sticker_example_id").css('animation-iteration-count','10');
-          $("#sticker_example_id").css('animationDuration','1s');
-      break;
-
-      case "animated infinite bounceIn":
-        $("#sticker_example_id").attr('class','animated bounceIn');
-        $("#sticker_example_id").css('animation-iteration-count','10');
-        $("#sticker_example_id").css('animationDuration','1s');
-      break;
-    }})
-
-
-</script>
-
-
-
 </html>
