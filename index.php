@@ -2,7 +2,6 @@
 include 'constants.php';
 include './assets/config/dbconn.php';
 include './assets/util/queryUtil.php';
-
 ?>
 
 <!DOCTYPE html>
