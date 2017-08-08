@@ -584,7 +584,8 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/waves.js"></script>
-    <script src="assets/js/text_captions.js"></script>
+    <script src="assets/js/captions.js"></script>
+    <script src="assets/js/stickers.js"></script>
     <script src="assets/js/session.js"></script>
     <script src="assets/js/effect_session_save.js"></script>
     <script src="assets/js/effect_session_modify.js"></script>
