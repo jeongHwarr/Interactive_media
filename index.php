@@ -78,11 +78,7 @@ include './assets/util/queryUtil.php';
             </div>
             <!--media2 박스 시작-->
             <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
-                <div class="waves-effect">
-<!--                    <div id="black_top"></div>-->
-<!--                    <div id="black_bottom"></div>-->
-                    <div id="captions_p"></div>
-                    <div id="sticker_d"></div>
+
 
                     <video
                         id="media2"
@@ -100,10 +96,16 @@ include './assets/util/queryUtil.php';
                             supports HTML5 video
                         </a>
                     </p>
+                        <div class="waves-effect">
+                            <!--                    <div id="black_top"></div>-->
+                            <!--                    <div id="black_bottom"></div>-->
+                            <div id="captions_p"></div>
+                            <div id="sticker_d"></div>
+                        </div>
                 </video>
 
 
-              </div>
+
             </div>
 
 
