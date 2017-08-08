@@ -169,10 +169,8 @@ html, body {
 #media2 {
   margin: 0 auto;
   align-items: center;
-  padding: 1em;
-  width:80%;
+  width: 100%;
   height: 100%;
-
 }
 
 .nav.nav-tabs {

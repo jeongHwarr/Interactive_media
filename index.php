@@ -76,7 +76,10 @@ include './assets/util/queryUtil.php';
                 <hr>
             </div>
             <!--media2 박스 시작-->
-            <div class="col-lg-12 col-lg-offset-0" style="height: 45%;">
+            <div class="col-lg-12 col-lg-offset-0" style="height: 45%; padding-left:15%;">
+                <div class="waves-effect">
+                  <div id="captions_p"></div>
+                  <div id="sticker_d"></div>
                     <video
                         id="media2"
                         class="video-js waves-box"
@@ -93,9 +96,6 @@ include './assets/util/queryUtil.php';
                             supports HTML5 video
                         </a>
                     </p>
-                        <div class="waves-effect">
-                            <div id="captions_p"></div>
-                            <div id="sticker_d"></div>
                         </div>
                 </video>
             </div>
