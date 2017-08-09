@@ -541,8 +541,8 @@ include './assets/util/queryUtil.php';
                                             </div>
                                         </div>
                                     </div><!--div extra_stikers end-->
-                                    <button class="btn btn-default" type="button" id="more_op_stickers">more options</button>
-                                    <button class="btn btn-default input_effects" type="button" id="sticker_make_effects">make effects</button> <!--효과넣기 버튼-->
+                                    <button class="btn btn-default" type="button" id="more_op_stickers">추가 옵션</button>
+                                    <button class="btn btn-default input_effects" type="button" id="sticker_make_effects">미리보기</button> <!--효과넣기 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="stickers_save" value="효과 저장"></input> <!--효과저장 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="stickers_delete" value="효과 삭제"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="stickers_modify_cancel" value="취소"> </input> <!--효과수정 취소 버튼-->
