@@ -10,7 +10,7 @@
 //x,y : Caption 효과 영상속 좌표지정
 //animation : 애니메이션 효과이름
 //size : Caption fontSize, 단위 :px
-//delay : 애니메이션 지연 시간, 단위: ms
+//delay : 애니메이션 한번의 지속 시간, 단위 :s
 //color : Caption color
 //font : Caption fontfamily
 //contents : Caption내용
