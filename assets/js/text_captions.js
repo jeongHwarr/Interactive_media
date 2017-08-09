@@ -283,7 +283,9 @@ var stickerEffect ={
             }
 
         function Make_sticker_effect(){
+          console.log("Make_sticker_effect");
             for (var i = 0; i < stickers_session_data.length; i++){
+              console.log(s_id);
               //session 데이터 변환
               var s_start_t = stickers_session_data[i]['startTime']/1000;
               var s_end_t = stickers_session_data[i]['endTime']/1000;

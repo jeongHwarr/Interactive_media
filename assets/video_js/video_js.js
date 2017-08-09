@@ -20755,7 +20755,8 @@ var Player = function (_Component) {
     // trigger mousedown/up.
     // http://stackoverflow.com/questions/1444562/javascript-onclick-event-over-flash-object
     // Any touch events are set to block the mousedown event from happening
-    // this.on(this.tech_, 'mousedown', this.handleTechClick_);
+
+    // this.on(this.tech_, 'mousedown', this.handleTechClick_); //여기 내가 주석 처리 함
 
     // If the controls were hidden we don't want that to change without a tap event
     // so we'll check if the controls were already showing before reporting user

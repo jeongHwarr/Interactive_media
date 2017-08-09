@@ -86,6 +86,11 @@ function setButtonOnClick(){
     $("#captions_delete").click(function(){
         if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
           var index = $("#captions_index").val();
+          //이미 만들어진 caption div 삭제 (초기화)
+          for(var i=0; i<captions_session_data.length; i++){
+                s_id = i + "caption";
+                $('#'+s_id).remove();
+          }
           captions_session_data = captions_delete(index);
           initEffectTabValue();
           showEffectList();
@@ -95,6 +100,11 @@ function setButtonOnClick(){
     $("#stickers_delete").click(function(){
         if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
           var index = $("#stickers_index").val();
+          //이미 만들어진 sticker div 삭제 (초기화)
+          for(var i=0; i<stickers_session_data.length; i++){
+                s_id = i + "sticker";
+                $('#'+s_id).remove();
+          }
           stickers_session_data = stickers_delete(index);
           initEffectTabValue();
           showEffectList();
