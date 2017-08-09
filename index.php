@@ -246,7 +246,7 @@ include './assets/util/queryUtil.php';
                                         <p class="tab_title">effects view</p>
                                     </div>
                                     <div class="col-md-12 ">
-                                      <div class="waves-effect preview" style="margin:0px 40px; width:180px; height:160px;">
+                                      <div class="waves-effect preview" style="margin:0px 40px; width:240px; height:130px;">
                                       <div class="test-box">
                                       </div>
                                     </div>
