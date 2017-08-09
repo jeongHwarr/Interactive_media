@@ -55,7 +55,7 @@ function clickEffectList(list,index){
     $("#waves_index").val(index);
 
     //버튼값 수정
-    $('#waves_save').prop('value', '수정');
+    $('#waves_save').prop('value', '수정 완료');
     $('#waves_modify_cancel').prop('type', 'submit');
     $('#waves_delete').prop('type', 'submit');
 
@@ -85,7 +85,7 @@ function clickEffectList(list,index){
     $("#caption_example_id").attr('class',data['animation']);
 
     //버튼값 수정
-    $('#captions_save').prop('value', '수정');
+    $('#captions_save').prop('value', '수정 완료');
     $('#captions_modify_cancel').prop('type', 'submit');
     $('#captions_delete').prop('type', 'submit');
 
@@ -114,7 +114,7 @@ function clickEffectList(list,index){
     $("#sticker_example_id").attr('class',data['animation']);
 
     //버튼값 수정
-    $('#stickers_save').prop('value', '수정');
+    $('#stickers_save').prop('value', '수정 완료');
     $('#stickers_modify_cancel').prop('type', 'submit');
     $('#stickers_delete').prop('type', 'submit');
 

@@ -39,7 +39,7 @@ include './assets/util/queryUtil.php';
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="nav navbar-nav hidden-xs hidden-sm navbar-right" id="desktop-toolbar">
-                    <li role="presentation"><button class="btn btn-success" id="btn_project_save" type="button">SAVE</button></li>
+                    <li role="presentation"><button class="btn btn-success" id="btn_project_save" type="button">프로젝트 저장</button></li>
 
                 </ul>
             </div>
@@ -423,7 +423,7 @@ include './assets/util/queryUtil.php';
                     <div class="tab-pane" role="tabpanel" id="tab-3"> <!--세번째 탭-->
                         <div class="row">
                             <div class="col-md-12" id="section_stickers_input">
-                                <input id = "stickers_set" role="form" data-toggle="validator"> <!--입력 폼-->
+                                <form id = "stickers_set" role="form" data-toggle="validator"> <!--입력 폼-->
                                     <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Title </p>
