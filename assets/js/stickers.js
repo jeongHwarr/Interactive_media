@@ -24,7 +24,7 @@ var stickerEffect ={
   //animation : 애니메이션 효과이름
   //width : Sticker 가로길이. 단위 :px
   //height : Sticker 세로길이. 단위 :px
-  //delay : 애니메이션 지연 시간, 단위: ms
+  //delay : 애니메이션 한번의 지속 시간, 단위 :s
   //url : 삽입이미지에 대한 URL주소
   //id : Caption 하나당 고유 ID
 
