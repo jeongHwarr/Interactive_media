@@ -18,8 +18,8 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
-
-    <link rel="stylesheet" href="assets/css/text_captions.css">
+    <link rel="stylesheet" href="assets/css/captions.css">
+    <link rel="stylesheet" href="assets/css/stickers.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
