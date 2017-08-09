@@ -20,9 +20,9 @@ function setButtonOnClick(){
                 console.log("wave 제목없음");
             }
             var button_value=$("#waves_save").val();
-            if(button_value=="saves"){
+            if(button_value=="효과 저장"){
                 waves_session_data = waves_save();
-            }else if(button_value=="modify"){
+            }else if(button_value=="수정"){
                 waves_session_data = waves_modify();
             }
             initEffectTabValue();
@@ -41,9 +41,9 @@ function setButtonOnClick(){
                 console.log("captions 제목없음");
             }
             var button_value=$("#captions_save").val();
-            if(button_value=="saves"){
+            if(button_value=="효과 저장"){
                 captions_session_data = captions_save();
-            }else if(button_value=="modify"){
+            }else if(button_value=="수정"){
                 captions_session_data = captions_modify();
             }
             initEffectTabValue();
@@ -62,9 +62,9 @@ function setButtonOnClick(){
                 console.log("stickers 제목없음");
             }
             var button_value=$("#stickers_save").val();
-            if(button_value=="saves"){
+            if(button_value=="효과 저장"){
                 stickers_session_data = stickers_save();
-            }else if(button_value=="modify"){
+            }else if(button_value=="수정"){
                 stickers_session_data = stickers_modify();
             }
             initEffectTabValue();

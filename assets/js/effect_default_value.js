@@ -12,7 +12,7 @@ function initEffectTabValue(){
   $('#input_waves_translate_x').prop('value', '0');
   $('#input_waves_translate_y').prop('value', '0');
   $('#waves_index').prop('value', '');
-  $('#waves_save').prop('value', 'saves');
+  $('#waves_save').prop('value', '효과 저장');
   $('#waves_modify_cancel').prop('type', 'hidden');
   $('#waves_delete').prop('type', 'hidden');
 
@@ -27,7 +27,7 @@ function initEffectTabValue(){
   $('#font_size_captions').prop('value', '15');
   $('#delay_captions').prop('value', '1');
   $('#captions_index').prop('value', '');
-  $('#captions_save').prop('value', 'saves');
+  $('#captions_save').prop('value', '효과 저장');
   $('#captions_modify_cancel').prop('type', 'hidden');
   $('#captions_delete').prop('type', 'hidden');
 
@@ -43,7 +43,7 @@ function initEffectTabValue(){
   $('#height_stickers').prop('value', '20');
   $('#delay_stickers').prop('value', '1');
   $('#stickers_index').prop('value', '');
-  $('#stickers_save').prop('value', 'saves');
+  $('#stickers_save').prop('value', '효과 저장');
   $('#stickers_modify_cancel').prop('type', 'hidden');
   $('#stickers_delete').prop('type', 'hidden');
 
