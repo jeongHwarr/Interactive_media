@@ -661,7 +661,10 @@ include './assets/util/queryUtil.php';
      var video_js1 = videojs('media1');
      var video_js2 = videojs('media2');
 
-     addClickEvent(video); //in assets/js/mouse_pointer.js
+     $(document).on("sjs:allPlayersReady", function(event) {
+            addClickEvent(video); //in assets/js/mouse_pointer.js
+    });
+
 
     </script>
 

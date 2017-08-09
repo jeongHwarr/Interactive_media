@@ -35,8 +35,9 @@ function showEffectList(){
 
 //**************<clickEffectList> : Effect List 클릭을 처리하는 함수**********************//
 function clickEffectList(list,index){
-  $(document).trigger('sjs:setNewMaster', "media2");
 
+  $(document).trigger('sjs:setNewMaster', "media2");
+  
   if(list=="waves"){
     var data = waves_session_data[index];
     //탭 input 출력

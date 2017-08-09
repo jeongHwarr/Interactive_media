@@ -812,6 +812,7 @@
     function setNewMaster(newMasterid){
       masterVideoId = newMasterid;
       log("SJS : setNewMaster, masterVideoId " + masterVideoId);
+      console.log(masterVideoId);
     }
 
     /**

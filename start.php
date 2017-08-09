@@ -1,5 +1,9 @@
 <?php
 include './assets/config/dbconn.php';
+include './assets/util/queryUtil.php';
+$query  = 'SELECT * FROM projects ';
+$query_result = queryForSelect($db,$query,array());
+
 ?>
 <!doctype html>
 <html lang="ko">
