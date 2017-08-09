@@ -443,6 +443,21 @@ include './assets/util/queryUtil.php';
                                                     <option value="http://cfile23.uf.tistory.com/image/1864EE3F50E62EA616460A">해골</option>
                                                     <option value="http://bizdesign.net/data/cheditor4/1304/7a7f255e9283673e933658413636862a_fSDT1uJnhvXaBalZODxtBFaM.jpg">아기</option>
                                                     <option value="https://s-media-cache-ak0.pinimg.com/originals/b2/56/15/b2561559644dc937bcca91b746cd9abe.png">사자</option>
+                                                    <option value="assets/img/1.png">1</option>
+                                                    <option value="assets/img/2.png">2</option>
+                                                    <option value="assets/img/3.png">3</option>
+                                                    <option value="assets/img/4.png">4</option>
+                                                    <option value="assets/img/5.png">5</option>
+                                                    <option value="assets/img/6.png">6</option>
+                                                    <option value="assets/img/7.png">7</option>
+                                                    <option value="assets/img/8.png">8</option>
+                                                    <option value="assets/img/9.png">9</option>
+                                                    <option value="assets/img/10.png">10</option>
+                                                    <option value="assets/img/11.png">11</option>
+                                                    <option value="assets/img/12.png">12</option>
+                                                    <option value="assets/img/13.gif">13</option>
+                                                    <option value="assets/img/14.png">14</option>
+                                                    <option value="assets/img/15.png">15</option>
                                                 </select>
                                             </div>
                                         </div>
