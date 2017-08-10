@@ -1,9 +1,6 @@
 <?php
 include './assets/config/dbconn.php';
 include './assets/util/queryUtil.php';
-$query  = 'SELECT * FROM projects ';
-$query_result = queryForSelect($db,$query,array());
-
 ?>
 <!doctype html>
 <html lang="ko">
@@ -26,12 +23,9 @@ $query_result = queryForSelect($db,$query,array());
     <div id="contents_wrapper">
 
         <button class="btn btn-default" id="new_project">new Project</button>
-        <div id="project_list">
-            <ul>
-                <!--프로젝트 목록 추가-->
-                <li><a id="li_project_1">프로젝트 1</a></li>
-                <li><a href="" target="_self">프로젝트 2</a></li>
-                <li><a href="" target="_self">프로젝트 3</a></li>
+        <hr>
+        <div id="project_list" style="width: 50%;">
+            <ul id="ul_project_list">
             </ul>
         </div>
         <div class="panel panel-default" id="video_select" style="display: none">
@@ -69,17 +63,41 @@ $query_result = queryForSelect($db,$query,array());
 <script src="assets/js/session.js"></script>
 <script src="assets/js/project_load.js"></script>
 <script>
+    $(function() {
+      $.ajax({
+        url:'./assets/ajax/common.php',
+        type:'get',
+        dataType: 'json',
+        data: {cmd:'loadProjectList',user_id:'1'},
+        success:function(data){
+          showProjectList(data.data);
+        }
+      })
+    });
+
     $(document).ready(function(){
         $("#new_project").click(function(){
             $("#video_select").slideDown();
         });
     });
 
-    $(document).ready(function(){
-        $("#li_project_1").click(function(){
-            loadProject(1); // in assets/js/project_load.js
-        });
-    });
+    function showProjectList(data){
+      console.log(data);
+      var ul_project_list = $('#ul_project_list');
+      ul_project_list.empty();
+      //프로젝트 리스트를 보여준다.
+      for (var i=0; i<data.length; i++){
+        var low = data[i];
+        var html = '<a href="javascript:void(0);" onclick="loadProject(' +low['id']+')" class="list-group-item list-group-item-info">';
+        html += '<span> 프로젝트 ['+(i+1)+'] : ' + low['name'] ;
+        html += '</span></a>';
+          html += '</a>';
+        ul_project_list.append($(html));
+      }
+
+    }
+
+
 
 
 </script>

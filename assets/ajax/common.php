@@ -3,6 +3,19 @@ include '../config/dbconn.php';
 include '../util/queryUtil.php';
 include '../util/ajaxUtil.php';
 
+//************* <loadProjectList> : Projec list를 DB에서 불러오는 함수 *****************//
+function loadProjectList($req,$db){
+    //$user_index = $_REQUEST['user_id'];
+    $user_id = 1;
+    $query_project  = 'SELECT * FROM projects WHERE u_id = ?';
+    $project_result = queryForSelect($db,$query_project,array($user_id));
+
+    $data = array();
+    $data['data']=$project_result;
+
+    writeAjaxRes($data);
+}
+
 //******************* <loadProject> : Projec 정보를 DB에서 불러오는 함수 *******************//
 function loadProject($req,$db){
     $project_id = $_REQUEST['project_id'];

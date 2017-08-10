@@ -31,7 +31,7 @@ include './assets/util/queryUtil.php';
 
 </head>
 
-<body>
+<body >
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.5</a>
@@ -75,7 +75,7 @@ include './assets/util/queryUtil.php';
                 <hr>
             </div>
             <!--media2 박스 시작-->
-            <div class="col-lg-12 col-lg-offset-0 m_grid">
+            <div class="col-lg-12 col-lg-offset-0 m_grid" oncontextmenu="return false;">
                 <div class="waves-effect">
                   <div id="captions_p"></div>
                   <div id="sticker_d"></div>

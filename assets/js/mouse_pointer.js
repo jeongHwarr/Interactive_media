@@ -24,15 +24,24 @@ function mouseHandler(event) {
 
   console.log("x : " + x);
   console.log("y : " + y);
+event.preventDefault();
+  switch(event.which){
+    case 1:
+      $('#input_waves_pos_x').val(x);
+      $('#input_waves_pos_y').val(y);
+      $('#input_caption_pos_x').val(x);
+      $('#input_caption_pos_y').val(y);
+      $('#input_sticker_pos_x').val(x);
+      $('#input_sticker_pos_y').val(y);
+      $('#input_waves_start_time').val(video.currentTime.toFixed(3));
+      $('#startTime_captions').val(video.currentTime.toFixed(3));
+      $('#startTime_stickers').val(video.currentTime.toFixed(3));
+      break;
+    case 3:
+      $('#input_waves_end_time').val(video.currentTime.toFixed(3));
+      $('#endTime_captions').val(video.currentTime.toFixed(3));
+      $('#endTime_stickers').val(video.currentTime.toFixed(3));
+      break;
+  }
 
-  $('#input_waves_pos_x').val(x);
-  $('#input_waves_pos_y').val(y);
-  $('#input_caption_pos_x').val(x);
-  $('#input_caption_pos_y').val(y);
-  $('#input_sticker_pos_x').val(x);
-  $('#input_sticker_pos_y').val(y);
-
-  $('#input_waves_start_time').val(video.currentTime.toFixed(3));
-  $('#startTime_captions').val(video.currentTime.toFixed(3));
-  $('#startTime_stickers').val(video.currentTime.toFixed(3));
 }
