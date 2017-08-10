@@ -57,9 +57,9 @@ include './assets/util/queryUtil.php';
                   controls
                   preload="auto"
                   data-setup='{}'>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                <source id="media1_video_src" type="video/mp4"></source>
+                <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                 <p class="vjs-no-js">
                   To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -85,9 +85,9 @@ include './assets/util/queryUtil.php';
                         controls
                         preload="auto"
                         data-setup='{}'>
-                    <source id="video_src" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-                    <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                    <source id="media2_video_src" type="video/mp4"></source>
+                    <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                     <p class="vjs-no-js">
                         To view this video please enable JavaScript, and consider upgrading to a
                         web browser that
@@ -642,7 +642,10 @@ include './assets/util/queryUtil.php';
     </script>
     <!-- Caption & Sticker 정보 -->
     <script type="text/javascript">
-    var project_info_session_data = session.get('project_info_session')['project_info_session'];
+    var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
+    var project_id = project_info_session_data['p_id'];
+    $('#media1_video_src').prop('src', project_info_session_data['path']);
+    $('#media2_video_src').prop('src', project_info_session_data['path']);
 
     //Caption & Sticker정보, 적용 video
     var captions_session_data = session.get('captions_session')['captions_session'];

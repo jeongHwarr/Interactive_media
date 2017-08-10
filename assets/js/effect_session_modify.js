@@ -12,7 +12,7 @@ function waves_modify(){
   const trans_x = $("#input_waves_translate_x").val();
   const trans_y = $("#input_waves_translate_y").val();
   const color = $("#color_waves").val();
-  const p_id = "1";
+  const p_id = project_id;
   const id = waves_session_data[index]['id'];
   const is_modify = "1";
 
@@ -47,7 +47,7 @@ function captions_modify(){
   const color = $("#color_captions").val();
   const font = $("#font_name_captions").val();
   const animation = $("#animation_captions").val();
-  const p_id = "1";
+  const p_id = project_id;
 
   var push_value = {title:title, contents:contents, pos_x:pos_x, pos_y:pos_y, startTime:startTime, endTime:endTime,
                     size:size, delay:delay, color:color, font:font, animation:animation, p_id:p_id};
@@ -70,7 +70,7 @@ function stickers_modify(){
   const delay = $("#delay_stickers").val();
   const url = $("#option_stickers").val();
   const animation = $("#animation_stickers").val();
-  const p_id = "1";
+  const p_id = project_id;
 
   var push_value = {title:title, pos_x:pos_x, pos_y:pos_y, startTime:startTime, endTime:endTime,
                     width:width, height:height, delay:delay, url:url, animation:animation, p_id:p_id};
