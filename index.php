@@ -57,7 +57,7 @@ include './assets/util/queryUtil.php';
                   controls
                   preload="auto"
                   data-setup='{}'>
-                <!-- <source id="media1_video_src" type="video/mp4"></source> -->
+                <source id="media1_video_src" src="assets/file/media/pianist.mp4" type="video/mp4"></source>
                 <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
                 <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                 <p class="vjs-no-js">
@@ -85,7 +85,7 @@ include './assets/util/queryUtil.php';
                         controls
                         preload="auto"
                         data-setup='{}'>
-                    <!-- <source id="media2_video_src" type="video/mp4"></source> -->
+                    <source id="media2_video_src" src="assets/file/media/pianist.mp4" type="video/mp4"></source>
                     <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
                     <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                     <p class="vjs-no-js">
@@ -672,9 +672,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/synchronize.js"></script>
 
     <script type="text/javascript">
-    var video = document.getElementById("media2");
-    var video_js1 = videojs('media1');
-    var video_js2 = videojs('media2');
+
 
       $('form').submit(function (evt) {
           //prevents the default action
@@ -735,9 +733,11 @@ include './assets/util/queryUtil.php';
     var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
     var project_id = project_info_session_data['p_id'];
 
+    $('#media1_video_src').prop('src', project_info_session_data['path']);
+    $('#media2_video_src').prop('src', project_info_session_data['path']);
 
-    video_js1.src(project_info_session_data['path']);
-    video_js2.src(project_info_session_data['path']);
+    // video_js1.src(project_info_session_data['path']);
+    // video_js2.src(project_info_session_data['path']);
 
     //Caption & Sticker정보, 적용 video
     var captions_session_data = session.get('captions_session')['captions_session'];
@@ -766,6 +766,10 @@ include './assets/util/queryUtil.php';
      </script>
 
      <script>
+
+     var video = document.getElementById("media2");
+     var video_js1 = videojs('media1');
+     var video_js2 = videojs('media2');
 
      //player 재생 준비가 완료 된 후에 mouse click event를 더한다.
      $(document).on("sjs:allPlayersReady", function(event) {
