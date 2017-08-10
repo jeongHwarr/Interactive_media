@@ -490,6 +490,9 @@ include './assets/util/queryUtil.php';
                                                     <option value="assets/img/13.gif">13</option>
                                                     <option value="assets/img/14.png">14</option>
                                                     <option value="assets/img/15.png">15</option>
+                                                    <option value="assets/img/speaker1.png">speaker1</option>
+                                                    <option value="assets/img/speaker2.png">speaker2</option>
+                                                    <option value="assets/img/speaker3.png">speaker3</option>
                                                 </select>
                                             </div>
                                         </div>
