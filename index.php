@@ -15,7 +15,6 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
     <link rel="stylesheet" href="assets/css/progress-bars1.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
     <link rel="stylesheet" href="assets/css/captions.css">
@@ -29,6 +28,7 @@ include './assets/util/queryUtil.php';
     <script src="./assets/video_js/videojs_ie8.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body >
