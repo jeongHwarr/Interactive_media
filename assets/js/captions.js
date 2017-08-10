@@ -95,7 +95,7 @@ var captionEffect = {
           document.getElementById(this.id).style.color=this.color;
           document.getElementById(this.id).style.animationDuration=this.delay+'s';
           document.getElementById(this.id).innerHTML = this.contents;
-          document.getElementById(this.id).style.fontStyle=this.font;
+          document.getElementById(this.id).style.fontFamily=this.font;
           document.getElementById(this.id).style.width=100 + 'px';
     },
 

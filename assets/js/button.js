@@ -126,14 +126,18 @@ function setButtonOnClick(){
 
     //전체 프로젝트 db저장(초록색 save 버튼)
     $("#btn_project_save").click(function(){
+      //query string 정보 가져오기 (?p_id=..)
+      const urlParams = new URLSearchParams(window.location.search);
+      const project_id = urlParams.get('p_id');
+
       $.ajax({
         url:'./assets/ajax/common.php',
         type:'get',
         dataType: 'json',
-        data: {cmd:'saveProject',waves_session_data:waves_session_data, captions_session_data:captions_session_data, stickers_session_data:stickers_session_data},
+        data: {cmd:'saveProject', project_id:project_id, waves_session_data:waves_session_data, captions_session_data:captions_session_data, stickers_session_data:stickers_session_data},
         success:function(data){
           alert("프로젝트가 성공적으로 저장되었습니다.");
-          loadProject(1); // in assets/js/project_load.js
+          loadProject(project_id); // in assets/js/project_load.js
         }
       })
     });

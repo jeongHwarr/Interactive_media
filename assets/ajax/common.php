@@ -3,11 +3,27 @@ include '../config/dbconn.php';
 include '../util/queryUtil.php';
 include '../util/ajaxUtil.php';
 
+//************* <loadMediaList> : Media list를 DB에서 불러오는 함수 *****************//
+function loadMediaList($req,$db){
+    //$user_index = $_REQUEST['user_id'];
+    $query  = 'SELECT * from medias';
+    $query_result = queryForSelect($db,$query,array());
+
+    $data = array();
+    $data['data']=$query_result;
+
+    writeAjaxRes($data);
+}
+//***************************************************************************************//
+
+
 //************* <loadProjectList> : Projec list를 DB에서 불러오는 함수 *****************//
 function loadProjectList($req,$db){
     //$user_index = $_REQUEST['user_id'];
     $user_id = 1;
-    $query_project  = 'SELECT * FROM projects WHERE u_id = ?';
+    $query_project  = 'SELECT A.id as p_id , A.name as p_name, B.name as u_name, B.id as user_id, C.name as m_name , C.runningTime, C.path
+                      FROM  projects  A LEFT JOIN users B ON A.u_id = B.id
+                      LEFT JOIN medias C ON A.m_id = C.id WHERE B.id=?';
     $project_result = queryForSelect($db,$query_project,array($user_id));
 
     $data = array();
@@ -15,13 +31,33 @@ function loadProjectList($req,$db){
 
     writeAjaxRes($data);
 }
+//***************************************************************************************//
+
+//************* <makeProjectList> : 새로운 Projec를 만드는 함수 *****************//
+function makeNewProject($req,$db){
+    //$user_index = $_REQUEST['user_id'];
+    $user_id = 1;
+    $project_title = $_REQUEST['project_title'];
+    $media_id = $_REQUEST['media_id'];
+
+    $query  = 'INSERT INTO projects (name,m_id,u_id) VALUES (?,?,?)';
+    $query_result = queryForExecute($db,$query,array($project_title, $media_id, $user_id));
+
+    $data = array();
+    $data['data']=$query_result;
+
+    writeAjaxRes($data);
+}
+//***************************************************************************************//
 
 //******************* <loadProject> : Projec 정보를 DB에서 불러오는 함수 *******************//
 function loadProject($req,$db){
     $project_id = $_REQUEST['project_id'];
 
   //받은 id값을 가지는 프로젝트 정보 불러오기
-    $query_project = 'SELECT * FROM projects WHERE id = ?';
+    $query_project  = 'SELECT A.id as p_id , A.name as p_name, B.name as u_name, B.id as user_id, C.name as m_name , C.runningTime, C.path
+                    FROM  projects  A LEFT JOIN users B ON A.u_id = B.id
+                    LEFT JOIN medias C ON A.m_id = C.id WHERE A.id=?';
     $project_result = queryForSelect($db,$query_project,array($project_id));
 
   //해당 프로젝트에 해당하는 waves 효과 가져오기 (id 제외)
@@ -48,7 +84,7 @@ function loadProject($req,$db){
 
 //******************* <saveProject> : Project 세션 정보를 DB로 저장하는 함수 ***************//
 function saveProject($req,$db){
-  $p_id ="1";
+  $p_id =$_REQUEST['project_id'];
   $waves=$_REQUEST['waves_session_data'];
   $captions=$_REQUEST['captions_session_data'];
   $stickers=$_REQUEST['stickers_session_data'];

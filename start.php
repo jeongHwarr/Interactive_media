@@ -30,8 +30,10 @@ include './assets/util/queryUtil.php';
         </div>
         <div class="panel panel-default" id="video_select" style="display: none">
             <div class="panel-heading">
+                <input type="text" id = "input_project_title" name="" value="" placeholder="프로젝트명"></input>
+                <hr>
                 <h3 class="panel-title">영상을 고르세요</h3>
-                <div class="panel-body">
+                <div class="panel-body" id="body_video_select">
                     <!--영상목록 추가
                     <div class="radio">
                         <label>
@@ -40,7 +42,7 @@ include './assets/util/queryUtil.php';
                         </label>
                     </div>
                     -->
-                    <div class="radio">
+                    <!-- <div class="radio" >
                         <label>
                             <input type="radio" name="optionsvideo" id="optionsvideo1" value="video1">
                             영상 1번
@@ -51,10 +53,10 @@ include './assets/util/queryUtil.php';
                             <input type="radio" name="optionsvideo" id="optionsvideo2" value="video2">
                             영상 2번
                         </label>
-                    </div>
+                    </div> -->
 
-                    <button class="btn btn-success">createProject</button>
                 </div>
+                <div><button class="btn btn-success" id="button_make_project">프로젝트 생성</button></div>
 
             </div>
     </div>
@@ -63,17 +65,25 @@ include './assets/util/queryUtil.php';
 <script src="assets/js/session.js"></script>
 <script src="assets/js/project_load.js"></script>
 <script>
-    $(function() {
-      $.ajax({
-        url:'./assets/ajax/common.php',
-        type:'get',
-        dataType: 'json',
-        data: {cmd:'loadProjectList',user_id:'1'},
-        success:function(data){
-          showProjectList(data.data);
+
+    loadProjectList();
+    loadMediaList();
+
+    //Trigger Ajax call back function
+    $(document).ready(function(){
+      $( document ).ajaxSend(function() {
+      }).ajaxError(function(){
+        console.log("Ajax Request Error!");
+      }).ajaxSuccess(function(e,xhr,options,data){
+        var methodName = data.cmd + 'Success';
+        if (self[methodName]){
+          console.log("Ajax call back : "+ methodName);
+          console.log(data);
+          self[methodName](data.data);
         }
-      })
+      });
     });
+
 
     $(document).ready(function(){
         $("#new_project").click(function(){
@@ -81,24 +91,67 @@ include './assets/util/queryUtil.php';
         });
     });
 
-    function showProjectList(data){
-      console.log(data);
+    //프로젝스 생성 버튼 관련 처리
+    $(document).ready(function(){
+      var user_id =1 ; // 나중에 수정
+
+        $("#button_make_project").click(function(){
+          var radio = document.querySelector('input[name="optionsvideo"]:checked');
+          var project_title = $("#input_project_title").val();
+
+          if (!radio || !project_title){
+            alert("정보를 모두 입력해주세요");
+          }
+          else {
+            var radio_value=radio.value;
+              makeNewProject(project_title, radio_value, user_id);
+          }
+        });
+    });
+
+    function loadProjectList(){
+      $.get('./assets/ajax/common.php', {cmd:'loadProjectList',user_id:'1'}); //user_id 추후 수정
+    }
+    function loadProjectListSuccess(data){
+      // console.log(data);
       var ul_project_list = $('#ul_project_list');
       ul_project_list.empty();
       //프로젝트 리스트를 보여준다.
       for (var i=0; i<data.length; i++){
         var low = data[i];
-        var html = '<a href="javascript:void(0);" onclick="loadProject(' +low['id']+')" class="list-group-item list-group-item-info">';
-        html += '<span> 프로젝트 ['+(i+1)+'] : ' + low['name'] ;
+        var html = '<a href="javascript:void(0);" onclick="loadProject('+low['p_id']+')" class="list-group-item list-group-item-info">';
+        html += '<span> 프로젝트 ['+(i+1)+'] : ' + low['p_name'] + ' (영상 : ' + low['m_name'] + ')' ;
         html += '</span></a>';
-          html += '</a>';
         ul_project_list.append($(html));
       }
-
     }
 
+    function loadMediaList(){
+        $.get('./assets/ajax/common.php', {cmd:'loadMediaList'});
+    }
 
+    function loadMediaListSuccess(data){
+      var body_video_select = $('#body_video_select');
+      body_video_select.empty();
 
+      //영상 리스트를 보여준다.
+      for (var i=0; i<data.length; i++){
+        var low = data[i];
+        var html ='<div class="radio">'
+        html+='<input type="radio" name="optionsvideo" id="optionsvideo'+low['id']+'" value="'+low['id']+'">'+low['name']+' </input>'
+        html+='</div>'
+        body_video_select.append($(html));
+      }
+    }
+
+    function makeNewProject(project_title, radio_value, user_id){
+      $.get('./assets/ajax/common.php', {cmd:'makeNewProject', project_title:project_title, media_id:radio_value, user_id:user_id });
+    }
+
+    function makeNewProjectSuccess(project_title, radio_value, user_id){
+      alert("프로젝트가 성공적으로 만들어졌습니다.")
+      loadProjectList();
+    }
 
 </script>
 </html>

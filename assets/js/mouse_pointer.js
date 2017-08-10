@@ -22,11 +22,9 @@ function mouseHandler(event) {
   var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
   var y = ((event.clientY - rect.top ) * scaleY + 0.5)|0;
 
-  console.log("x : " + x);
-  console.log("y : " + y);
 event.preventDefault();
   switch(event.which){
-    case 1:
+    case 1: //left click
       $('#input_waves_pos_x').val(x);
       $('#input_waves_pos_y').val(y);
       $('#input_caption_pos_x').val(x);
@@ -36,8 +34,11 @@ event.preventDefault();
       $('#input_waves_start_time').val(video.currentTime.toFixed(3));
       $('#startTime_captions').val(video.currentTime.toFixed(3));
       $('#startTime_stickers').val(video.currentTime.toFixed(3));
+      console.log("x : " + x);
+      console.log("y : " + y);
       break;
-    case 3:
+
+    case 3: //right click
       $('#input_waves_end_time').val(video.currentTime.toFixed(3));
       $('#endTime_captions').val(video.currentTime.toFixed(3));
       $('#endTime_stickers').val(video.currentTime.toFixed(3));

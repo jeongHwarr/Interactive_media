@@ -57,9 +57,9 @@ include './assets/util/queryUtil.php';
                   controls
                   preload="auto"
                   data-setup='{}'>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                <!-- <source id="media1_video_src" type="video/mp4"></source> -->
+                <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                 <p class="vjs-no-js">
                   To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -85,9 +85,9 @@ include './assets/util/queryUtil.php';
                         controls
                         preload="auto"
                         data-setup='{}'>
-                    <source id="video_src" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></source>
-                    <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source>
+                    <!-- <source id="media2_video_src" type="video/mp4"></source> -->
+                    <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
+                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                     <p class="vjs-no-js">
                         To view this video please enable JavaScript, and consider upgrading to a
                         web browser that
@@ -292,12 +292,32 @@ include './assets/util/queryUtil.php';
                                                   <option value="animated infinite fadeIn">fadeIn</option>
                                                   <option value="animated infinite bounceIn">bounceIn</option>
                                                   <option value="animated infinite rotateIn">rotateIn</option>
+                                                  <option value="animated infinite rotateInDownLeft">rotateInDownLeft</option>
+                                                  <option value="animated infinite rotateInDownRight">rotateInDownRight</option>
+                                                  <option value="animated infinite rotateInUpLeft">rotateInUpLeft</option>
+                                                  <option value="animated infinite rotateInUpRight">rotateInUpRight</option>
                                                   <option value="animated infinite rotateOut">rotateOut</option>
                                                   <option value="animated infinite shake">shake</option>
                                                   <option value="animated infinite swing">swing</option>
                                                   <option value="animated infinite rubberBand">rubberBand</option>
                                                   <option value="animated infinite flash">flash</option>
                                                   <option value="animated infinite bounce">bounce</option>
+                                                  <option value="animated infinite hinge">hinge</option>
+                                                  <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                  <option value="animated infinite zoomOutRight">zoomOutRight</option>
+                                                  <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
+                                                  <option value="animated infinite zoomOutDown">zoomOutDown</option>
+                                                  <option value="animated infinite zoomOut">zoomOut</option>
+                                                  <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
+                                                  <option value="animated infinite jello">jello</option>
+                                                  <option value="animated infinite wobble">wobble</option>
+                                                  <option value="animated infinite tada">tada</option>
+                                                  <option value="animated infinite pulse">pulse</option>
+                                                  <option value="animated infinite flip">flip</option>
+                                                  <option value="animated infinite flipInX">flipInX</option>
+                                                  <option value="animated infinite flipInY">flipInY</option>
+                                                  <option value="animated infinite flipOutX">flipOutX</option>
+                                                  <option value="animated infinite flipOutY">flipOutY</option>
                                               </select>
                                             </div>
                                         </div>
@@ -371,6 +391,12 @@ include './assets/util/queryUtil.php';
                                                             <option value="red">Red</option>
                                                             <option value="blue">Blue</option>
                                                             <option value="yellow">Yellow</option>
+                                                            <option value="gray">Gray</option>
+                                                            <option value="pink">Pink</option>
+                                                            <option value="white">White</option>
+                                                            <option value="pupple">Pupple</option>
+                                                            <option value="black">Black</option>
+                                                            <option value="orange">Orange</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -382,9 +408,15 @@ include './assets/util/queryUtil.php';
                                                 <div class="col-lg-8 col-md-12">
                                                     <div class="form-group">
                                                         <select class="form-control" id="font_name_captions">
-                                                            <option value="normal">normal</option>
-                                                            <option value="italic">italic</option>
-                                                            <option value="oblique">oblique</option>
+                                                          <option value="Fantasy">Fantasy</option>
+                                                          <option value="Agency FB">Agency FB</option>
+                                                          <option value="Arial">Arial</option>
+                                                          <option value="BankGothic">BankGothic</option>
+                                                          <option value="Cursive">Cursive</option>
+                                                          <option value="Impact">Impact</option>
+                                                          <option value="Monospace">Monospace</option>
+                                                          <option value="Tw Cen MT">Tw Cen MT</option>
+                                                          <option value="Serif">Serif</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -478,12 +510,32 @@ include './assets/util/queryUtil.php';
                                                 <option value="animated infinite fadeIn">fadeIn</option>
                                                 <option value="animated infinite bounceIn">bounceIn</option>
                                                 <option value="animated infinite rotateIn">rotateIn</option>
+                                                <option value="animated infinite rotateInDownLeft">rotateInDownLeft</option>
+                                                <option value="animated infinite rotateInDownRight">rotateInDownRight</option>
+                                                <option value="animated infinite rotateInUpLeft">rotateInUpLeft</option>
+                                                <option value="animated infinite rotateInUpRight">rotateInUpRight</option>
                                                 <option value="animated infinite rotateOut">rotateOut</option>
                                                 <option value="animated infinite shake">shake</option>
                                                 <option value="animated infinite swing">swing</option>
                                                 <option value="animated infinite rubberBand">rubberBand</option>
                                                 <option value="animated infinite flash">flash</option>
                                                 <option value="animated infinite bounce">bounce</option>
+                                                <option value="animated infinite hinge">hinge</option>
+                                                <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                <option value="animated infinite zoomOutRight">zoomOutRight</option>
+                                                <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
+                                                <option value="animated infinite zoomOutDown">zoomOutDown</option>
+                                                <option value="animated infinite zoomOut">zoomOut</option>
+                                                <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
+                                                <option value="animated infinite jello">jello</option>
+                                                <option value="animated infinite wobble">wobble</option>
+                                                <option value="animated infinite tada">tada</option>
+                                                <option value="animated infinite pulse">pulse</option>
+                                                <option value="animated infinite flip">flip</option>
+                                                <option value="animated infinite flipInX">flipInX</option>
+                                                <option value="animated infinite flipInY">flipInY</option>
+                                                <option value="animated infinite flipOutX">flipOutX</option>
+                                                <option value="animated infinite flipOutY">flipOutY</option>
                                               </select>
                                             </div>
                                         </div>
@@ -639,6 +691,10 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/synchronize.js"></script>
 
     <script type="text/javascript">
+    var video = document.getElementById("media2");
+    var video_js1 = videojs('media1');
+    var video_js2 = videojs('media2');
+
       $('form').submit(function (evt) {
           //prevents the default action
           evt.preventDefault();
@@ -690,7 +746,12 @@ include './assets/util/queryUtil.php';
     </script>
     <!-- Caption & Sticker 정보 -->
     <script type="text/javascript">
-    var project_info_session_data = session.get('project_info_session')['project_info_session'];
+    var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
+    var project_id = project_info_session_data['p_id'];
+
+
+    video_js1.src(project_info_session_data['path']);
+    video_js2.src(project_info_session_data['path']);
 
     //Caption & Sticker정보, 적용 video
     var captions_session_data = session.get('captions_session')['captions_session'];
@@ -719,15 +780,12 @@ include './assets/util/queryUtil.php';
      </script>
 
      <script>
-     var video = document.getElementById("media2");
-    //  var video_src = document.getElementById('video_src');
-     var video_js1 = videojs('media1');
-     var video_js2 = videojs('media2');
 
+     //player 재생 준비가 완료 된 후에 mouse click event를 더한다.
      $(document).on("sjs:allPlayersReady", function(event) {
             addClickEvent(video); //in assets/js/mouse_pointer.js
-    });
 
+    });
 
     </script>
 
