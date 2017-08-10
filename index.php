@@ -687,7 +687,6 @@ include './assets/util/queryUtil.php';
       "음표3","해골"];
       $(document).ready(function(){
           for(i=0;i<pictures.length;i++){
-              console.log(i);
               $("#modal_row").append("<div class='col-md-3'>"+
                   "<div class='thumbnail'>"+
                   "<img id='"+pictures[i]+"' src='./assets/img/"+pictures[i]+"'  alt='"+(i+1)+"' name='"+picAlt[i]+"'>"+
