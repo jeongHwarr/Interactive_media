@@ -391,6 +391,12 @@ include './assets/util/queryUtil.php';
                                                             <option value="red">Red</option>
                                                             <option value="blue">Blue</option>
                                                             <option value="yellow">Yellow</option>
+                                                            <option value="gray">Gray</option>
+                                                            <option value="pink">Pink</option>
+                                                            <option value="white">White</option>
+                                                            <option value="pupple">Pupple</option>
+                                                            <option value="black">Black</option>
+                                                            <option value="orange">Orange</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -402,9 +408,15 @@ include './assets/util/queryUtil.php';
                                                 <div class="col-lg-8 col-md-12">
                                                     <div class="form-group">
                                                         <select class="form-control" id="font_name_captions">
-                                                            <option value="normal">normal</option>
-                                                            <option value="italic">italic</option>
-                                                            <option value="oblique">oblique</option>
+                                                          <option value="Fantasy">Fantasy</option>
+                                                          <option value="Agency FB">Agency FB</option>
+                                                          <option value="Arial">Arial</option>
+                                                          <option value="BankGothic">BankGothic</option>
+                                                          <option value="Cursive">Cursive</option>
+                                                          <option value="Impact">Impact</option>
+                                                          <option value="Monospace">Monospace</option>
+                                                          <option value="Tw Cen MT">Tw Cen MT</option>
+                                                          <option value="Serif">Serif</option>
                                                         </select>
                                                     </div>
                                                 </div>
