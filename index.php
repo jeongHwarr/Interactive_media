@@ -681,10 +681,11 @@ include './assets/util/queryUtil.php';
 
       var pictures = ["1.png","2.png","3.png","4.png","5.png","6.png",
                        "7.png","8.png","9.png","10.png","11.png","12.png",
-                        "13.gif","14.png","15.png","god.png"];
+                        "13.gif","14.png","15.png","god.png","speaker1.png",
+                        "speaker2.png","speaker3.png"];
       var picAlt =["구름 말풍선", "뾰족 말풍선", "둥근 말풍선", "둥근 말풍선2",
       "물거품1","물거품2","물거품3","폭탄","음표1","폭팔","선율1","선율2","선율3","음표2",
-      "음표3","해골"];
+      "음표3","해골","스피커1","스피커2","스피커3"];
       $(document).ready(function(){
           for(i=0;i<pictures.length;i++){
               $("#modal_row").append("<div class='col-md-3'>"+
