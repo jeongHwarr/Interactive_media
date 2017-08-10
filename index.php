@@ -292,12 +292,32 @@ include './assets/util/queryUtil.php';
                                                   <option value="animated infinite fadeIn">fadeIn</option>
                                                   <option value="animated infinite bounceIn">bounceIn</option>
                                                   <option value="animated infinite rotateIn">rotateIn</option>
+                                                  <option value="animated infinite rotateInDownLeft">rotateInDownLeft</option>
+                                                  <option value="animated infinite rotateInDownRight">rotateInDownRight</option>
+                                                  <option value="animated infinite rotateInUpLeft">rotateInUpLeft</option>
+                                                  <option value="animated infinite rotateInUpRight">rotateInUpRight</option>
                                                   <option value="animated infinite rotateOut">rotateOut</option>
                                                   <option value="animated infinite shake">shake</option>
                                                   <option value="animated infinite swing">swing</option>
                                                   <option value="animated infinite rubberBand">rubberBand</option>
                                                   <option value="animated infinite flash">flash</option>
                                                   <option value="animated infinite bounce">bounce</option>
+                                                  <option value="animated infinite hinge">hinge</option>
+                                                  <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                  <option value="animated infinite zoomOutRight">zoomOutRight</option>
+                                                  <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
+                                                  <option value="animated infinite zoomOutDown">zoomOutDown</option>
+                                                  <option value="animated infinite zoomOut">zoomOut</option>
+                                                  <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
+                                                  <option value="animated infinite jello">jello</option>
+                                                  <option value="animated infinite wobble">wobble</option>
+                                                  <option value="animated infinite tada">tada</option>
+                                                  <option value="animated infinite pulse">pulse</option>
+                                                  <option value="animated infinite flip">flip</option>
+                                                  <option value="animated infinite flipInX">flipInX</option>
+                                                  <option value="animated infinite flipInY">flipInY</option>
+                                                  <option value="animated infinite flipOutX">flipOutX</option>
+                                                  <option value="animated infinite flipOutY">flipOutY</option>
                                               </select>
                                             </div>
                                         </div>
@@ -475,12 +495,32 @@ include './assets/util/queryUtil.php';
                                                 <option value="animated infinite fadeIn">fadeIn</option>
                                                 <option value="animated infinite bounceIn">bounceIn</option>
                                                 <option value="animated infinite rotateIn">rotateIn</option>
+                                                <option value="animated infinite rotateInDownLeft">rotateInDownLeft</option>
+                                                <option value="animated infinite rotateInDownRight">rotateInDownRight</option>
+                                                <option value="animated infinite rotateInUpLeft">rotateInUpLeft</option>
+                                                <option value="animated infinite rotateInUpRight">rotateInUpRight</option>
                                                 <option value="animated infinite rotateOut">rotateOut</option>
                                                 <option value="animated infinite shake">shake</option>
                                                 <option value="animated infinite swing">swing</option>
                                                 <option value="animated infinite rubberBand">rubberBand</option>
                                                 <option value="animated infinite flash">flash</option>
                                                 <option value="animated infinite bounce">bounce</option>
+                                                <option value="animated infinite hinge">hinge</option>
+                                                <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                <option value="animated infinite zoomOutRight">zoomOutRight</option>
+                                                <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
+                                                <option value="animated infinite zoomOutDown">zoomOutDown</option>
+                                                <option value="animated infinite zoomOut">zoomOut</option>
+                                                <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
+                                                <option value="animated infinite jello">jello</option>
+                                                <option value="animated infinite wobble">wobble</option>
+                                                <option value="animated infinite tada">tada</option>
+                                                <option value="animated infinite pulse">pulse</option>
+                                                <option value="animated infinite flip">flip</option>
+                                                <option value="animated infinite flipInX">flipInX</option>
+                                                <option value="animated infinite flipInY">flipInY</option>
+                                                <option value="animated infinite flipOutX">flipOutX</option>
+                                                <option value="animated infinite flipOutY">flipOutY</option>
                                               </select>
                                             </div>
                                         </div>
