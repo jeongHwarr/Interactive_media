@@ -471,31 +471,12 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
-                                                <select class="form-control" id="option_stickers">
-                                                    <option value="http://cfile23.uf.tistory.com/image/1864EE3F50E62EA616460A">해골</option>
-                                                    <option value="http://bizdesign.net/data/cheditor4/1304/7a7f255e9283673e933658413636862a_fSDT1uJnhvXaBalZODxtBFaM.jpg">아기</option>
-                                                    <option value="https://s-media-cache-ak0.pinimg.com/originals/b2/56/15/b2561559644dc937bcca91b746cd9abe.png">사자</option>
-                                                    <option value="assets/img/1.png">1</option>
-                                                    <option value="assets/img/2.png">2</option>
-                                                    <option value="assets/img/3.png">3</option>
-                                                    <option value="assets/img/4.png">4</option>
-                                                    <option value="assets/img/5.png">5</option>
-                                                    <option value="assets/img/6.png">6</option>
-                                                    <option value="assets/img/7.png">7</option>
-                                                    <option value="assets/img/8.png">8</option>
-                                                    <option value="assets/img/9.png">9</option>
-                                                    <option value="assets/img/10.png">10</option>
-                                                    <option value="assets/img/11.png">11</option>
-                                                    <option value="assets/img/12.png">12</option>
-                                                    <option value="assets/img/13.gif">13</option>
-                                                    <option value="assets/img/14.png">14</option>
-                                                    <option value="assets/img/15.png">15</option>
-                                                    <option value="assets/img/speaker1.png">speaker1</option>
-                                                    <option value="assets/img/speaker2.png">speaker2</option>
-                                                    <option value="assets/img/speaker3.png">speaker3</option>
-                                                </select>
+                                                <input type="text" id="option_name" value="" placeholder="효과를 골라주세요" disabled>
+                                                <input type="text" id="option_stickers" value="" placeholder="효과를 골라주세요" style="display: none;">
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">고르기</button>
                                             </div>
                                         </div>
+
                                     </div>
 
                                     <div class="row">
@@ -643,6 +624,29 @@ include './assets/util/queryUtil.php';
             </div>
         </div> <!--우측 탭 영역 종료-->
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">스티커 고르기</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="modal_row">
+                        <!--modal contents-->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
         <div id="div_third" class="section_lists"> <!--효과 리스트-->
             <p class="tab_title">Effects List</p>
             <div class="list-group" id="list_effects">
@@ -674,7 +678,34 @@ include './assets/util/queryUtil.php';
           //prevents the default action
           evt.preventDefault();
       });
+
+      var pictures = ["1.png","2.png","3.png","4.png","5.png","6.png",
+                       "7.png","8.png","9.png","10.png","11.png","12.png",
+                        "13.gif","14.png","15.png","god.png"];
+      var picAlt =["구름 말풍선", "뾰족 말풍선", "둥근 말풍선", "둥근 말풍선2",
+      "물거품1","물거품2","물거품3","폭탄","음표1","폭팔","선율1","선율2","선율3","음표2",
+      "음표3","해골"];
       $(document).ready(function(){
+          for(i=0;i<pictures.length;i++){
+              console.log(i);
+              $("#modal_row").append("<div class='col-md-3'>"+
+                  "<div class='thumbnail'>"+
+                  "<img id='"+pictures[i]+"' src='./assets/img/"+pictures[i]+"'  alt='"+(i+1)+"' name='"+picAlt[i]+"'>"+
+                  "<div class='caption'>"+
+                  "<p>"+picAlt[i]+"</p>"+
+                  "</div>"+
+                  "</div>"+
+                  "</div>")
+          }
+
+          $(".modal-body img").click(function () {
+              var name = $(this).attr("name");
+              var src = $(this).attr("src");
+              $("#myModal").modal('hide');
+              $("#option_name").val(name);
+              $("#option_stickers").val(src);
+          });
+
         //test for session
         console.log(session.get('project_info_session'));
         console.log(session.get('waves_session'));
@@ -689,7 +720,7 @@ include './assets/util/queryUtil.php';
         }
         initEffectTabValue();
         showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
-      });
+    });
       //버튼 onclick 구현
       $(document).ready(function(){
           setButtonOnClick();
