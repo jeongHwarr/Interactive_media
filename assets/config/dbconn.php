@@ -1,5 +1,4 @@
 <?php
-global $db;
 	// DB 정보
 	$host='192.168.187.74';
 	$dbname='media1';

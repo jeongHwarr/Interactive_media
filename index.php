@@ -701,11 +701,11 @@ include './assets/util/queryUtil.php';
           }
 
           $(".modal-body img").click(function () {
-              var alt = $(this).attr("alt");
               var name = $(this).attr("name");
+              var src = $(this).attr("src");
               $("#myModal").modal('hide');
               $("#option_name").val(name);
-              $("#option_stickers").val(alt);
+              $("#option_stickers").val(src);
           });
 
         //test for session
