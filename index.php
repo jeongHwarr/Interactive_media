@@ -31,7 +31,7 @@ include './assets/util/queryUtil.php';
     <!-- intro_js-->
     <script src="./assets/intro_js/intro_min.js"></script>
     <link rel="stylesheet" href="./assets/intro_js/introjs_min.css">
-    <link rel="stylesheet" href="./assets/intro_js/introjs-rtl_min.css">
+    <!-- <link rel="stylesheet" href="./assets/intro_js/introjs-rtl_min.css"> -->
 
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -44,7 +44,8 @@ include './assets/util/queryUtil.php';
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="nav navbar-nav hidden-xs hidden-sm navbar-right" id="desktop-toolbar">
-                    <li role="presentation"><button class="btn btn-success" id="btn_project_save" type="button">프로젝트 저장</button></li>
+                    <li role="presentation"><button class="btn btn-primary" id="btn_help">사용법</button></li>
+                    <li role="presentation"><button class="btn btn-success" id="btn_project_save" type="button" data-step="8" data-position="left" data-intro="모든 변경 사항은 이 버튼을 눌러야만 최종 저장 됩니다">프로젝트 저장</button></li>
 
                 </ul>
             </div>
@@ -80,11 +81,11 @@ include './assets/util/queryUtil.php';
                 <hr>
             </div>
             <!--media2 박스 시작-->
-            <div class="col-lg-12 col-lg-offset-0 m_grid" oncontextmenu="return false;">
+            <div class="col-lg-12 col-lg-offset-0 m_grid step1" oncontextmenu="return false;">
                 <div class="waves-effect">
                   <div id="captions_p"></div>
                   <div id="sticker_d"></div>
-                    <video data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다."
+                    <video data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다"
                         id="media2"
                         class="video-js waves-box"
                         controls
@@ -109,7 +110,7 @@ include './assets/util/queryUtil.php';
             <div>
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Waves</a></li>
-                    <li><a href="#tab-2" role="tab" data-toggle="tab">Captions</a></li>
+                    <li data-step="6" data-position="left" data-intro="원하는 효과를 클릭하여 효과를 설정할 수 있습니다"><a href="#tab-2" role="tab" data-toggle="tab">Captions</a></li>
                     <li><a href="#tab-3" role="tab" data-toggle="tab">Stickers</a></li>
                 </ul>
                 <div class="tab-content">
@@ -117,7 +118,9 @@ include './assets/util/queryUtil.php';
                     <!--waves 효과 탭 시작-->
                     <div class="tab-pane active" role="tabpanel" id="tab-1"> <!--첫번째 탭-->
                         <div class="row">
-                            <div class="col-md-12" id="section_waves_input">
+                            <div class="col-md-12" id="section_waves_input"
+                            data-step="5" data-position="bottom" data-intro="좌클릭(시작시간)→휠클릭(위치설정)→우클릭(끝나는시간) 순서로 작업을 하시는 것이 편합니다.
+                            시작시간을 설정하면 영상이 자동으로 멈추고, 멈춘 동안에 휠을 클릭하여 위치를 설정하면 영상이 다시 재생됩니다" >
                                 <form id = "waves_set" role="form" data-toggle="validator"> <!--입력 폼-->
                                     <div class="row form-group">
                                         <div class="col-lg-4 col-md-12">
@@ -139,20 +142,26 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
 
-                                        <div class="col-lg-4 col-md-12" class="span6" data-step="2" data-intro="효과가 나오기 시작할 시간을 의미합니다. 편집 영상에서 마우스 좌클릭을 하면 자동으로 값이 들어갑니다.">
-                                            <input id="input_waves_start_time" class="form-control time_start" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
+                                        <div>
+                                          <div class="col-lg-4 col-md-12" class="span6"
+                                              data-step="2" data-position="bottom" data-intro="효과가 나오기 시작할 시간을 의미합니다. 편집 영상에서 마우스 `좌클릭`시 자동으로 값이 들어갑니다">
+                                              <input id="input_waves_start_time" class="form-control time_start" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
 
+                                          </div>
                                         </div>
+
                                         <div class="col-lg-1 col-md-12">
                                             <p class="tab_cont">End </p>
                                         </div>
-                                        <div class="col-lg-4 col-md-12">
+                                        <div class="col-lg-4 col-md-12"
+                                             data-step="4" data-position="bottom" data-intro="효과가 끝날 시간을 의미합니다. 편집 영상에서 마우스 `우클릭`시 자동으로 값이 들어갑니다">
                                             <input id="input_waves_end_time" class="form-control time_end" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
                                         </div>
                                         <div class="col-md-12 help-block with-errors"></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12"
+                                             data-step="3" data-position="bottom" data-intro="효과가 나올 위치를 의미합니다. 편집 영상에서 원하는 위치에 마우스 `휠클릭`시 자동으로 값이 들어갑니다">
                                             <p class="tab_title">Position </p>
                                             <div class="row  form-group">
                                                 <div class="col-lg-2 col-lg-offset-2 col-md-12">
@@ -236,7 +245,7 @@ include './assets/util/queryUtil.php';
                                     <button class="btn btn-default" type="button" id="more_op_waves">추가 옵션</button>
                                     <button id="btn-make-effect" class="btn btn-default input_effects" type="button">미리보기</button> <!--효과넣기 버튼-->
                                     <input button class="btn btn-default" type="hidden" id="waves_copy" value="효과 복제"></input> <!--효과복제 버튼-->
-                                    <input button class="btn btn-primary" type="submit" id="waves_save" value="효과 저장"></input> <!--효과저장/수정 버튼-->
+                                    <input button class="btn btn-primary" type="submit" id="waves_save" value="효과 저장" data-position="left" data-step="6" data-intro="설정한 효과를 임시적으로 저장할 수 있습니다"></input> <!--효과저장/수정 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="waves_delete" value="효과 삭제"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="waves_modify_cancel" value="취소"> </input> <!--효과수정 취소 버튼-->
                                     <input type="hidden" id="waves_index" value="">
@@ -655,9 +664,9 @@ include './assets/util/queryUtil.php';
             </div>
         </div>
 
-        <div id="div_third" class="section_lists"> <!--효과 리스트-->
+        <div id="div_third" class="section_lists"  > <!--효과 리스트-->
             <p class="tab_title">Effects List</p>
-            <div class="list-group" id="list_effects">
+            <div class="list-group" id="list_effects" data-step="7" data-position="left" data-intro="임시 저장한 효과 목록을 확인하고 목록을 클릭하여 변경 할 수 있습니다">
             </div>
         </div>
       </div>
@@ -680,7 +689,7 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/synchronize.js"></script>
 
     <script type="text/javascript">
-
+    // introJs().setOption('showProgress', true).start();
       // introJs().start();
 
       $('form').submit(function (evt) {
@@ -733,28 +742,34 @@ include './assets/util/queryUtil.php';
       //버튼 onclick 구현
       $(document).ready(function(){
           setButtonOnClick();
+          $("#btn_help").click(function(){
+              introJs().start();
+          });
         }
       );
 
     </script>
     <!-- Caption & Sticker 정보 -->
     <script type="text/javascript">
-    // introJs().start();
+
+    //introJs().start();
     var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
     var project_id = project_info_session_data['p_id'];
 
     //Caption & Sticker정보, 적용 video
+    var waves_session_data = session.get('waves_session')['waves_session'];
     var captions_session_data = session.get('captions_session')['captions_session'];
     var stickers_session_data = session.get('stickers_session')['stickers_session'];
+
+    if(waves_session_data.length==0 && captions_session_data.length==0 &&stickers_session_data.length==0){
+      introJs().start();
+    }
     var video = document.getElementById("media2");
     video.addEventListener('timeupdate', function(){
         Make_caption_effect(); //caption 만드는 함수
         Make_sticker_effect(); //sticker 만드는 함수
     }, false);
-    </script>
 
-      <!-- waves session 정보 -->
-     <script>
       var waves_session_data = session.get('waves_session')['waves_session'];
       //waves정보, 적용 video, wave가 만들어질 장소
       setWaveEffect("#media2", ".waves-box");
@@ -770,7 +785,6 @@ include './assets/util/queryUtil.php';
      </script>
 
      <script>
-
      var video = document.getElementById("media2");
      var video_js1 = videojs('media1');
      var video_js2 = videojs('media2');

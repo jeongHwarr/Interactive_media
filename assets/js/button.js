@@ -160,7 +160,6 @@ function setButtonOnClick(){
         initEffectTabValue();
     });
 
-
     //전체 프로젝트 db저장(초록색 save 버튼)
     $("#btn_project_save").click(function(){
       //query string 정보 가져오기 (?p_id=..)
