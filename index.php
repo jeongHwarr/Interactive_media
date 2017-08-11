@@ -29,6 +29,10 @@ include './assets/util/queryUtil.php';
     <script src="./assets/video_js/videojs_ie8.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
+    <!-- intro_js-->
+    <script src="./assets/intro_js/intro_min.js"></script>
+    <link rel="stylesheet" href="./assets/intro_js/introjs_min.css">
+    <link rel="stylesheet" href="./assets/intro_js/introjs-rtl_min.css">
 </head>
 
 <body >
@@ -79,7 +83,7 @@ include './assets/util/queryUtil.php';
                 <div class="waves-effect">
                   <div id="captions_p"></div>
                   <div id="sticker_d"></div>
-                    <video
+                    <video  data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다."
                         id="media2"
                         class="video-js waves-box"
                         controls
@@ -646,7 +650,7 @@ include './assets/util/queryUtil.php';
 
             </div>
         </div>
-        
+
         <div id="div_third" class="section_lists"> <!--효과 리스트-->
             <p class="tab_title">Effects List</p>
             <div class="list-group" id="list_effects">
@@ -730,6 +734,7 @@ include './assets/util/queryUtil.php';
     </script>
     <!-- Caption & Sticker 정보 -->
     <script type="text/javascript">
+    // introJs().start();
     var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
     var project_id = project_info_session_data['p_id'];
 
