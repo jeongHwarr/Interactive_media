@@ -15,7 +15,6 @@ include './assets/util/queryUtil.php';
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
     <link rel="stylesheet" href="assets/css/progress-bars1.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/waves.css" />
     <link rel="stylesheet" href="assets/css/slide.css" />
     <link rel="stylesheet" href="assets/css/captions.css">
@@ -33,6 +32,8 @@ include './assets/util/queryUtil.php';
     <script src="./assets/intro_js/intro_min.js"></script>
     <link rel="stylesheet" href="./assets/intro_js/introjs_min.css">
     <link rel="stylesheet" href="./assets/intro_js/introjs-rtl_min.css">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body >
@@ -685,13 +686,13 @@ include './assets/util/queryUtil.php';
 
       var pictures = ["1.png","2.png","3.png","4.png","5.png","6.png",
                        "7.png","8.png","9.png","10.png","11.png","12.png",
-                        "13.gif","14.png","15.png","god.png"];
+                        "13.gif","14.png","15.png","god.png","speaker1.png",
+                        "speaker2.png","speaker3.png"];
       var picAlt =["구름 말풍선", "뾰족 말풍선", "둥근 말풍선", "둥근 말풍선2",
       "물거품1","물거품2","물거품3","폭탄","음표1","폭팔","선율1","선율2","선율3","음표2",
-      "음표3","해골"];
+      "음표3","해골","스피커1","스피커2","스피커3"];
       $(document).ready(function(){
           for(i=0;i<pictures.length;i++){
-              console.log(i);
               $("#modal_row").append("<div class='col-md-3'>"+
                   "<div class='thumbnail'>"+
                   "<img id='"+pictures[i]+"' src='./assets/img/"+pictures[i]+"'  alt='"+(i+1)+"' name='"+picAlt[i]+"'>"+
