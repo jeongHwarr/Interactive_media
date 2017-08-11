@@ -11,6 +11,7 @@ include './assets/util/queryUtil.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Editor ver0.5</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
@@ -39,7 +40,7 @@ include './assets/util/queryUtil.php';
 <body >
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver0.5</a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#">Editor Ver 0.5</a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-2"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
@@ -474,13 +475,16 @@ include './assets/util/queryUtil.php';
                                         <div class="col-lg-4 col-md-12">
                                             <p class="tab_title">Stickers </p>
                                         </div>
-                                        <div class="col-lg-8 col-md-12">
+                                        <div class="col-lg-6 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
                                                 <input type="text" class="form-control" id="option_name" value="" placeholder="효과를 골라주세요" disabled>
                                                 <input type="text" id="option_stickers" value="" style="display: none;">
-                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">고르기</button>
                                             </div>
                                         </div>
+                                        <div class="col-lg-2 col-md-12">
+                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">고르기</button>
+                                        </div>
+
 
                                     </div>
 
@@ -614,7 +618,7 @@ include './assets/util/queryUtil.php';
                             <div class="col-md-12" id="section_stcikers_view" style="margin-top:0.2em;">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="tab_title">effects view</p>
+                                        <p class="tab_title">Effects View</p>
                                     </div>
                                     <div class="col-md-12">
                                     <div class="example_class"><img id="sticker_example_id" src="assets/img/user-photo.jpg"/></div>
@@ -653,9 +657,25 @@ include './assets/util/queryUtil.php';
         </div>
 
         <div id="div_third" class="section_lists"> <!--효과 리스트-->
-            <p class="tab_title">Effects List</p>
+            <div class="row">
+                <div class="col-lg-10"><p class="tab_title">Effects List</p></div>
+                <div class="col-lg-2">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" id="list_exit"></span>
+                </div>
+            </div>
             <div class="list-group" id="list_effects">
             </div>
+
+        </div>
+        <div id = "icon">
+                <button class="btn btn-primary" id="list_btn">
+                    Lists
+                    <span class="badge">
+                        <div class="bar_icon"></div>
+                    <div class="bar_icon"></div>
+                    <div class="bar_icon"></div>
+                    </span>
+                </button>
         </div>
       </div>
     </div>
@@ -683,7 +703,14 @@ include './assets/util/queryUtil.php';
           //prevents the default action
           evt.preventDefault();
       });
-
+      $("#list_btn").click(function () {
+         $("#list_btn").css("display", "none");
+         $("#div_third").css("display", "block");
+      });
+      $("#list_exit").click(function () {
+          $("#div_third").css("display", "none");
+          $("#list_btn").css("display", "block");
+      });
       var pictures = ["1.png","2.png","3.png","4.png","5.png","6.png",
                        "7.png","8.png","9.png","10.png","11.png","12.png",
                         "13.gif","14.png","15.png","god.png","speaker1.png",
