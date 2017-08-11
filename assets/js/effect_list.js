@@ -37,7 +37,7 @@ function showEffectList(){
 function clickEffectList(list,index){
 
   $(document).trigger('sjs:setNewMaster', "media2");
-  
+
   if(list=="waves"){
     var data = waves_session_data[index];
     //탭 input 출력
@@ -62,7 +62,7 @@ function clickEffectList(list,index){
     $(".section_tab a[href='#tab-1']").tab("show"); //waves tab으로 이동
 
     //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
-    video_js2.currentTime(data['startTime']/1000);
+    video_js2.currentTime((data['startTime']/1000)-0.3);
     video_js2.play();
     // video_js2.pause();
     // video_js2.addClass('vjs-has-started'); //control bar 활성화 시키기 위해
@@ -92,7 +92,7 @@ function clickEffectList(list,index){
     $(".section_tab a[href='#tab-2']").tab("show"); //captions tab으로 이동
 
     //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
-    video_js2.currentTime(data['startTime']/1000);
+    video_js2.currentTime((data['startTime']/1000)-0.3);
     video_js2.play();
     // video_js2.pause();
     // video_js2.addClass('vjs-has-started'); //control bar 활성화 시키기 위해
@@ -120,7 +120,7 @@ function clickEffectList(list,index){
 
     //효과 startTime값으로 플레이어 재생 위치 이동 후 정지
     $(".section_tab a[href='#tab-3']").tab("show"); //stickers tab으로 이동
-    video_js2.currentTime(data['startTime']/1000);
+    video_js2.currentTime((data['startTime']/1000)-0.3);
     video_js2.play();
     // video_js2.pause();
     // video_js2.addClass('vjs-has-started'); //control bar 활성화 시키기 위해

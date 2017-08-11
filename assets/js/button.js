@@ -132,7 +132,7 @@ function setButtonOnClick(){
 
       $.ajax({
         url:'./assets/ajax/common.php',
-        type:'get',
+        type:'post',
         dataType: 'json',
         data: {cmd:'saveProject', project_id:project_id, waves_session_data:waves_session_data, captions_session_data:captions_session_data, stickers_session_data:stickers_session_data},
         success:function(data){
