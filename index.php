@@ -478,8 +478,8 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-8 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
-                                                <input type="text" id="option_name" value="" placeholder="효과를 골라주세요" disabled>
-                                                <input type="text" id="option_stickers" value="" placeholder="효과를 골라주세요" style="display: none;">
+                                                <input type="text" class="form-control" id="option_name" value="" placeholder="효과를 골라주세요" disabled>
+                                                <input type="text" id="option_stickers" value="" style="display: none;">
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">고르기</button>
                                             </div>
                                         </div>
