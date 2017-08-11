@@ -259,7 +259,7 @@ include './assets/util/queryUtil.php';
                             <div class="col-md-12" id="section_waves_view" style="margin-top:0.2em;">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="tab_title">effects view</p>
+                                        <p class="tab_title">Effects View</p>
                                     </div>
                                     <div class="col-md-12 ">
                                       <div class="waves-effect preview" style="margin:0px 40px; width:240px; height:130px;">
@@ -456,7 +456,7 @@ include './assets/util/queryUtil.php';
                             <div class="col-md-12" id="section_captions_view" style="margin-top:0.2em;">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="tab_title">effects view</p>
+                                        <p class="tab_title">Effects View</p>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="example_class" id="caption_example_id" style="color:red; text-align:center; font-size: 50px">example</div>
@@ -488,7 +488,7 @@ include './assets/util/queryUtil.php';
                                         </div>
                                         <div class="col-lg-6 col-md-12">
                                             <div class="form-group"> <!--스티커 드롭다운-->
-                                                <input type="text" class="form-control" id="option_name" value="" placeholder="효과를 골라주세요" disabled>
+                                                <input type="text" class="form-control" id="option_name" value="" placeholder="스티커를 골라주세요" disabled>
                                                 <input type="text" id="option_stickers" value="" style="display: none;">
                                             </div>
                                         </div>
