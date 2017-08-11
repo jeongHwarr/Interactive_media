@@ -84,7 +84,7 @@ include './assets/util/queryUtil.php';
                 <div class="waves-effect">
                   <div id="captions_p"></div>
                   <div id="sticker_d"></div>
-                    <video  data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다."
+                    <video data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다."
                         id="media2"
                         class="video-js waves-box"
                         controls
@@ -139,7 +139,7 @@ include './assets/util/queryUtil.php';
                                             <p class="tab_cont">Start </p>
                                         </div>
 
-                                        <div class="col-lg-4 col-md-12">
+                                        <div class="col-lg-4 col-md-12" class="span6" data-step="2" data-intro="효과가 나오기 시작할 시간을 의미합니다. 편집 영상에서 마우스 좌클릭을 하면 자동으로 값이 들어갑니다.">
                                             <input id="input_waves_start_time" class="form-control time_start" type="number" step="0.0001" min="0" data-error="시간을 입력하세요" placeholder="number">
 
                                         </div>
@@ -235,6 +235,7 @@ include './assets/util/queryUtil.php';
                                     </div> <!--extra_waves end-->
                                     <button class="btn btn-default" type="button" id="more_op_waves">추가 옵션</button>
                                     <button id="btn-make-effect" class="btn btn-default input_effects" type="button">미리보기</button> <!--효과넣기 버튼-->
+                                    <input button class="btn btn-default" type="hidden" id="waves_copy" value="효과 복제"></input> <!--효과복제 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="waves_save" value="효과 저장"></input> <!--효과저장/수정 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="waves_delete" value="효과 삭제"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="waves_modify_cancel" value="취소"> </input> <!--효과수정 취소 버튼-->
@@ -430,6 +431,7 @@ include './assets/util/queryUtil.php';
                                     </div><!--extra_captions end-->
                                     <button class="btn btn-default" type="button" id="more_op_captions">추가 옵션</button>
                                     <button class="btn btn-default input_effects" type="button" id="caption_make_effects">미리보기</button> <!--효과넣기 버튼-->
+                                    <input button class="btn btn-default" type="hidden" id="captions_copy" value="효과 복제"></input> <!--효과복제 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="captions_save" value="효과 저장"> </input> <!--효과저장/수정 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="captions_delete" value="효과 삭제"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="captions_modify_cancel" value="취소"> </input> <!--효과수정 취소 버튼-->
@@ -599,6 +601,7 @@ include './assets/util/queryUtil.php';
                                     </div><!--div extra_stikers end-->
                                     <button class="btn btn-default" type="button" id="more_op_stickers">추가 옵션</button>
                                     <button class="btn btn-default input_effects" type="button" id="sticker_make_effects">미리보기</button> <!--효과넣기 버튼-->
+                                    <input button class="btn btn-default" type="hidden" id="stickers_copy" value="효과 복제"></input> <!--효과복제 버튼-->
                                     <input button class="btn btn-primary" type="submit" id="stickers_save" value="효과 저장"></input> <!--효과저장 버튼-->
                                     <input button class="btn btn-danger" type="hidden" id="stickers_delete" value="효과 삭제"> </input> <!--효과삭제버튼-->
                                     <input button class="btn btn-info" type="hidden" id="stickers_modify_cancel" value="취소"> </input> <!--효과수정 취소 버튼-->
@@ -678,6 +681,7 @@ include './assets/util/queryUtil.php';
 
     <script type="text/javascript">
 
+      // introJs().start();
 
       $('form').submit(function (evt) {
           //prevents the default action

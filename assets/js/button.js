@@ -10,6 +10,43 @@ function setButtonOnClick(){
         $("#extra_stickers").slideToggle();
     });
 
+    //효과 복제 버튼
+    $("#waves_copy").click(function(){
+        var start_time = $("#input_waves_start_time").val();
+        var title_wave = $('#title_waves').val();
+        video_js2.currentTime(start_time-0.3); //시작 시간으로 비디오 돌림
+
+        $('#title_waves').prop('value', title_wave+"_복제");
+        $('#waves_copy').prop('type', 'hidden');
+        $('#waves_save').prop('value', '효과 저장');
+        $('#waves_modify_cancel').prop('type', 'hidden');
+        $('#waves_delete').prop('type', 'hidden');
+    });
+
+    $("#captions_copy").click(function(){
+        var start_time = $("#startTime_captions").val();
+        var title_caption = $('#title_captions').val();
+        video_js2.currentTime(start_time-0.3); //시작 시간으로 비디오 돌림
+
+        $('#title_captions').prop('value', title_caption+"_복제");
+        $('#captions_copy').prop('type', 'hidden');
+        $('#captions_save').prop('value', '효과 저장');
+        $('#captions_modify_cancel').prop('type', 'hidden');
+        $('#captions_delete').prop('type', 'hidden');
+    });
+
+    $("#stickers_copy").click(function(){
+        var start_time = $("#startTime_stickers").val();
+        var title_sticker = $('#title_stickers').val();
+        video_js2.currentTime(start_time-0.3); //시작 시간으로 비디오 돌림
+
+        $('#title_stickers').prop('value', title_sticker+"_복제");
+        $('#stickers_copy').prop('type', 'hidden');
+        $('#stickers_save').prop('value', '효과 저장');
+        $('#stickers_modify_cancel').prop('type', 'hidden');
+        $('#stickers_delete').prop('type', 'hidden');
+    });
+
     //세션 저장(파란색 saves버튼)
     $("#waves_save").click(function(){
         if($("#waves_save").hasClass("disabled")) {

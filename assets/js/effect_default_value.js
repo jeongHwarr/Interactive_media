@@ -39,8 +39,8 @@ function initEffectTabValue(){
   $('#endTime_stickers').prop('value', '');
   $('#input_sticker_pos_x').prop('value', '');
   $('#input_sticker_pos_y').prop('value', '');
-  $('#width_stickers').prop('value', '20');
-  $('#height_stickers').prop('value', '20');
+  $('#width_stickers').prop('value', '70');
+  $('#height_stickers').prop('value', '70');
   $('#delay_stickers').prop('value', '1');
   $('#stickers_index').prop('value', '');
   $('#stickers_save').prop('value', '효과 저장');
