@@ -54,7 +54,7 @@ include './assets/util/queryUtil.php';
     </nav>
     <div id="contents_wrapper" class="main div"> <!--전체를 감싸는 div-->
 
-        <div id="div_first" class="section_media"><!--영상 섹션 div-->
+        <div id="div_first" class="section_media"  style="visibility:hidden"><!--영상 섹션 div-->
             <!--media1 박스 시작-->
             <div class="col-lg-12 col-lg-offset-0 m_grid">
               <div id="m1_wrapper">
@@ -671,7 +671,7 @@ include './assets/util/queryUtil.php';
 
         <div id="div_third" class="section_lists"> <!--효과 리스트-->
             <div class="row">
-                <div class="col-lg-10"><p class="tab_title">Effects List</p></div>  
+                <div class="col-lg-10"><p class="tab_title">Effects List</p></div>
                 <div class="col-lg-2">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true" id="list_exit"></span>
                 </div>
@@ -785,21 +785,22 @@ include './assets/util/queryUtil.php';
     var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
     var project_id = project_info_session_data['p_id'];
 
-    //Caption & Sticker정보, 적용 video
+    //Waves & Caption & Sticker정보, 적용 video
     var waves_session_data = session.get('waves_session')['waves_session'];
     var captions_session_data = session.get('captions_session')['captions_session'];
     var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
-    if(waves_session_data.length==0 && captions_session_data.length==0 &&stickers_session_data.length==0){
+    var video = document.getElementById("media2");
+
+    if(waves_session_data.length==0 && captions_session_data.length==0 && stickers_session_data.length==0){
       introJs().start();
     }
-    var video = document.getElementById("media2");
+
     video.addEventListener('timeupdate', function(){
         Make_caption_effect(); //caption 만드는 함수
         Make_sticker_effect(); //sticker 만드는 함수
     }, false);
 
-      var waves_session_data = session.get('waves_session')['waves_session'];
       //waves정보, 적용 video, wave가 만들어질 장소
       setWaveEffect("#media2", ".waves-box");
       $("#btn-make-effect").bind("click",function(){
@@ -818,15 +819,17 @@ include './assets/util/queryUtil.php';
      var video_js1 = videojs('media1');
      var video_js2 = videojs('media2');
 
-     //player 재생 준비가 완료 된 후에 mouse click event를 더한다.
+     //프로젝트 저장시 선택한 비디오로 바꿈
+     video_js1.src(project_info_session_data['path']);
+     video_js2.src(project_info_session_data['path']);
+
+     //태그를 제대로 VIDEO로 가져왔을 때만 영상을 띄운다.
      $(document).on("sjs:allPlayersReady", function(event) {
-            addClickEvent(video); //in assets/js/mouse_pointer.js
-
-    });
-
-    //프로젝트 저장시 선택한 비디오로 바꿈
-    video_js1.src(project_info_session_data['path']);
-    video_js2.src(project_info_session_data['path']);
+       if(video.tagName=='VIDEO'){
+          $("#div_first").css("visibility", "visible");
+          addClickEvent(video);
+         }
+       });
 
     </script>
 
