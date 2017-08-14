@@ -177,4 +177,15 @@ function setButtonOnClick(){
         }
       })
     });
+
+    //파동효과 미리보기
+    $("#btn-make-effect").bind("click",function(){
+      WaveEffect.setLocation(90,80);
+      WaveEffect.setColor($("#color_waves").val());
+      WaveEffect.setScale($("#input_waves_scale").val());
+      WaveEffect.setDuration($("#input_waves_duration").val()*1000);
+      WaveEffect.setDelay($("#input_waves_delay").val()*1000);
+      WaveEffect.setTransition($("#input_waves_translate_x").val(), $("#input_waves_translate_y").val());
+      makeWaveEffect($(".test-box")[0]);
+    });
 }
