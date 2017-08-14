@@ -1,13 +1,3 @@
-.vjs-icon-fullscreen-enter:before, .video-js .vjs-fullscreen-control .vjs-icon-placeholder:before {
-    /*content: "\f108";*/
-    display: none;
-    pointer-events: none;
-
-}
-.vjs-fullscreen-control.vjs-control.vjs-button {
-  display: none;
-}
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -112,11 +102,6 @@ input[type=number]::-webkit-outer-spin-button {
   overflow:auto;
 }
 
-#btn_help{
-  margin-top: 0.5em;
-  margin-right: 0.5em;
-}
-
 #btn_project_save{
   color: @gray-light;
   margin-top:0.5em;
@@ -125,7 +110,7 @@ input[type=number]::-webkit-outer-spin-button {
 html, body {
   height:100%;
   margin:0 auto;
-  padding-bottom: 1%;
+  padding:0;
   overflow: auto;
 }
 
@@ -164,7 +149,6 @@ html, body {
   right:0%;
   overflow:auto;
   background-color: white;
-  display: none;
 }
 
 .nav-tabs > li {
@@ -223,36 +207,4 @@ html, body {
 #submit_changed {
   float:left;
   position:fixed;
-}
-
-.thumbnail>img{
-  width: 100%;
-  height: 150px !important;
-}
-
-
-.bar_icon{
-  width: 20px;
-  height: 3px;
-  background-color: black;
-  margin: 4px 0;
-
-}
-
-#icon{
-  position: absolute;
-  bottom: 6%;
-  right: 2%;
-}
-#list_exit{
-  margin-left: 1em;
-}
-#list_btn{
-  font-size: 1.5em;
-}
-
-/*도움말*/
-.introjs-skipbutton{
-  border-radius: 0;
-  color: red !important;
 }
