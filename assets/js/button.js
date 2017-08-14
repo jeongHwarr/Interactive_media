@@ -179,7 +179,7 @@ function setButtonOnClick(){
     });
 
     //파동효과 미리보기
-    $("#btn-make-effect").bind("click",function(){
+    $("#btn-make-effect").click(function(){
       WaveEffect.setLocation(90,80);
       WaveEffect.setColor($("#color_waves").val());
       WaveEffect.setScale($("#input_waves_scale").val());
