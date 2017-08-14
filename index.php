@@ -800,19 +800,13 @@ include './assets/util/queryUtil.php';
         Make_caption_effect(); //caption 만드는 함수
         Make_sticker_effect(); //sticker 만드는 함수
     }, false);
+    </script>
 
-      //waves정보, 적용 video, wave가 만들어질 장소
-      setWaveEffect("#media2", ".waves-box");
-      $("#btn-make-effect").bind("click",function(){
-        WaveEffect.setLocation(90,80);
-        WaveEffect.setColor($("#color_waves").val());
-        WaveEffect.setScale($("#input_waves_scale").val());
-        WaveEffect.setDuration($("#input_waves_duration").val()*1000);
-        WaveEffect.setDelay($("#input_waves_delay").val()*1000);
-        WaveEffect.setTransition($("#input_waves_translate_x").val(), $("#input_waves_translate_y").val());
-        makeWaveEffect($(".test-box")[0]);
-      })
-     </script>
+    <script>
+    //<----------------waves 효과--------------->>
+    //적용 video, wave가 만들어질 장소
+    setWaveEffect("#media2", ".waves-box"); //in waves.js
+    </script>
 
      <script>
      var video = document.getElementById("media2");
@@ -831,9 +825,6 @@ include './assets/util/queryUtil.php';
          }
        });
 
-    </script>
-
-    <script>
     //<----------------영상 synchronize--------------->>
     $.synchronizeVideos(0, "media1","media2"); //in synchronize.js
 
