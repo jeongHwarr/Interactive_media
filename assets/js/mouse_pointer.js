@@ -18,15 +18,16 @@ function mouseHandler(event) {
     var scaleX = this.videoWidth / size.width;
     var scaleY = this.videoHeight/ size.height;
     var rect = this.getBoundingClientRect();  // absolute position of element
+    var video_time = video.currentTime;
 
     event.preventDefault();
     switch(event.which){
       case 1: //left click
-        $('#input_waves_start_time').val(video.currentTime.toFixed(3));
-        $('#startTime_captions').val(video.currentTime.toFixed(3));
-        $('#startTime_stickers').val(video.currentTime.toFixed(3));
-        video.pause();
-        break;
+          $('#input_waves_start_time').val(video_time.toFixed(3));
+          $('#startTime_captions').val(video_time.toFixed(3));
+          $('#startTime_stickers').val(video_time.toFixed(3));
+          video.pause();
+          break;
 
       case 2: //wheel click
         var x = ((event.clientX - rect.left) * scaleX + 0.5)|0; // round to integer
@@ -41,12 +42,10 @@ function mouseHandler(event) {
         break;
 
       case 3: //right click
-        $('#input_waves_end_time').val(video.currentTime.toFixed(3));
-        $('#endTime_captions').val(video.currentTime.toFixed(3));
-        $('#endTime_stickers').val(video.currentTime.toFixed(3));
+        $('#input_waves_end_time').val(video_time.toFixed(3));
+        $('#endTime_captions').val(video_time.toFixed(3));
+        $('#endTime_stickers').val(video_time.toFixed(3));
         break;
     }
   }
-
-
 }
