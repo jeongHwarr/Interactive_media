@@ -85,8 +85,8 @@ var stickerEffect ={
         document.getElementById(this.id).setAttribute('class',this.animation);
         document.getElementById(this.id).style.top= this.y + 'px';
         document.getElementById(this.id).style.left=this.x + 'px';
-        document.getElementById(this.id).style.width = this.width + 'px';
-        document.getElementById(this.id).style.height = this.height + 'px';
+        document.getElementById(this.id).style.width = this.width * scale + 'px';
+        document.getElementById(this.id).style.height = this.height * scale + 'px';
         document.getElementById(this.id).style.animationDuration=this.delay +'s';
         document.getElementById(this.id).src = this.url;
       },
@@ -131,6 +131,9 @@ var stickerEffect ={
           //css크기와 video크기 비교
           var scaleX = video.videoWidth / $("#media2").outerWidth();
           var scaleY = video.videoHeight / $("#media2").outerHeight();
+
+          //전체화면시 effect 크기 조정
+          scale = Math.sqrt($("#media2").outerWidth() * $("#media2").outerHeight()/138528);
 
           //x, y 변환
           sticker_x = (s_x - 0.5)/scaleX;
