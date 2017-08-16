@@ -1,5 +1,5 @@
 .captions_p{
   position: absolute;
   display: block;
-  z-index:  2147483647;
+  z-index:  5;
 }
