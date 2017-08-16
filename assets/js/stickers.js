@@ -74,7 +74,7 @@ var stickerEffect ={
 //sticker 효과 만드는 함수
   sticker_make: function(){
     var make_p = document.createElement('img');
-    $("#sticker_d").append(make_p);
+    $(".sticker_d").append(make_p);
     make_p.setAttribute('id',this.id);
   },
 

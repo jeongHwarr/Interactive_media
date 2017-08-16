@@ -80,7 +80,7 @@ var captionEffect = {
 //Caption효과 만드는 함수
     caption_make: function(){
       var make_p = document.createElement('div');
-      $("#captions_p").append(make_p);
+      $(".captions_p").append(make_p);
       make_p.setAttribute('id',this.id);
     },
 

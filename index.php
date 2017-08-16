@@ -84,11 +84,9 @@ include './assets/util/queryUtil.php';
             <!--media2 박스 시작-->
             <div class="col-lg-12 col-lg-offset-0 m_grid step1" oncontextmenu="return false;">
                 <div class="waves-effect">
-                  <div id="captions_p"></div>
-                  <div id="sticker_d"></div>
                     <video data-step="1" data-intro="이 영상 위에서 편집 작업을 할 수 있습니다"
                         id="media2"
-                        class="video-js waves-box"
+                        class="video-js waves-box captions_p sticker_d"
                         controls
                         preload="auto"
                         data-setup='{}'>
