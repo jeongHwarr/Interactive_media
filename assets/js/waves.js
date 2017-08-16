@@ -226,7 +226,6 @@ function setWaveEffect(v, box) {
 
        //전체화면일때 크기조절
        //Todo 전체화면으로 바뀔때 한번만 처리해줘도 되도록 변경필요
-       console.log($(v).outerWidth() * $(v).outerHeight()/138528);
        scale = scale * Math.sqrt($(v).outerWidth() * $(v).outerHeight()/138528);
 
        //x, y 변환
