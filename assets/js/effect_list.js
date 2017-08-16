@@ -85,6 +85,19 @@ function clickEffectList(list,index){
     $("#captions_index").val(index);
     $("#caption_example_id").attr('class',data['animation']);
 
+    //caption에 대한 effect list와 effect view연결
+    var caption_context = $("#context_captions").val();
+    var caption_font_size = $("#font_size_captions").val();
+    var caption_delay = $("#delay_captions").val();
+    var caption_color = $("#color_captions").val();
+    var caption_font_family = $("#font_name_captions").val();
+
+    $("#caption_example_id").html(caption_context);
+    $("#caption_example_id").css('fontSize',caption_font_size);
+    $("#caption_example_id").css('animationDuration',caption_delay+'s');
+    $("#caption_example_id").css('color',caption_color);
+    $("#caption_example_id").css('font-family',caption_font_family);
+
     //버튼값 수정
     $('#captions_copy').prop('type', 'submit');
     $('#captions_save').prop('value', '수정 완료');
@@ -114,6 +127,17 @@ function clickEffectList(list,index){
     $("#animation_stickers").val(data['animation']);
     $("#stickers_index").val(index);
     $("#sticker_example_id").attr('class',data['animation']);
+
+    //sticker에 대한 effect list와 effect view연결
+    var sticker_img = $("#option_stickers").val();
+    var sticker_width = $("#width_stickers").val();
+    var sticker_height = $("#height_stickers").val();
+    var sticker_delay = $("#delay_stickers").val();
+    
+    $("#sticker_example_id").attr('src',sticker_img);
+    $("#sticker_example_id").css('width',sticker_width +'px');
+    $("#sticker_example_id").css('height',sticker_height + 'px');
+    $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
 
     //버튼값 수정
     $('#stickers_copy').prop('type', 'submit');
