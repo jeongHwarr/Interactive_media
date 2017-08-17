@@ -61,7 +61,6 @@
     var waitingForSync = [];
     var usingFlash = false;
 
-    var volume;
     $.synchronizeVideos = synchronizeVideos;
 
     function log(vals) {
@@ -256,10 +255,10 @@
     function pause(id) {
         if (id) {
             log('SJS: [pause] Pausing video element id \'' + id + '\'');
-            // return getVideo(id).pause();
+            return getVideo(id).pause();
         } else {
             log('SJS: [pause] Undefined video element id \'' + id + '\'');
-            // return false;
+            return false;
         }
     }
 
@@ -563,24 +562,18 @@
         // for all video ids
         for (var i = 0; i < videoIds.length; ++i) {
             // except the master video
-            // console.log("synchronize : " + videoIds);
-            //console.log(videoIds[i]);
             if (videoIds[i] !== masterVideoId) {
                 var doSeek = false;
                 var synchDelay = getSynchDelay(videoIds[i]);
 
-                // mute(videoIds[i]);
+                mute(videoIds[i]);
 
                 var masterPaused = isPaused(masterVideoId);
                 if (masterPaused) {
                     doSeek = true;
                 } else {
                     // if not using flash
-
                     if (!usingFlash) {
-                      // mute(videoIds[i]);
-                      // console.log("hello");
-                        // unmute(videoIds[i],volume);
                         var playbackRateVideo = getPlaybackRate(videoIds[i]);
                         var playbackRateMaster = getPlaybackRate(masterVideoId);
                         if (synchDelay > synchDelayThresholdPositive) {
@@ -702,10 +695,7 @@
                 for (var i = 0; i < videoIds.length; ++i) {
                     if (videoIds[i] !== masterVideoId) {
                         play(videoIds[i]);
-                        // mute(videoIds[i]);
-                    }
-                    else{
-                      // unmute(videoIds[i],volume);
+                        mute(videoIds[i]);
                     }
                 }
             });
@@ -809,12 +799,6 @@
         $(document).trigger('sjs:masterSet', [masterVideoId]);
     }
 
-    function setNewMaster(newMasterid){
-      masterVideoId = newMasterid;
-      log("SJS : setNewMaster, masterVideoId " + masterVideoId);
-      // console.log(masterVideoId);
-    }
-
     /**
      * Waits for data being loaded and calls a function
      *
@@ -904,7 +888,7 @@
         if (!useVideoJs()) {
             for (i = 0; i < videoIds.length; ++i) {
                 $(document).trigger('sjs:idRegistered', [videoIds[i]]);
-                console.log(videoIds[i]);
+
                 getVideoObj(videoIds[i]).on('play', initialPlay);
                 getVideoObj(videoIds[i]).on('pause', initialPause);
 
@@ -1037,12 +1021,6 @@
                     unsynchronizeVideo(id);
                 }
             })
-            .on('sjs:setNewMaster', function(e, id) {
-                log('SJS: Set New Mster \'sjs:setNewMaster\' event');
-                if (id) {
-                    setNewMaster(id);
-                }
-            })
             .on('sjs:unsynchronize', function() {
                 log('SJS: Received \'sjs:unsynchronize\' event');
                 unsynchronize();
@@ -1116,9 +1094,9 @@
      */
     function synchronizeVideos(playerMasterVidNumber, videoId1OrMediagroup) {
         var validIds = gatherVideos(playerMasterVidNumber, videoId1OrMediagroup, arguments);
+
         if (validIds && (videoIds.length > 1)) {
             registerVideoIDEvents(playerMasterVidNumber);
-
         } else {
             log('SJS: Not enough videos');
             $(document).trigger('sjs:notEnoughVideos', []);

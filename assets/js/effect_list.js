@@ -36,8 +36,6 @@ function showEffectList(){
 //**************<clickEffectList> : Effect List 클릭을 처리하는 함수**********************//
 function clickEffectList(list,index){
 
-  $(document).trigger('sjs:setNewMaster', "media2");
-
   if(list=="waves"){
     var data = waves_session_data[index];
     //탭 input 출력
@@ -142,8 +140,11 @@ function clickEffectList(list,index){
     var sticker_width = $("#width_stickers").val();
     var sticker_height = $("#height_stickers").val();
     var sticker_delay = $("#delay_stickers").val();
+<<<<<<< HEAD
     var sticker_angle = $("#Angle_stickers").val();
     var sticker_opacity = $("#opacity_stickers").val();
+=======
+>>>>>>> 9a7d07f6ea101674cfeb7a18ab60400081061d42
 
     $("#sticker_example_id").attr('src',sticker_img);
     $("#sticker_example_id").css('width',sticker_width +'px');
