@@ -165,6 +165,7 @@ function setButtonOnClick(){
       //query string 정보 가져오기 (?p_id=..)
       const urlParams = new URLSearchParams(window.location.search);
       const project_id = urlParams.get('p_id');
+      //↑ 추후 query string 이용하지 않을 경우 session에서 정보 가져오도록 수정
 
       $.ajax({
         url:'./assets/ajax/common.php',

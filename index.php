@@ -708,8 +708,6 @@ include './assets/util/queryUtil.php';
     <script src="assets/js/synchronize.js"></script>
 
     <script type="text/javascript">
-    // introJs().setOption('showProgress', true).start();
-      // introJs().start();
 
       $('form').submit(function (evt) {
           //prevents the default action
@@ -749,23 +747,54 @@ include './assets/util/queryUtil.php';
               $("#option_name").val(name);
               $("#option_stickers").val(src);
           });
+        });
+    </script>
 
-        //test for session
-        console.log(session.get('project_info_session'));
-        console.log(session.get('waves_session'));
-        console.log(session.get('captions_session'));
-        console.log(session.get('stickers_session'));
-        console.log(session.get('connect_proper'));
+    <script type="text/javascript">
 
-        if(session.get('connect_proper')==null){
-            console.log("wrong connect");
-            alert("잘못된 접근입니다.");
-            location.href="start.php";
-        }
-        initEffectTabValue();
-        showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
-    });
-      //버튼 onclick 구현
+      //test for session
+      console.log(session.get('project_info_session'));
+      console.log(session.get('waves_session'));
+      console.log(session.get('captions_session'));
+      console.log(session.get('stickers_session'));
+      console.log(session.get('user_id'));
+
+      //query string 가져오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const query_project_id = urlParams.get('p_id'); //query string에서 가져온 project_id
+
+      var is_right_connect= false; //올바른 Access인지 나타내는 변수
+      var session_user_id; //session에 저장된 user_id
+      var project_info_session_data; //project_info_session의 데이터값
+
+      //<----------------올바른 Access인지 확인--------------->>
+      //user_id session 확인
+      if(session.get('user_id')==null){
+        is_right_connect = false;
+      }else{
+        session_user_id = session.get('user_id')['user_id'];
+      }
+
+      //project_info_session 확인
+      if(session.get('project_info_session')==null){
+        is_right_connect = false;
+      }else{
+        project_info_session_data =  session.get('project_info_session')['project_info_session'][0];
+      }
+
+      //현재 저장되어 있는 user_id 세션과 프로젝트 정보 세션의 user_id가 일치하지 않거나 query string의 project_id와 일치하지 않을 경우 에러 처리
+      if((session_user_id ==project_info_session_data['user_id']) && (query_project_id==project_info_session_data['p_id'])){
+        is_right_connect = true;
+      }
+
+      if(is_right_connect==false){
+        console.log("wrong connect");
+        alert("잘못된 접근입니다.");
+        location.href="start.php";
+      }
+      //<----------------올바른 Access인지 확인 END--------------->>
+
+      //<----------------버튼 onclick 구현--------------->>
       $(document).ready(function(){
           setButtonOnClick();
           $("#btn_help").click(function(){
@@ -774,57 +803,51 @@ include './assets/util/queryUtil.php';
         }
       );
 
-    </script>
-    <!-- Caption & Sticker 정보 -->
-    <script type="text/javascript">
+      //<----------------미디어 기본 설정--------------->>
+      var video_js1 = videojs('media1');
+      var video_js2 = videojs('media2');
 
-    //introJs().start();
-    var project_info_session_data = session.get('project_info_session')['project_info_session'][0];
-    var project_id = project_info_session_data['p_id'];
+      //프로젝트 저장시 선택한 비디오로 바꿈
+      video_js1.src(project_info_session_data['path']);
+      video_js2.src(project_info_session_data['path']);
 
-    //Waves & Caption & Sticker정보, 적용 video
-    var waves_session_data = session.get('waves_session')['waves_session'];
-    var captions_session_data = session.get('captions_session')['captions_session'];
-    var stickers_session_data = session.get('stickers_session')['stickers_session'];
+      //태그를 제대로 VIDEO로 가져왔을 때만 영상을 띄운다.
+      $(document).on("sjs:allPlayersReady", function(event) {
+        if(video.tagName=='VIDEO'){
+           $("#div_first").css("visibility", "visible");
+           addClickEvent(video);
+          }
+        });
 
-    var video = document.getElementById("media2");
+      //<----------------미디어 기본 설정 END--------------->>
 
-    if(waves_session_data.length==0 && captions_session_data.length==0 && stickers_session_data.length==0){
-      introJs().start();
-    }
+      //Waves & Caption & Sticker정보, 적용 video
+      var waves_session_data = session.get('waves_session')['waves_session'];
+      var captions_session_data = session.get('captions_session')['captions_session'];
+      var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
-    video.addEventListener('timeupdate', function(){
-        Make_caption_effect(); //caption 만드는 함수
-        Make_sticker_effect(); //sticker 만드는 함수
-    }, false);
-    </script>
+      var video = document.getElementById("media2");
 
-    <script>
-    //<----------------waves 효과--------------->>
-    //적용 video, wave가 만들어질 장소
-    setWaveEffect("#media2", ".waves-box"); //in waves.js
-    </script>
+      initEffectTabValue(); //이펙트 기본값 설정 (in effect_default_value.js)
+      showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
 
-     <script>
-     var video = document.getElementById("media2");
-     var video_js1 = videojs('media1');
-     var video_js2 = videojs('media2');
+      //<----------------도움말--------------->>
+      if(waves_session_data.length==0 && captions_session_data.length==0 && stickers_session_data.length==0){
+        introJs().start();
+      }
 
-     //프로젝트 저장시 선택한 비디오로 바꿈
-     video_js1.src(project_info_session_data['path']);
-     video_js2.src(project_info_session_data['path']);
+      //<----------------captions, sticker 효과--------------->>
+      video.addEventListener('timeupdate', function(){
+          Make_caption_effect(); //caption 만드는 함수
+          Make_sticker_effect(); //sticker 만드는 함수
+      }, false);
 
-     //태그를 제대로 VIDEO로 가져왔을 때만 영상을 띄운다.
-     $(document).on("sjs:allPlayersReady", function(event) {
-       if(video.tagName=='VIDEO'){
-          $("#div_first").css("visibility", "visible");
-          addClickEvent(video);
-         }
-       });
+      //<----------------waves 효과--------------->>
+      //적용 video, wave가 만들어질 장소
+      setWaveEffect("#media2", ".waves-box"); //in waves.js
 
-    //<----------------영상 synchronize--------------->>
-    $.synchronizeVideos(1, "media1","media2"); //in synchronize.js
-    video_js1.userActive(false);
-    </script>
+      //<----------------영상 synchronize--------------->>
+      $.synchronizeVideos(1, "media1","media2"); //in synchronize.js (MASTER : media2)
+      </script>
 
 </html>

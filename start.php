@@ -34,27 +34,6 @@ include './assets/util/queryUtil.php';
                 <hr>
                 <h3 class="panel-title">영상을 고르세요</h3>
                 <div class="panel-body" id="body_video_select">
-                    <!--영상목록 추가
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsvideo" id={변수} value={변수}>
-                            {영상 이름}
-                        </label>
-                    </div>
-                    -->
-                    <!-- <div class="radio" >
-                        <label>
-                            <input type="radio" name="optionsvideo" id="optionsvideo1" value="video1">
-                            영상 1번
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsvideo" id="optionsvideo2" value="video2">
-                            영상 2번
-                        </label>
-                    </div> -->
-
                 </div>
                 <div><button class="btn btn-success" id="button_make_project">프로젝트 생성</button></div>
 
@@ -66,8 +45,8 @@ include './assets/util/queryUtil.php';
 <script src="assets/js/project_load.js"></script>
 <script>
 
-    loadProjectList();
-    loadMediaList();
+    loadProjectList(1); //프로젝트 리스트를 불러온다 (by user_id)
+    loadMediaList();  //미디어 리스트를 불러온다
 
     //Trigger Ajax call back function
     $(document).ready(function(){
@@ -93,7 +72,8 @@ include './assets/util/queryUtil.php';
 
     //프로젝스 생성 버튼 관련 처리
     $(document).ready(function(){
-      var user_id =1 ; // 나중에 수정
+      var user_id =1 ; // 나중에 다중 사용자 고려시 수정
+      session.set('user_id',{['user_id'] : user_id}); //로그인 성공시 user_id 세션 저장
 
         $("#button_make_project").click(function(){
           var radio = document.querySelector('input[name="optionsvideo"]:checked');
@@ -109,8 +89,8 @@ include './assets/util/queryUtil.php';
         });
     });
 
-    function loadProjectList(){
-      $.get('./assets/ajax/common.php', {cmd:'loadProjectList',user_id:'1'}); //user_id 추후 수정
+    function loadProjectList(user_id){
+      $.get('./assets/ajax/common.php', {cmd:'loadProjectList',user_id:user_id});
     }
     function loadProjectListSuccess(data){
       // console.log(data);
@@ -148,9 +128,9 @@ include './assets/util/queryUtil.php';
       $.get('./assets/ajax/common.php', {cmd:'makeNewProject', project_title:project_title, media_id:radio_value, user_id:user_id });
     }
 
-    function makeNewProjectSuccess(project_title, radio_value, user_id){
-      alert("프로젝트가 성공적으로 만들어졌습니다.")
-      loadProjectList();
+    function makeNewProjectSuccess(data){
+      alert("프로젝트가 성공적으로 만들어졌습니다.");
+      loadProjectList(data.user_id);
     }
 
 </script>
