@@ -188,9 +188,8 @@ var stickerEffect ={
            var sticker_width = $("#width_stickers").val();
            var sticker_height = $("#height_stickers").val();
            var sticker_delay = $("#delay_stickers").val();
-
-           var sticker_angle = $("#Angle_captions").val();
-           var sticker_opacity = $("#opacity_captions").val();
+           var sticker_angle = $("#Angle_stickers").val();
+           var sticker_opacity = $("#opacity_stickers").val();
 
 
            $("#sticker_example_id").attr('src',sticker_img);

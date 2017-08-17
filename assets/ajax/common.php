@@ -68,11 +68,11 @@ function loadProject($req,$db){
     $waves_result = queryForSelect($db,$query_waves,array($project_id));
 
   // 해당 프로젝트에 해당하는 captions 효과 가져오기 (id 제외)
-    $query_captions= 'SELECT title, pos_x, pos_y, startTime, endTime, size, delay, color, font, contents, p_id, animation FROM captions WHERE p_id = ?';
+    $query_captions= 'SELECT title, pos_x, pos_y, startTime, endTime, size, delay, color, font, contents, p_id, animation, angle, opacity FROM captions WHERE p_id = ?';
     $caption_result = queryForSelect($db,$query_captions,array($project_id));
 
   // 해당 프로젝트에 해당하는 stickers 효과 가져오기 (id 제외)
-    $query_stickers= 'SELECT title, pos_x, pos_y, startTime, endTime, width, height, delay, url, p_id, animation FROM stickers WHERE p_id = ?';
+    $query_stickers= 'SELECT title, pos_x, pos_y, startTime, endTime, width, height, delay, url, p_id, animation, angle, opacity FROM stickers WHERE p_id = ?';
     $stickers_result = queryForSelect($db,$query_stickers,array($project_id));
 
   $data = array();
@@ -117,21 +117,21 @@ function saveProject($req,$db){
   //caption 효과를 DB에 insert
     for ($i = 0; $i < sizeof($captions); $i++) {
       $row = $captions[$i];
-      $query ="INSERT INTO captions (title, pos_x, pos_y, startTime, endTime, size, delay, color, font, contents, p_id, animation )
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // 총 12개, 이 자리엔 $insert_data_array의 값들이 들어간다.
+      $query ="INSERT INTO captions (title, pos_x, pos_y, startTime, endTime, size, delay, color, font, contents, p_id, animation, angle, opacity )
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // 총 14개, 이 자리엔 $insert_data_array의 값들이 들어간다.
       $insert_data_array = array($row['title'], $row['pos_x'], $row['pos_y'], $row['startTime'], $row['endTime'],
                            $row['size'], $row['delay'], $row['color'], $row['font'],
-                           $row['contents'], $row['p_id'], $row['animation']);
+                           $row['contents'], $row['p_id'], $row['animation'], $row['angle'], $row['opacity']);
       queryForExecute($db,$query,$insert_data_array);
     }
 
   //stickers 효과를 DB에 insert
   for ($i = 0; $i < sizeof($stickers); $i++) {
     $row = $stickers[$i];
-    $query ="INSERT INTO stickers (title, pos_x, pos_y, startTime, endTime, width, height, delay, url, p_id, animation )
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // 총 11개, 이 자리엔 $insert_data_array의 값들이 들어간다.
+    $query ="INSERT INTO stickers (title, pos_x, pos_y, startTime, endTime, width, height, delay, url, p_id, animation, angle, opacity )
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; // 총 13개, 이 자리엔 $insert_data_array의 값들이 들어간다.
     $insert_data_array = array($row['title'], $row['pos_x'], $row['pos_y'], $row['startTime'], $row['endTime'],
-                         $row['width'], $row['height'], $row['delay'], $row['url'], $row['p_id'], $row['animation'] );
+                         $row['width'], $row['height'], $row['delay'], $row['url'], $row['p_id'], $row['animation'], $row['angle'], $row['opacity'] );
     queryForExecute($db,$query, $insert_data_array);
   }
 
