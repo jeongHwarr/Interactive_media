@@ -828,6 +828,7 @@ include './assets/util/queryUtil.php';
       var is_right_connect= false; //올바른 Access인지 나타내는 변수
       var session_user_id; //session에 저장된 user_id
       var project_info_session_data; //project_info_session의 데이터값
+      var project_id;
 
       //<----------------올바른 Access인지 확인--------------->>
       //user_id session 확인
@@ -842,6 +843,7 @@ include './assets/util/queryUtil.php';
         is_right_connect = false;
       }else{
         project_info_session_data =  session.get('project_info_session')['project_info_session'][0];
+        project_id = project_info_session_data['p_id'];
       }
 
       //현재 저장되어 있는 user_id 세션과 프로젝트 정보 세션의 user_id가 일치하지 않거나 query string의 project_id와 일치하지 않을 경우 에러 처리
