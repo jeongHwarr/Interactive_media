@@ -30,8 +30,8 @@ function initEffectTabValue(){
   $('#captions_save').prop('value', '효과 저장');
   $('#captions_modify_cancel').prop('type', 'hidden');
   $('#captions_delete').prop('type', 'hidden');
-  $('#Angle_captions').prop('value','');
-  $('#opacity_captions').prop('value','');
+  $('#Angle_captions').prop('value','0');
+  $('#opacity_captions').prop('value','1');
 
   //Stickers 탭 기본값 설정
   $('#title_stickers').prop('value', '');
@@ -48,7 +48,7 @@ function initEffectTabValue(){
   $('#stickers_save').prop('value', '효과 저장');
   $('#stickers_modify_cancel').prop('type', 'hidden');
   $('#stickers_delete').prop('type', 'hidden');
-  $('#Angle_stickers').prop('value','');
-  $('#opacity_stickers').prop('value','');
+  $('#Angle_stickers').prop('value','0');
+  $('#opacity_stickers').prop('value','1');
 
 }

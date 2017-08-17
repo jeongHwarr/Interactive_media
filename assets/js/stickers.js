@@ -198,5 +198,5 @@ var stickerEffect ={
            $("#sticker_example_id").css('height',sticker_height + 'px');
            $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
            $("#sticker_example_id").css({'transform' : 'rotate('+ sticker_angle +'deg)'});
-           $("#sticker_example_id").css('opacity',sticker_opacity);
+           $("#sticker_example_id").fadeTo(1000, sticker_opacity);
      });
