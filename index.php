@@ -812,6 +812,7 @@ include './assets/util/queryUtil.php';
     </script>
 
     <script type="text/javascript">
+      var video = document.getElementById("media2");
 
       //test for session
       console.log(session.get('project_info_session'));
@@ -887,7 +888,6 @@ include './assets/util/queryUtil.php';
       var captions_session_data = session.get('captions_session')['captions_session'];
       var stickers_session_data = session.get('stickers_session')['stickers_session'];
 
-      var video = document.getElementById("media2");
 
       initEffectTabValue(); //이펙트 기본값 설정 (in effect_default_value.js)
       showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
