@@ -99,7 +99,7 @@ function clickEffectList(list,index){
     $("#caption_example_id").css('animationDuration',caption_delay+'s');
     $("#caption_example_id").css('color',caption_color);
     $("#caption_example_id").css('font-family',caption_font_family);
-    $("#caption_example_id").rotate(caption_angle);
+    $("#caption_example_id").css({'transform' : 'rotate('+ caption_angle +'deg)'});
     $("#caption_example_id").css('opacity',caption_opacity);
 
     //버튼값 수정
@@ -148,7 +148,7 @@ function clickEffectList(list,index){
     $("#sticker_example_id").css('width',sticker_width +'px');
     $("#sticker_example_id").css('height',sticker_height + 'px');
     $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
-    $("#sticker_example_id").rotate(sticker_angle);
+    $("#sticker_example_id").css({'transform' : 'rotate('+ sticker_angle +'deg)'});
     $("#sticker_example_id").css('opacity',sticker_opacity);
 
     //버튼값 수정
