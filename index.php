@@ -865,6 +865,10 @@ include './assets/util/queryUtil.php';
         }
       );
 
+      //<----------------waves 효과--------------->>
+      //적용 video, wave가 만들어질 장소
+      setWaveEffect("#media2", ".waves-box"); //in waves.js
+
       //<----------------미디어 기본 설정--------------->>
       var video_js1 = videojs('media1');
       var video_js2 = videojs('media2');
@@ -902,10 +906,6 @@ include './assets/util/queryUtil.php';
           Make_caption_effect(); //caption 만드는 함수
           Make_sticker_effect(); //sticker 만드는 함수
       }, false);
-
-      //<----------------waves 효과--------------->>
-      //적용 video, wave가 만들어질 장소
-      setWaveEffect("#media2", ".waves-box"); //in waves.js
 
       //<----------------영상 synchronize--------------->>
       $.synchronizeVideos(1, "media1","media2"); //in synchronize.js (MASTER : media2)
