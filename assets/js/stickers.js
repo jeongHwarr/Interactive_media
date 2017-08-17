@@ -18,6 +18,8 @@ var stickerEffect ={
   delay:0,
   url:"",
   id:0,
+  angle:0,
+  opacity:0,
 
   //startTime,endTime : Sticker 효과 시작시간과 끝시간 지정
   //x,y : Sticker 효과 영상속 좌표지정
@@ -50,6 +52,13 @@ var stickerEffect ={
   myfunction_s_id: function(x){
     this.id = x;
   },
+  myfunction_s_angle: function(x){
+    this.angle = x;
+  },
+  myfunction_s_opacity: function(x){
+    this.opacity = x;
+  },
+
 
 //효과적용 시간외의 범위에서 sticker효과 숨기는 함수
   sticker_hide: function(){
@@ -89,6 +98,8 @@ var stickerEffect ={
         document.getElementById(this.id).style.height = this.height * scale + 'px';
         document.getElementById(this.id).style.animationDuration=this.delay +'s';
         document.getElementById(this.id).src = this.url;
+        document.getElementById(this.id).style.opacity = this.opacity;
+        document.getElementById(this.id).style.transform = "rotate("+this.angle+"deg)";
       },
 
 //비디오 플레이 상태에서 caption 효과 보여주는 함수
@@ -128,6 +139,8 @@ var stickerEffect ={
           var s_url = stickers_session_data[i]['url'];
           var s_id = i + "sticker";
 
+          var s_angle = stickers_session_data[i]['angle'];
+          var s_opacity = stickers_session_data[i]['opacity'];
           //css크기와 video크기 비교
           var scaleX = video.videoWidth / $("#media2").outerWidth();
           var scaleY = video.videoHeight / $("#media2").outerHeight();
@@ -152,6 +165,8 @@ var stickerEffect ={
                      stickerEffect.myfunction_s_delay(s_delay);
                      stickerEffect.myfunction_s_url(s_url);
                      stickerEffect.myfunction_s_id(s_id);
+                     stickerEffect.myfunction_s_angle(s_angle);
+                     stickerEffect.myfunction_s_opacity(s_opacity);
 
                      stickerEffect.sticker_id_check();
                      stickerEffect.sticker_show();
@@ -174,9 +189,15 @@ var stickerEffect ={
            var sticker_height = $("#height_stickers").val();
            var sticker_delay = $("#delay_stickers").val();
 
+           var sticker_angle = $("#Angle_captions").val();
+           var sticker_opacity = $("#opacity_captions").val();
+
+
            $("#sticker_example_id").attr('src',sticker_img);
            $("#sticker_example_id").attr('class',sticker_animation);
            $("#sticker_example_id").css('width',sticker_width +'px');
            $("#sticker_example_id").css('height',sticker_height + 'px');
            $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
+           $("#sticker_example_id").rotate(sticker_angle);
+           $("#sticker_example_id").css('opacity',sticker_opacity);
      });

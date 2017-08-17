@@ -414,6 +414,37 @@ include './assets/util/queryUtil.php';
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Angle</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="Angle_captions">
+                                                            <option value="0">0˚</option>
+                                                            <option value="45">45˚</option>
+                                                            <option value="90">90˚</option>
+                                                            <option value="135">135˚</option>
+                                                            <option value="180">180˚</option>
+                                                            <option value="225">225˚</option>
+                                                            <option value="270">270˚</option>
+                                                            <option value="315">315˚</option>
+                                                            <option value="360">360˚</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">opacity</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input class="form-control" id="opacity_captions" type="number" step="0.0001" min="0.001" max="1" data-error="0은 입력할수 없습니다." value="1">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-12">
                                                     <p class="tab_title">FontFamily</p>
@@ -604,6 +635,36 @@ include './assets/util/queryUtil.php';
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
                                                     <input class="form-control" id="delay_stickers" type="number" data-error="0은 입력할수 없습니다." step="0.0001" min="1" value="1">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">Angle</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="Angle_stickers">
+                                                            <option value="0">0˚</option>
+                                                            <option value="45">45˚</option>
+                                                            <option value="90">90˚</option>
+                                                            <option value="135">135˚</option>
+                                                            <option value="180">180˚</option>
+                                                            <option value="225">225˚</option>
+                                                            <option value="270">270˚</option>
+                                                            <option value="315">315˚</option>
+                                                            <option value="360">360˚</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-lg-4 col-md-12">
+                                                    <p class="tab_title">opacity</p>
+                                                </div>
+                                                <div class="col-lg-8 col-md-12">
+                                                    <input class="form-control" id="opacity_stickers" type="number" step="0.0001" min="0.001" max="1" data-error="0은 입력할수 없습니다." value="1">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

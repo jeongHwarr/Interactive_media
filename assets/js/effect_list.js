@@ -80,6 +80,8 @@ function clickEffectList(list,index){
     $("#color_captions").val(data['color']);
     $("#font_name_captions").val(data['font']);
     $("#animation_captions").val(data['animation']);
+    $("#Angle_captions").val(data['angle']);
+    $("#opacity_captions").val(date['opacity']);
     $("#captions_index").val(index);
     $("#caption_example_id").attr('class',data['animation']);
 
@@ -89,12 +91,16 @@ function clickEffectList(list,index){
     var caption_delay = $("#delay_captions").val();
     var caption_color = $("#color_captions").val();
     var caption_font_family = $("#font_name_captions").val();
+    var caption_angle = $("#Angle_captions").val();
+    var caption_opacity = $("#opacity_captions").val();
 
     $("#caption_example_id").html(caption_context);
     $("#caption_example_id").css('fontSize',caption_font_size);
     $("#caption_example_id").css('animationDuration',caption_delay+'s');
     $("#caption_example_id").css('color',caption_color);
     $("#caption_example_id").css('font-family',caption_font_family);
+    $("#caption_example_id").rotate(caption_angle);
+    $("#caption_example_id").css('opacity',caption_opacity);
 
     //버튼값 수정
     $('#captions_copy').prop('type', 'submit');
@@ -122,6 +128,9 @@ function clickEffectList(list,index){
     $("#height_stickers").val(data['height']);
     $("#delay_stickers").val(data['delay']);
     $("#option_stickers").val(data['url']);
+    $("#Angle_stickers").val(data['angle']);
+    $("#opacity_stickers").val(date['opacity']);
+
     $("#animation_stickers").val(data['animation']);
     $("#stickers_index").val(index);
     $("#sticker_example_id").attr('class',data['animation']);
@@ -131,11 +140,16 @@ function clickEffectList(list,index){
     var sticker_width = $("#width_stickers").val();
     var sticker_height = $("#height_stickers").val();
     var sticker_delay = $("#delay_stickers").val();
+    var sticker_angle = $("#Angle_stickers").val();
+    var sticker_opacity = $("#opacity_stickers").val();
+
 
     $("#sticker_example_id").attr('src',sticker_img);
     $("#sticker_example_id").css('width',sticker_width +'px');
     $("#sticker_example_id").css('height',sticker_height + 'px');
     $("#sticker_example_id").css('animationDuration',sticker_delay+'s');
+    $("#sticker_example_id").rotate(sticker_angle);
+    $("#sticker_example_id").css('opacity',sticker_opacity);
 
     //버튼값 수정
     $('#stickers_copy').prop('type', 'submit');

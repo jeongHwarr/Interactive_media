@@ -47,10 +47,12 @@ function captions_modify(){
   const color = $("#color_captions").val();
   const font = $("#font_name_captions").val();
   const animation = $("#animation_captions").val();
+  const angle = $("#Angle_captions").val();
+  const opacity = $("#opacity_captions").val();
   const p_id = project_id;
 
   var push_value = {title:title, contents:contents, pos_x:pos_x, pos_y:pos_y, startTime:startTime, endTime:endTime,
-                    size:size, delay:delay, color:color, font:font, animation:animation, p_id:p_id};
+                    size:size, delay:delay, color:color, font:font, animation:animation, p_id:p_id, angle:angle, opacity:opacity};
 
   session.modify("captions_session",index,push_value);
   console.log(session.get("captions_session"));
@@ -70,10 +72,12 @@ function stickers_modify(){
   const delay = $("#delay_stickers").val();
   const url = $("#option_stickers").val();
   const animation = $("#animation_stickers").val();
+  const angle = $("#Angle_stickers").val();
+  const opacity = $("#opacity_stickers").val();
   const p_id = project_id;
 
   var push_value = {title:title, pos_x:pos_x, pos_y:pos_y, startTime:startTime, endTime:endTime,
-                    width:width, height:height, delay:delay, url:url, animation:animation, p_id:p_id};
+                    width:width, height:height, delay:delay, url:url, animation:animation, p_id:p_id, angle:angle, opacity:opacity};
   session.modify("stickers_session",index,push_value);
   console.log(session.get("stickers_session"));
   return stickers_session_data = session.get('stickers_session')['stickers_session'];
