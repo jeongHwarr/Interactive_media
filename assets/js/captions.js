@@ -29,6 +29,8 @@ var captionEffect = {
     font:"",
     contents:"",
     id:0,
+    angle:0,
+    opacity:0,
 
     myfunction_c_basic: function(s,e,x,y,a){
       this.startTime = s;
@@ -55,6 +57,12 @@ var captionEffect = {
     },
     myfunction_c_id: function(x){
       this.id = x;
+    },
+    myfunction_c_angle: function(x){
+      this.angle = x;
+    },
+    myfunction_c_opacity: function(x){
+      this.opacity = x;
     },
 
 //효과적용 시간외의 범위에서 Caption효과 숨기는 함수
@@ -97,6 +105,8 @@ var captionEffect = {
           document.getElementById(this.id).innerHTML = this.contents;
           document.getElementById(this.id).style.fontFamily=this.font;
           document.getElementById(this.id).style.width=100 + 'px';
+          document.getElementById(this.id).style.opacity = this.opacity;
+          document.getElementById(this.id).style.transform = "rotate("+this.angle+"deg)";
     },
 
 //비디오 플레이 상태에서 caption 효과 보여주는 함수
@@ -135,6 +145,8 @@ var captionEffect = {
               var c_font = captions_session_data[i]['font'];
               var c_contents = captions_session_data[i]['contents'];
               var c_id = i + "caption";
+              var c_angle = captions_session_data[i]['angle'];
+              var c_opacity = captions_session_data[i]['opacity'];
 
                //css크기와 video크기 비교
               var scaleX = video.videoWidth / $("#media2").outerWidth();
@@ -162,6 +174,8 @@ var captionEffect = {
                      captionEffect.myfunction_c_font(c_font);
                      captionEffect.myfunction_c_contents(c_contents);
                      captionEffect.myfunction_c_id(c_id);
+                     captionEffect.myfunction_c_angle(c_angle);
+                     captionEffect.myfunction_c_opacity(c_opacity);
 
                      captionEffect.caption_id_check();
                      captionEffect.caption_show();
@@ -184,6 +198,8 @@ var captionEffect = {
            var caption_delay = $("#delay_captions").val();
            var caption_color = $("#color_captions").val();
            var caption_font_family = $("#font_name_captions").val();
+           var caption_angle = $("#Angle_captions").val();
+           var caption_opacity = $("#opacity_captions").val();
 
            $("#caption_example_id").html(caption_context);
            $("#caption_example_id").attr('class',caption_animation);
@@ -191,4 +207,6 @@ var captionEffect = {
            $("#caption_example_id").css('animationDuration',caption_delay+'s');
            $("#caption_example_id").css('color',caption_color);
            $("#caption_example_id").css('font-family',caption_font_family);
+           $("#caption_example_id").rotate(caption_angle);
+           $("#caption_example_id").css('opacity',caption_opacity);
          });
