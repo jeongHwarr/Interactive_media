@@ -207,6 +207,6 @@ var captionEffect = {
            $("#caption_example_id").css('animationDuration',caption_delay+'s');
            $("#caption_example_id").css('color',caption_color);
            $("#caption_example_id").css('font-family',caption_font_family);
-           $("#caption_example_id").rotate(caption_angle);
+           $("#caption_example_id").css({'transform' : 'rotate('+ caption_angle +'deg)'});
            $("#caption_example_id").css('opacity',caption_opacity);
          });
