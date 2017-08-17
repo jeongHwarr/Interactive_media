@@ -81,7 +81,7 @@ function clickEffectList(list,index){
     $("#font_name_captions").val(data['font']);
     $("#animation_captions").val(data['animation']);
     $("#Angle_captions").val(data['angle']);
-    $("#opacity_captions").val(date['opacity']);
+    $("#opacity_captions").val(data['opacity']);
     $("#captions_index").val(index);
     $("#caption_example_id").attr('class',data['animation']);
 
@@ -129,7 +129,7 @@ function clickEffectList(list,index){
     $("#delay_stickers").val(data['delay']);
     $("#option_stickers").val(data['url']);
     $("#Angle_stickers").val(data['angle']);
-    $("#opacity_stickers").val(date['opacity']);
+    $("#opacity_stickers").val(data['opacity']);
 
     $("#animation_stickers").val(data['animation']);
     $("#stickers_index").val(index);
