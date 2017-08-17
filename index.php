@@ -61,7 +61,6 @@ include './assets/util/queryUtil.php';
                 <video
                   id="media1"
                   class="video-js"
-                  controls
                   preload="auto"
                   data-setup='{}'>
                 <!-- <source id="media1_video_src" src="assets/file/media/pianist.mp4" type="video/mp4"></source> -->
@@ -824,43 +823,8 @@ include './assets/util/queryUtil.php';
        });
 
     //<----------------영상 synchronize--------------->>
-    $.synchronizeVideos(0, "media1","media2"); //in synchronize.js
-
-    video_js1.volume(0);
-
-    video_js1.on('pause', function(){
-      video_js2.pause();
-      $(document).trigger('sjs:setNewMaster', "media1");
-    });
-
-    video_js2.on('pause', function(){
-      video_js1.pause();
-      $(document).trigger('sjs:setNewMaster', "media2");
-    });
-
-    video_js1.on('playing', function() {
-      video_js2.play();
-      $(document).trigger('sjs:setNewMaster', "media1");
-    });
-
-    video_js2.on('playing', function() {
-      video_js1.play();
-      $(document).trigger('sjs:setNewMaster', "media2");
-    });
-
-    video_js1.on('seeking', function() {
-      if(video_js1.scrubbing()==true)
-      {
-        $(document).trigger('sjs:setNewMaster', "media1");
-      }
-    });
-
-     video_js2.on('seeking', function() {
-       if (video_js2.scrubbing()==true)
-       {
-         $(document).trigger('sjs:setNewMaster', "media2");
-       }
-     });
+    $.synchronizeVideos(1, "media1","media2"); //in synchronize.js
+    video_js1.userActive(false);
     </script>
 
 </html>
