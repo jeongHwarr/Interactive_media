@@ -20,7 +20,7 @@ function loadMediaList($req,$db){
 //************* <loadProjectList> : Projec list를 DB에서 불러오는 함수 *****************//
 function loadProjectList($req,$db){
     //$user_index = $_REQUEST['user_id'];
-    $user_id = 1;
+    $user_id = $_REQUEST['user_id'];
     $query_project  = 'SELECT A.id as p_id , A.name as p_name, B.name as u_name, B.id as user_id, C.name as m_name , C.runningTime, C.path
                       FROM  projects  A LEFT JOIN users B ON A.u_id = B.id
                       LEFT JOIN medias C ON A.m_id = C.id WHERE B.id=?';
@@ -36,7 +36,7 @@ function loadProjectList($req,$db){
 //************* <makeProjectList> : 새로운 Projec를 만드는 함수 *****************//
 function makeNewProject($req,$db){
     //$user_index = $_REQUEST['user_id'];
-    $user_id = 1;
+    $user_id = $_REQUEST['user_id'];
     $project_title = $_REQUEST['project_title'];
     $media_id = $_REQUEST['media_id'];
 
@@ -45,6 +45,9 @@ function makeNewProject($req,$db){
 
     $data = array();
     $data['data']=$query_result;
+    $data['data']['user_id']=$user_id;
+    $data['data']['project_title'] = $project_title;
+    $data['data']['$media_id '] = $media_id;
 
     writeAjaxRes($data);
 }
