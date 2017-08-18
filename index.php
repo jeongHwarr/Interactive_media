@@ -844,11 +844,10 @@ include './assets/util/queryUtil.php';
       }else{
         project_info_session_data =  session.get('project_info_session')['project_info_session'][0];
         project_id = project_info_session_data['p_id'];
-      }
-
-      //현재 저장되어 있는 user_id 세션과 프로젝트 정보 세션의 user_id가 일치하지 않거나 query string의 project_id와 일치하지 않을 경우 에러 처리
-      if((session_user_id ==project_info_session_data['user_id']) && (query_project_id==project_info_session_data['p_id'])){
-        is_right_connect = true;
+        //현재 저장되어 있는 user_id 세션과 프로젝트 정보 세션의 user_id가 일치하지 않거나 query string의 project_id와 일치하지 않을 경우 에러 처리
+        if((session_user_id ==project_info_session_data['user_id']) && (query_project_id==project_info_session_data['p_id'])){
+          is_right_connect = true;
+        }
       }
 
       if(is_right_connect==false){
