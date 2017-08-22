@@ -11,7 +11,7 @@ function waves_save(){
   const trans_x = $("#input_waves_translate_x").val();
   const trans_y = $("#input_waves_translate_y").val();
   const color = $("#color_waves").val();
-  const p_id = project_id;
+  const p_id = project_id; // project_id - in index.php
 
   // if ( !startTime || !endTime || !pos_x || !pos_y ){
   //   alert("필수 정보를 입력하세요.");

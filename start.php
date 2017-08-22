@@ -35,8 +35,8 @@ include './assets/util/queryUtil.php';
                 <h3 class="panel-title">영상을 고르세요</h3>
                 <div class="panel-body" id="body_video_select">
                 </div>
-                <div><button class="btn btn-success" id="button_make_project">프로젝트 생성</button></div>
-
+                <button class="btn btn-success" id="button_make_project">프로젝트 생성</button>
+                <button class="btn btn-default" id="button_cancel_project">취소</button>
             </div>
     </div>
     </div>
@@ -67,6 +67,9 @@ include './assets/util/queryUtil.php';
     $(document).ready(function(){
         $("#new_project").click(function(){
             $("#video_select").slideDown();
+        });
+        $("#button_cancel_project").click(function(){
+            $("#video_select").slideUp();
         });
     });
 
