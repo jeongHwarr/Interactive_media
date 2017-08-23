@@ -104,7 +104,7 @@ var captionEffect = {
           document.getElementById(this.id).style.animationDuration=this.delay+'s';
           document.getElementById(this.id).innerHTML = this.contents;
           document.getElementById(this.id).style.fontFamily=this.font;
-          document.getElementById(this.id).style.width=100 + 'px';
+          document.getElementById(this.id).style.width=400 + 'px';
           document.getElementById(this.id).style.opacity = this.opacity;
           document.getElementById(this.id).style.transform = "rotate("+this.angle+"deg)";
     },
