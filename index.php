@@ -632,7 +632,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_stickers" type="number" data-error="0은 입력할수 없습니다." step="0.0001" min="1" value="1">
+                                                    <input class="form-control" id="delay_stickers" type="number" data-error="0은 입력할수 없습니다." step="0.0001" min="0.01" value="1">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
