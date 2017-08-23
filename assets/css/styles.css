@@ -102,6 +102,11 @@ input[type=number]::-webkit-outer-spin-button {
   overflow:auto;
 }
 
+#btn_home{
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+
 #btn_help{
   margin-top: 0.5em;
   margin-right: 0.5em;

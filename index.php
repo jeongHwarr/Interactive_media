@@ -865,7 +865,7 @@ include './assets/util/queryUtil.php';
         }
       );
       $("#btn_home").click(function () {
-         $(location).attr('href',"http://192.168.115.42/interactive/main.html").attr('target','_self');
+         $(location).attr('href',"http://192.168.187.74/interactive/main.html").attr('target','_self');
       });
     //<----------------미디어 기본 설정--------------->>
       var video_js1 = videojs('media1');
