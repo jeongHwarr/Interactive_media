@@ -873,13 +873,13 @@ include './assets/util/queryUtil.php';
       $(document).on("sjs:allPlayersReady", function(event) {
         if(video.tagName=='VIDEO'){
            $("#div_first").css("visibility", "visible");
-           addClickEvent(video);
+           addClickEvent(video); //in mouse_pointer.js
           }
           else{
             video = document.getElementById("media2_html5_api");
             if(video.tagName=='VIDEO'){
                $("#div_first").css("visibility", "visible");
-               addClickEvent(video);
+               addClickEvent(video); //in mouse_pointer.js
           }
         }
 
@@ -895,7 +895,7 @@ include './assets/util/queryUtil.php';
         });
     //<----------------미디어 기본 설정 END--------------->>
 
-      //Waves & Caption & Sticker정보, 적용 video
+      //Waves & Caption & Sticker 세션 정보
       var waves_session_data = session.get('waves_session')['waves_session'];
       var captions_session_data = session.get('captions_session')['captions_session'];
       var stickers_session_data = session.get('stickers_session')['stickers_session'];

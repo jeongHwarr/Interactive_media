@@ -10,7 +10,7 @@ function setButtonOnClick(){
         $("#extra_stickers").slideToggle();
     });
 
-    //효과 복제 버튼
+    //<----------------효과복제버튼--------------------------->>
     $("#waves_copy").click(function(){
         var start_time = $("#input_waves_start_time").val();
         var title_wave = $('#title_waves').val();
@@ -46,8 +46,9 @@ function setButtonOnClick(){
         $('#stickers_modify_cancel').prop('type', 'hidden');
         $('#stickers_delete').prop('type', 'hidden');
     });
+    //<----------------효과복제버튼 END------------------------->>
 
-    //세션 저장(파란색 saves버튼)
+    //<----------------세션 저장(파란색 saves버튼)--------------->>
     $("#waves_save").click(function(){
         if($("#waves_save").hasClass("disabled")) {
             console.log("button disabled");
@@ -65,8 +66,6 @@ function setButtonOnClick(){
             initEffectTabValue();
             showEffectList();
         }
-
-
     });
 
     $("#captions_save").click(function(){
@@ -86,8 +85,6 @@ function setButtonOnClick(){
             initEffectTabValue();
             showEffectList();
         }
-
-
     });
 
     $("#stickers_save").click(function(){
@@ -107,10 +104,10 @@ function setButtonOnClick(){
             initEffectTabValue();
             showEffectList();
         }
-
-
     });
+    //<----------------세션 저장(파란색 saves버튼) END--------------->>
 
+    //<--------------------효과 삭제 버튼------------------->>
     $("#waves_delete").click(function(){
         if (confirm('이 효과를 정말로 삭제하시겠습니까?')) {
           var index = $("#waves_index").val();
@@ -147,7 +144,9 @@ function setButtonOnClick(){
           showEffectList();
         }
     });
+    //<----------------효과 삭제 버튼 END--------------->>
 
+    //<--------------------효과 수정 취소 버튼------------------->>
     $("#waves_modify_cancel").click(function(){
         initEffectTabValue();
     });
@@ -159,8 +158,9 @@ function setButtonOnClick(){
     $("#stickers_modify_cancel").click(function(){
         initEffectTabValue();
     });
+    //<------------------효과 수정 취소 버튼 END----------------->>
 
-    //전체 프로젝트 db저장(초록색 save 버튼)
+    //<----------------전체 프로젝트 db저장(초록색 save 버튼)--------------->>
     $("#btn_project_save").click(function(){
       //query string 정보 가져오기 (?p_id=..)
       const urlParams = new URLSearchParams(window.location.search);
@@ -178,6 +178,7 @@ function setButtonOnClick(){
         }
       })
     });
+    //<--------------전체 프로젝트 db저장(초록색 save 버튼) END------------->>
 
     //파동효과 미리보기
     $("#btn-make-effect").click(function(){
