@@ -45,6 +45,7 @@ include './assets/util/queryUtil.php';
             </div>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="nav navbar-nav hidden-xs hidden-sm navbar-right" id="desktop-toolbar">
+                    <li role="presentation"><button class="btn btn-default" id="btn_home">Home</button></li>
                     <li role="presentation"><button class="btn btn-primary" id="btn_help">사용법</button></li>
                     <li role="presentation"><button class="btn btn-success" id="btn_project_save" type="button" data-step="8" data-position="left" data-intro="모든 변경 사항은 이 버튼을 눌러야만 최종 저장 됩니다">프로젝트 저장</button></li>
 
@@ -863,7 +864,9 @@ include './assets/util/queryUtil.php';
           });
         }
       );
-
+      $("#btn_home").click(function () {
+         $(location).attr('href',"http://192.168.115.42/interactive/main.html").attr('target','_self');
+      });
     //<----------------미디어 기본 설정--------------->>
       var video_js1 = videojs('media1');
       var video_js2 = videojs('media2');
