@@ -221,4 +221,18 @@ var stickerEffect ={
       $("#opacity_stickers").removeAttr('disabled');
       $("#opacity_stickers").prop('disabled', false);
     }
+  }).change(function(){
+    var select = this.value;
+    if(select=="animated infinite bounceIn" || select== "animated infinite rotateIn" || select== "animated infinite rotateInDownLeft" || select== "animated infinite rotateInDownRight"
+      || select== "animated infinite rotateInUpLeft" || select== "animated infinite rotateInUpRight" || select== "animated infinite shake" || select== "animated infinite rubberBand"
+      || select== "animated infinite bounce" || select== "animated infinite hinge" || select== "animated infinite jello" || select== "animated infinite wobble"
+      || select== "animated infinite tada" || select== "animated infinite pulse" || select== "animated infinite flip" || select== "animated infinite flipInX"
+      || select== "animated infinite flipInY" || select== "animated infinite flipOutX" || select== "animated infinite flipOutY" )
+    {
+      $("#Angle_stickers").removeAttr('disabled');
+      $("#Angle_stickers").attr('disabled','disabled');
+    }else{
+      $("#Angle_stickers").removeAttr('disabled');
+      $("#Angle_stickers").attr('disabled', false);
+    }
   });

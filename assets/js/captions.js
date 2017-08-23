@@ -231,4 +231,18 @@ var captionEffect = {
           $("#opacity_captions").removeAttr('disabled');
           $("#opacity_captions").prop('disabled', false);
         }
+      }).change(function(){ //caption_angle tab에서 angle이 적용되지 않는 특정 효과를 선택했을때 입력값을 제한
+        var select = this.value;
+        if(select=="animated infinite bounceIn" || select== "animated infinite rotateIn" || select== "animated infinite rotateInDownLeft" || select== "animated infinite rotateInDownRight"
+          || select== "animated infinite rotateInUpLeft" || select== "animated infinite rotateInUpRight" || select== "animated infinite shake" || select== "animated infinite rubberBand"
+          || select== "animated infinite bounce" || select== "animated infinite hinge" || select== "animated infinite jello" || select== "animated infinite wobble"
+          || select== "animated infinite tada" || select== "animated infinite pulse" || select== "animated infinite flip" || select== "animated infinite flipInX"
+          || select== "animated infinite flipInY" || select== "animated infinite flipOutX" || select== "animated infinite flipOutY" )
+        {
+          $("#Angle_captions").removeAttr('disabled');
+          $("#Angle_captions").attr('disabled','disabled');
+        }else{
+          $("#Angle_captions").removeAttr('disabled');
+          $("#Angle_captions").attr('disabled', false);
+        }
       });
