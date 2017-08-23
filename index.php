@@ -828,7 +828,7 @@ include './assets/util/queryUtil.php';
       var is_right_connect= false; //올바른 Access인지 나타내는 변수
       var session_user_id; //session에 저장된 user_id
       var project_info_session_data; //project_info_session의 데이터값
-      var project_id; //session에 저장된 project_id
+      var project_id; //
 
       //<----------------올바른 Access인지 확인--------------->>
       //user_id session 확인
@@ -866,11 +866,7 @@ include './assets/util/queryUtil.php';
         }
       );
 
-      //<----------------waves 효과--------------->>
-      //적용 video, wave가 만들어질 장소
-      setWaveEffect("#media2", ".waves-box"); //in waves.js
-
-      //<----------------미디어 기본 설정--------------->>
+    //<----------------미디어 기본 설정--------------->>
       var video_js1 = videojs('media1');
       var video_js2 = videojs('media2');
 
@@ -884,9 +880,26 @@ include './assets/util/queryUtil.php';
            $("#div_first").css("visibility", "visible");
            addClickEvent(video);
           }
-        });
+          else{
+            video = document.getElementById("media2_html5_api");
+            if(video.tagName=='VIDEO'){
+               $("#div_first").css("visibility", "visible");
+               addClickEvent(video);
+          }
+        }
 
-      //<----------------미디어 기본 설정 END--------------->>
+        //<----------------captions, sticker 효과--------------->>
+        video.addEventListener('timeupdate', function(){
+            Make_caption_effect(); //caption 만드는 함수
+            Make_sticker_effect(); //sticker 만드는 함수
+        }, false);
+
+        //<----------------waves 효과--------------->>
+        //적용 video, wave가 만들어질 장소
+        setWaveEffect('#'+video.id, ".waves-box"); //in waves.js
+
+        });
+    //<----------------미디어 기본 설정 END--------------->>
 
       //Waves & Caption & Sticker정보, 적용 video
       var waves_session_data = session.get('waves_session')['waves_session'];
@@ -895,18 +908,12 @@ include './assets/util/queryUtil.php';
 
 
       initEffectTabValue(); //이펙트 기본값 설정 (in effect_default_value.js)
-      showEffectList(); //페이지 우하단의 Effect List를 나타낸다. (in effect_list.js)
+      showEffectList(); //페이지 최하단의 Effect List를 나타낸다. (in effect_list.js)
 
       //<----------------도움말--------------->>
       if(waves_session_data.length==0 && captions_session_data.length==0 && stickers_session_data.length==0){
         introJs().start();
       }
-
-      //<----------------captions, sticker 효과--------------->>
-      video.addEventListener('timeupdate', function(){
-          Make_caption_effect(); //caption 만드는 함수
-          Make_sticker_effect(); //sticker 만드는 함수
-      }, false);
 
       //<----------------영상 synchronize--------------->>
       $.synchronizeVideos(1, "media1","media2"); //in synchronize.js (MASTER : media2)
