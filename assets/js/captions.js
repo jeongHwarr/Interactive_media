@@ -15,6 +15,8 @@
 //font : Caption fontfamily
 //contents : Caption내용
 //id : Caption 하나당 고유 ID
+//angle : Caption의 각도 조절
+//opacity : Caption의 알파값조정으로 투명도 조절
 
 var captionEffect = {
 

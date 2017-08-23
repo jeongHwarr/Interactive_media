@@ -32,8 +32,6 @@ include './assets/util/queryUtil.php';
     <!-- intro_js-->
     <script src="./assets/intro_js/intro_min.js"></script>
     <link rel="stylesheet" href="./assets/intro_js/introjs_min.css">
-    <!-- <link rel="stylesheet" href="./assets/intro_js/introjs-rtl_min.css"> -->
-
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 

@@ -28,7 +28,9 @@ var stickerEffect ={
   //height : Sticker 세로길이. 단위 :px
   //delay : 애니메이션 한번의 지속 시간, 단위 :s
   //url : 삽입이미지에 대한 URL주소
-  //id : Caption 하나당 고유 ID
+  //id : Sticker 하나당 고유 ID
+  //angle : Sticker의 각도 조절
+  //opacity : Sticker의 알파값조정으로 투명도 조절
 
   myfunction_s_basic: function(s,e,x,y,a){
     this.startTime = s;
@@ -191,7 +193,6 @@ var stickerEffect ={
            var sticker_angle = $("#Angle_stickers").val();
            var sticker_opacity = $("#opacity_stickers").val();
 
-
            $("#sticker_example_id").attr('src',sticker_img);
            $("#sticker_example_id").attr('class',sticker_animation);
            $("#sticker_example_id").css('width',sticker_width +'px');
@@ -221,7 +222,7 @@ var stickerEffect ={
       $("#opacity_stickers").removeAttr('disabled');
       $("#opacity_stickers").prop('disabled', false);
     }
-  }).change(function(){
+  }).change(function(){ //sticker_angle tab에서 angle이 적용되지 않는 특정 효과를 선택했을때 입력값을 제한
     var select = this.value;
     if(select=="animated infinite bounceIn" || select== "animated infinite rotateIn" || select== "animated infinite rotateInDownLeft" || select== "animated infinite rotateInDownRight"
       || select== "animated infinite rotateInUpLeft" || select== "animated infinite rotateInUpRight" || select== "animated infinite shake" || select== "animated infinite rubberBand"
