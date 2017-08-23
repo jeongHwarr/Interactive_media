@@ -210,3 +210,25 @@ var captionEffect = {
            $("#caption_example_id").css({'transform' : 'rotate('+ caption_angle +'deg)'});
            $("#caption_example_id").fadeTo(1000, caption_opacity);
          });
+
+         //caption_opacity tab에서 opacity가 적용되지 않는 특정 효과를 선택했을때 입력값을 제한
+        $("#animation_captions").change(function (){
+        var select = this.value;
+        if(select=="animated infinite bounceOut" || select== "animated infinite fadeIn" || select== "animated infinite bounceIn"
+          || select== "animated infinite rotateIn" || select== "animated infinite rotateInDownLeft" || select== "animated infinite rotateInDownRight"
+          || select== "animated infinite rotateInUpLeft" || select== "animated infinite rotateInUpRight" || select== "animated infinite rotateOut"
+          || select== "animated infinite flash" || select== "animated infinite hinge" || select== "animated infinite zoomOutUp"
+          || select== "animated infinite zoomOutRight" || select== "animated infinite zoomOutLeft" || select== "animated infinite zoomOutDown"
+          || select== "animated infinite zoomOut" || select== "animated infinite flipInX" || select== "animated infinite flipInY"
+          || select== "animated infinite flipOutX" || select== "animated infinite flipOutY")
+        {
+          $("#opacity_captions").removeAttr('disabled');
+          $("#opacity_captions").attr('disabled','disabled');
+        }else if(select=="animated infinite shake" || select== "animated infinite swing" || select== "animated infinite rubberBand"
+                || select== "animated infinite bounce" || select== "animated infinite jello" || select== "animated infinite wobble"
+                || select== "animated infinite tada" || select== "animated infinite pulse" || select== "animated infinite flip")
+        {
+          $("#opacity_captions").removeAttr('disabled');
+          $("#opacity_captions").prop('disabled', false);
+        }
+      });
