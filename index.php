@@ -316,12 +316,11 @@ include './assets/util/queryUtil.php';
                                                   <option value="animated infinite flash">flash</option>
                                                   <option value="animated infinite bounce">bounce</option>
                                                   <option value="animated infinite hinge">hinge</option>
-                                                  <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                  <option value="animated infinite zoomOutUp">zoomOutUp</option>
                                                   <option value="animated infinite zoomOutRight">zoomOutRight</option>
                                                   <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
                                                   <option value="animated infinite zoomOutDown">zoomOutDown</option>
                                                   <option value="animated infinite zoomOut">zoomOut</option>
-                                                  <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
                                                   <option value="animated infinite jello">jello</option>
                                                   <option value="animated infinite wobble">wobble</option>
                                                   <option value="animated infinite tada">tada</option>
@@ -407,7 +406,7 @@ include './assets/util/queryUtil.php';
                                                             <option value="gray">Gray</option>
                                                             <option value="pink">Pink</option>
                                                             <option value="white">White</option>
-                                                            <option value="pupple">Pupple</option>
+                                                            <option value="blueviolet">blueviolet</option>
                                                             <option value="black">Black</option>
                                                             <option value="orange">Orange</option>
                                                         </select>
@@ -550,12 +549,11 @@ include './assets/util/queryUtil.php';
                                                 <option value="animated infinite flash">flash</option>
                                                 <option value="animated infinite bounce">bounce</option>
                                                 <option value="animated infinite hinge">hinge</option>
-                                                <option value="animated infinite zoomOutUP">zoomOutUP</option>
+                                                <option value="animated infinite zoomOutUp">zoomOutUp</option>
                                                 <option value="animated infinite zoomOutRight">zoomOutRight</option>
                                                 <option value="animated infinite zoomOutLeft">zoomOutLeft</option>
                                                 <option value="animated infinite zoomOutDown">zoomOutDown</option>
                                                 <option value="animated infinite zoomOut">zoomOut</option>
-                                                <option value="animated infinite lightSpeenIn">lightSpeedIn</option>
                                                 <option value="animated infinite jello">jello</option>
                                                 <option value="animated infinite wobble">wobble</option>
                                                 <option value="animated infinite tada">tada</option>
