@@ -64,9 +64,6 @@ include './assets/util/queryUtil.php';
                   class="video-js"
                   preload="auto"
                   data-setup='{}'>
-                <!-- <source id="media1_video_src" src="assets/file/media/pianist.mp4" type="video/mp4"></source> -->
-                <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                 <p class="vjs-no-js">
                   To view this video please enable JavaScript, and consider upgrading to a
                   web browser that
@@ -90,9 +87,6 @@ include './assets/util/queryUtil.php';
                         controls
                         preload="auto"
                         data-setup='{}'>
-                    <!-- <source id="media2_video_src" src="assets/file/media/pianist.mp4" type="video/mp4"></source> -->
-                    <!-- <source src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm"></source>
-                    <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg"></source> -->
                     <p class="vjs-no-js">
                         To view this video please enable JavaScript, and consider upgrading to a
                         web browser that
@@ -898,7 +892,6 @@ include './assets/util/queryUtil.php';
         //<----------------waves 효과--------------->>
         //적용 video, wave가 만들어질 장소
         setWaveEffect('#'+video.id, ".waves-box"); //in waves.js
-
         });
     //<----------------미디어 기본 설정 END--------------->>
 
