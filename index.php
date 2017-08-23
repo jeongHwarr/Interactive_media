@@ -389,7 +389,7 @@ include './assets/util/queryUtil.php';
                                                     <p class="tab_title">Delay</p>
                                                 </div>
                                                 <div class="col-lg-8 col-md-12">
-                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="1" data-error="0은 입력할수 없습니다." value="1">
+                                                    <input class="form-control" id="delay_captions" type="number" step="0.0001" min="0.01" data-error="0은 입력할수 없습니다." value="1">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
