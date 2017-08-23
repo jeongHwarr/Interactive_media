@@ -11,7 +11,16 @@ include './assets/util/queryUtil.php';
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-
+    <style>
+        #new_project{
+            margin: 1em;
+        }
+        #btn_home{
+            position: absolute;
+            right: 2%;
+            top : 2%;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <title>Project Start</title>
@@ -21,7 +30,7 @@ include './assets/util/queryUtil.php';
 프로젝트 선택과 새로만드는 페이지
 -->
     <div id="contents_wrapper">
-
+        <button class="btn btn-primary" id="btn_home">Home</button>
         <button class="btn btn-default" id="new_project">new Project</button>
         <hr>
         <div id="project_list" style="width: 50%;">
@@ -146,6 +155,9 @@ include './assets/util/queryUtil.php';
       }
     //<-------------새로운 프로젝트 생성 END------------>>
 
+    $("#btn_home").click(function () {
+       $(location).attr("href","/interactive/main.html")
+    });
 </script>
 </body>
 </html>
