@@ -11,7 +11,11 @@ include './assets/util/queryUtil.php';
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-
+    <style>
+        #new_project{
+            margin: 1em;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
     <title>Project Start</title>
